@@ -1,1 +1,1 @@
-web: gunicorn vinyl-crate.wsgi
+web: gunicorn vinylcrate_project.wsgi
