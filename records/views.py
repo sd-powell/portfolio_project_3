@@ -11,3 +11,9 @@ from .forms import RecordForm # Form to be created
 def record_list(request):
     records = Record.objects.filter(user=request.user)
     return render(request, 'records/record_list.html', {'records': records})
+
+# Detail View - Shows one record in full
+@login_required
+def record_detail(request, pk):
+    record = get_object_or_404(Record, pk=pk, user=request.user)
+    return render(request, 'records/record_detail.html', {'record': record})
