@@ -17,3 +17,18 @@ def record_list(request):
 def record_detail(request, pk):
     record = get_object_or_404(Record, pk=pk, user=request.user)
     return render(request, 'records/record_detail.html', {'record': record})
+
+
+# Create View - Allows the user to create a new record
+@login_required
+def record_create(request):
+    if request.method == 'POST':
+        form = RecordForm(request.POST, request.FILES)
+        if form.is_valid():
+            record = form.save(commit=False)
+            record.user = request.user
+            record.save()
+            return redirect('record_list')
+    else:
+        form = RecordForm()
+    return render(request, 'records/record_form.html', {'form': form})
