@@ -1,3 +1,81 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
+
+# Genre choices
+GENRE_CHOICES = [(g, g) for g in [
+    'House', 'Techno', 'Disco', 'Jazz', 'Rock', 'Funk',
+    'Hip-Hop', 'Ambient', 'Drum and Bass', 'Soul', 'Classical',
+    'Reggae', 'Trance', 'Electro', 'Synth-pop', 'Dubstep'
+]]
+
+# Rating choices for star display
+RATING_CHOICES = [(i, f"{i} Stars") for i in range(1, 6)]
+
+# Camelot Wheel keys for music
+CAMELOT_KEYS = [
+    ('1A', '1A - Ab Minor'),   ('1B', '1B - B Major'),
+    ('2A', '2A - Eb Minor'),   ('2B', '2B - F# Major'),
+    ('3A', '3A - Bb Minor'),   ('3B', '3B - D# Major'),
+    ('4A', '4A - F Minor'),    ('4B', '4B - A# Major'),
+    ('5A', '5A - C Minor'),    ('5B', '5B - D Major'),
+    ('6A', '6A - G Minor'),    ('6B', '6B - B Major'),
+    ('7A', '7A - D Minor'),    ('7B', '7B - F Major'),
+    ('8A', '8A - A Minor'),    ('8B', '8B - C Major'),
+    ('9A', '9A - E Minor'),    ('9B', '9B - G Major'),
+    ('10A', '10A - B Minor'),  ('10B', '10B - D Major'),
+    ('11A', '11A - F# Minor'), ('11B', '11B - A Major'),
+    ('12A', '12A - Db Minor'), ('12B', '12B - E Major'),
+]
+
 
 # Create your models here.
+class Record(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    year = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        validators=[
+            MinValueValidator(1000),
+            MaxValueValidator(9999)
+        ],
+        help_text="Enter a 4-digit year (e.g. 1982)"
+    )
+    genre = models.CharField(
+        max_length=100,
+        choices=GENRE_CHOICES,
+        blank=True,
+        help_text="Select a genre"
+    )
+    bpm = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        validators=[
+            MinValueValidator(24),
+            MaxValueValidator(1000)
+        ],
+        help_text="Enter BPM between 24 and 1000"
+    )
+    key = models.CharField(
+        max_length=4,
+        choices=CAMELOT_KEYS,
+        blank=True,
+        help_text="Select a key using Camelot notation"
+    )
+    cover_image = models.ImageField(upload_to='covers/', blank=True, null=True)
+    rating = models.PositiveSmallIntegerField(
+        choices=RATING_CHOICES,
+        blank=True,
+        null=True,
+        help_text="Rate this record from 1 (worst) to 5 (best)"
+    )
+    created_on = models.DateTimeField(auto_now_add=True)
+    modified_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["title"]
+
+    def __str__(self):
+        return f"{self.title} by {self.artist}"
