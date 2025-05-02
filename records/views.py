@@ -16,7 +16,6 @@ def record_list(request):
     return render(request, 'records/record_list.html', {'records': records})
 
 
-# Detail View - Shows one record in full
 @login_required
 def record_detail(request, pk):
     """
@@ -34,9 +33,15 @@ def record_detail(request, pk):
     return render(request, 'records/record_detail.html', {'record': record})
 
 
-# Create View - Allows the user to create a new record
 @login_required
 def record_create(request):
+    """
+    Create a new record and save it to the database.
+
+    Returns:
+        HttpResponse: Redirects to the record list if successful,
+                      or renders the form with errors if not.
+    """
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES)
         if form.is_valid():
