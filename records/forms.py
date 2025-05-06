@@ -65,3 +65,37 @@ class RecordForm(forms.ModelForm):
                 'invalid_choice': 'Select a valid rating between 1 and 5.',
             },
         }
+
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'e.g. Discovery'
+            }),
+            'artist': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'e.g. Daft Punk'
+            }),
+            'year': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'e.g. 2001',
+                'min': 1000,
+                'max': 9999,
+            }),
+            'genre': forms.Select(attrs={
+                'class': 'form-control',
+            }),
+            'bpm': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'e.g. 128'
+            }),
+            'key': forms.Select(attrs={
+                'class': 'form-control',
+            }),
+            'cover_image': forms.ClearableFileInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Upload cover image'
+            }),
+            'rating': forms.Select(attrs={
+                'class': 'form-control',
+            }),
+        }
