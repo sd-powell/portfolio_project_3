@@ -41,3 +41,27 @@ class RecordForm(forms.ModelForm):
             'cover_image': 'Upload a cover image for the record (optional).',
             'rating': 'Rate this record from 1 (worst) to 5 (best).',
         }
+        
+        error_messages = {
+            'title': {
+                'required': 'Please enter the title of the record.',
+                'max_length': 'Title is too long (255 characters max).',
+            },
+            'artist': {
+                'required': 'Please enter the artist\'s name.',
+                'max_length': 'Artist name is too long (255 characters max).',
+            },
+            'year': {
+                'invalid': 'Please enter a valid 4-digit year.',
+                'min_value': 'Year must be no earlier than 1000.',
+                'max_value': 'Year must be no later than 9999.',
+            },
+            'bpm': {
+                'invalid': 'Please enter a valid number for BPM.',
+                'min_value': 'Minimum BPM is 24.',
+                'max_value': 'Maximum BPM is 1000.',
+            },
+            'rating': {
+                'invalid_choice': 'Select a valid rating between 1 and 5.',
+            },
+        }
