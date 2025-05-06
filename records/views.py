@@ -76,3 +76,23 @@ def record_update(request, pk):
     else:
         form = RecordForm(instance=record)
     return render(request, 'records/record_form.html', {'form': form})
+
+
+@login_required
+def record_delete(request, pk):
+    """
+    Delete an existing record owned by the logged-in user.
+
+    Parameters:
+        request (HttpRequest): The HTTP request object.
+        pk (int): Primary key of the record to delete.
+
+    Returns:
+        HttpResponse: Redirects to the record list after deletion,
+                      or renders a confirmation page before deleting.
+    """
+    record = get_object_or_404(Record, pk=pk, user=request.user)
+    if request.method == 'POST':
+        record.delete()
+        return redirect('record_list')
+    return render(request, 'records/record_confirm_delete.html', {'record': record})
