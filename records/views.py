@@ -54,4 +54,25 @@ def record_create(request):
     return render(request, 'records/record_form.html', {'form': form})
 
 
-# Update View - Allows the user to update an existing record
+@login_required
+def record_update(request, pk):
+    """
+    Update an existing record owned by the logged-in user.
+
+    Parameters:
+        request (HttpRequest): The HTTP request object.
+        pk (int): Primary key of the record to update.
+
+    Returns:
+        HttpResponse: Redirects to the record list if successful,
+                      or renders the form with errors if not.
+    """
+    record = get_object_or_404(Record, pk=pk, user=request.user)
+    if request.method == 'POST':
+        form = RecordForm(request.POST, request.FILES, instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect('record_list')
+    else:
+        form = RecordForm(instance=record)
+    return render(request, 'records/record_form.html', {'form': form})
