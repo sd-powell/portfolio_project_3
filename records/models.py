@@ -31,6 +31,14 @@ CAMELOT_KEYS = [
 
 # Create your models here.
 class Record(models.Model):
+    """
+    A model representing a single vinyl record in a user's collection.
+
+    Includes metadata such as title, artist, release year, genre, BPM,
+    musical key (Camelot notation), cover image, and personal rating.
+    Each record is linked to a user and timestamps are recorded for
+    creation and last modification.
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     artist = models.CharField(max_length=255)
