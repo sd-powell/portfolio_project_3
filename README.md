@@ -52,3 +52,8 @@ As a **registered user**, I want to:
 - Edit existing records so that I can correct mistakes or update information as needed
 - Delete records I no longer want in my collection so that I can keep my library clean and relevant
 - View a detailed page for each record so that I can see all the metadata and images in one place
+
+As an **admin**, I want to:
+- Access the Django admin panel so that I can manage user accounts and database records directly
+- Review and manage user-submitted content so that I can ensure the platform remains appropriate and consistent
+- Edit or delete any record in the system so that I can support users and maintain data integrity across the platform
