@@ -95,4 +95,8 @@ def record_delete(request, pk):
     if request.method == 'POST':
         record.delete()
         return redirect('record_list')
-    return render(request, 'records/record_confirm_delete.html', {'record': record})
+    return render(
+        request,
+        'records/record_confirm_delete.html',
+        {'record': record}
+    )
