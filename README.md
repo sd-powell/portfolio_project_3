@@ -45,3 +45,10 @@ As a **new visitor**, I want to:
 - Browse a public record or staff-picked collection so that I can see what the site is about before registering
 - See a clear call to action to sign up or log in so that I know how to get started using the platform
 - View example record entries with cover art and metadata so that I can understand how records are displayed and organised
+
+As a **registered user**, I want to:
+- Add new records to my collection so that I can keep an up-to-date log of the vinyl I own
+- Upload cover images when creating or editing a record so that my collection is visually rich and easier to browse
+- Edit existing records so that I can correct mistakes or update information as needed
+- Delete records I no longer want in my collection so that I can keep my library clean and relevant
+- View a detailed page for each record so that I can see all the metadata and images in one place
