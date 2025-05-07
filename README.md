@@ -37,4 +37,11 @@ Vinyl Crate is designed for:
 
 Whether you're tracking rare jazz pressings, building a DJ setlist, or simply documenting your growing collection, Vinyl Crate offers a streamlined, flexible space to manage your vinyl library.
 
----
+##  User Experience (UX)
+
+###  User Stories
+
+As a **new visitor**, I want to:
+- Browse a public record or staff-picked collection so that I can see what the site is about before registering
+- See a clear call to action to sign up or log in so that I know how to get started using the platform
+- View example record entries with cover art and metadata so that I can understand how records are displayed and organised
