@@ -57,3 +57,9 @@ As an **admin**, I want to:
 - Access the Django admin panel so that I can manage user accounts and database records directly
 - Review and manage user-submitted content so that I can ensure the platform remains appropriate and consistent
 - Edit or delete any record in the system so that I can support users and maintain data integrity across the platform
+
+As a **mobile user**, I want to:
+- Browse and manage my record collection on a phone or tablet so that I can access my library on the go, such as while crate digging or DJing
+- Upload cover images directly from my device so that I can quickly add new records without needing a desktop computer
+
+*All user stories were manually tested. See [ User Story Testing]() for full test results.*
