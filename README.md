@@ -8,8 +8,19 @@ Registered users can add and edit detailed entries for their records — includi
 
 ---
 
-### Project Purpose
+### Site Purpose
 
-Vinyl Crate is designed for vinyl collectors who want a simple, online tool to catalogue their records. Many collectors use spreadsheets or paper lists, but these lack user-friendly interfaces, mobile responsiveness, and features like cover art. Vinyl Crate solves this by offering a secure, cloud-hosted app with core functionality and intuitive UX.
+Vinyl Crate was created to address a common gap in vinyl record management: while many collectors rely on spreadsheets or handwritten lists, these methods lack visual appeal, accessibility, and interactivity. Vinyl Crate brings record cataloguing into the modern age with a secure, user-friendly, and mobile-responsive web app.
+
+This platform empowers collectors and DJs by offering a clean interface to organise and reflect on their collection — complete with cover images, audio metadata, and personal ratings.
+
+The app provides:
+📀 Personal record management – Add, edit, and browse your vinyl collection
+⭐ Custom metadata fields – Track BPM, musical key, year, genre, and star ratings
+🖼️ Visual enhancements – Upload and display album artwork
+🔐 Secure access – Private user accounts and dashboard views
+📱 Mobile-ready – Use it from the crate or the couch
+
+By focusing on clarity, simplicity, and personalisation, Vinyl Crate makes managing your vinyl collection a rewarding, modern experience — for hobbyists, DJs, and dedicated collectors alike.
 
 ---
