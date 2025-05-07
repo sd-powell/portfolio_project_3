@@ -41,7 +41,7 @@ class RecordForm(forms.ModelForm):
             'cover_image': 'Upload a cover image for the record (optional).',
             'rating': 'Rate this record from 1 (worst) to 5 (best).',
         }
-        
+
         error_messages = {
             'title': {
                 'required': 'Please enter the title of the record.',
