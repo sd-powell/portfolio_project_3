@@ -15,11 +15,11 @@ Vinyl Crate was created to address a common gap in vinyl record management: whil
 This platform empowers collectors and DJs by offering a clean interface to organise and reflect on their collection — complete with cover images, audio metadata, and personal ratings.
 
 The app provides:
-📀 Personal record management – Add, edit, and browse your vinyl collection
-⭐ Custom metadata fields – Track BPM, musical key, year, genre, and star ratings
-🖼️ Visual enhancements – Upload and display album artwork
-🔐 Secure access – Private user accounts and dashboard views
-📱 Mobile-ready – Use it from the crate or the couch
+- 📀 **Personal record management** – Add, edit, and browse your vinyl collection
+- ⭐ **Custom metadata fields** – Track BPM, musical key, year, genre, and star ratings
+- 🖼️ **Visual enhancements** – Upload and display album artwork
+- 🔐 **Secure access** – Private user accounts and dashboard views
+- 📱 **Mobile-ready** – Use it from the crate or the couch
 
 By focusing on clarity, simplicity, and personalisation, Vinyl Crate makes managing your vinyl collection a rewarding, modern experience — for hobbyists, DJs, and dedicated collectors alike.
 
