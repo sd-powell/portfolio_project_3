@@ -24,3 +24,17 @@ The app provides:
 By focusing on clarity, simplicity, and personalisation, Vinyl Crate makes managing your vinyl collection a rewarding, modern experience — for hobbyists, DJs, and dedicated collectors alike.
 
 ---
+
+### Target Audience
+
+Vinyl Crate is designed for:
+
+- 🎵 **Vinyl collectors** who want an organised, digital catalogue of their records  
+- 🎧 **DJs** who need quick access to metadata like BPM, key, and genre  
+- 📱 **Mobile users** looking for a responsive tool they can access from the record shop or DJ booth  
+- 🧠 **Music enthusiasts** who enjoy reflecting on and rating their collection  
+- 📂 **Users** who want to move beyond spreadsheets and static lists
+
+Whether you're tracking rare jazz pressings, building a DJ setlist, or simply documenting your growing collection, Vinyl Crate offers a streamlined, flexible space to manage your vinyl library.
+
+---
