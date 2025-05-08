@@ -10,7 +10,7 @@ This project was created as my third milestone project for the Level 5 Diploma i
 
 ### Strategy Plane
 
-#### Project Goals
+#### **Project Goals**
 
 **Vinyl Crate** is a **personal record collection management app** created for vinyl enthusiasts, DJs, and music collectors. The platform allows users to build and organise a digital library of their physical records — complete with metadata such as artist, title, genre, BPM, musical key, and cover art.
 
@@ -42,7 +42,7 @@ Whether you're tracking rare jazz pressings, building a DJ setlist, or simply do
 
 ### Scope Plane
 
-#### Feature Planning
+#### **Feature Planning**
 
 The table below outlines opportunities for the **Vinyl Crate** project. Each feature has been scored for **importance** and **viability** (1 = low, 5 = high). This helps prioritise core functionality for the MVP. Features scoring highly are **must-haves**, while mid-scoring features are **should-haves**, and low-priority features are **could-haves** for future versions.
 
@@ -52,7 +52,7 @@ User roles are also considered in the planning:
 - **Admins** – Staff or superusers with additional content management access
 
 | User Type     | Feature                                      | Importance | Viability | Scope   | Delivered |
-|:-------------:|:--------------------------------------------:|:----------:|:---------:|:-------:|:---------:|
+|:------------- |:-------------------------------------------- |:----------:|:---------:|:-------:|:---------:|
 | All           | View public landing page                     | 5          | 5         | MVP     | ⬜        |
 | Guest         | Register for an account                      | 5          | 5         | MVP     | ⬜        |
 | User          | Log in/out and manage session                | 5          | 5         | MVP     | ⬜        |
@@ -70,32 +70,38 @@ User roles are also considered in the planning:
 | User          | Export collection as CSV                     | 3          | 4         | Could   | ⬜        |
 | Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ⬜        |
 | User          | Edit/update account profile                  | 2          | 3         | Could   | ⬜        |
-| All           | Custom 404 and error pages                   | 2          | 4         | Could   | ⬜        |
-| All           | About / Contact page                         | 2          | 3         | Could   | ⬜        |
+| All           | Custom 404 and 500 error pages               | 2          | 4         | Could   | ⬜        |
+| All           | About/Contact page                           | 2          | 3         | Could   | ⬜        |
 | User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ⬜        |
 
+---
 
-###  User Stories
+### Structure Plane
 
-As a **new visitor**, I want to:
-- Browse a public record or staff-picked collection so that I can see what the site is about before registering
-- See a clear call to action to sign up or log in so that I know how to get started using the platform
-- View example record entries with cover art and metadata so that I can understand how records are displayed and organised
+#### **User Stories**
 
-As a **registered user**, I want to:
-- Add new records to my collection so that I can keep an up-to-date log of the vinyl I own
-- Upload cover images when creating or editing a record so that my collection is visually rich and easier to browse
-- Edit existing records so that I can correct mistakes or update information as needed
-- Delete records I no longer want in my collection so that I can keep my library clean and relevant
-- View a detailed page for each record so that I can see all the metadata and images in one place
-
-As an **admin**, I want to:
-- Access the Django admin panel so that I can manage user accounts and database records directly
-- Review and manage user-submitted content so that I can ensure the platform remains appropriate and consistent
-- Edit or delete any record in the system so that I can support users and maintain data integrity across the platform
-
-As a **mobile user**, I want to:
-- Browse and manage my record collection on a phone or tablet so that I can access my library on the go, such as while crate digging or DJing
-- Upload cover images directly from my device so that I can quickly add new records without needing a desktop computer
+| ID | As a/an        | I want to be able to...                             | So that I can... |
+|:---|:---------------|:----------------------------------------------------|:-----------------|
+| 1  | New Visitor    | Browse a public record or staff-picked collection   | See what the site is about before registering |
+| 2  | New Visitor    | View example record entries with metadata           | Understand how records are displayed and organised |
+| 3  | New Visitor    | See a clear sign-up or log-in prompt                | Know how to get started |
+| 4  | User           | Register and log in                                 | Access my personal dashboard and collection |
+| 5  | User           | Add new records to my collection                    | Keep an up-to-date log of the vinyl I own |
+| 6  | User           | Upload a cover image for a record                   | Make my collection visually rich |
+| 7  | User           | Edit existing records                               | Correct mistakes or update metadata |
+| 8  | User           | Delete a record from my collection                  | Keep my library clean and relevant |
+| 9  | User           | View full details for a single record               | See all metadata and visuals in one place |
+| 10 | User           | Sort and filter my collection                       | Quickly find records by genre, BPM, or rating |
+| 11 | User           | Search for a specific record                        | Find entries fast without scrolling |
+| 12 | User           | Rate a record using 1–5 stars                       | Track how much I value or enjoy a record |
+| 13 | User           | Export my collection as a CSV                       | Back it up or use it in another system |
+| 14 | User           | Recover my password                                 | Regain access if I forget my login details |
+| 15 | User           | Edit my account profile                             | Update my display name, location, or bio |
+| 16 | User           | Sign in via social media (optional)                 | Log in more quickly or conveniently |
+| 17 | Admin          | Access the Django admin panel                       | Manage users and records directly |
+| 18 | Admin          | Edit or delete any record in the system             | Support users and maintain database integrity |
+| 19 | Admin          | Review user-submitted content                       | Ensure the platform remains clean and appropriate |
+| 20 | Mobile User    | Access my collection on a phone or tablet           | View or update records while crate digging or DJing |
+| 21 | Mobile User    | Upload cover images from my device                  | Add new records quickly without needing a computer |
 
 *All user stories were manually tested. See [ User Story Testing]() for full test results.*
