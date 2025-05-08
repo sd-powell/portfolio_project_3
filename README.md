@@ -47,9 +47,32 @@ Whether you're tracking rare jazz pressings, building a DJ setlist, or simply do
 The table below outlines opportunities for the **Vinyl Crate** project. Each feature has been scored for **importance** and **viability** (1 = low, 5 = high). This helps prioritise core functionality for the MVP. Features scoring highly are **must-haves**, while mid-scoring features are **should-haves**, and low-priority features are **could-haves** for future versions.
 
 User roles are also considered in the planning:
-- **Guests** – Unauthenticated visitors browsing public-facing content.
-- **Users** – Registered members with a personalised dashboard.
-- **Admins** – Staff or superusers with additional content management access.
+- **Guests** – Unauthenticated visitors browsing public-facing content
+- **Users** – Registered members with a personalised dashboard
+- **Admins** – Staff or superusers with additional content management access
+
+| User Type     | Feature                                      | Importance | Viability | Scope   | Delivered |
+|:-------------:|:--------------------------------------------:|:----------:|:---------:|:-------:|:---------:|
+| All           | View public landing page                     | 5          | 5         | MVP     | ⬜        |
+| Guest         | Register for an account                      | 5          | 5         | MVP     | ⬜        |
+| User          | Log in/out and manage session                | 5          | 5         | MVP     | ⬜        |
+| User          | Password recovery                            | 5          | 5         | MVP     | ⬜        |
+| User          | Create, view, update, delete own records     | 5          | 5         | MVP     | ⬜        |
+| User          | Upload cover image for record                | 5          | 5         | MVP     | ⬜        |
+| Admin         | Access Django admin panel                    | 5          | 5         | MVP     | ⬜        |
+| Admin         | Moderate/edit user records via admin         | 5          | 5         | MVP     | ⬜        |
+| User          | Filter/sort by genre, year, BPM, rating      | 4          | 5         | Should  | ⬜        |
+| User          | Search records by title/artist               | 4          | 4         | Should  | ⬜        |
+| All           | Responsive design / Bootstrap UI             | 4          | 5         | MVP     | ⬜        |
+| All           | View mobile-friendly site                    | 4          | 5         | MVP     | ⬜        |
+| User          | Rate records with 1–5 stars                  | 4          | 5         | MVP     | ⬜        |
+| User          | Use dropdowns for genre and key              | 4          | 5         | MVP     | ⬜        |
+| User          | Export collection as CSV                     | 3          | 4         | Could   | ⬜        |
+| Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ⬜        |
+| User          | Edit/update account profile                  | 2          | 3         | Could   | ⬜        |
+| All           | Custom 404 and error pages                   | 2          | 4         | Could   | ⬜        |
+| All           | About / Contact page                         | 2          | 3         | Could   | ⬜        |
+| User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ⬜        |
 
 
 ###  User Stories
