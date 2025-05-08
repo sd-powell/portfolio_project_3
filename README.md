@@ -1,33 +1,28 @@
-### Project Overview
+# Vinyl Crate
 
-**Vinyl Crate** is a full-stack, data-driven web application that empowers users to catalogue, manage, and explore their personal vinyl record collection. Built with **Django**, **PostgreSQL**, and **Bootstrap**, it offers a clean and responsive interface suitable for both desktop and mobile users.
+**Vinyl Crate** is a full-stack record collection management web application built using Django, Python, HTML, CSS, and JavaScript. The app uses PostgreSQL for data storage and is deployed to Heroku with a responsive front-end styled using Bootstrap.
 
-Registered users can add and edit detailed entries for their records — including artist, title, genre, BPM, musical key (Camelot notation), year, and rating — with the option to upload cover art. The app supports secure user authentication, individual dashboards, and record-level control.
-
-**Vinyl Crate** goes beyond simple record keeping — it's a thoughtfully designed platform for music lovers and DJs who want to document and reflect on their collection in a structured, searchable way.
+This project was created as my third milestone project for the Level 5 Diploma in Web Application Development with the Code Institute.
 
 ---
 
-### Site Purpose
+##  User Experience (UX)
 
-Vinyl Crate was created to address a common gap in vinyl record management: while many collectors rely on spreadsheets or handwritten lists, these methods lack visual appeal, accessibility, and interactivity. Vinyl Crate brings record cataloguing into the modern age with a secure, user-friendly, and mobile-responsive web app.
+### Strategy Plane
 
-This platform empowers collectors and DJs by offering a clean interface to organise and reflect on their collection — complete with cover images, audio metadata, and personal ratings.
+#### Project Goals
 
-The app provides:
-- 📀 **Personal record management** – Add, edit, and browse your vinyl collection
-- ⭐ **Custom metadata fields** – Track BPM, musical key, year, genre, and star ratings
-- 🖼️ **Visual enhancements** – Upload and display album artwork
-- 🔐 **Secure access** – Private user accounts and dashboard views
-- 📱 **Mobile-ready** – Use it from the crate or the couch
+**Vinyl Crate** is a **personal record collection management app** created for vinyl enthusiasts, DJs, and music collectors. The platform allows users to build and organise a digital library of their physical records — complete with metadata such as artist, title, genre, BPM, musical key, and cover art.
 
-By focusing on clarity, simplicity, and personalisation, Vinyl Crate makes managing your vinyl collection a rewarding, modern experience — for hobbyists, DJs, and dedicated collectors alike.
+This app is designed to replace basic spreadsheets and paper lists with a user-friendly, mobile-responsive interface. Users can easily search, filter, and update their collections on the go — whether they're browsing at home, preparing a DJ set, or crate digging in a record shop.
 
----
+Vinyl records have seen a major resurgence in popularity, and tools like **Vinyl Crate** empower collectors to track, rate, and catalogue their collections in a modern, cloud-based format. Built as part of a Level 5 Web Application Development course, Vinyl Crate focuses on usability, functionality, and clean design to deliver a polished user experience for managing music libraries.
 
-### Target Audience
+#### Target Audience
 
-Vinyl Crate is designed for:
+Whether you're tracking rare jazz pressings, building a DJ setlist, or simply documenting your growing collection, Vinyl Crate offers a streamlined, flexible space to manage your vinyl library.
+
+**Vinyl Crate** is designed for:
 
 - 🎵 **Vinyl collectors** who want an organised, digital catalogue of their records  
 - 🎧 **DJs** who need quick access to metadata like BPM, key, and genre  
@@ -35,9 +30,18 @@ Vinyl Crate is designed for:
 - 🧠 **Music enthusiasts** who enjoy reflecting on and rating their collection  
 - 📂 **Users** who want to move beyond spreadsheets and static lists
 
-Whether you're tracking rare jazz pressings, building a DJ setlist, or simply documenting your growing collection, Vinyl Crate offers a streamlined, flexible space to manage your vinyl library.
+**Vinyl Crate** provides:
 
-##  User Experience (UX)
+- 📀 **Personal record management** – Add, edit, and browse your vinyl collection
+- ⭐ **Custom metadata fields** – Track BPM, musical key, year, genre, and star ratings
+- 🖼️ **Visual enhancements** – Upload and display album artwork
+- 🔐 **Secure access** – Private user accounts and dashboard views
+- 📱 **Mobile-ready** – Use it from the crate or the couch
+
+---
+
+
+
 
 ###  User Stories
 
