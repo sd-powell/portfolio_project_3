@@ -40,7 +40,16 @@ Whether you're tracking rare jazz pressings, building a DJ setlist, or simply do
 
 ---
 
+### Scope Plane
 
+#### Feature Planning
+
+The table below outlines opportunities for the **Vinyl Crate** project. Each feature has been scored for **importance** and **viability** (1 = low, 5 = high). This helps prioritise core functionality for the MVP. Features scoring highly are **must-haves**, while mid-scoring features are **should-haves**, and low-priority features are **could-haves** for future versions.
+
+User roles are also considered in the planning:
+- **Guests** – Unauthenticated visitors browsing public-facing content.
+- **Users** – Registered members with a personalised dashboard.
+- **Admins** – Staff or superusers with additional content management access.
 
 
 ###  User Stories
