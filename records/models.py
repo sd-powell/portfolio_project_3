@@ -58,21 +58,6 @@ class Record(models.Model):
         blank=True,
         help_text="Select a genre"
     )
-    bpm = models.PositiveIntegerField(
-        blank=True,
-        null=True,
-        validators=[
-            MinValueValidator(24),
-            MaxValueValidator(1000)
-        ],
-        help_text="Enter BPM between 24 and 1000"
-    )
-    key = models.CharField(
-        max_length=4,
-        choices=CAMELOT_KEYS,
-        blank=True,
-        help_text="Select a key using Camelot notation"
-    )
     cover_image = CloudinaryField('image', blank=True, null=True)
     rating = models.PositiveSmallIntegerField(
         choices=RATING_CHOICES,
@@ -88,3 +73,48 @@ class Record(models.Model):
 
     def __str__(self):
         return f"{self.title} by {self.artist}"
+
+
+class Track(models.Model):
+    """
+    A model representing a single track on a vinyl record.
+
+    Each track is linked to a specific record and includes metadata
+    such as title, artist, BPM, and musical key (Camelot notation).
+    """
+    record = models.ForeignKey(
+        Record, on_delete=models.CASCADE, related_name="tracks"
+        )
+    title = models.CharField(max_length=255)
+    position = models.CharField(
+        max_length=5,
+        blank=True,
+        help_text="Enter track position (e.g. A1, B2)",
+        db_index=True
+    )
+    duration = models.CharField(
+        max_length=10,
+        blank=True,
+        help_text="Enter track duration (e.g. 3:45)"
+    )
+    bpm = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        validators=[
+            MinValueValidator(24),
+            MaxValueValidator(1000)
+        ],
+        help_text="Enter BPM between 24 and 1000"
+    )
+    key = models.CharField(
+        max_length=4,
+        choices=CAMELOT_KEYS,
+        blank=True,
+        help_text="Select a key using Camelot notation"
+    )
+
+    class Meta:
+        ordering = ['position', 'title']
+
+    def __str__(self):
+        return f"{self.position or ''} {self.title}"
