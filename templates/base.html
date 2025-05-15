@@ -26,30 +26,52 @@
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- Navbar toggle button for mobile view -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+
+                <!-- Left: Burger icon that triggers offcanvas -->
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
+                    aria-controls="offcanvasMenu" aria-label="Toggle menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!-- Navbar logo -->
-                <a class="navbar-brand mx-auto" href="{% url 'index' %}">
-                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="logo" style="height: 60px;">
+
+                <!-- Center: Logo -->
+                <a class="navbar-brand mx-auto position-absolute start-50 translate-middle-x" href="{% url 'index' %}">
+                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 60px;">
                 </a>
-                <!-- Navbar links-->
-                <div class="collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
-                        {% endif %}
-                    </ul>
+
+                <!-- Right: User icon -->
+                <div class="d-none d-lg-block">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'account_logout' %}" class="nav-link">
+                        <i class="fa-solid fa-circle-user fa-xl"></i>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'account_login' %}" class="nav-link">
+                        <i class="fa-solid fa-circle-user fa-xl"></i>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </nav>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'record_list' %}">My Records</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
 
         {% block content %}
         <!-- Child templates inject here -->
