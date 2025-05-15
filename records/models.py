@@ -39,6 +39,9 @@ class Record(models.Model):
     musical key (Camelot notation), cover image, and personal rating.
     Each record is linked to a user and timestamps are recorded for
     creation and last modification.
+    
+    A boolean field indicates if the record is a staff pick for
+    homepage display.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -67,6 +70,11 @@ class Record(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
+    
+    is_staff_pick = models.BooleanField(
+        default=False,
+        help_text="Tick to feature this record on the homepage as a staff pick"
+    )
 
     class Meta:
         ordering = ["title"]
