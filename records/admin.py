@@ -1,14 +1,21 @@
 """
-Admin configuration for the Record abd Track models in Vinyl Crate.
+Admin configuration for the Record and Track models in Vinyl Crate.
 
-Provides list display, filtering, and search functionality
-for easier record management.
+Includes list display, filtering, and search functionality
+for efficient record management. Tracks can be added or edited
+directly within the Record admin panel using inline forms.
 """
 
 
 from django.contrib import admin
 from django.utils.html import format_html
 from .models import Record, Track
+
+
+class TrackInline(admin.TabularInline):
+    model = Track
+    extra = 1  # Number of empty forms to display by default
+    fields = ('position', 'title', 'duration', 'bpm', 'key')
 
 
 @admin.register(Record)
@@ -34,6 +41,7 @@ class RecordAdmin(admin.ModelAdmin):
         )
 
     readonly_fields = ('cover_thumb',)
+    inlines = [TrackInline]
 
     def cover_thumb(self, obj):
         try:
