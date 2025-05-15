@@ -39,7 +39,9 @@ class RecordAdmin(admin.ModelAdmin):
     readonly_fields = ('cover_thumb',)
 
     def cover_thumb(self, obj):
-        if obj.cover_image:
-            return format_html('<img src="{}" width="260" style="border-radius:4px;" />', obj.cover_image.url)
+        try:
+            if obj.cover_image:
+                return format_html('<img src="{}" width="260" style="border-radius:4px;" />', obj.cover_image.url)
+        except Exception:
+            return "Invalid image"
         return "No image"
-    cover_thumb.short_description = 'Cover'

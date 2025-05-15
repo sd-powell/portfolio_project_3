@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from cloudinary.models import CloudinaryField
 
 # Genre choices
 GENRE_CHOICES = [(g, g) for g in [
@@ -72,7 +73,7 @@ class Record(models.Model):
         blank=True,
         help_text="Select a key using Camelot notation"
     )
-    cover_image = models.ImageField(upload_to='covers/', blank=True, null=True)
+    cover_image = CloudinaryField('image', blank=True, null=True)
     rating = models.PositiveSmallIntegerField(
         choices=RATING_CHOICES,
         blank=True,
