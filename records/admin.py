@@ -27,12 +27,14 @@ class RecordAdmin(admin.ModelAdmin):
         'genre',
         'year',
         'rating',
-        'cover_thumb',
+        'is_staff_pick',
+        'cover_thumb'
         )
     list_filter = (
         'genre',
         'rating',
-        'year'
+        'year',
+        'is_staff_pick'
         )
     search_fields = (
         'title',
