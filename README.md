@@ -59,16 +59,20 @@ User roles are also considered in the planning:
 | User          | Password recovery                            | 5          | 5         | MVP     | ⬜        |
 | User          | Create, view, update, delete own records     | 5          | 5         | MVP     | ⬜        |
 | User          | Upload cover image for record                | 5          | 5         | MVP     | ⬜        |
+| User          | Add individual tracks to each record         | 5          | 4         | MVP     | ⬜        |
 | Admin         | Access Django admin panel                    | 5          | 5         | MVP     | ⬜        |
 | Admin         | Moderate/edit user records via admin         | 5          | 5         | MVP     | ⬜        |
+| Admin         | Edit track list inline in Record admin panel | 4          | 5         | Should  | ⬜        |
 | User          | Filter/sort by genre, year, BPM, rating      | 4          | 5         | Should  | ⬜        |
 | User          | Search records by title/artist               | 4          | 4         | Should  | ⬜        |
+| User          | Include BPM, key, and duration per track     | 4          | 4         | Should  | ⬜        |
 | All           | Responsive design / Bootstrap UI             | 4          | 5         | MVP     | ⬜        |
 | All           | View mobile-friendly site                    | 4          | 5         | MVP     | ⬜        |
 | User          | Rate records with 1–5 stars                  | 4          | 5         | MVP     | ⬜        |
 | User          | Use dropdowns for genre and key              | 4          | 5         | MVP     | ⬜        |
 | User          | Export collection as CSV                     | 3          | 4         | Could   | ⬜        |
 | Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ⬜        |
+| Admin         | Automatically show total track count per record | 3          | 3         | Could   | ⬜        |
 | User          | Edit/update account profile                  | 2          | 3         | Could   | ⬜        |
 | All           | Custom 404 and 500 error pages               | 2          | 4         | Could   | ⬜        |
 | All           | About/Contact page                           | 2          | 3         | Could   | ⬜        |
@@ -98,10 +102,14 @@ User roles are also considered in the planning:
 | 14 | User           | Recover my password                                 | Regain access if I forget my login details |
 | 15 | User           | Edit my account profile                             | Update my display name, location, or bio |
 | 16 | User           | Sign in via social media (optional)                 | Log in more quickly or conveniently |
-| 17 | Admin          | Access the Django admin panel                       | Manage users and records directly |
-| 18 | Admin          | Edit or delete any record in the system             | Support users and maintain database integrity |
-| 19 | Admin          | Review user-submitted content                       | Ensure the platform remains clean and appropriate |
-| 20 | Mobile User    | Access my collection on a phone or tablet           | View or update records while crate digging or DJing |
-| 21 | Mobile User    | Upload cover images from my device                  | Add new records quickly without needing a computer |
+| 17 | User           | Add individual tracks to each record                | Log full tracklists for more detailed entries |
+| 18 | User           | Include BPM, key, and duration for each track       | Help with DJing or playlist curation |
+| 19 | Admin          | Access the Django admin panel                       | Manage users and records directly |
+| 20 | Admin          | Edit or delete any record in the system             | Support users and maintain database integrity |
+| 21 | Admin          | Review user-submitted content                       | Ensure the platform remains clean and appropriate |
+| 22 | Admin          | Manage tracks directly from the Record admin view   | Save time editing metadata without switching models |
+| 23 | Mobile User    | Access my collection on a phone or tablet           | View or update records while crate digging or DJing |
+| 24 | Mobile User    | Upload cover images from my device                  | Add new records quickly without needing a computer |
+
 
 *All user stories were manually tested. See [ User Story Testing]() for full test results.*
