@@ -111,5 +111,17 @@ User roles are also considered in the planning:
 | 23 | Mobile User    | Access my collection on a phone or tablet           | View or update records while crate digging or DJing |
 | 24 | Mobile User    | Upload cover images from my device                  | Add new records quickly without needing a computer |
 
-
 *All user stories were manually tested. See [ User Story Testing]() for full test results.*
+
+#### **Database Schema**
+
+For this project, a relational database (PostgreSQL) was selected, as it offers the structure and referential integrity needed to manage user-specific vinyl collections efficiently.
+
+The **initial MVP** focused on a single `Record` model linked to the built-in Django User model. This model stored essential metadata such as title, artist, genre, release year, rating, and a cover image. This simple structure allowed for quick prototyping, admin integration, and CRUD functionality.
+
+However, during development it became clear that additional detail was needed to represent **individual tracks** on a vinyl release. Features such as **track position, duration, BPM**, and **musical key** were specific to tracks — not records. Initially, BPM and key were part of the `Record` model, but this proved insufficient for multi-track records where values vary per track.
+
+To resolve this, a dedicated `Track` model was introduced. Each track is linked to a `Record` via a foreign key relationship, enabling accurate representation of vinyl releases with multiple tracks per side. The database was updated accordingly to reflect this one-to-many relationship. The BPM and key fields were also moved from `Record` to `Track`, where they more logically belong.
+
+
+This structure ensures scalability and aligns with database best practices by reducing redundancy and improving data clarity.
