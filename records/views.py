@@ -4,6 +4,17 @@ from .models import Record
 from .forms import RecordForm  # Form to be created
 
 
+def index(request):
+    """
+    Display the homepage with a selection of staff-picked records.
+
+    Returns:
+        HttpResponse: Rendered homepage with staff picks if any exist (max 6).
+    """
+    staff_picks = Record.objects.filter(is_staff_pick=True)[:6]
+    return render(request, 'records/index.html', {'staff_picks': staff_picks})
+
+
 @login_required
 def record_list(request):
     """
