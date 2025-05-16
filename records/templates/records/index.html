@@ -51,7 +51,7 @@
         <h2 class="mb-4 fw-bold">Staff Picks</h2>
         <div class="row g-4">
             {% for record in staff_picks %}
-                <div class="col-12 col-md-4">
+                <div class="col-6 col-sm-4">
                     <div class="text-start">
                         {% if record.cover_image %}
                             <img src="{{ record.cover_image.url }}"
