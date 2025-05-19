@@ -27,6 +27,14 @@
             <input type="text" name="q" class="form-control form-control-lg" placeholder="Search your collection">
         </form>
     </div>
+    
+    <!-- Add Record Placeholder -->
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'record_create' %}" class="d-block bg-secondary rounded position-relative"
+            style="width: 320px; height: 320px; text-decoration: none;">
+            <span class="text-white fs-1 position-absolute top-50 start-50 translate-middle">+</span>
+        </a>
+    </div>
 
 </div>
 
