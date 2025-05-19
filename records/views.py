@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Record
-from .forms import RecordForm  # Form to be created
+from .forms import RecordForm, TrackFormSet
 
 
 def index(request):
@@ -47,7 +47,7 @@ def record_detail(request, pk):
 @login_required
 def record_create(request):
     """
-    Create a new record and save it to the database.
+    Create a new record and associated tracks, save it to the database.
 
     Returns:
         HttpResponse: Redirects to the record list if successful,
@@ -55,14 +55,21 @@ def record_create(request):
     """
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES)
-        if form.is_valid():
+        formset = TrackFormSet(request.POST)
+        if form.is_valid() and formset.is_valid():
             record = form.save(commit=False)
             record.user = request.user
             record.save()
+            formset.instance = record
+            formset.save()
             return redirect('record_list')
     else:
         form = RecordForm()
-    return render(request, 'records/record_form.html', {'form': form})
+        formset = TrackFormSet()
+    return render(request, 'records/record_form.html', {
+        'form': form,
+        'formset': formset,
+    })
 
 
 @login_required
