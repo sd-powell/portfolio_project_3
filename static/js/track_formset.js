@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (container && totalForms && addBtn && templateElement) {
         addBtn.addEventListener('click', function () {
             const formCount = parseInt(totalForms.value);
-            const newFormHtml = templateElement.textContent.trim().replace(/__prefix__/g, formCount);
+            const newFormHtml = templateElement.innerHTML.replace(/__prefix__/g, formCount);
 
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = newFormHtml;

@@ -34,9 +34,13 @@
                 </div>
 
                 <!-- Hidden empty form template to clone -->
-                <script id="empty-form-template" type="text/template">
-                    {{ formset.empty_form|crispy|escapejs }}
-                </script>
+                <div id="empty-form-template" class="d-none">
+                    <div class="track-form mb-3">
+                        <div class="card p-3">
+                            {{ formset.empty_form|crispy }}
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Add another button -->
                 <button type="button" id="add-track-btn" class="btn btn-outline-secondary mt-3">Add Another Track</button>
