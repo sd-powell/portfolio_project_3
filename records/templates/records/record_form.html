@@ -7,8 +7,24 @@
     <div class="card shadow-sm rounded">
         <div class="card-body p-4">
             <h2 class="card-title mb-4">
+                {% if form.instance.pk %}
+                    Edit Record
+                {% else %}
+                    Add a New Record
+                {% endif %}
             </h2>
-            </div>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{% url 'record_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">
+                        {% if form.instance.pk %}Update{% else %}Add Record{% endif %}
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
