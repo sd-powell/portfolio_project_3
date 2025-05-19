@@ -1,6 +1,6 @@
 from django import forms
-from .models import Record
-from .models import Track
+from django.forms import inlineformset_factory
+from .models import Record, Track
 
 
 class RecordForm(forms.ModelForm):
@@ -153,3 +153,13 @@ class TrackForm(forms.ModelForm):
                 'class': 'form-control'
             }),
         }
+
+# Define the inline formset for Track entries related to Record
+TrackFormSet = inlineformset_factory(
+    parent_model=Record,
+    model=Track,
+    form=TrackForm,
+    fields=['title', 'position', 'duration', 'bpm', 'key'],
+    extra=1,
+    can_delete=True
+)

@@ -14,10 +14,23 @@
                 {% endif %}
             </h2>
 
+            <!-- Record Form -->
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
 
+                <!-- Track Formset -->
+                <hr class="my-4">
+                <h4 class="mb-3">Tracks</h4>
+
+                {{ formset.management_form }}
+                {% for track_form in formset %}
+                    <div class="border rounded p-3 mb-3">
+                        {{ track_form|crispy }}
+                    </div>
+                {% endfor %}
+
+                <!-- Form Buttons -->
                 <div class="d-flex justify-content-between mt-4">
                     <a href="{% url 'record_list' %}" class="btn btn-outline-secondary">Cancel</a>
                     <button type="submit" class="btn btn-primary">
