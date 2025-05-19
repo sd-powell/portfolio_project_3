@@ -22,13 +22,28 @@
                 <!-- Track Formset -->
                 <hr class="my-4">
                 <h4 class="mb-3">Tracks</h4>
+                <div id="formset-container">
+                    {{ formset.management_form }}
+                    {% for track_form in formset %}
+                        <div class="track-form mb-3">
+                            <div class="card p-3">
+                                {{ track_form|crispy }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
 
-                {{ formset.management_form }}
-                {% for track_form in formset %}
-                    <div class="border rounded p-3 mb-3">
-                        {{ track_form|crispy }}
+                <!-- Hidden empty form template to clone -->
+                <div id="empty-form-template" class="d-none">
+                    <div class="track-form mb-3">
+                        <div class="card p-3">
+                            {{ formset.empty_form|crispy }}
+                        </div>
                     </div>
-                {% endfor %}
+                </div>
+
+                <!-- Add another button -->
+                <button type="button" id="add-track-btn" class="btn btn-outline-secondary mt-3">Add Another Track</button>
 
                 <!-- Form Buttons -->
                 <div class="d-flex justify-content-between mt-4">
