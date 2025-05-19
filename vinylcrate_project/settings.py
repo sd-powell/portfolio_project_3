@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import sys
 import dj_database_url
+from django.urls import reverse_lazy
+
 if os.path.isfile('env.py'):
     import env
 
@@ -55,7 +57,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 # Redirects after login/logout
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = reverse_lazy('record_list')
 LOGOUT_REDIRECT_URL = '/'
 
 
