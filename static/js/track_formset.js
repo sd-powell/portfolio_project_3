@@ -8,16 +8,25 @@
  */
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('formset-container');
-    const totalForms = document.getElementById('id_form-TOTAL_FORMS');
+    const totalForms = document.getElementById('id_tracks-TOTAL_FORMS');
     const addBtn = document.getElementById('add-track-btn');
-    const emptyForm = document.getElementById('empty-form-template').innerHTML;
+    const templateElement = document.getElementById('empty-form-template');
 
-    if (addBtn && container && totalForms && emptyForm) {
+    if (container && totalForms && addBtn && templateElement) {
         addBtn.addEventListener('click', function () {
             const formCount = parseInt(totalForms.value);
-            const newFormHtml = emptyForm.replace(/__prefix__/g, formCount);
-            container.insertAdjacentHTML('beforeend', newFormHtml);
+            const newFormHtml = templateElement.textContent.trim().replace(/__prefix__/g, formCount);
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = newFormHtml;
+
+            container.appendChild(tempDiv);
             totalForms.value = formCount + 1;
+
+            console.log('New form added, total now:', totalForms.value);
         });
+    } else {
+        console.warn('Required elements not found or template missing');
+        console.log({ container, totalForms, addBtn, templateElement });
     }
 });

@@ -65,7 +65,7 @@ def record_create(request):
             return redirect('record_list')
     else:
         form = RecordForm()
-        formset = TrackFormSet()
+        formset = TrackFormSet(prefix='tracks')
     return render(request, 'records/record_form.html', {
         'form': form,
         'formset': formset,

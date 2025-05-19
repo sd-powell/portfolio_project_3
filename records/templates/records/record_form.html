@@ -34,10 +34,8 @@
                 </div>
 
                 <!-- Hidden empty form template to clone -->
-                <script type="text/template" id="empty-form-template">
-                    {% with form=formset.empty_form %}
-                        {% include "records/partials/track_form_empty.html" %}
-                    {% endwith %}
+                <script id="empty-form-template" type="text/template">
+                    {{ formset.empty_form|crispy|escapejs }}
                 </script>
 
                 <!-- Add another button -->
