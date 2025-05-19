@@ -75,7 +75,7 @@ def record_create(request):
 @login_required
 def record_update(request, pk):
     """
-    Update an existing record owned by the logged-in user.
+    Update an existing record owned by the logged-in user and it's associated tracks.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
@@ -88,12 +88,18 @@ def record_update(request, pk):
     record = get_object_or_404(Record, pk=pk, user=request.user)
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES, instance=record)
-        if form.is_valid():
+        formset = TrackFormSet(request.POST, instance=record)
+        if form.is_valid() and formset.is_valid():
             form.save()
+            formset.save()
             return redirect('record_list')
     else:
         form = RecordForm(instance=record)
-    return render(request, 'records/record_form.html', {'form': form})
+        formset = TrackFormSet(instance=record)
+    return render(request, 'records/record_form.html', {
+        'form': form,
+        'formset': formset,
+    })
 
 
 @login_required
