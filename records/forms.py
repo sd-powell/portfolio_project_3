@@ -154,6 +154,7 @@ class TrackForm(forms.ModelForm):
             }),
         }
 
+
 # Define the inline formset for Track entries related to Record
 TrackFormSet = inlineformset_factory(
     parent_model=Record,

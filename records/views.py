@@ -75,7 +75,8 @@ def record_create(request):
 @login_required
 def record_update(request, pk):
     """
-    Update an existing record owned by the logged-in user and it's associated tracks.
+    Update an existing record owned by the
+    logged-in user and it's associated tracks.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
