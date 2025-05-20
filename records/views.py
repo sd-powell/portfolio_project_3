@@ -24,7 +24,15 @@ def record_list(request):
     HttpResponse: Rendered template showing a list of the user's records.
     """
     records = Record.objects.filter(user=request.user)
-    return render(request, 'records/record_list.html', {'records': records})
+    recently_added = (
+        Record.objects
+        .filter(user=request.user)
+        .order_by('-created_on')
+    )[:6]
+    return render(request, 'records/record_list.html', {
+        'records': records,
+        'recently_added': recently_added,
+    })
 
 
 @login_required
@@ -66,11 +74,9 @@ def record_create(request):
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
-    recently_added = Record.objects.filter(user=request.user).order_by('-created_on')[:6]
     return render(request, 'records/record_form.html', {
         'form': form,
         'formset': formset,
-        'recently_added': recently_added,
     })
 
 
