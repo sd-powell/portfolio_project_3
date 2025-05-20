@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Record
 from .forms import RecordForm, TrackFormSet
 
@@ -62,15 +63,18 @@ def record_create(request):
                       or renders the form with errors if not.
     """
     if request.method == 'POST':
-        form = RecordForm(request.POST, request.FILES)
-        formset = TrackFormSet(request.POST)
-        if form.is_valid() and formset.is_valid():
-            record = form.save(commit=False)
-            record.user = request.user
-            record.save()
-            formset.instance = record
-            formset.save()
-            return redirect('record_list')
+        if request.method == 'POST':
+            form = RecordForm(request.POST, request.FILES)
+            formset = TrackFormSet(request.POST)
+            if form.is_valid() and formset.is_valid():
+                record = form.save(commit=False)
+                record.user = request.user
+                record.save()
+                formset.instance = record
+                formset.save()
+                
+                messages.success(request, f"Record '{record.title}' created successfully!")
+                return redirect('record_list')
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
