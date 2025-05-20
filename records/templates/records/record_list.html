@@ -27,7 +27,39 @@
             <input type="text" name="q" class="form-control form-control-lg" placeholder="Search your collection">
         </form>
     </div>
-    
+
+<!-- Recently Added Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="mb-4 fw-bold">Recently Added</h2>
+        <div class="row g-4">
+            {% for record in recently_added %}
+                <div class="col-4 col-sm-4">
+                    <div class="text-start">
+                        {% if record.cover_image %}
+                            <img src="{{ record.cover_image.url }}"
+                                alt="{{ record.title }}"
+                                class="img-fluid rounded"
+                                style="width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover;">
+                        {% else %}
+                            <div class="bg-secondary rounded"
+                                style="width: 100%; max-width: 320px; height: 320px;"></div>
+                        {% endif %}
+                        <h5 class="mt-3 mb-1">
+                            {{ record.title|truncatechars:13 }}
+                        </h5>
+                        <p class="text-muted mb-0">
+                            {{ record.artist|truncatechars:13 }}
+                        </p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No recent records added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
     <!-- Add Record Placeholder -->
     <div class="d-flex justify-content-center">
         <a href="{% url 'record_create' %}" class="d-block bg-secondary rounded position-relative"
