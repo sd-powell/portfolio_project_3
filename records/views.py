@@ -66,9 +66,11 @@ def record_create(request):
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
+    recently_added = Record.objects.order_by('-created_on')[:6]
     return render(request, 'records/record_form.html', {
         'form': form,
         'formset': formset,
+        'recently_added': recently_added,
     })
 
 
