@@ -6,28 +6,41 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<!-- Custom login template using Bootstrap and Django Allauth form handling -->
+<div class="container my-5" style="max-width: 500px;">
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <h2 class="card-title mb-3 text-center">Welcome back</h2>
+            <p class="text-muted text-center mb-4">Log in to manage your record collection</p>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
-
-            <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
-                you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form class="login" method="POST" action="{% url 'account_login' %}">
+            <form method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text }}</div>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="text-danger small">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
             </form>
+
+            <div class="text-center">
+                <a href="{% url 'account_reset_password' %}" class="text-muted small">Forgot password?</a><br>
+                <a href="{% url 'account_signup' %}" class="text-muted small">Don't have an account? Sign up</a>
+            </div>
         </div>
     </div>
 </div>
