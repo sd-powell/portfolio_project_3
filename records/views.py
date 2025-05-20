@@ -138,3 +138,10 @@ def record_delete(request, pk):
         'records/record_confirm_delete.html',
         {'record': record}
     )
+
+
+def custom_404_view(request, exception):
+    """
+    Custom handler for 404 errors.
+    """
+    return render(request, '404.html', status=404)
