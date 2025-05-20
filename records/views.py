@@ -63,18 +63,19 @@ def record_create(request):
                       or renders the form with errors if not.
     """
     if request.method == 'POST':
-        if request.method == 'POST':
-            form = RecordForm(request.POST, request.FILES)
-            formset = TrackFormSet(request.POST)
-            if form.is_valid() and formset.is_valid():
-                record = form.save(commit=False)
-                record.user = request.user
-                record.save()
-                formset.instance = record
-                formset.save()
-                
-                messages.success(request, f"Record '{record.title}' created successfully!")
-                return redirect('record_list')
+        form = RecordForm(request.POST, request.FILES)
+        formset = TrackFormSet(request.POST)
+        if form.is_valid() and formset.is_valid():
+            record = form.save(commit=False)
+            record.user = request.user
+            record.save()
+            formset.instance = record
+            formset.save()
+
+            messages.success(
+                request, f"Record '{record.title}' created successfully!"
+                )
+            return redirect('record_list')
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
