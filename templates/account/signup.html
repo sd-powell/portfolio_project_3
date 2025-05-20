@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load account %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
 
 {% block content %}
-<!-- Custom signup template using Bootstrap and Django Allauth form handling -->
+<!-- Custom signup template styled with Bootstrap and Crispy Forms -->
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -20,7 +21,7 @@
 
                 <form method="post" action="{% url 'account_signup' %}">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form|crispy }}
                     {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                     {% endif %}
