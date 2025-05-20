@@ -2,11 +2,12 @@
 
 {% load i18n %}
 {% load account socialaccount %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<!-- Custom login template using Bootstrap and Django Allauth form handling -->
+<!-- Custom login template using Bootstrap and Crispy Forms -->
 <div class="container my-5" style="max-width: 500px;">
     <div class="card shadow-sm">
         <div class="card-body p-4">
@@ -15,18 +16,7 @@
 
             <form method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-                {% for field in form %}
-                    <div class="mb-3">
-                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                        {{ field }}
-                        {% if field.help_text %}
-                            <div class="form-text">{{ field.help_text }}</div>
-                        {% endif %}
-                        {% for error in field.errors %}
-                            <div class="text-danger small">{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
+                {{ form|crispy }}
 
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
