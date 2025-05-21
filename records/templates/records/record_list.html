@@ -31,7 +31,17 @@
 <!-- Recently Added Section -->
 <section class="py-5">
     <div class="container">
-        <h2 class="mb-4 fw-bold">Recently Added</h2>
+        <div class="row justify-content-between align-items-center mb-4">
+            <div class="col-auto">
+                <h2 class="fw-bold mb-0">Recently Added</h2>
+            </div>
+            <div class="col-auto">
+                <a href="{% url 'record_list' %}" class="text-decoration-none text-primary fw-semibold">
+                    View All <i class="fa-solid fa-circle-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+
         <div class="row g-4">
             {% for record in recently_added %}
                 <div class="col-4 col-sm-4">
