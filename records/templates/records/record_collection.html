@@ -24,8 +24,8 @@
                 <legend class="form-label">Genre</legend>
                 <select id="genre" name="genre" class="form-select">
                     <option value="">All Genres</option>
-                    {% for g in genres %}
-                        <option value="{{ g }}" {% if request.GET.genre == g %}selected{% endif %}>{{ g }}</option>
+                    {% for value, label in genres %}
+                        <option value="{{ value }}" {% if request.GET.genre == value %}selected{% endif %}>{{ label }}</option>
                     {% endfor %}
                 </select>
                 </fieldset>
