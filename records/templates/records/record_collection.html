@@ -49,5 +49,29 @@
             <button type="submit" class="btn btn-primary">Apply Filters</button>
         </div>
     </form>
+
+    <!-- Records Display -->
+    <div class="mt-4">
+        {% for record in records %}
+            <div class="card mb-3 p-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    {% if record.cover_image %}
+                        <img src="{{ record.cover_image.url }}" alt="{{ record.title }} cover" class="img-thumbnail me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                    {% else %}
+                        <div class="bg-secondary me-3" style="width: 80px; height: 80px;"></div>
+                    {% endif %}
+                    <div>
+                        <h5 class="mb-1">{{ record.title }}</h5>
+                        <p class="text-muted mb-0">{{ record.artist }}</p>
+                    </div>
+                </div>
+                <a href="{% url 'record_detail' record.pk %}" class="text-decoration-none">
+                    <i class="fa-solid fa-chevron-right fa-lg text-dark"></i>
+                </a>
+            </div>
+        {% empty %}
+            <p>No records found. Try adjusting your filters or search terms.</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
