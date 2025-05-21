@@ -137,6 +137,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Custom form overrides for django-allauth
+ACCOUNT_FORMS = {
+    'signup': 'records.forms.CustomSignupForm'
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
