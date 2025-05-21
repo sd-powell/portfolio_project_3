@@ -176,7 +176,7 @@ class CustomSignupForm(SignupForm):
         max_length=30,
         label='First Name',
         required=False,
-            widget=forms.TextInput(attrs={
+        widget=forms.TextInput(attrs={
                 'placeholder': 'First Name'
             })
         )

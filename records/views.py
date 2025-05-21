@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Record
+from django.db.models import Q
+from .models import Record, GENRE_CHOICES, RATING_CHOICES
 from .forms import RecordForm, TrackFormSet
 
 
@@ -138,6 +139,50 @@ def record_delete(request, pk):
         'records/record_confirm_delete.html',
         {'record': record}
     )
+
+
+@login_required
+def record_collection(request):
+    """
+    Display a searchable and filterable collection of the user's records.
+    """
+    records = Record.objects.filter(user=request.user)
+
+    # Handle filters
+    search_query = request.GET.get('search', '')
+    genre_filter = request.GET.get('genre', '')
+    artist_filter = request.GET.get('artist', '')
+    rating_filter = request.GET.get('rating', '')
+
+    if search_query:
+        records = records.filter(
+            Q(title__icontains=search_query) | Q(artist__icontains=search_query)
+        )
+
+    if genre_filter:
+        records = records.filter(genre=genre_filter)
+
+    if artist_filter:
+        records = records.filter(artist=artist_filter)
+
+    if rating_filter:
+        records = records.filter(rating=rating_filter)
+
+    # Get distinct values for dropdowns
+    genres = GENRE_CHOICES
+    ratings = RATING_CHOICES
+    artists = Record.objects.filter(user=request.user).values_list('artist', flat=True).distinct().order_by('artist')
+
+    return render(request, 'records/record_collection.html', {
+        'records': records,
+        'genres': genres,
+        'ratings': ratings,
+        'artists': artists,
+        'search_query': search_query,
+        'selected_genre': genre_filter,
+        'selected_artist': artist_filter,
+        'selected_rating': rating_filter,
+    })
 
 
 def custom_404_view(request, exception):
