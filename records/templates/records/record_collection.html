@@ -11,7 +11,7 @@
         <!-- Search Bar -->
         <div class="mb-3">
             <label for="search" class="form-label">Search</label>
-            <input type="text" id="search" name="q" class="form-control" placeholder="Search by album or artist..." value="{{ request.GET.q }}">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Search by album or artist..." value="{{ request.GET.search }}">
         </div>
 
         <!-- Filters row (genre, artist, rating) -->
@@ -33,7 +33,9 @@
                 <select class="form-select" id="artistFilter" name="artist">
                     <option value="">All Artists</option>
                     {% for artist in artists %}
-                        <option value="{{ artist }}">{{ artist }}</option>
+                        <option value="{{ artist }}" {% if request.GET.artist == artist %}selected{% endif %}>
+                            {{ artist }}
+                        </option>
                     {% endfor %}
                 </select>
             </div>
