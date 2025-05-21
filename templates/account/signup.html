@@ -21,7 +21,27 @@
 
                 <form method="post" action="{% url 'account_signup' %}">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    
+                    <div class="row mb-3">
+                        <div class="col">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+
+                    {% for field in form %}
+                        {% if field.name != 'first_name' and field.name != 'last_name' %}
+                            <div class="mb-3">
+                                {{ field.label_tag }}
+                                {{ field|as_crispy_field }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
                     {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                     {% endif %}
