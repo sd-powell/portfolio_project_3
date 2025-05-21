@@ -175,12 +175,18 @@ class CustomSignupForm(SignupForm):
     first_name = forms.CharField(
         max_length=30,
         label='First Name',
-        required=False
+        required=False,
+            widget=forms.TextInput(attrs={
+                'placeholder': 'First Name'
+            })
         )
     last_name = forms.CharField(
         max_length=30,
         label='Last Name',
-        required=False
+        required=False,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Last Name'
+            })
         )
 
     def save(self, request):
