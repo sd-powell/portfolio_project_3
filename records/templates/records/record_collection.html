@@ -10,26 +10,31 @@
     <form method="get" class="mb-4">
         <!-- Search Bar -->
         <div class="mb-3">
-            <label for="search" class="form-label">Search</label>
+            <fieldset>
+            <legend class="form-label">Search</legend>
             <input type="text" id="search" name="search" class="form-control" placeholder="Search by album or artist..." value="{{ request.GET.search }}">
+            </fieldset>
         </div>
 
         <!-- Filters row (genre, artist, rating) -->
         <div class="row g-3">
             <!-- Genre Filter -->
             <div class="col-md-4">
-                <label for="genre" class="form-label">Genre</label>
+                <fieldset>
+                <legend class="form-label">Genre</legend>
                 <select id="genre" name="genre" class="form-select">
                     <option value="">All Genres</option>
                     {% for g in genres %}
                         <option value="{{ g }}" {% if request.GET.genre == g %}selected{% endif %}>{{ g }}</option>
                     {% endfor %}
                 </select>
+                </fieldset>
             </div>
 
             <!-- Artist Filter -->
             <div class="col-md-4">
-                <label for="artistFilter" class="form-label">Artist</label>
+                <fieldset>
+                <legend class="form-label">Artist</legend>
                 <select class="form-select" id="artistFilter" name="artist">
                     <option value="">All Artists</option>
                     {% for artist in artists %}
@@ -38,17 +43,20 @@
                         </option>
                     {% endfor %}
                 </select>
+                </fieldset>
             </div>
             
             <!-- Rating Filter -->
             <div class="col-md-4">
-                <label for="rating" class="form-label">Rating</label>
+                <fieldset>
+                <legend class="form-label">Rating</legend>
                 <select id="rating" name="rating" class="form-select">
                     <option value="">All Ratings</option>
                     {% for i in "12345" %}
                         <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
                     {% endfor %}
                 </select>
+                </fieldset>
             </div>
         </div>
 
