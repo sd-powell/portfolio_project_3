@@ -3,5 +3,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold">Your Record Collection</h2>
 
+    <!-- Search and Filters Row -->
+    <form method="get" class="mb-4">
+        <div class="row g-3 align-items-end">
+            <!-- Search Bar -->
+                <div class="col-md-6">
+                    <label for="search" class="form-label">Search</label>
+                    <input type="text" id="search" name="q" class="form-control" placeholder="Search by album or artist..." value="{{ request.GET.q }}">
+                </div>
+        </div>
+    </form>
+</div>
 {% endblock %}
