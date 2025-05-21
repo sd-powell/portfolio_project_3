@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import inlineformset_factory
+from allauth.account.forms import SignupForm
 from .models import Record, Track
 
 
@@ -164,3 +165,27 @@ TrackFormSet = inlineformset_factory(
     extra=1,
     can_delete=True
 )
+
+
+class CustomSignupForm(SignupForm):
+    """
+    Custom signup form that adds first and last name fields
+    to the default Allauth form.
+    """
+    first_name = forms.CharField(
+        max_length=30,
+        label='First Name',
+        required=False
+        )
+    last_name = forms.CharField(
+        max_length=30,
+        label='Last Name',
+        required=False
+        )
+
+    def save(self, request):
+        user = super().save(request)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.save()
+        return user
