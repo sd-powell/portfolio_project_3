@@ -8,43 +8,49 @@
 
     <!-- Search and Filters Row -->
     <form method="get" class="mb-4">
-        <div class="row g-3 align-items-end">
-            <!-- Search Bar -->
-                <div class="col-md-6">
-                    <label for="search" class="form-label">Search</label>
-                    <input type="text" id="search" name="q" class="form-control" placeholder="Search by album or artist..." value="{{ request.GET.q }}">
-                </div>
-                <!-- Genre Filter -->
-                <div class="col-md-2">
-                    <label for="genre" class="form-label">Genre</label>
-                    <select id="genre" name="genre" class="form-select">
-                        <option value="">All Genres</option>
-                        {% for g in genres %}
-                            <option value="{{ g }}" {% if request.GET.genre == g %}selected{% endif %}>{{ g }}</option>
-                        {% endfor %}
-                    </select>
-                    <!-- Artist Filter -->
-                    <div class="col-md-2">
-                        <label for="artistFilter" class="form-label">Artist</label>
-                        <select class="form-select" id="artistFilter" name="artist">
-                            <option value="">All Artists</option>
-                            {% for artist in artists %}
-                                <option value="{{ artist }}">{{ artist }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <!-- Rating Filter -->
-                    <div class="col-md-2">
-                        <label for="rating" class="form-label">Rating</label>
-                        <select id="rating" name="rating" class="form-select">
-                            <option value="">All Ratings</option>
-                            {% for i in "12345" %}
-                                <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
+        <!-- Search Bar -->
+        <div class="mb-3">
+            <label for="search" class="form-label">Search</label>
+            <input type="text" id="search" name="q" class="form-control" placeholder="Search by album or artist..." value="{{ request.GET.q }}">
         </div>
+
+        <!-- Filters row (genre, artist, rating) -->
+        <div class="row g-3">
+            <!-- Genre Filter -->
+            <div class="col-md-4">
+                <label for="genre" class="form-label">Genre</label>
+                <select id="genre" name="genre" class="form-select">
+                    <option value="">All Genres</option>
+                    {% for g in genres %}
+                        <option value="{{ g }}" {% if request.GET.genre == g %}selected{% endif %}>{{ g }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Artist Filter -->
+            <div class="col-md-4">
+                <label for="artistFilter" class="form-label">Artist</label>
+                <select class="form-select" id="artistFilter" name="artist">
+                    <option value="">All Artists</option>
+                    {% for artist in artists %}
+                        <option value="{{ artist }}">{{ artist }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <!-- Rating Filter -->
+            <div class="col-md-4">
+                <label for="rating" class="form-label">Rating</label>
+                <select id="rating" name="rating" class="form-select">
+                    <option value="">All Ratings</option>
+                    {% for i in "12345" %}
+                        <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- Submit button -->
         <div class="mt-3">
             <button type="submit" class="btn btn-primary">Apply Filters</button>
         </div>
