@@ -23,6 +23,12 @@
                             <option value="{{ g }}" {% if request.GET.genre == g %}selected{% endif %}>{{ g }}</option>
                         {% endfor %}
                     </select>
+                    <!-- Artist Filter -->
+                    <div class="col-md-2">
+                        <label for="artistFilter" class="form-label">Artist</label>
+                        <select class="form-select" id="artistFilter" name="artist">
+                            <option value="">All Artists</option>
+                    </div>
                 </div>
         </div>
     </form>
