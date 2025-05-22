@@ -30,6 +30,8 @@ CAMELOT_KEYS = [
     ('12A', '12A - Db Minor'), ('12B', '12B - E Major'),
 ]
 
+DEFAULT_COVER_URL = "https://res.cloudinary.com/dfavq8q6t/image/upload/v1747928584/default-cover_ffbxw4.webp"
+
 
 # Create your models here.
 class Record(models.Model):
@@ -82,6 +84,9 @@ class Record(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(f"{self.title}-{self.artist}")
+        # Assign default cover if none exists
+        if not self.cover_image:
+            self.cover_image = DEFAULT_COVER_URL
         super().save(*args, **kwargs)
 
     class Meta:
