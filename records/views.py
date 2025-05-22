@@ -107,6 +107,7 @@ def record_update(request, pk):
         if form.is_valid() and formset.is_valid():
             form.save()
             formset.save()
+            messages.success(request, f"Record '{record.title}' updated successfully!")
             return redirect('record_list')
     else:
         form = RecordForm(instance=record)
