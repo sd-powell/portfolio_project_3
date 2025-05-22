@@ -47,16 +47,18 @@
                     {% endfor %}
                 </div>
 
+                {% if not form.instance.pk %}
                 <!-- Hidden empty form template to clone -->
-                <div id="empty-form-template" class="d-none">
-                    <div class="track-form mb-3 position-relative">
-                        <div class="card p-3">
-                            {{ formset.empty_form|crispy }}
-                            <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
-                                    aria-label="Remove track"></button>
+                    <div id="empty-form-template" class="d-none">
+                        <div class="track-form mb-3 position-relative">
+                            <div class="card p-3">
+                                {{ formset.empty_form|crispy }}
+                                <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
+                                        aria-label="Remove track"></button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
 
                 <!-- Add another button -->
                 <button type="button" id="add-track-btn" class="btn btn-outline-secondary mt-3">Add Another Track</button>
