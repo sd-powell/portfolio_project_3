@@ -30,7 +30,10 @@ CAMELOT_KEYS = [
     ('12A', '12A - Db Minor'), ('12B', '12B - E Major'),
 ]
 
-DEFAULT_COVER_URL = "https://res.cloudinary.com/dfavq8q6t/image/upload/v1747928584/default-cover_ffbxw4.webp"
+DEFAULT_COVER_URL = (
+    "https://res.cloudinary.com/dfavq8q6t/image/upload/"
+    "v1747928584/default-cover_ffbxw4.webp"
+)
 
 
 # Create your models here.
@@ -42,9 +45,12 @@ class Record(models.Model):
     musical key (Camelot notation), cover image, and personal rating.
     Each record is linked to a user and timestamps are recorded for
     creation and last modification.
-    
-    A boolean field indicates if the record is a staff pick for
-    homepage display.
+
+    A boolean field indicates if the record is a staff pick
+    for homepage display.
+
+    Automatically generates a URL-friendly slug from the title and artist.
+    If no cover image is uploaded, a default image is assigned on save.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -73,7 +79,7 @@ class Record(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
-    
+
     is_staff_pick = models.BooleanField(
         default=False,
         help_text="Tick to feature this record on the homepage as a staff pick"
