@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <h2 class="mb-3 text-danger">
+                <i class="fa-solid fa-circle-exclamation me-2"></i> Confirm Deletion
+            </h2>
+
+            <p>Are you sure you want to delete <strong>{{ record.title }}</strong> by <strong>{{ record.artist }}</strong> from your collection?</p>
+
+            {% if record.cover_image %}
+                <img src="{{ record.cover_image.url }}" alt="{{ record.title }} cover" class="img-thumbnail my-3" style="width: 150px; height: 150px; object-fit: cover;">
+            {% endif %}
+
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <div class="d-flex gap-3">
+                    <a href="{% url 'record_detail' record.slug %}" class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa-solid fa-trash me-2"></i> Yes, Delete
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
