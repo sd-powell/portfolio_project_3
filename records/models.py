@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
 # Genre choices
@@ -75,6 +76,13 @@ class Record(models.Model):
         default=False,
         help_text="Tick to feature this record on the homepage as a staff pick"
     )
+
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(f"{self.title}-{self.artist}")
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ["title"]
