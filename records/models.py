@@ -77,7 +77,7 @@ class Record(models.Model):
         help_text="Tick to feature this record on the homepage as a staff pick"
     )
 
-    slug = models.SlugField(unique=True, max_length=255, blank=True)
+    slug = models.SlugField(blank=True, max_length=255, unique=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
