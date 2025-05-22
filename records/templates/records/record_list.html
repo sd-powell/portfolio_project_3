@@ -55,7 +55,7 @@
 
         <div class="row g-4">
             {% for record in recently_added %}
-                <div class="col-4 col-sm-4">
+                <div class="col-6 col-md-4">
                     <div class="text-start">
                         {% if record.cover_image %}
                             <img src="{{ record.cover_image.url }}"
@@ -79,7 +79,7 @@
             {% endfor %}
 
             <!-- Quick Add Tile -->
-            <div class="col-4 col-sm-4">
+            <div class="col-6 col-md-4">
                 <a href="{% url 'record_create' %}" class="text-center text-decoration-none">
                     <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3"
                         style="width: 100%; max-width: 320px; aspect-ratio: 1/1; border: 2px dashed #ccc;">
