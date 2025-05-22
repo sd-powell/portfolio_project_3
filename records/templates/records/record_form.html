@@ -31,9 +31,11 @@
                 <div id="formset-container">
                     {{ formset.management_form }}
                     {% for track_form in formset %}
-                        <div class="track-form mb-3">
+                        <div class="track-form mb-3 position-relative">
                             <div class="card p-3">
                                 {{ track_form|crispy }}
+                                <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
+                                        aria-label="Remove track"></button>
                             </div>
                         </div>
                     {% endfor %}
@@ -41,9 +43,11 @@
 
                 <!-- Hidden empty form template to clone -->
                 <div id="empty-form-template" class="d-none">
-                    <div class="track-form mb-3">
+                    <div class="track-form mb-3 position-relative">
                         <div class="card p-3">
                             {{ formset.empty_form|crispy }}
+                            <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
+                                    aria-label="Remove track"></button>
                         </div>
                     </div>
                 </div>
