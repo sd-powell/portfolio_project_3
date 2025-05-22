@@ -163,7 +163,7 @@ TrackFormSet = inlineformset_factory(
     form=TrackForm,
     fields=['title', 'position', 'duration', 'bpm', 'key'],
     extra=1,
-    can_delete=True
+    can_delete=False
 )
 
 
