@@ -75,18 +75,19 @@
             {% empty %}
                 <p>No recent records added yet.</p>
             {% endfor %}
+
+            <!-- Quick Add Tile -->
+            <div class="col-4 col-sm-4">
+                <a href="{% url 'record_create' %}" class="text-center text-decoration-none">
+                    <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded"
+                        style="width: 100%; max-width: 320px; aspect-ratio: 1/1; border: 2px dashed #ccc;">
+                        <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
+                        <p class="text-muted mb-0">Add Record</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </section>
-
-    <!-- Add Record Placeholder -->
-    <div class="d-flex justify-content-center">
-        <a href="{% url 'record_create' %}" class="d-block bg-secondary rounded position-relative"
-            style="width: 320px; height: 320px; text-decoration: none;">
-            <span class="text-white fs-1 position-absolute top-50 start-50 translate-middle">+</span>
-        </a>
-    </div>
-
 </div>
-
 {% endblock %}
