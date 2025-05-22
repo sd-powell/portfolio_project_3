@@ -6,13 +6,19 @@
 <div class="container my-5">
     <div class="card shadow-sm rounded">
         <div class="card-body p-4">
-            <h2 class="card-title mb-4">
-                {% if form.instance.pk %}
-                    Edit Record
-                {% else %}
-                    Add a New Record
-                {% endif %}
-            </h2>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="card-title mb-0">
+                    {% if form.instance.pk %}
+                        Edit Record
+                    {% else %}
+                        Add a New Record
+                    {% endif %}
+                </h2>
+                <!-- Back to Dashboard Link -->
+                <a href="{% url 'record_list' %}" class="btn btn-link text-decoration-none">
+                    <i class="fa-solid fa-circle-chevron-left me-2"></i>Back to Dashboard
+                </a>
+            </div>
 
             <!-- Record Form -->
             <form id="record-form" method="post" enctype="multipart/form-data">
