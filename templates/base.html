@@ -27,18 +27,19 @@
     <body>
         <!-- Toast Notification -->
         {% if messages %}
-        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-            {% for message in messages %}
-                <div class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                {% for message in messages %}
+                <div class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-bs-delay="4000" data-bs-autohide="true">
                     <div class="d-flex">
-                        <div class="toast-body">
-                            {{ message }}
-                        </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <div class="toast-body">
+                        {{ message }}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
         {% endif %}
 
         <!-- Navigation -->
@@ -162,5 +163,16 @@
         </script>
         <!-- Custom JS for track form -->
         <script src="{% static 'js/track_formset.js' %}"></script>
+        <!-- Custom JS for toast notifications -->
+        <script src="{% static 'js/toast.js' %}"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toastElements = document.querySelectorAll('.toast');
+            toastElements.forEach(function (toastEl) {
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+            });
+        });
+        </script>
     </body>
 </html>

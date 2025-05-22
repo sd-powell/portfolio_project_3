@@ -27,7 +27,13 @@
 
                 <!-- Track Formset -->
                 <hr class="my-4">
-                <h4 class="mb-3">Add Track</h4>
+                <h4 class="mb-3">
+                    {% if form.instance.pk %}
+                        Edit Tracks
+                    {% else %}
+                        Add Tracks
+                    {% endif %}
+                </h4>
                 <div id="formset-container">
                     {{ formset.management_form }}
                     {% for track_form in formset %}
