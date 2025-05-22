@@ -24,17 +24,18 @@
 
         <!-- Search Bar -->
         <form method="GET" action="{% url 'record_collection' %}" class="mt-4">
-            <div class="mb-3">
-                <label for="dashboardSearch" class="form-label visually-hidden">Search your collection</label>
+            <label for="dashboardSearch" class="form-label visually-hidden">Search your collection</label>
+            <div class="input-group input-group-lg">
                 <input 
                     type="text"
                     name="search"
-                    class="form-control form-control-lg"
+                    id="dashboardSearch"
+                    class="form-control"
                     placeholder="Search your collection by title or artist..."
                     aria-label="Search your collection by title or artist"
                     value="{{ request.GET.search }}">
+                <button type="submit" class="btn btn-primary">Search</button>
             </div>
-            <button type="submit" class="btn btn-primary">Search</button>
         </form>
     </div>
 
