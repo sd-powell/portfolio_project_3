@@ -61,5 +61,38 @@
                 </span>
             </div>
         </div>
+        
+    <!-- Track List -->
+    <div class="mt-5">
+        <h4 class="mb-3">Track Listing</h4>
+        {% if record.tracks.all %}
+            <div class="list-group">
+            {% for track in record.tracks.all %}
+                <div class="border-bottom py-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-semibold me-3">{{ track.position }}</span>
+                        <span>{{ track.title }}</span>
+                        </div>
+                        <div class="text-muted">
+                            {{ track.duration }}
+                        </div>
+                    </div>
+
+                    <!-- Optional BPM / Key line -->
+                    {% if track.bpm or track.key %}
+                        <div class="text-muted small ps-5 mt-1 text-start">
+                            {% if track.bpm %}{{ track.bpm }} BPM{% endif %}
+                            {% if track.bpm and track.key %} • {% endif %}
+                            {% if track.key %}{{ track.key }}{% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">No tracks added yet.</p>
+        {% endif %}
     </div>
+</div>
 {% endblock %}
