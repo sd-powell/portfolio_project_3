@@ -47,6 +47,19 @@
                 <strong>Year:</strong> {{ record.year }}
             </div>
         </div>
-
+        <div class="col-md-4 mb-2">
+            <div class="bg-light border rounded p-3 h-100">
+                <strong>Rating:</strong>
+                <span class="text-warning">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= record.rating %}
+                            <i class="fa-solid fa-star"></i>
+                        {% else %}
+                            <i class="fa-regular fa-star"></i>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            </div>
+        </div>
     </div>
 {% endblock %}
