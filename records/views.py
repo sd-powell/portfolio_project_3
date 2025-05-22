@@ -38,19 +38,19 @@ def record_list(request):
 
 
 @login_required
-def record_detail(request, pk):
+def record_detail(request, slug):
     """
     Display the details of a single record owned by the logged-in user.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
-        pk (int): Primary key of the record to retrieve.
+        slug (str): The slug of the record to retrieve.
 
     Returns:
         HttpResponse: Rendered template with the record's details,
                       or 404 if not found or not owned by user.
     """
-    record = get_object_or_404(Record, pk=pk, user=request.user)
+    record = get_object_or_404(Record, slug=slug, user=request.user)
     return render(request, 'records/record_detail.html', {'record': record})
 
 
@@ -156,7 +156,10 @@ def record_collection(request):
 
     if search_query:
         records = records.filter(
-            Q(title__icontains=search_query) | Q(artist__icontains=search_query)
+            (
+                Q(title__icontains=search_query) | 
+                Q(artist__icontains=search_query)
+            )
         )
 
     if genre_filter:
@@ -171,7 +174,13 @@ def record_collection(request):
     # Get distinct values for dropdowns
     genres = GENRE_CHOICES
     ratings = RATING_CHOICES
-    artists = Record.objects.filter(user=request.user).values_list('artist', flat=True).distinct().order_by('artist')
+    artists = (
+        Record.objects
+        .filter(user=request.user)
+        .values_list('artist', flat=True)
+        .distinct()
+        .order_by('artist')
+    )
 
     return render(request, 'records/record_collection.html', {
         'records': records,
