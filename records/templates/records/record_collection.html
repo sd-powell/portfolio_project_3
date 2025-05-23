@@ -4,11 +4,15 @@
 
 {% block content %}
 <div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold mb-0">Your Record Collection</h2>
-        <a href="{% url 'record_list' %}" class="btn btn-link text-decoration-none">
-            <i class="fa-solid fa-circle-chevron-left me-2"></i>Back
+    <div class="position-relative mb-4">
+        <!-- Back Button -->
+        <a href="{% url 'record_list' %}"
+        class="btn btn-link text-decoration-none position-absolute top-0 start-0"
+        style="z-index: 1;"
+        aria-label="Back to your dashboard">
+            <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
         </a>
+        <h2 class="fw-bold text-center">Your Crate</h2>
     </div>
 
     <!-- Search and Filters Row -->
