@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
+from django.forms import inlineformset_factory
+
 from .models import Record, Track, GENRE_CHOICES, RATING_CHOICES
 from .forms import RecordForm
-from django.forms import inlineformset_factory
 
 
 def index(request):
