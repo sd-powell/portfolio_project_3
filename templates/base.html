@@ -33,6 +33,7 @@
                     data-bs-delay="4000" data-bs-autohide="true">
                     <div class="d-flex">
                     <div class="toast-body">
+                        <h2 class="visually-hidden">Notification</h2>
                         {{ message }}
                     </div>
                     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -74,7 +75,12 @@
             </div>
         </nav>
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasMenu"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="offcanvasMenuLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
