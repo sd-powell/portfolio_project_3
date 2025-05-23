@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
-from .models import Record, GENRE_CHOICES, RATING_CHOICES
-from .forms import RecordForm, TrackFormSet
+from .models import Record, Track, GENRE_CHOICES, RATING_CHOICES
+from .forms import RecordForm
+from django.forms import inlineformset_factory
 
 
 def index(request):
@@ -57,12 +58,28 @@ def record_detail(request, slug):
 @login_required
 def record_create(request):
     """
-    Create a new record and associated tracks, save it to the database.
+    Handle the creation of a new record and its associated tracks.
+
+    This view displays a form for the user to input a new record's details
+    and any number of associated tracks. If the request method is POST and
+    both the record and track forms are valid,
+    the data is saved to the database.
+
+    The record is automatically linked to the currently logged-in user.
 
     Returns:
-        HttpResponse: Redirects to the record list if successful,
-                      or renders the form with errors if not.
+        HttpResponse:
+            - Redirects to the record list on successful creation.
+            - Renders the form again with validation errors otherwise.
     """
+    TrackFormSet = inlineformset_factory(
+        Record,
+        Track,
+        fields=('title', 'position', 'duration', 'bpm', 'key'),
+        extra=1,
+        can_delete=True
+    )
+
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES)
         formset = TrackFormSet(request.POST)
@@ -89,25 +106,45 @@ def record_create(request):
 @login_required
 def record_update(request, pk):
     """
-    Update an existing record owned by the
-    logged-in user and it's associated tracks.
+    Handle the update of an existing record and its associated tracks
+    for the logged-in user.
+
+    This view retrieves a record by its primary key (pk) and ensures it
+    belongs to the current user. It displays a form pre-filled with the
+    record’s existing data, along with an inline formset for editing
+    associated tracks.
+
+    If the request method is POST and both the record form and formset
+    are valid, the updated data is saved to the database.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
-        pk (int): Primary key of the record to update.
+        pk (int): The primary key of the record to be updated.
 
     Returns:
-        HttpResponse: Redirects to the record list if successful,
-                      or renders the form with errors if not.
+        HttpResponse:
+            - Redirects to the record list on successful update.
+            - Renders the edit form with validation errors otherwise.
     """
     record = get_object_or_404(Record, pk=pk, user=request.user)
+
+    TrackFormSet = inlineformset_factory(
+        Record,
+        Track,
+        fields=('title', 'position', 'duration', 'bpm', 'key'),
+        extra=0,
+        can_delete=True
+    )
+
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES, instance=record)
         formset = TrackFormSet(request.POST, instance=record)
         if form.is_valid() and formset.is_valid():
             form.save()
             formset.save()
-            messages.success(request, f"Record '{record.title}' updated successfully!")
+            messages.success(
+                request, f"Record '{record.title}' updated successfully!"
+                )
             return redirect('record_list')
     else:
         form = RecordForm(instance=record)
@@ -158,7 +195,7 @@ def record_collection(request):
     if search_query:
         records = records.filter(
             (
-                Q(title__icontains=search_query) | 
+                Q(title__icontains=search_query) |
                 Q(artist__icontains=search_query)
             )
         )
