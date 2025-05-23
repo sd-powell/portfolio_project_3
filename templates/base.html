@@ -44,66 +44,62 @@
         {% endif %}
 
         <!-- Navigation -->
-        <nav class="navbar navbar-light bg-light py-4">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
+        <nav class="navbar navbar-expand-md navbar-light bg-light py-3">
+            <div class="container-fluid">
 
-                <!-- Left: Burger icon that triggers offcanvas -->
-                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
-                    aria-controls="offcanvasMenu" aria-label="Toggle menu">
+                <!-- Logo -->
+                <a class="navbar-brand" href="{% url 'index' %}" aria-label="Vinyl Crate Home">
+                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 50px;">
+                </a>
+
+                <!-- Toggler for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Center: Logo -->
-                <a class="navbar-brand mx-auto position-absolute start-50 translate-middle-x" href="{% url 'index' %}" aria-label="Vinyl Crate Logo">
-                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 60px;">
-                </a>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'record_list' %}">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'record_collection' %}">My Crate</a>
+                            </li>
+                        {% endif %}
+                    </ul>
 
-                <!-- Right: User icon with username or register link -->
-                <div class="d-flex align-items-center">
-                    {% if user.is_authenticated %}
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle d-flex align-items-center" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="me-2 d-none d-md-inline">{{ user.first_name|default:user.username }}</span>
-                                <i class="fa-solid fa-circle-user fa-xl"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="{% url 'record_list' %}">Dashboard</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
-                            </ul>
-                        </div>
-                    {% else %}
-                        <a href="{% url 'account_signup' %}" class="nav-link d-flex align-items-center">
-                            <span class="me-2 text-primary fw-semibold d-none d-md-inline">Register</span>
-                            <i class="fa-solid fa-circle-user fa-xl me-1"></i>
-                        </a>
-                    {% endif %}
+                    <!-- Right side user auth section -->
+                    <ul class="navbar-nav ms-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-circle-user me-2"></i> {{ user.first_name|default:user.username }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'record_list' %}">Dashboard</a></li>
+                                    <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_login' %}">
+                                    <i class="fa-solid fa-right-to-bracket me-1"></i> Login
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_signup' %}">
+                                    <i class="fa-solid fa-user-plus me-1"></i> Register
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
         </nav>
-
-        <div class="offcanvas offcanvas-start"
-            tabindex="-1"
-            id="offcanvasMenu"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="offcanvasMenuLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'record_list' %}">My Records</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
-                    {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
 
         {% block content %}
         <!-- Child templates inject here -->
