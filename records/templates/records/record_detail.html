@@ -16,10 +16,10 @@
     "></div>
 
     <!-- Back Button in Hero -->
-    <a href="{% url 'record_list' %}"
+    <a href="{{ previous_url|default:'#' }}"
         class="btn btn-link text-white position-absolute top-0 start-0 m-3 text-decoration-none"
         style="z-index: 2;"
-        aria-label="Back to your dashboard">
+        aria-label="Back to previous page">
         <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
     </a>
 
