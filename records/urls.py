@@ -1,8 +1,12 @@
 """
 URL configuration for the records app.
 
-Maps record-related views to URLs for listing, creating, updating,
-viewing, and deleting vinyl records.
+Defines URL patterns for user interactions with vinyl records, including:
+- Homepage with staff picks
+- Viewing and managing the user's record list
+- Filtering the collection view
+- Adding, editing, and deleting records
+- Viewing detailed information for a specific record
 """
 
 from django.urls import path
