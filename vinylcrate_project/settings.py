@@ -10,14 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
 import os
 import sys
-import dj_database_url
+from pathlib import Path
+
+import environ
+
 from django.urls import reverse_lazy
 
-if os.path.isfile('env.py'):
-    import env
+if os.path.isfile("env.py"):
+    import env as local_env  # noqa: F401
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()  # Reads .env file automatically
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,14 +33,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ['.herokuapp.com',
-                 '127.0.0.1']
-
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 # Application definition
 
@@ -109,7 +113,7 @@ WSGI_APPLICATION = "vinylcrate_project.wsgi.application"
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": env.db()
 }
 
 if 'test' in sys.argv:
@@ -173,7 +177,10 @@ STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = env(
+    "DEFAULT_FILE_STORAGE",
+    default="cloudinary_storage.storage.MediaCloudinaryStorage"
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
