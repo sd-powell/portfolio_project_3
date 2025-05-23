@@ -9,10 +9,15 @@ from django.forms import inlineformset_factory
 
 def index(request):
     """
-    Display the homepage with a selection of staff-picked records.
+    Display the public homepage featuring selected records.
+
+    Retrieves up to six records marked as staff picks to showcase
+    on the homepage. These are intended to highlight notable entries
+    from the full database, regardless of the logged-in user.
 
     Returns:
-        HttpResponse: Rendered homepage with staff picks if any exist (max 6).
+        HttpResponse: Rendered homepage template with a
+        list of staff-picked records.
     """
     staff_picks = Record.objects.filter(is_staff_pick=True)[:6]
     return render(request, 'records/index.html', {'staff_picks': staff_picks})
@@ -21,10 +26,15 @@ def index(request):
 @login_required
 def record_list(request):
     """
-    Display a list of records owned by the logged-in user.
+    Display the main dashboard view for the logged-in user's record collection.
+
+    Fetches all records belonging to the user and passes them to the template,
+    along with the six most recently added records to highlight
+    recent activity.
 
     Returns:
-    HttpResponse: Rendered template showing a list of the user's records.
+        HttpResponse: Rendered dashboard template with the full list of records
+        and a separate context variable for the recently added ones.
     """
     records = Record.objects.filter(user=request.user)
     recently_added = (
