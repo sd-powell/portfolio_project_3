@@ -6,25 +6,29 @@
     <!-- Welcome Box -->
     <div class="bg-light rounded p-4 mb-4 shadow-sm">
         <h1 class="fw-bold">Welcome Back, {{ user.first_name|default:user.username }}</h1>
-        <p class="text-muted">You have {{ records.count }} records in your collection.</p>
+        <p class="text-muted">You have {{ records.count }} records in your crate.</p>
 
         <!-- Action Boxes -->
         <div class="row g-3 mt-3">
             <div class="col-12 col-md-6 mb-3 mb-md-0">
-                <a href="{% url 'record_collection' %}" class="btn btn-outline-primary w-100 py-3 rounded">
-                    <i class="fa-solid fa-layer-group me-2"></i> View Collection
+                <a href="{% url 'record_collection' %}"
+                    class="btn btn-outline-primary w-100 py-3 rounded"
+                    aria-label="View your full record collection">
+                    <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
                 </a>
             </div>
             <div class="col-12 col-md-6 mb-3 mb-md-0">
-                <a href="{% url 'record_create' %}" class="btn btn-primary w-100 py-3 rounded">
-                    <i class="fa-solid fa-record-vinyl me-2"></i> Add Record
+                <a href="{% url 'record_create' %}"
+                class="btn btn-primary w-100 py-3 rounded"
+                aria-label="Add a new record to your collection">
+                    <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
                 </a>
             </div>
         </div>
 
         <!-- Search Bar -->
         <form method="GET" action="{% url 'record_collection' %}" class="mt-4">
-            <label for="dashboardSearch" class="form-label visually-hidden">Search your collection</label>
+            <label for="dashboardSearch" class="form-label visually-hidden">Search your crate</label>
             <div class="input-group input-group-lg">
                 <span class="input-group-text bg-white border-end-0">
                     <i class="fa fa-search text-muted"></i>
@@ -43,15 +47,17 @@
     </div>
 
 <!-- Recently Added Section -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="recently-added-heading">
     <div class="container">
         <div class="row justify-content-between align-items-center mb-4">
             <div class="col-auto">
-                <h2 class="fw-bold mb-0">Recently Added</h2>
+                <h2 id="recently-added-heading" class="fw-bold mb-0">Recently Added</h2>
             </div>
             <div class="col-auto">
-                <a href="{% url 'record_collection' %}" class="text-decoration-none text-primary fw-semibold">
-                    View All <i class="fa-solid fa-circle-chevron-right"></i>
+                <a href="{% url 'record_collection' %}"
+                class="text-decoration-none text-primary fw-semibold"
+                aria-label="View all records in your collection">
+                    View All <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -87,7 +93,9 @@
 
             <!-- Quick Add Tile -->
             <div class="col-6 col-md-4">
-                <a href="{% url 'record_create' %}" class="text-center text-decoration-none">
+                <a href="{% url 'record_create' %}"
+                class="text-center text-decoration-none"
+                aria-label="Add a new record">
                     <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3"
                         style="width: 100%; max-width: 320px; aspect-ratio: 1/1; border: 2px dashed #ccc;">
                         <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
