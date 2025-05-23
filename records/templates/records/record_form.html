@@ -6,18 +6,20 @@
 <div class="container my-5">
     <div class="card shadow-sm rounded">
         <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="card-title mb-0">
+            <div class="position-relative mb-4">
+                <a href="{% url 'record_list' %}"
+                class="btn btn-link text-decoration-none position-absolute top-0 start-0"
+                style="z-index: 1;"
+                aria-label="Back to your dashboard">
+                    <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
+                </a>
+                <h2 class="card-title text-center mb-0">
                     {% if form.instance.pk %}
                         Edit Record
                     {% else %}
                         Add a New Record
                     {% endif %}
                 </h2>
-                <!-- Back to Dashboard Link -->
-                <a href="{% url 'record_list' %}" class="btn btn-link text-decoration-none">
-                    <i class="fa-solid fa-circle-chevron-left me-2"></i>Back
-                </a>
             </div>
 
             <!-- Record Form -->
