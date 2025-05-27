@@ -25,3 +25,13 @@ class TrackFormTests(TestCase):
         """
         form = TrackForm(data=self.valid_data)
         self.assertTrue(form.is_valid())
+
+    def test_track_form_missing_title(self):
+        """
+        Test that the form is invalid if the title is missing.
+        """
+        data = self.valid_data.copy()
+        data['title'] = ''
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors)
