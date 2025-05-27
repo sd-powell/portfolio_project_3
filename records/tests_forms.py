@@ -25,3 +25,14 @@ class RecordFormTests(TestCase):
         """
         form = RecordForm(data=self.valid_data)
         self.assertTrue(form.is_valid())
+
+    def test_record_form_missing_required_fields(self):
+        """
+        Form should be invalid if required fields like title or artist are missing.
+        Year is optional based on model settings.
+        """
+        form = RecordForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors)
+        self.assertIn('artist', form.errors)
+
