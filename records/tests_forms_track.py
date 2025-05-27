@@ -35,3 +35,13 @@ class TrackFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('title', form.errors)
+        
+    def test_track_form_invalid_bpm_type(self):
+        """
+        Test that the form is invalid if BPM is not a number.
+        """
+        data = self.valid_data.copy()
+        data['bpm'] = 'fast'
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('bpm', form.errors)
