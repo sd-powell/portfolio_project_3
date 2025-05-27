@@ -15,8 +15,8 @@ class RecordFormTests(TestCase):
             'title': 'Discovery',
             'artist': 'Daft Punk',
             'year': 2001,
-            'genre': GENRE_CHOICES[1][0],  # Use first valid genre
-            'rating': RATING_CHOICES[1][0],  # Use first valid rating
+            'genre': GENRE_CHOICES[1][0],
+            'rating': RATING_CHOICES[1][0],
         }
 
     def test_record_form_valid(self):
