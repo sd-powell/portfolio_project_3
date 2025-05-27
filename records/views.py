@@ -30,11 +30,13 @@ def record_list(request):
     """
     Display the main dashboard view for the logged-in user's record collection.
 
-    - If the user has records, show all their records and the six most recently added.
-    - If the user has no records, also pass a 'staff_picks' queryset for onboarding content.
-    
-    Staff picks are selected records marked by admins or curators to help new users
-    discover and add to their crate.
+    - If the user has records, show all their records and
+    the six most recently added.
+    - If the user has no records, also pass a 'staff_picks'
+    queryset for onboarding content.
+
+    Staff picks are selected records marked by admins or
+    curators to help new users discover and add to their crate.
 
     Returns:
         HttpResponse: Rendered dashboard template with:
