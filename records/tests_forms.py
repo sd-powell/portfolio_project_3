@@ -15,8 +15,8 @@ class RecordFormTests(TestCase):
             'title': 'Discovery',
             'artist': 'Daft Punk',
             'year': 2001,
-            'genre': 'House',
-            'rating': 5,
+            'genre': GENRE_CHOICES[1][0],  # Use first valid genre
+            'rating': RATING_CHOICES[1][0],  # Use first valid rating
         }
 
     def test_record_form_valid(self):
@@ -65,5 +65,18 @@ class RecordFormTests(TestCase):
             data = self.valid_data.copy()
             data['year'] = year
             form = RecordForm(data=data)
-            self.assertTrue(form.is_valid(), f"Form should be valid with year {year}")
+            msg = f"Form should be valid with year {year}"
+            self.assertTrue(form.is_valid(), msg)
 
+    def test_record_form_with_cover_image(self):
+        """
+        Form should accept a minimal valid image file upload.
+        """
+        image_mock = SimpleUploadedFile(
+            name='cover.gif',
+            content=b'\x47\x49\x46\x38\x39\x61',  # Minimal valid GIF binary
+            content_type='image/gif'
+        )
+        data = self.valid_data.copy()
+        form = RecordForm(data=data, files={'cover_image': image_mock})
+        self.assertTrue(form.is_valid())
