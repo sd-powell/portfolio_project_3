@@ -36,3 +36,13 @@ class RecordFormTests(TestCase):
         self.assertIn('title', form.errors)
         self.assertIn('artist', form.errors)
 
+    def test_record_form_invalid_year(self):
+        """
+        Form should be invalid if the year is non-numeric.
+        """
+        data = self.valid_data.copy()
+        data['year'] = 'not_a_year'
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('year', form.errors)
+
