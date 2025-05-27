@@ -30,24 +30,30 @@ def record_list(request):
     """
     Display the main dashboard view for the logged-in user's record collection.
 
-    Fetches all records belonging to the user and passes them to the template,
-    along with the six most recently added records to highlight
-    recent activity.
+    - If the user has records, show all their records and the six most recently added.
+    - If the user has no records, also pass a 'staff_picks' queryset for onboarding content.
+    
+    Staff picks are selected records marked by admins or curators to help new users
+    discover and add to their crate.
 
     Returns:
-        HttpResponse: Rendered dashboard template with the full list of records
-        and a separate context variable for the recently added ones.
+        HttpResponse: Rendered dashboard template with:
+            - records: All user-owned records
+            - recently_added: Latest six records added by the user
+            - staff_picks (optional): Highlighted records for new users
     """
     records = Record.objects.filter(user=request.user)
-    recently_added = (
-        Record.objects
-        .filter(user=request.user)
-        .order_by('-created_on')
-    )[:6]
-    return render(request, 'records/record_list.html', {
+    recently_added = records.order_by('-created_on')[:6]
+
+    context = {
         'records': records,
         'recently_added': recently_added,
-    })
+    }
+
+    if not records.exists():
+        context['staff_picks'] = Record.objects.filter(is_staff_pick=True)[:6]
+
+    return render(request, 'records/record_list.html', context)
 
 
 @login_required
