@@ -46,3 +46,13 @@ class RecordFormTests(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('year', form.errors)
 
+    def test_record_form_invalid_rating_choice(self):
+        """
+        Form should be invalid if rating is not in defined choices.
+        """
+        data = self.valid_data.copy()
+        data['rating'] = 10  # Not in RATING_CHOICES
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('rating', form.errors)
+        
