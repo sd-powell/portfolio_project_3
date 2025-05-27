@@ -55,3 +55,13 @@ class TrackFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('bpm', form.errors)
+        
+    def test_track_form_bpm_too_high(self):
+        """
+        Test that the form is invalid if BPM is above the maximum (1000).
+        """
+        data = self.valid_data.copy()
+        data['bpm'] = 2000
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('bpm', form.errors)
