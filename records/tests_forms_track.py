@@ -45,3 +45,13 @@ class TrackFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('bpm', form.errors)
+        
+    def test_track_form_bpm_too_low(self):
+        """
+        Test that the form is invalid if BPM is below the minimum (24).
+        """
+        data = self.valid_data.copy()
+        data['bpm'] = 10
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('bpm', form.errors)
