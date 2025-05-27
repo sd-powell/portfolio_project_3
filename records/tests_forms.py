@@ -28,7 +28,8 @@ class RecordFormTests(TestCase):
 
     def test_record_form_missing_required_fields(self):
         """
-        Form should be invalid if required fields like title or artist are missing.
+        Form should be invalid if required fields
+        like title or artist are missing.
         Year is optional based on model settings.
         """
         form = RecordForm(data={})
@@ -55,4 +56,14 @@ class RecordFormTests(TestCase):
         form = RecordForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
-        
+
+    def test_record_form_year_boundaries(self):
+        """
+        Form should be valid for boundary years if they match allowed range.
+        """
+        for year in [1000, 9999]:
+            data = self.valid_data.copy()
+            data['year'] = year
+            form = RecordForm(data=data)
+            self.assertTrue(form.is_valid(), f"Form should be valid with year {year}")
+
