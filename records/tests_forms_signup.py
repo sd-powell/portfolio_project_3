@@ -35,3 +35,14 @@ class CustomSignupFormTests(TestCase):
 
         self.assertEqual(user.first_name, 'Test')
         self.assertEqual(user.last_name, 'User')
+        
+        
+    def test_form_valid_without_names(self):
+        """
+        Test that form is still valid if first_name and last_name are left blank.
+        """
+        data = self.valid_data.copy()
+        data['first_name'] = ''
+        data['last_name'] = ''
+        form = CustomSignupForm(data=data)
+        self.assertTrue(form.is_valid())
