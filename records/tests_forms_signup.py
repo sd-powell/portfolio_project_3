@@ -1,6 +1,4 @@
 from django.test import TestCase, Client
-from django.contrib.auth.models import User
-from allauth.account.forms import SignupForm
 from records.forms import CustomSignupForm
 
 
@@ -56,3 +54,11 @@ class CustomSignupFormTests(TestCase):
         form = CustomSignupForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('password2', form.errors)
+
+    def test_form_fields_present(self):
+        """
+        Test that the form includes first_name and last_name fields.
+        """
+        form = CustomSignupForm()
+        self.assertIn('first_name', form.fields)
+        self.assertIn('last_name', form.fields)
