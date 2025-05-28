@@ -30,19 +30,29 @@ class CustomSignupFormTests(TestCase):
 
         form = CustomSignupForm(data=self.valid_data)
         self.assertTrue(form.is_valid(), form.errors)
-        
+
         user = form.save(request)
 
         self.assertEqual(user.first_name, 'Test')
         self.assertEqual(user.last_name, 'User')
-        
-        
+
     def test_form_valid_without_names(self):
         """
-        Test that form is still valid if first_name and last_name are left blank.
+        Test that form is still valid if first_name and last_name
+        are left blank.
         """
         data = self.valid_data.copy()
         data['first_name'] = ''
         data['last_name'] = ''
         form = CustomSignupForm(data=data)
         self.assertTrue(form.is_valid())
+
+    def test_form_invalid_password_mismatch(self):
+        """
+        Test that the form is invalid if passwords do not match.
+        """
+        data = self.valid_data.copy()
+        data['password2'] = 'differentpassword'
+        form = CustomSignupForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('password2', form.errors)
