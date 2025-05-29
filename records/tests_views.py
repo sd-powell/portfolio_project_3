@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
-from records.models import Record, Track, GENRE_CHOICES
+from records.models import Record, GENRE_CHOICES
 
 
 class RecordViewsTests(TestCase):
@@ -183,3 +183,11 @@ class RecordUpdateViewTests(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Please enter the title of the record.')
+
+    def test_record_update_permission_denied(self):
+        """
+        Test that another user cannot update someone else's record.
+        """
+        self.client.login(username='user2', password='pass')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 404)
