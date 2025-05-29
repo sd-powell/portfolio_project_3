@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from records.models import Record
+from records.models import Record, GENRE_CHOICES
 
 
 class RecordViewsTests(TestCase):
@@ -22,7 +22,7 @@ class RecordViewsTests(TestCase):
         self.record = Record.objects.create(
             title='Test Album',
             artist='Test Artist',
-            genre='Disco',
+            genre=GENRE_CHOICES[1][0],
             year=2000,
             rating=5,
             user=self.user
@@ -71,7 +71,7 @@ class RecordViewsTests(TestCase):
         post_data = {
             'title': 'New Album',
             'artist': 'New Artist',
-            'genre': 'Disco',
+            'genre': GENRE_CHOICES[1][0],
             'year': 2022,
             'rating': 4,
             'tracks-TOTAL_FORMS': 1,
@@ -92,3 +92,17 @@ class RecordViewsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         response = self.client.post(reverse('record_delete', args=[self.record.pk]))
         self.assertRedirects(response, reverse('record_list'))
+        
+    def test_record_collection_filters(self):
+        """
+        Test record_collection view with various GET filters.
+        Should load records matching search criteria.
+        """
+        response = self.client.get(reverse('record_collection'), {
+            'search': 'Test',
+            'genre': GENRE_CHOICES[2][0],
+            'artist': 'Test Artist',
+            'rating': 5,
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('records', response.context)
