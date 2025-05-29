@@ -21,6 +21,26 @@ def form_control_input(placeholder):
     })
 
 
+def form_control_number(placeholder, min_val=None, max_val=None):
+    """
+    Generate a styled NumberInput widget with optional min and max values.
+
+    Args:
+        placeholder (str): Placeholder text for the input field.
+        min_val (int, optional): Minimum value allowed.
+        max_val (int, optional): Maximum value allowed.
+
+    Returns:
+        NumberInput: Styled Django NumberInput widget.
+    """
+    attrs = {'class': 'form-control', 'placeholder': placeholder}
+    if min_val is not None:
+        attrs['min'] = min_val
+    if max_val is not None:
+        attrs['max'] = max_val
+    return forms.NumberInput(attrs=attrs)
+
+
 # --- Forms ---
 class RecordForm(forms.ModelForm):
     """
