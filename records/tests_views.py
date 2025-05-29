@@ -53,8 +53,32 @@ class RecordViewsTests(TestCase):
 
     def test_record_detail_view(self):
         """
-        Test that the record_detail view loads correctly for an existing record.
+        Test that the record_detail view loads correctly
+        for an existing record.
         """
         response = self.client.get(reverse('record_detail', args=[self.record.slug]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/record_detail.html')
+
+    def test_record_create_view_get_and_post(self):
+        """
+        Test GET and POST requests for record_create view.
+        Valid POST should redirect on success.
+        """
+        response = self.client.get(reverse('record_create'))
+        self.assertEqual(response.status_code, 200)
+
+        post_data = {
+            'title': 'New Album',
+            'artist': 'New Artist',
+            'genre': 'Disco',
+            'year': 2022,
+            'rating': 4,
+            'tracks-TOTAL_FORMS': 1,
+            'tracks-INITIAL_FORMS': 0,
+            'tracks-MIN_NUM_FORMS': 0,
+            'tracks-MAX_NUM_FORMS': 1000,
+            'tracks-0-title': 'Intro',
+        }
+        response = self.client.post(reverse('record_create'), post_data)
+        self.assertEqual(response.status_code, 302)
