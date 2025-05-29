@@ -3,4 +3,4 @@ env.py
 
 # Coverage reports
 .coverage
-htmlcov/
+htmlcov/db.sqlite3
