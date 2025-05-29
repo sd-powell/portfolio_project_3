@@ -39,7 +39,6 @@ DEFAULT_COVER_URL = (
 )
 
 
-# Create your models here.
 class Record(models.Model):
     """
     A model representing a single vinyl record in a user's collection.

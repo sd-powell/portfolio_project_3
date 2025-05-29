@@ -4,6 +4,24 @@ from allauth.account.forms import SignupForm
 from .models import Record, Track
 
 
+# --- Form Helper Functions ---
+def form_control_input(placeholder):
+    """
+    Generate a styled TextInput widget with Bootstrap 'form-control' class.
+
+    Args:
+        placeholder (str): Placeholder text to display inside the input field.
+
+    Returns:
+        TextInput: A Django TextInput widget instance with custom styling.
+    """
+    return forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': placeholder
+    })
+
+
+# --- Forms ---
 class RecordForm(forms.ModelForm):
     """
     Form for users to create and edit
