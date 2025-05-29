@@ -50,3 +50,11 @@ class RecordViewsTests(TestCase):
         self.record.delete()
         response = self.client.get(reverse('record_list'))
         self.assertIn('staff_picks', response.context)
+
+    def test_record_detail_view(self):
+        """
+        Test that the record_detail view loads correctly for an existing record.
+        """
+        response = self.client.get(reverse('record_detail', args=[self.record.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'records/record_detail.html')
