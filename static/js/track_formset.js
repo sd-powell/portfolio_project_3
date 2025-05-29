@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tempDiv.innerHTML = newFormHtml;
             const newForm = tempDiv.firstElementChild;
 
-            container.appendChild(tempDiv);
+            container.appendChild(newForm);
             totalForms.value = formCount + 1;
 
             updateRemoveButtons(); // reattach listeners for all
