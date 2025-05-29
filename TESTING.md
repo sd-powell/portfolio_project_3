@@ -52,32 +52,36 @@ Automated testing was a critical part of the development process for **Vinyl Cra
 The automated test suite was planned and executed to cover the following key areas:
 
 #### Models
-- Record and Track models
-- Field definitions, validation constraints, and foreign key relationships
-- Custom admin-related methods like cover_thumb
+- **Record** and **Track** models
+- Field definitions, validation constraints, default values, and foreign key relationships
+- Basic model creation with valid and invalid data
 
 #### Forms
-- RecordForm, TrackForm, and CustomSignupForm
-- Required field validation, widget rendering, and error messages
-- Edge cases, such as invalid field types and min/max values
+- **RecordForm**, **TrackForm**, and **CustomSignupForm**
+- Required field validation, custom error messages, widget rendering
+- Optional vs required fields behaviour (e.g. blank BPM or musical key)
+- Edge cases, such as rating and BPM outside allowed range, or invalid year input
 
 #### Views
-- Coverage of all views including:
-    - index, record_list, record_detail
-    - record_create, record_update, record_delete
-    - record_collection and custom_404_view
-- GET and POST requests tested
-- Authentication requirements and redirect behaviour
-- Context data and template rendering
+- Coverage of all major views:
+  - `index`, `record_list`, `record_detail`
+  - `record_create`, `record_update`, `record_delete`
+  - `record_collection`, and `custom_404_view`
+- GET and POST requests tested using `client.get()` and `client.post()`
+- Authentication requirements enforced and verified
+- Context data verified (e.g. record queryset, staff picks, filter options)
+- Template rendering assertions using `assertTemplateUsed`
 
 #### Admin
-- cover_thumb() logic tested directly via a unit test
-- Ensures admin displays are handled gracefully even when image files are missing
+- `cover_thumb()` logic tested explicitly
+- Ensures graceful fallback for records with missing or broken images
+- Admin display robustness validated separately from frontend logic
 
 #### User Flow
-- Simulated signup flow using CustomSignupForm
-- Verifying that first and last names are saved correctly
-- Testing form validity with and without optional fields
+- Simulated signup flow using `CustomSignupForm`
+- Verifies correct storage of first and last name fields
+- Checks that optional fields do not block signup
+- Error handling for missing username or password mismatches
 
 #### Tools Used
 
@@ -86,28 +90,32 @@ The automated test suite was planned and executed to cover the following key are
 | Django TestCase | Core unit and integration test framework |
 | Client() | Simulates authenticated and anonymous users |
 | coverage.py | Measures line and branch coverage |
-| htmlcov/ | Visual review of uncovered lines |
+| htmlcov/ | Visual review of missed lines and test quality |
 
 #### Test Files
 
 | File Name | Contents | 
 | ---- | ------- |
-| tests_forms.py | RecordForm validation and field behaviour |
-| tests_forms_track.py | TrackForm edge cases and optional field logic |
-| tests_forms_signup.py | CustomSignupForm behaviour and save logic |
-| tests_views.py | Comprehensive coverage of all views (GET, POST, context) |
-| tests_admin.py | Admin-specific logic for image thumbnail display |
+| tests_forms.py | RecordForm validation and required field logic |
+| tests_forms_track.py | TrackForm validation, optional fields, and data types |
+| tests_forms_signup.py | Signup logic and first/last name persistence |
+| tests_views.py | All key views covered including CRUD and 404 |
+| tests_admin.py | Admin thumbnail image rendering logic |
 
 #### Coverage
 
-Testing was monitored using coverage.py and all critical logic was covered. Where certain Django admin display methods were difficult to hit through normal use, explicit tests were written to trigger them directly and close coverage gaps.
+Testing was monitored using `coverage.py`, and line-by-line analysis was conducted to identify and address gaps. Areas typically hard to reach (like admin methods or error branches) were tested explicitly. Coverage reached a high level, with all business-critical logic tested and documented.
 
 #### Edge Cases Covered
-- Submitting forms with missing or invalid data
-- Submitting rating or BPM values outside allowed ranges
-- Viewing pages as unauthenticated users (and being redirected)
-- Filtering and searching combinations in record_collection
-- Attempting to update or delete non-existent or unauthorized records
-- Handling missing cover images in admin display
+- Submitting forms with missing, invalid, or out-of-range data
+- Submitting a record with no title (invalid)
+- Filtering/searching records with multiple query params
+- Authenticated vs unauthenticated access (e.g. attempting to view a record without login)
+- Trying to update/delete records not owned by the user
+- Rendering views with no records (empty states and onboarding)
+- Handling missing or corrupted image files in the admin interface
+- Custom 404 handling with missing templates and bad URLs
 
-This automated test suite ensures that Vinyl Crate is robust, secure, and ready for real-world use. It also gave confidence to iterate quickly during development without breaking existing features.
+### Summary
+
+This comprehensive automated test suite ensures that Vinyl Crate is robust, secure, and scalable. It gave confidence to iterate rapidly, knowing that regressions would be caught early in development.
