@@ -30,6 +30,9 @@ CAMELOT_KEYS = [
     ('12A', '12A - Db Minor'), ('12B', '12B - E Major'),
 ]
 
+YEAR_VALIDATORS = [MinValueValidator(1000), MaxValueValidator(9999)]
+BPM_VALIDATORS = [MinValueValidator(24), MaxValueValidator(1000)]
+
 DEFAULT_COVER_URL = (
     "https://res.cloudinary.com/dfavq8q6t/image/upload/"
     "v1747928584/default-cover_ffbxw4.webp"
@@ -58,10 +61,7 @@ class Record(models.Model):
     year = models.PositiveIntegerField(
         blank=True,
         null=True,
-        validators=[
-            MinValueValidator(1000),
-            MaxValueValidator(9999)
-        ],
+        validators=YEAR_VALIDATORS,
         help_text="Enter a 4-digit year (e.g. 1982)"
     )
     genre = models.CharField(
@@ -127,10 +127,7 @@ class Track(models.Model):
     bpm = models.PositiveIntegerField(
         blank=True,
         null=True,
-        validators=[
-            MinValueValidator(24),
-            MaxValueValidator(1000)
-        ],
+        validators=BPM_VALIDATORS,
         help_text="Enter BPM between 24 and 1000"
     )
     key = models.CharField(
