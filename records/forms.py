@@ -41,6 +41,26 @@ def form_control_number(placeholder, min_val=None, max_val=None):
     return forms.NumberInput(attrs=attrs)
 
 
+def form_control_select():
+    """
+    Generate a styled Select widget with Bootstrap 'form-control' class.
+
+    Returns:
+        Select: Styled Django Select widget.
+    """
+    return forms.Select(attrs={'class': 'form-control'})
+
+
+def form_control_file():
+    """
+    Generate a styled ClearableFileInput widget for file uploads.
+
+    Returns:
+        ClearableFileInput: Styled file input widget.
+    """
+    return forms.ClearableFileInput(attrs={'class': 'form-control'})
+
+
 # --- Forms ---
 class RecordForm(forms.ModelForm):
     """
