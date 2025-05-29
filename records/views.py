@@ -21,6 +21,14 @@ def get_staff_picks(limit=6):
     """
     return Record.objects.filter(is_staff_pick=True)[:limit]
 
+def get_track_formset(extra):
+    return inlineformset_factory(
+        Record,
+        Track,
+        fields=('title', 'position', 'duration', 'bpm', 'key'),
+        extra=extra,
+        can_delete=True
+    )
 
 def index(request):
     """
@@ -109,13 +117,7 @@ def record_create(request):
             - Redirects to the record list on successful creation.
             - Renders the form again with validation errors otherwise.
     """
-    TrackFormSet = inlineformset_factory(
-        Record,
-        Track,
-        fields=('title', 'position', 'duration', 'bpm', 'key'),
-        extra=1,
-        can_delete=True
-    )
+    TrackFormSet = get_track_formset(extra=1)
 
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES)
@@ -164,14 +166,7 @@ def record_update(request, pk):
             - Renders the edit form with validation errors otherwise.
     """
     record = get_object_or_404(Record, pk=pk, user=request.user)
-
-    TrackFormSet = inlineformset_factory(
-        Record,
-        Track,
-        fields=('title', 'position', 'duration', 'bpm', 'key'),
-        extra=0,
-        can_delete=True
-    )
+    TrackFormSet = get_track_formset(extra=0)
 
     if request.method == 'POST':
         form = RecordForm(request.POST, request.FILES, instance=record)
