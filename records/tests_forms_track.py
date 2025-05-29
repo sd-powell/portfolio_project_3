@@ -19,49 +19,34 @@ class TrackFormTests(TestCase):
             'key': CAMELOT_KEYS[1][0],
         }
 
+    def assert_invalid_field(self, field, value):
+        """
+        Helper to assert that setting a specific field to a given value
+        causes a validation error in the TrackForm.
+        """
+        data = self.valid_data.copy()
+        data[field] = value
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn(field, form.errors)
+
     def test_track_form_valid_data(self):
-        """
-        Test that the form is valid with correct input data.
-        """
+        """Test that the form is valid with correct input data."""
         form = TrackForm(data=self.valid_data)
         self.assertTrue(form.is_valid())
 
     def test_track_form_missing_title(self):
-        """
-        Test that the form is invalid if the title is missing.
-        """
-        data = self.valid_data.copy()
-        data['title'] = ''
-        form = TrackForm(data=data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('title', form.errors)
+        """Test that the form is invalid if the title is missing."""
+        self.assert_invalid_field('title', '')
 
     def test_track_form_invalid_bpm_type(self):
-        """
-        Test that the form is invalid if BPM is not a number.
-        """
-        data = self.valid_data.copy()
-        data['bpm'] = 'fast'
-        form = TrackForm(data=data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('bpm', form.errors)
+        """Test that non-numeric BPM causes a validation error."""
+        self.assert_invalid_field('bpm', 'fast')
 
     def test_track_form_bpm_too_low(self):
-        """
-        Test that the form is invalid if BPM is below the minimum (24).
-        """
-        data = self.valid_data.copy()
-        data['bpm'] = 10
-        form = TrackForm(data=data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('bpm', form.errors)
+        """Test that a BPM below the allowed range is rejected."""
+        self.assert_invalid_field('bpm', 10)
 
     def test_track_form_bpm_too_high(self):
-        """
-        Test that the form is invalid if BPM is above the maximum (1000).
-        """
-        data = self.valid_data.copy()
-        data['bpm'] = 2000
-        form = TrackForm(data=data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('bpm', form.errors)
+        """Test that a BPM above the allowed range is rejected."""
+        self.assert_invalid_field('bpm', 2000)
