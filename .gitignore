@@ -1,2 +1,6 @@
 .venv
 env.py
+
+# Coverage reports
+.coverage
+htmlcov/
