@@ -56,7 +56,8 @@ class RecordViewsTests(TestCase):
         Test that the record_detail view loads correctly
         for an existing record.
         """
-        response = self.client.get(reverse('record_detail', args=[self.record.slug]))
+        url = reverse('record_detail', args=[self.record.slug])
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/record_detail.html')
 
@@ -88,11 +89,13 @@ class RecordViewsTests(TestCase):
         Test that record_delete view shows confirmation on GET
         and deletes record on POST.
         """
-        response = self.client.get(reverse('record_delete', args=[self.record.pk]))
+        url = reverse('record_delete', args=[self.record.pk])
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        response = self.client.post(reverse('record_delete', args=[self.record.pk]))
+        url = reverse('record_delete', args=[self.record.pk])
+        response = self.client.post(url)
         self.assertRedirects(response, reverse('record_list'))
-        
+
     def test_record_collection_filters(self):
         """
         Test record_collection view with various GET filters.
@@ -106,3 +109,10 @@ class RecordViewsTests(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertIn('records', response.context)
+
+    def test_custom_404_handler(self):
+        """
+        Test that a non-existent URL triggers the custom 404 handler.
+        """
+        response = self.client.get('/nonexistent-url/')
+        self.assertEqual(response.status_code, 404)
