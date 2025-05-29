@@ -35,3 +35,16 @@ class RecordViewsTests(TestCase):
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/index.html')
+        
+    def test_record_list_with_and_without_records(self):
+        """
+        Test that record_list view loads user records and includes staff_picks if no records exist.
+        """
+        response = self.client.get(reverse('record_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('records', response.context)
+
+        # Remove user records to trigger staff picks
+        self.record.delete()
+        response = self.client.get(reverse('record_list'))
+        self.assertIn('staff_picks', response.context)
