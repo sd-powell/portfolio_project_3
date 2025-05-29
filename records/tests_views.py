@@ -82,3 +82,13 @@ class RecordViewsTests(TestCase):
         }
         response = self.client.post(reverse('record_create'), post_data)
         self.assertEqual(response.status_code, 302)
+
+    def test_record_delete_get_and_post(self):
+        """
+        Test that record_delete view shows confirmation on GET
+        and deletes record on POST.
+        """
+        response = self.client.get(reverse('record_delete', args=[self.record.pk]))
+        self.assertEqual(response.status_code, 200)
+        response = self.client.post(reverse('record_delete', args=[self.record.pk]))
+        self.assertRedirects(response, reverse('record_list'))
