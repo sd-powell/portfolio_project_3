@@ -43,4 +43,71 @@ To ensure the site was **responsive and accessible across devices**, all views a
 
 <a id=automated-testing></a>
 
-## AUTOMATED TESTING
+## Automated Testing
+
+Automated testing was a critical part of the development process for **Vinyl Crate**, ensuring that key components of the application worked reliably across various user scenarios. The testing suite was designed to cover **models, forms, views, and admin methods** using Django’s built-in [TestCase](https://docs.djangoproject.com/en/4.1/topics/testing/overview/) framework, supported by [coverage](https://pypi.org/project/coverage/) for reporting.
+
+### Scope of Automated Testing
+
+The automated test suite was planned and executed to cover the following key areas:
+
+#### Models
+- Record and Track models
+- Field definitions, validation constraints, and foreign key relationships
+- Custom admin-related methods like cover_thumb
+
+#### Forms
+- RecordForm, TrackForm, and CustomSignupForm
+- Required field validation, widget rendering, and error messages
+- Edge cases, such as invalid field types and min/max values
+
+#### Views
+- Coverage of all views including:
+    - index, record_list, record_detail
+    - record_create, record_update, record_delete
+    - record_collection and custom_404_view
+- GET and POST requests tested
+- Authentication requirements and redirect behaviour
+- Context data and template rendering
+
+#### Admin
+- cover_thumb() logic tested directly via a unit test
+- Ensures admin displays are handled gracefully even when image files are missing
+
+#### User Flow
+- Simulated signup flow using CustomSignupForm
+- Verifying that first and last names are saved correctly
+- Testing form validity with and without optional fields
+
+#### Tools Used
+
+| Tool | Purpose |
+| ---- | ------- |
+| Django TestCase | Core unit and integration test framework |
+| Client() | Simulates authenticated and anonymous users |
+| coverage.py | Measures line and branch coverage |
+| htmlcov/ | Visual review of uncovered lines |
+
+#### Test Files
+
+| File Name | Contents | 
+| ---- | ------- |
+| tests_forms.py | RecordForm validation and field behaviour |
+| tests_forms_track.py | TrackForm edge cases and optional field logic |
+| tests_forms_signup.py | CustomSignupForm behaviour and save logic |
+| tests_views.py | Comprehensive coverage of all views (GET, POST, context) |
+| tests_admin.py | Admin-specific logic for image thumbnail display |
+
+#### Coverage
+
+Testing was monitored using coverage.py and all critical logic was covered. Where certain Django admin display methods were difficult to hit through normal use, explicit tests were written to trigger them directly and close coverage gaps.
+
+#### Edge Cases Covered
+- Submitting forms with missing or invalid data
+- Submitting rating or BPM values outside allowed ranges
+- Viewing pages as unauthenticated users (and being redirected)
+- Filtering and searching combinations in record_collection
+- Attempting to update or delete non-existent or unauthorized records
+- Handling missing cover images in admin display
+
+This automated test suite ensures that Vinyl Crate is robust, secure, and ready for real-world use. It also gave confidence to iterate quickly during development without breaking existing features.

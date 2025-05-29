@@ -30,15 +30,17 @@ class RecordViewsTests(TestCase):
 
     def test_index_view(self):
         """
-        Test that the index view loads successfully and uses the correct template.
+        Test that the index view loads successfully and uses
+        the correct template.
         """
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/index.html')
-        
+
     def test_record_list_with_and_without_records(self):
         """
-        Test that record_list view loads user records and includes staff_picks if no records exist.
+        Test that record_list view loads user records and includes
+        staff_picks if no records exist.
         """
         response = self.client.get(reverse('record_list'))
         self.assertEqual(response.status_code, 200)
