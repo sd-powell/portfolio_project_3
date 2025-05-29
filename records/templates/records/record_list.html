@@ -12,39 +12,19 @@
         <div class="row g-3 mt-3">
             <div class="col-12 col-md-6 mb-3 mb-md-0">
                 <a href="{% url 'record_collection' %}"
-                    class="btn btn-outline-primary w-100 py-3 rounded"
+                    class="btn btn-ios-outline w-100 py-3 rounded"
                     aria-label="View your full record collection">
                     <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
                 </a>
             </div>
             <div class="col-12 col-md-6 mb-3 mb-md-0">
                 <a href="{% url 'record_create' %}"
-                class="btn btn-primary w-100 py-3 rounded"
+                class="btn btn-ios-primary w-100 py-3 rounded"
                 aria-label="Add a new record to your collection">
                     <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
                 </a>
             </div>
         </div>
-
-        <!-- Search Bar -->
-        <form method="GET" action="{% url 'record_collection' %}" class="mt-4">
-            <label for="dashboardSearch" class="form-label visually-hidden">Search your crate</label>
-            <div class="input-group input-group-lg">
-                <span class="input-group-text bg-white border-end-0">
-                    <i class="fa fa-search text-muted"></i>
-                </span>
-                <input 
-                    type="text"
-                    name="search"
-                    id="dashboardSearch"
-                    class="form-control"
-                    placeholder="Search collection..."
-                    aria-label="Search your collection by title or artist"
-                    value="{{ request.GET.search }}">
-                <button type="submit" class="btn btn-primary" aria-label="Search your record crate">Search</button>
-            </div>
-        </form>
-    </div>
 
     {% if records.count > 0 %}
     <!-- Recently Added Section -->

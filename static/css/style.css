@@ -1,7 +1,39 @@
+/************ Google Fonts import ************/
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/************ CSS Variables ************/
+:root {
+      --highlight-blue: #40798c;
+
+    /************ Typography ************/
+    --primary-font: "DM Sans", sans-serif;
+    --secondary-font: "Raleway", sans-serif;
+}
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/************ Typography ************/
+h1, h2 {
+  font-family: var(--secondary-font);
+  font-weight: 700;
+}
+
+p {
+  font-family: var(--primary-font);
+  font-weight: 500;
+}
+
 .navbar-toggler:focus {
     outline: none;
     box-shadow: none;
 }
+
+/************ Record Cards ************/
 
 .record-cover-img {
     width: 100%;
@@ -30,18 +62,7 @@
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 .quick-add-tile:hover {
-    border-color: #0d6efd;
+    border-color: #40798c;
     background-color: #f8f9fa;
 }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s ease-out forwards;
-}
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
