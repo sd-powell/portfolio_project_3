@@ -1,7 +1,7 @@
-from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from records.models import Record, GENRE_CHOICES
+from django.test import TestCase, Client
+from records.models import Record, Track, GENRE_CHOICES
 
 
 class RecordViewsTests(TestCase):
@@ -116,3 +116,34 @@ class RecordViewsTests(TestCase):
         """
         response = self.client.get('/nonexistent-url/')
         self.assertEqual(response.status_code, 404)
+
+
+class RecordUpdateViewTests(TestCase):
+    """
+    Tests for the record_update view, ensuring users can update
+    their own records and that permissions, form validation,
+    and redirects function correctly.
+    """
+
+    def setUp(self):
+        self.user = User.objects.create_user(username='user1', password='pass')
+        self.other_user = User.objects.create_user(username='user2', password='pass')
+        self.record = Record.objects.create(
+            title="Original Title",
+            artist="Original Artist",
+            year=1999,
+            genre=GENRE_CHOICES[3][0],
+            rating=3,
+            user=self.user,
+        )
+        self.url = reverse('record_update', args=[self.record.pk])
+
+    def test_record_update_get(self):
+        """
+        Test that the update view loads correctly for the record owner (GET).
+        """
+        self.client.login(username='user1', password='pass')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'records/record_form.html')
+        self.assertContains(response, "Original Title")
