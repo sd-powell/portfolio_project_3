@@ -21,6 +21,7 @@ def get_staff_picks(limit=6):
     """
     return Record.objects.filter(is_staff_pick=True)[:limit]
 
+
 def get_track_formset(extra):
     return inlineformset_factory(
         Record,
@@ -29,6 +30,14 @@ def get_track_formset(extra):
         extra=extra,
         can_delete=True
     )
+
+
+def render_record_form(request, form, formset):
+    return render(request, 'records/record_form.html', {
+        'form': form,
+        'formset': formset,
+    })
+
 
 def index(request):
     """
@@ -136,10 +145,7 @@ def record_create(request):
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
-    return render(request, 'records/record_form.html', {
-        'form': form,
-        'formset': formset,
-    })
+    return render_record_form(request, form, formset)
 
 
 @login_required
@@ -181,10 +187,7 @@ def record_update(request, pk):
     else:
         form = RecordForm(instance=record)
         formset = TrackFormSet(instance=record)
-    return render(request, 'records/record_form.html', {
-        'form': form,
-        'formset': formset,
-    })
+    return render_record_form(request, form, formset)
 
 
 @login_required
