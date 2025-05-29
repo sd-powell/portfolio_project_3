@@ -1,13 +1,13 @@
 /************ Google Fonts import ************/
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /************ CSS Variables ************/
 :root {
       --highlight-blue: #40798c;
 
     /************ Typography ************/
-    --primary-font: "DM Sans", sans-serif;
-    --secondary-font: "Raleway", sans-serif;
+    --primary-font: "Lato", sans-serif;
+    --secondary-font: "Montserrat", sans-serif;
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -20,7 +20,7 @@
 /************ Typography ************/
 h1, h2 {
   font-family: var(--secondary-font);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 p {
@@ -66,3 +66,77 @@ p {
     background-color: #f8f9fa;
 }
 
+/************ Buttons ************/
+
+/* iOS-Inspired Primary Button */
+.btn-ios-primary {
+    background: linear-gradient(to bottom, #5aa2b5, #40798c);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+.btn-ios-primary:hover,
+.btn-ios-primary:focus {
+    background: linear-gradient(to bottom, #40798c, #305f6d);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* iOS-Inspired Outline Button */
+.btn-ios-outline {
+    background-color: white;
+    color: #40798c;
+    border: 2px solid #40798c;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+.btn-ios-outline:hover,
+.btn-ios-outline:focus {
+    background-color: #e8f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
+}
+
+/************ Footer ************/
+
+.footer {
+  background-color: #f8f9fa;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer__content {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__socials a i {
+  color: #40798c;
+  transition: color 0.3s ease;
+}
+
+.footer__socials a i:hover {
+  color: #2b5e6b;
+}
+
+.footer__links {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer__links a {
+  color: #6c757d;
+}
+
+.footer__links a:hover {
+  color: #40798c;
+}
