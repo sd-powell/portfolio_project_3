@@ -166,3 +166,20 @@ class RecordUpdateViewTests(TestCase):
         self.record.refresh_from_db()
         self.assertEqual(self.record.title, 'Updated Title')
         self.assertEqual(self.record.rating, 5)
+
+    def test_record_update_post_invalid(self):
+        """
+        Test that an invalid POST (missing title) returns errors.
+        """
+        self.client.login(username='user1', password='pass')
+        response = self.client.post(self.url, {
+            'title': '',
+            'artist': 'Updated Artist',
+            'year': 2001,
+            'genre': GENRE_CHOICES[4][0],
+            'rating': 5,
+            'tracks-TOTAL_FORMS': 0,
+            'tracks-INITIAL_FORMS': 0,
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Please enter the title of the record.')
