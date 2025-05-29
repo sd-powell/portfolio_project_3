@@ -116,30 +116,12 @@ class RecordForm(forms.ModelForm):
         }
 
         widgets = {
-            'title': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. Discovery'
-            }),
-            'artist': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. Daft Punk'
-            }),
-            'year': forms.NumberInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. 2001',
-                'min': 1000,
-                'max': 9999,
-            }),
-            'genre': forms.Select(attrs={
-                'class': 'form-control',
-            }),
-            'cover_image': forms.ClearableFileInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Upload cover image'
-            }),
-            'rating': forms.Select(attrs={
-                'class': 'form-control',
-            }),
+            'title': form_control_input('e.g. Discovery'),
+            'artist': form_control_input('e.g. Daft Punk'),
+            'year': form_control_number('e.g. 2001', 1000, 9999),
+            'genre': form_control_select(),
+            'cover_image': form_control_file(),
+            'rating': form_control_select(),
         }
 
 
@@ -192,29 +174,15 @@ class TrackForm(forms.ModelForm):
         }
 
         widgets = {
-            'title': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. Around The World'
-            }),
-            'position': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. A1'
-            }),
-            'duration': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. 4:32'
-            }),
-            'bpm': forms.NumberInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'e.g. 120'
-            }),
-            'key': forms.Select(attrs={
-                'class': 'form-control'
-            }),
+            'title': form_control_input('e.g. Around The World'),
+            'position': form_control_input('e.g. A1'),
+            'duration': form_control_input('e.g. 4:32'),
+            'bpm': form_control_number('e.g. 120'),
+            'key': form_control_select(),
         }
 
 
-# Define the inline formset for Track entries related to Record
+# --- Inline Formset ---
 TrackFormSet = inlineformset_factory(
     parent_model=Record,
     model=Track,
@@ -225,6 +193,7 @@ TrackFormSet = inlineformset_factory(
 )
 
 
+# --- Custom Signup ---
 class CustomSignupForm(SignupForm):
     """
     Custom signup form that adds first and last name fields
@@ -234,18 +203,14 @@ class CustomSignupForm(SignupForm):
         max_length=30,
         label='First Name',
         required=False,
-        widget=forms.TextInput(attrs={
-                'placeholder': 'First Name'
-            })
-        )
+        widget=form_control_input('First Name')
+    )
     last_name = forms.CharField(
         max_length=30,
         label='Last Name',
         required=False,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'Last Name'
-            })
-        )
+        widget=form_control_input('Last Name')
+    )
 
     def save(self, request):
         user = super().save(request)
