@@ -147,3 +147,22 @@ class RecordUpdateViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'records/record_form.html')
         self.assertContains(response, "Original Title")
+
+    def test_record_update_post_valid(self):
+        """
+        Test that a valid POST request updates the record.
+        """
+        self.client.login(username='user1', password='pass')
+        response = self.client.post(self.url, {
+            'title': 'Updated Title',
+            'artist': 'Updated Artist',
+            'year': 2001,
+            'genre': GENRE_CHOICES[3][0],
+            'rating': 5,
+            'tracks-TOTAL_FORMS': 0,
+            'tracks-INITIAL_FORMS': 0,
+        })
+        self.assertRedirects(response, reverse('record_list'))
+        self.record.refresh_from_db()
+        self.assertEqual(self.record.title, 'Updated Title')
+        self.assertEqual(self.record.rating, 5)
