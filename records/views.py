@@ -23,6 +23,15 @@ def get_staff_picks(limit=6):
 
 
 def get_track_formset(extra):
+    """
+    Create an inline formset for Track instances linked to a Record.
+
+    Args:
+        extra (int): Number of extra blank forms to display.
+
+    Returns:
+        InlineFormSet: The Track formset class.
+    """
     return inlineformset_factory(
         Record,
         Track,
@@ -33,6 +42,17 @@ def get_track_formset(extra):
 
 
 def render_record_form(request, form, formset):
+    """
+    Render the shared form template for record creation and update.
+
+    Args:
+        request (HttpRequest): The current request.
+        form (RecordForm): The main record form.
+        formset (BaseInlineFormSet): The formset for associated tracks.
+
+    Returns:
+        HttpResponse: Rendered form template.
+    """
     return render(request, 'records/record_form.html', {
         'form': form,
         'formset': formset,
