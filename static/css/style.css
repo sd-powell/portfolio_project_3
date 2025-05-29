@@ -2,3 +2,23 @@
     outline: none;
     box-shadow: none;
 }
+
+.record-cover-img {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.placeholder-cover {
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+}
+
+.quick-add-tile {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    border: 2px dashed #ccc;
+}

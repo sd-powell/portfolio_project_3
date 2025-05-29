@@ -73,11 +73,9 @@
                                 {% if record.cover_image %}
                                     <img src="{{ record.cover_image.url }}"
                                         alt="Cover of {{ record.title }} by {{ record.artist }}"
-                                        class="img-fluid rounded"
-                                        style="width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover;">
+                                        class="img-fluid rounded record-cover-img">
                                 {% else %}
-                                    <div class="bg-secondary rounded"
-                                        style="width: 100%; max-width: 320px; height: 320px;"></div>
+                                    <div class="bg-secondary rounded placeholder-cover"></div>
                                 {% endif %}
                                 <h5 class="mt-3 mb-1">
                                     {{ record.title|truncatechars:13 }}
@@ -95,8 +93,7 @@
                     <a href="{% url 'record_create' %}"
                     class="text-center text-decoration-none"
                     aria-label="Add a new record">
-                        <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3"
-                            style="width: 100%; max-width: 320px; aspect-ratio: 1/1; border: 2px dashed #ccc;">
+                        <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile">
                             <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
                             <p class="text-muted mb-0">Add Record</p>
                         </div>
@@ -107,7 +104,7 @@
     </section>
     {% else %}
     <!-- Add to Your Crate Section -->
-    <section class="py-5">
+    <div class="py-5">
         <h2 class="fw-bold mb-4">Add to Your Crate</h2>
         <div class="row g-4">
             <!-- Quick Add Tile -->
@@ -115,8 +112,7 @@
                 <a href="{% url 'record_create' %}"
                 class="text-center text-decoration-none"
                 aria-label="Add a new record">
-                    <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3"
-                        style="width: 100%; max-width: 320px; aspect-ratio: 1/1; border: 2px dashed #ccc;">
+                    <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile">
                         <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
                         <p class="text-muted mb-0">Add Record</p>
                     </div>
@@ -128,16 +124,14 @@
                     <h2 class="mb-4 fw-bold">Staff Picks</h2>
                     <div class="row g-4">
                         {% for record in staff_picks %}
-                            <div class="col-4 col-sm-4">
+                            <div class="col-6 col-md-4">
                                 <div class="text-start">
                                     {% if record.cover_image %}
                                         <img src="{{ record.cover_image.url }}"
                                             alt="{{ record.title }}"
-                                            class="img-fluid rounded"
-                                            style="width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover;">
+                                            class="img-fluid rounded record-cover-img">
                                     {% else %}
-                                        <div class="bg-secondary rounded"
-                                            style="width: 100%; max-width: 320px; height: 320px;"></div>
+                                        <div class="bg-secondary rounded placeholder-cover"></div>
                                     {% endif %}
                                     <h5 class="mt-3 mb-1">
                                         {{ record.title|truncatechars:13 }}
@@ -154,6 +148,6 @@
                 </div>
             </section>
         </div>
-    </section>
+    </div>
     {% endif %}
 {% endblock %}
