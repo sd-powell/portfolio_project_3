@@ -126,8 +126,9 @@ class RecordUpdateViewTests(TestCase):
     """
 
     def setUp(self):
-        self.user = User.objects.create_user(username='user1', password='pass')
-        self.other_user = User.objects.create_user(username='user2', password='pass')
+        u = User.objects
+        self.user = u.create_user(username='user1', password='pass')
+        self.other_user = u.create_user(username='user2', password='pass')
         self.record = Record.objects.create(
             title="Original Title",
             artist="Original Artist",

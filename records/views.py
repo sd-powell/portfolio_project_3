@@ -9,6 +9,19 @@ from .models import Record, Track, GENRE_CHOICES, RATING_CHOICES
 from .forms import RecordForm
 
 
+def get_staff_picks(limit=6):
+    """
+    Retrieve a queryset of staff-picked records, limited to a specified number.
+
+    Args:
+        limit (int): Maximum number of records to return.
+
+    Returns:
+        QuerySet: Staff-picked records.
+    """
+    return Record.objects.filter(is_staff_pick=True)[:limit]
+
+
 def index(request):
     """
     Display the public homepage featuring selected records.
@@ -53,7 +66,7 @@ def record_list(request):
     }
 
     if not records.exists():
-        context['staff_picks'] = Record.objects.filter(is_staff_pick=True)[:6]
+        context['staff_picks'] = get_staff_picks()
 
     return render(request, 'records/record_list.html', context)
 
