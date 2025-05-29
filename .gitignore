@@ -3,4 +3,7 @@ env.py
 
 # Coverage reports
 .coverage
-htmlcov/db.sqlite3
+htmlcov/
+
+# Ignore local database
+db.sqlite3
