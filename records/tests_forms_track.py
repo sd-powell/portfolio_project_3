@@ -35,7 +35,7 @@ class TrackFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('title', form.errors)
-        
+
     def test_track_form_invalid_bpm_type(self):
         """
         Test that the form is invalid if BPM is not a number.
@@ -45,7 +45,7 @@ class TrackFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('bpm', form.errors)
-        
+
     def test_track_form_bpm_too_low(self):
         """
         Test that the form is invalid if BPM is below the minimum (24).
@@ -55,7 +55,7 @@ class TrackFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('bpm', form.errors)
-        
+
     def test_track_form_bpm_too_high(self):
         """
         Test that the form is invalid if BPM is above the maximum (1000).
