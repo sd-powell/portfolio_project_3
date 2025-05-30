@@ -5,6 +5,7 @@
 :root {
       --highlight-blue: #40798c;
       --footer-charcoal: #333333;
+      --site-bg-grey: #efefef;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -16,6 +17,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+    background-color: var(--site-bg-grey);
 }
 
 /************ Typography ************/
