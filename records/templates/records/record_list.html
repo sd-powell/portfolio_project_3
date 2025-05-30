@@ -3,28 +3,32 @@
 
 {% block content %}
 <div class="container py-5">
-    <!-- Welcome Box -->
-    <div class="bg-light rounded p-4 mb-4 shadow-sm">
-        <h1 class="fw-bold">Welcome Back, {{ user.first_name|default:user.username }}</h1>
-        <p class="text-muted">You have {{ records.count }} records in your crate.</p>
 
-        <!-- Action Boxes -->
-        <div class="row g-3 mt-3">
-            <div class="col-12 col-md-6 mb-3 mb-md-0">
-                <a href="{% url 'record_collection' %}"
-                    class="btn btn-ios-outline w-100 py-3 rounded"
-                    aria-label="View your full record collection">
-                    <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
-                </a>
-            </div>
-            <div class="col-12 col-md-6 mb-3 mb-md-0">
-                <a href="{% url 'record_create' %}"
-                class="btn btn-ios-primary w-100 py-3 rounded"
-                aria-label="Add a new record to your collection">
-                    <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
-                </a>
+    <!-- Welcome & Actions Card -->
+    <section class="mb-5">
+        <div class="bg-white rounded p-4">
+            <h1 class="fw-bold">Welcome Back, {{ user.first_name|default:user.username }}</h1>
+            <p class="text-muted">You have {{ records.count }} records in your crate.</p>
+
+            <!-- Action Boxes -->
+            <div class="row g-3 mt-3">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <a href="{% url 'record_collection' %}"
+                       class="btn btn-ios-outline w-100 py-3 rounded"
+                       aria-label="View your full record collection">
+                        <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <a href="{% url 'record_create' %}"
+                       class="btn btn-ios-primary w-100 py-3 rounded"
+                       aria-label="Add a new record to your collection">
+                        <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
+                    </a>
+                </div>
             </div>
         </div>
+    </section>
 
     {% if records.count > 0 %}
     <!-- Recently Added Section -->
