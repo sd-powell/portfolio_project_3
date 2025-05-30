@@ -4,6 +4,7 @@
 /************ CSS Variables ************/
 :root {
       --highlight-blue: #40798c;
+      --footer-charcoal: #333333;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -115,38 +116,46 @@ p {
 
 /************ Footer ************/
 
-.footer {
-  background-color: #f8f9fa;
-  width: 100%;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+/* Clean vertical gradient footer */
+footer.footer {
+    background: linear-gradient(to bottom, #ffb633, #f7931e);
+    color: var(--footer-charcoal);
+    flex-shrink: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.footer__content {
-  flex-wrap: wrap;
-  gap: 1rem;
+/* Footer links and icons in white */
+.footer__links a,
+.footer__socials a {
+    color: var(--footer-charcoal);
 }
 
-.footer__socials a i {
-  color: #40798c;
-  transition: color 0.3s ease;
+.footer__links a:hover,
+.footer__socials a:hover {
+    color: #000 !important;
+    text-decoration: underline;
 }
 
-.footer__socials a i:hover {
-  color: #2b5e6b;
+/* Lighter horizontal line */
+.footer__links hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.footer__links {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+.footer__links p,
+.footer__links .text-muted {
+    color: var(--footer-charcoal);
 }
 
-.footer__links a {
-  color: #6c757d;
+/* Ensure footer sticks to bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.footer__links a:hover {
-  color: #40798c;
+main {
+    flex: 1;
 }
 
 /************ Media queries ************/
