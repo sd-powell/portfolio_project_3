@@ -66,6 +66,14 @@ p {
     background-color: #f8f9fa;
 }
 
+/* Responsive record card truncation */
+.card-title-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
 /************ Buttons ************/
 
 /* iOS-Inspired Primary Button */
@@ -141,6 +149,8 @@ p {
   color: #40798c;
 }
 
+/************ Media queries ************/
+
 /* Responsive aspect ratios */
 @media (max-width: 769px) {
   #homeCarousel {
@@ -153,6 +163,8 @@ p {
     aspect-ratio: 40 / 9;
   }
 }
+
+/************ Carousel ************/
 
 #homeCarousel {
   width: 100%;
