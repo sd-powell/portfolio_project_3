@@ -34,54 +34,56 @@
     <!-- Recently Added Section -->
     <section class="py-5" aria-labelledby="recently-added-heading">
         <div class="container">
-            <div class="row justify-content-between align-items-center mb-4">
-                <div class="col-auto">
-                    <h2 id="recently-added-heading" class="fw-bold mb-0">Recently Added</h2>
+            <div class="bg-white rounded p-4">
+                <div class="row justify-content-between align-items-center mb-4">
+                    <div class="col-auto">
+                        <h2 id="recently-added-heading" class="fw-bold mb-0">Recently Added</h2>
+                    </div>
+                    <div class="col-auto">
+                        <a href="{% url 'record_collection' %}"
+                        class="text-decoration-none text-primary fw-semibold"
+                        aria-label="View all records in your collection">
+                            View All <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <a href="{% url 'record_collection' %}"
-                    class="text-decoration-none text-primary fw-semibold"
-                    aria-label="View all records in your collection">
-                        View All <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
 
-            <div class="row g-4">
-                {% for record in recently_added %}
+                <div class="row g-4">
+                    {% for record in recently_added %}
+                        <div class="col-6 col-md-4">
+                            <a href="{% url 'record_detail' record.slug %}" 
+                                class="text-decoration-none text-dark"
+                                aria-label="View details for {{ record.title }} by {{ record.artist }}">
+                                <div class="text-start">
+                                    {% if record.cover_image %}
+                                        <img src="{{ record.cover_image.url }}"
+                                            alt="Cover of {{ record.title }} by {{ record.artist }}"
+                                            class="img-fluid rounded record-cover-img">
+                                    {% else %}
+                                        <div class="bg-secondary rounded placeholder-cover"></div>
+                                    {% endif %}
+                                    <h5 class="mt-3 mb-1 card-title-truncate">
+                                        {{ record.title }}
+                                    </h5>
+                                    <p class="text-muted mb-0 card-title-truncate">
+                                        {{ record.artist }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+
+                    <!-- Quick Add Tile -->
                     <div class="col-6 col-md-4">
-                        <a href="{% url 'record_detail' record.slug %}" 
-                            class="text-decoration-none text-dark"
-                            aria-label="View details for {{ record.title }} by {{ record.artist }}">
-                            <div class="text-start">
-                                {% if record.cover_image %}
-                                    <img src="{{ record.cover_image.url }}"
-                                        alt="Cover of {{ record.title }} by {{ record.artist }}"
-                                        class="img-fluid rounded record-cover-img">
-                                {% else %}
-                                    <div class="bg-secondary rounded placeholder-cover"></div>
-                                {% endif %}
-                                <h5 class="mt-3 mb-1 card-title-truncate">
-                                    {{ record.title }}
-                                </h5>
-                                <p class="text-muted mb-0 card-title-truncate">
-                                    {{ record.artist }}
-                                </p>
+                        <a href="{% url 'record_create' %}"
+                        class="text-center text-decoration-none"
+                        aria-label="Add a new record">
+                            <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile">
+                                <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
+                                <p class="text-muted mb-0">Add Record</p>
                             </div>
                         </a>
                     </div>
-                {% endfor %}
-
-                <!-- Quick Add Tile -->
-                <div class="col-6 col-md-4">
-                    <a href="{% url 'record_create' %}"
-                    class="text-center text-decoration-none"
-                    aria-label="Add a new record">
-                        <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile">
-                            <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
-                            <p class="text-muted mb-0">Add Record</p>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
