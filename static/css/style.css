@@ -140,3 +140,72 @@ p {
 .footer__links a:hover {
   color: #40798c;
 }
+
+/* Responsive aspect ratios */
+@media (max-width: 769px) {
+  #homeCarousel {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 770px) {
+  #homeCarousel {
+    aspect-ratio: 40 / 9;
+  }
+}
+
+#homeCarousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item picture {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Accessible CTA for screen readers */
+.visually-hidden-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 1rem 0;
+  overflow: visible;
+  clip: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
