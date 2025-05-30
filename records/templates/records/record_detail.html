@@ -105,18 +105,20 @@
 
     <!-- Record Action Buttons -->
     <div class="d-flex justify-content-end gap-3 mt-4">
-        <a href="{% url 'record_update' record.pk %}"
-            class="btn btn-outline-primary"
+        {% if user.is_authenticated and user == record.user %}
+            <a href="{% url 'record_update' record.pk %}"
+                class="btn btn-outline-primary"
+                role="button"
+                aria-label="Edit this record: {{ record.title }} by {{ record.artist }}">
+                <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i> Edit
+            </a>
+            <a href="{% url 'record_delete' record.pk %}"
+            class="btn btn-outline-danger"
             role="button"
-            aria-label="Edit this record: {{ record.title }} by {{ record.artist }}">
-            <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i> Edit
-        </a>
-        <a href="{% url 'record_delete' record.pk %}"
-        class="btn btn-outline-danger"
-        role="button"
-        aria-label="Delete this record: {{ record.title }} by {{ record.artist }}">
-            <i class="fa-solid fa-trash me-2" aria-hidden="true"></i> Remove from Collection
-        </a>
+            aria-label="Delete this record: {{ record.title }} by {{ record.artist }}">
+                <i class="fa-solid fa-trash me-2" aria-hidden="true"></i> Remove from Collection
+            </a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -121,7 +121,7 @@ def record_detail(request, slug):
         HttpResponse: Rendered template with the record's details,
                       or 404 if not found or not owned by user.
     """
-    record = get_object_or_404(Record, slug=slug, user=request.user)
+    record = get_object_or_404(Record, slug=slug)
     previous_url = request.META.get('HTTP_REFERER', reverse('record_list'))
     return render(request, 'records/record_detail.html', {
         'record': record,
