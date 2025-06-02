@@ -101,6 +101,90 @@ p {
   background-color: #e0e0e0;
 }
 
+/* Search bar wrapper for icon positioning */
+.search-bar-wrapper {
+  position: relative;
+}
+
+/* Search icon inside the input */
+.search-bar-wrapper .fa-search {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+/* Styled search input */
+.search-input {
+  padding-left: 2.5rem;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 999px;
+  height: 48px;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 999px;
+  height: 48px;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+}
+
+.search-btn {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 1.25rem;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  color: #000;
+}
+
+/* Filters styled like pills */
+.filter-pill {
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  appearance: none;
+}
+
+/* Maintain consistent button styling */
+.btn-neutral {
+  background-color: #efefef;
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-neutral:hover {
+  background-color: #e0e0e0;
+}
 
 /************ Record Cards ************/
 
