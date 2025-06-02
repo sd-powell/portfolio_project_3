@@ -108,63 +108,54 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer bg-light border-top py-4 mt-5">
-            <div class="container footer__content d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
-                <p class="mb-3 mb-md-0 fw-semibold">Join us on:</p>
-                    <div class="d-flex justify-content-center justify-content-md-start flex-wrap gap-4 footer__socials">
-
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"
-                        aria-label="Follow us on Instagram (opens in new tab)">
-                        <i class="fab fa-instagram fa-lg"></i>
-                    </a>
-
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"
-                        aria-label="Follow us on Facebook (opens in new tab)">
-                        <i class="fab fa-facebook-f fa-lg"></i>
-                    </a>
-
-                    <a href="https://www.x.com" target="_blank" rel="noopener" title="X"
-                        aria-label="Follow us on X (formerly Twitter) (opens in new tab)">
-                        <i class="fab fa-x-twitter fa-lg"></i>
-                    </a>
-
-                    <a href="https://www.youtube.com" target="_blank" rel="noopener" title="YouTube"
-                        aria-label="Follow us on YouTube (opens in new tab)">
-                        <i class="fab fa-youtube fa-lg"></i>
-                    </a>
-
-                    <a href="https://www.spotify.com" target="_blank" rel="noopener" title="Spotify"
-                        aria-label="Follow us on Spotify (opens in new tab)">
-                        <i class="fab fa-spotify fa-lg"></i>
-                    </a>
-
-                    <a href="https://soundcloud.com" target="_blank" rel="noopener" title="SoundCloud"
-                        aria-label="Follow us on SoundCloud (opens in new tab)">
-                        <i class="fab fa-soundcloud fa-lg"></i>
-                    </a>
-
+        <footer class="footer border-top py-4 mt-5">
+            <div class="container">
+                <!-- Socials Section -->
+                <div class="text-center mb-4">
+                    <p class="fw-semibold fs-4 mb-3">Join us on:</p>
+                    <div class="d-flex justify-content-center flex-wrap gap-4 fs-4">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"
+                            aria-label="Follow us on Instagram (opens in new tab)">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"
+                            aria-label="Follow us on Facebook (opens in new tab)">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.x.com" target="_blank" rel="noopener" title="X"
+                            aria-label="Follow us on X (formerly Twitter) (opens in new tab)">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" rel="noopener" title="YouTube"
+                            aria-label="Follow us on YouTube (opens in new tab)">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.spotify.com" target="_blank" rel="noopener" title="Spotify"
+                            aria-label="Follow us on Spotify (opens in new tab)">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                        <a href="https://soundcloud.com" target="_blank" rel="noopener" title="SoundCloud"
+                            aria-label="Follow us on SoundCloud (opens in new tab)">
+                            <i class="fab fa-soundcloud"></i>
+                        </a>
                     </div>
-            </div>
+                </div>
 
-            <!-- Quick Links -->
-
-            <div class="container text-center footer__links">
-                <hr class="my-4">
-                <div>
-                    <a href="{% url 'index' %}" class="text-decoration-none text-muted mx-2" aria-label="Return to the home page">Home</a> |
-                    <a href="{% url 'account_signup' %}" class="text-decoration-none text-muted mx-2">Register</a> |
-                    <a href="#" class="text-decoration-none text-muted mx-2">Contact</a> |
+                <!-- Quick Links -->
+                <div class="text-center fs-5 mb-4">
+                    <a href="{% url 'index' %}" class="text-decoration-none text-muted mx-2" aria-label="Return to the home page">Home</a>
+                    <a href="{% url 'account_signup' %}" class="text-decoration-none text-muted mx-2">Register</a>
+                    <a href="#" class="text-decoration-none text-muted mx-2">Contact</a>
                     <a href="#" class="text-decoration-none text-muted mx-2">Privacy</a>
                 </div>
 
-                <!-- Copyright -->
-                <p class="text-muted mb-2">© 2025 Steve Powell</p>
-
-                <!-- GitHub -->
-                <a href="https://github.com/sd-powell" target="_blank" rel="noopener" title="GitHub"
-                    aria-label="Visit my GitHub page (opens in new tab)">
-                    <i class="fab fa-github fa-lg text-dark me-2"></i> Visit my GitHub page
-                </a>
+                <!-- Bottom Bar -->
+                <div class="d-flex justify-content-between align-items-center flex-column flex-md-row text-muted small">
+                    <p class="mb-2 mb-md-0">&copy; 2025 Steve Powell</p>
+                    <a href="https://github.com/sd-powell" target="_blank" rel="noopener" class="text-muted">
+                        <i class="fab fa-github me-2"></i> Visit my GitHub
+                    </a>
+                </div>
             </div>
         </footer>
         

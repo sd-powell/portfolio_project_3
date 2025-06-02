@@ -184,46 +184,15 @@ p {
 
 /************ Footer ************/
 
-/* Clean vertical gradient footer */
-footer.footer {
-    background: linear-gradient(to bottom, #ffb633, #f7931e);
-    color: var(--footer-charcoal);
-    flex-shrink: 0;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.footer {
+  font-family: 'Inter', sans-serif;
 }
-
-/* Footer links and icons in white */
-.footer__links a,
-.footer__socials a {
-    color: var(--footer-charcoal);
+.footer a i {
+  transition: transform 0.3s ease;
+  color: var(--footer-charcoal);
 }
-
-.footer__links a:hover,
-.footer__socials a:hover {
-    color: #000 !important;
-    text-decoration: underline;
-}
-
-/* Lighter horizontal line */
-.footer__links hr {
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.footer__links p,
-.footer__links .text-muted {
-    color: var(--footer-charcoal);
-}
-
-/* Ensure footer sticks to bottom */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1;
+.footer i:hover {
+  transform: scale(1.2);
 }
 
 /************ Media queries ************/
