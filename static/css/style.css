@@ -4,6 +4,7 @@
 /************ CSS Variables ************/
 :root {
       --highlight-blue: #40798c;
+      --highlight-yellow: #ffb633;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
 
@@ -88,17 +89,6 @@ p {
 
 .welcome-banner-content p {
   font-size: 1.5rem;
-}
-
-.btn-neutral {
-  background-color: #efefef;
-  color: #000;
-  border: none;
-  transition: background-color 0.3s;
-}
-
-.btn-neutral:hover {
-  background-color: #e0e0e0;
 }
 
 /* Search bar wrapper for icon positioning */
@@ -187,11 +177,19 @@ p {
 }
 
 .btn-neutral:hover {
-  background-color: #e0e0e0;
+  background-color: var(--highlight-yellow);
 }
 
 .btn-neutral i {
   font-size: 1.25rem;
+}
+
+.text-highlight-blue {
+  color: var(--highlight-blue) !important;
+}
+
+.text-highlight-blue:hover {
+  color: #305f6d !important;
 }
 
 /************ Record Cards ************/
