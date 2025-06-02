@@ -4,86 +4,85 @@
 
 {% block content %}
 <div class="container py-5" role="main">
-    <div class="position-relative mb-4" aria-labelledby="crate-heading">
-        <!-- Back Button -->
-        <a href="{% url 'record_list' %}"
-        class="btn btn-link text-decoration-none position-absolute top-0 start-0"
-        style="z-index: 1;"
-        aria-label="Back to your dashboard">
-            <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
-        </a>
-        <h2 id="crate-heading" class="fw-bold text-center">Your Crate</h2>
+
+  <!-- Welcome Banner -->
+  <section class="mb-4">
+    <div class="p-0 overflow-hidden shadow-sm">
+      <div class="welcome-banner text-black">
+        <!-- Background Image via CSS -->
+        <div class="welcome-image-bg d-none d-md-block"></div>
+
+        <!-- Text Content -->
+        <div class="welcome-banner-content">
+          <h1 class="fw-bold">{{ user.first_name|default:user.username }}'s Crate</h1>
+          <p class="text-muted mb-0">
+            Search and filter the <strong>{{ records.count }}</strong> records in your crate
+          </p>
+        </div>
+      </div>
     </div>
 
-    <!-- Search and Filters Row -->
-    <form method="get" class="mb-4">
+    <!-- Filter & Search Card -->
+    <div class="bg-white p-4">
+      <form method="get">
         <!-- Search Bar -->
         <div class="mb-3">
-            <label for="search" class="form-label visually-hidden">Search</label>
-            <div class="input-group input-group-lg">
-                <span class="input-group-text bg-white border-end-0">
-                    <i class="fa fa-search text-muted" aria-hidden="true"></i>
-                </span>
-                <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    class="form-control border-start-0"
-                    placeholder="Search by album or artist..."
-                    aria-label="Search your record collection"
-                    value="{{ request.GET.search }}">
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary" aria-label="Submit search">
-                    Search
-                </button>
-            </div>
+          <label for="search" class="form-label visually-hidden">Search</label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="fa fa-search text-muted" aria-hidden="true"></i>
+            </span>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              class="form-control border-start-0"
+              placeholder="Search by album or artist..."
+              value="{{ request.GET.search }}"
+              aria-label="Search your record collection">
+            <button type="submit" class="btn btn-primary" aria-label="Submit search">Search</button>
+          </div>
         </div>
 
-        <!-- Filters row (genre, artist, rating) -->
+        <!-- Filters Row -->
         <div class="row g-3">
-            <!-- Genre Filter -->
-            <div class="col-md-4">
-                <label for="genre" class="form-label">Genre</label>
-                <select id="genre" name="genre" class="form-select">
-                    <option value="">All Genres</option>
-                    {% for value, label in genres %}
-                        <option value="{{ value }}" {% if request.GET.genre == value %}selected{% endif %}>{{ label }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <!-- Artist Filter -->
-            <div class="col-md-4">
-                <label for="artistFilter" class="form-label">Artist</label>
-                <select class="form-select" id="artistFilter" name="artist">
-                    <option value="">All Artists</option>
-                    {% for artist in artists %}
-                        <option value="{{ artist }}" {% if request.GET.artist == artist %}selected{% endif %}>
-                            {{ artist }}
-                        </option>
-                    {% endfor %}
-                </select>
-            </div>
-            
-            <!-- Rating Filter -->
-            <div class="col-md-4">
-                <label for="rating" class="form-label">Rating</label>
-                <select id="rating" name="rating" class="form-select">
-                    <option value="">All Ratings</option>
-                    {% for i in "12345" %}
-                        <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
-                    {% endfor %}
-                </select>
-            </div>
+          <div class="col-md-4">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" name="genre" class="form-select">
+              <option value="">All Genres</option>
+              {% for value, label in genres %}
+                <option value="{{ value }}" {% if request.GET.genre == value %}selected{% endif %}>{{ label }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="artistFilter" class="form-label">Artist</label>
+            <select id="artistFilter" name="artist" class="form-select">
+              <option value="">All Artists</option>
+              {% for artist in artists %}
+                <option value="{{ artist }}" {% if request.GET.artist == artist %}selected{% endif %}>{{ artist }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="rating" class="form-label">Rating</label>
+            <select id="rating" name="rating" class="form-select">
+              <option value="">All Ratings</option>
+              {% for i in "12345" %}
+                <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
+              {% endfor %}
+            </select>
+          </div>
         </div>
 
-        <!-- Submit & reset buttons -->
+        <!-- Filter Actions -->
         <div class="mt-3 d-flex gap-2">
-            <button type="submit" class="btn btn-primary">Apply Filters</button>
-            <a href="{% url 'record_collection' %}" class="btn btn-outline-secondary">Reset Filters</a>
+          <button type="submit" class="btn btn-primary">Apply Filters</button>
+          <a href="{% url 'record_collection' %}" class="btn btn-outline-secondary">Reset Filters</a>
         </div>
-    </form>
+      </form>
+    </div>
+  </section>
 
     <!-- Records Display -->
     <div class="mt-4">
