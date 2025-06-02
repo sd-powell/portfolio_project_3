@@ -41,8 +41,8 @@
         </div>
 
         <!-- Filters Row -->
-        <div class="row g-3">
-          <div class="col-md-4">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-3">
             <label for="genre" class="visually-hidden">Filter by Genre</label>
             <select id="genre" name="genre" class="form-select filter-pill">
               <option value="">All Genres</option>
@@ -51,7 +51,7 @@
               {% endfor %}
             </select>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label for="artistFilter" class="visually-hidden">Filter by Artist</label>
             <select id="artistFilter" name="artist" class="form-select filter-pill">
               <option value="">All Artists</option>
@@ -60,7 +60,7 @@
               {% endfor %}
             </select>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label for="rating" class="visually-hidden">Filter by Rating</label>
             <select id="rating" name="rating" class="form-select filter-pill">
               <option value="">All Ratings</option>
@@ -69,12 +69,10 @@
               {% endfor %}
             </select>
           </div>
-        </div>
-
-        <!-- Filter Actions -->
-        <div class="mt-3 d-flex gap-2">
-          <button type="submit" class="btn btn-neutral rounded-pill">Apply Filters</button>
-          <a href="{% url 'record_collection' %}" class="btn btn-neutral rounded-pill">Reset Filters</a>
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-neutral rounded-pill flex-fill">Apply</button>
+                <a href="{% url 'record_collection' %}" class="btn btn-neutral rounded-pill flex-fill">Reset</a>
+            </div>
         </div>
       </form>
     </div>
