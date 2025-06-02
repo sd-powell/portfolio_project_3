@@ -233,6 +233,12 @@ p {
   display: block;
 }
 
+.card.record-hover:hover {
+  background-color: var(--highlight-yellow);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
 /************ Buttons ************/
 
 /* iOS-Inspired Primary Button */
