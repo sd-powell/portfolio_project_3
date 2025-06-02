@@ -5,49 +5,51 @@
 <div class="container py-5">
 
     <!-- Welcome & Actions Card -->
-    <section class="mb-5">
-    <div class="bg-white rounded p-0 overflow-hidden shadow-sm">
-        <!-- Header Banner -->
-        <div class="welcome-banner position-relative px-4 py-5 text-black">
-        <!-- Background Image via CSS -->
-        <div class="welcome-image-bg d-none d-md-block"></div>
+    <section class="mb-4">
+        <div class="container">
+            <div class="bg-white rounded p-0 overflow-hidden shadow-sm">
+                <!-- Header Banner -->
+                <div class="welcome-banner position-relative px-4 py-5 text-black">
+                    <!-- Background Image via CSS -->
+                    <div class="welcome-image-bg d-none d-md-block"></div>
 
-        <!-- Text Content Positioned Right -->
-        <div class="welcome-banner-content">
-            <h1 class="fw-bold">Welcome Back, {{ user.first_name|default:user.username }}</h1>
-            <p class="text-muted mb-0">
-                You have <strong>{{ records.count }}</strong> records in your crate.
-            </p>
-        </div>
-        </div>
+                    <!-- Text Content Positioned Right -->
+                    <div class="welcome-banner-content">
+                        <h1 class="fw-bold">Welcome Back, {{ user.first_name|default:user.username }}</h1>
+                        <p class="text-muted mb-0">
+                            You have <strong>{{ records.count }}</strong> records in your crate.
+                        </p>
+                    </div>
+                </div>
 
-        <!-- Action Buttons -->
-        <div class="px-4 py-4 bg-white border-top">
-        <div class="row g-3">
-            <div class="col-12 col-md-6">
-            <a href="{% url 'record_collection' %}"
-                class="btn btn-neutral w-100 py-3 rounded-pill"
-                aria-label="View your full record collection">
-                <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
-            </a>
-            </div>
-            <div class="col-12 col-md-6">
-            <a href="{% url 'record_create' %}"
-                class="btn btn-neutral w-100 py-3 rounded-pill"
-                aria-label="Add a new record to your collection">
-                <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
-            </a>
+                <!-- Action Buttons -->
+                <div class="px-4 py-4 bg-white border-top">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <a href="{% url 'record_collection' %}"
+                                class="btn btn-neutral w-100 py-3 rounded-pill"
+                                aria-label="View your full record collection">
+                                <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="{% url 'record_create' %}"
+                                class="btn btn-neutral w-100 py-3 rounded-pill"
+                                aria-label="Add a new record to your collection">
+                                <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
     </section>
 
     {% if records.count > 0 %}
     <!-- Recently Added Section -->
-    <section class="py-5" aria-labelledby="recently-added-heading">
+    <section class="py-3" aria-labelledby="recently-added-heading">
         <div class="container">
-            <div class="bg-white rounded p-4">
+            <div class="bg-white rounded p-4 shadow-sm">
                 <div class="row justify-content-between align-items-center mb-4">
                     <div class="col-auto">
                         <h2 id="recently-added-heading" class="fw-bold mb-0">Recently Added</h2>
