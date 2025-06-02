@@ -27,16 +27,24 @@
                     <div class="row g-3">
                         <div class="col-12 col-md-6">
                             <a href="{% url 'record_collection' %}"
-                                class="btn btn-neutral w-100 py-3 rounded-pill"
+                                class="btn btn-neutral btn-action-lg w-100 rounded-pill d-flex align-items-center justify-content-between px-4 py-3"
                                 aria-label="View your full record collection">
-                                <i class="fa-solid fa-layer-group me-2" aria-hidden="true"></i> View Crate
+                                <span class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-layer-group fa-lg" aria-hidden="true"></i>
+                                    View Crate
+                                </span>
+                                <i class="fa-solid fa-circle-chevron-right fa-lg" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
                             <a href="{% url 'record_create' %}"
-                                class="btn btn-neutral w-100 py-3 rounded-pill"
+                                class="btn btn-neutral btn-action-lg w-100 rounded-pill d-flex align-items-center justify-content-between px-4 py-3"
                                 aria-label="Add a new record to your collection">
-                                <i class="fa-solid fa-record-vinyl me-2" aria-hidden="true"></i> Add Record
+                                <span class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-record-vinyl fa-lg" aria-hidden="true"></i>
+                                    Add Record
+                                </span>
+                                <i class="fa-solid fa-circle-chevron-right fa-lg" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>

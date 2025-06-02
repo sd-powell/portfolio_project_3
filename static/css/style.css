@@ -174,16 +174,24 @@ p {
 
 /* Maintain consistent button styling */
 .btn-neutral {
-  background-color: #efefef;
-  color: #000;
+  background-color: var(--site-bg-grey);
+  color: var(--footer-charcoal);
   border: none;
   padding: 0.6rem 1.5rem;
   font-weight: 600;
+  font-size: 1.1rem;
   transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-neutral:hover {
   background-color: #e0e0e0;
+}
+
+.btn-neutral i {
+  font-size: 1.25rem;
 }
 
 /************ Record Cards ************/
