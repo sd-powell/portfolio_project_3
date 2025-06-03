@@ -108,10 +108,13 @@ def record_list(request):
     return render(request, 'records/record_list.html', context)
 
 
-@login_required
 def record_detail(request, slug):
     """
-    Display the details of a single record owned by the logged-in user.
+    Display the details of a single public record.
+
+    This view retrieves a record by its slug and displays its details,
+    including cover image, title, artist, and any associated metadata.
+    It is accessible to both authenticated and unauthenticated users.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
@@ -119,7 +122,7 @@ def record_detail(request, slug):
 
     Returns:
         HttpResponse: Rendered template with the record's details,
-                      or 404 if not found or not owned by user.
+                      or 404 if the record is not found.
     """
     record = get_object_or_404(Record, slug=slug)
     previous_url = request.META.get('HTTP_REFERER', reverse('record_list'))
