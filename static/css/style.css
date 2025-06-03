@@ -363,3 +363,19 @@ p {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
 }
+
+/************ Toasts ************/
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1055;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: auto;
+  max-width: 90%;
+}

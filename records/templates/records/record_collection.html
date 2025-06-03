@@ -69,10 +69,14 @@
               {% endfor %}
             </select>
           </div>
-            <div class="col-md-3 d-flex gap-2">
-                <button type="submit" class="btn btn-neutral rounded-pill flex-fill">Apply</button>
-                <a href="{% url 'record_collection' %}" class="btn btn-neutral rounded-pill flex-fill">Reset</a>
-            </div>
+          <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-center gap-2">
+                Apply <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
+            </button>
+            <a href="{% url 'record_collection' %}" class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-center gap-2">
+                Reset <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
       </form>
     </div>
