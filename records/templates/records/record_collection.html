@@ -42,32 +42,44 @@
 
         <!-- Filters Row -->
         <div class="row g-3 align-items-end">
+        <!-- Genre Filter -->
           <div class="col-md-3">
             <label for="genre" class="visually-hidden">Filter by Genre</label>
-            <select id="genre" name="genre" class="form-select filter-pill">
-              <option value="">All Genres</option>
-              {% for value, label in genres %}
-                <option value="{{ value }}" {% if request.GET.genre == value %}selected{% endif %}>{{ label }}</option>
-              {% endfor %}
-            </select>
+            <div class="select-wrapper">
+                <select id="genre" name="genre" class="form-select filter-pill">
+                <option value="">All Genres</option>
+                {% for value, label in genres %}
+                    <option value="{{ value }}" {% if request.GET.genre == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+                </select>
+                <i class="fa-solid fa-circle-chevron-down select-icon" aria-hidden="true"></i>
+            </div>
           </div>
+        <!-- Artist Filter -->
           <div class="col-md-3">
             <label for="artistFilter" class="visually-hidden">Filter by Artist</label>
-            <select id="artistFilter" name="artist" class="form-select filter-pill">
-              <option value="">All Artists</option>
-              {% for artist in artists %}
-                <option value="{{ artist }}" {% if request.GET.artist == artist %}selected{% endif %}>{{ artist }}</option>
-              {% endfor %}
-            </select>
+            <div class="select-wrapper">
+                <select id="artistFilter" name="artist" class="form-select filter-pill">
+                <option value="">All Artists</option>
+                {% for artist in artists %}
+                    <option value="{{ artist }}" {% if request.GET.artist == artist %}selected{% endif %}>{{ artist }}</option>
+                {% endfor %}
+                </select>
+                <i class="fa-solid fa-circle-chevron-down select-icon" aria-hidden="true"></i>
+            </div>
           </div>
+        <!-- Rating Filter -->
           <div class="col-md-3">
             <label for="rating" class="visually-hidden">Filter by Rating</label>
-            <select id="rating" name="rating" class="form-select filter-pill">
-              <option value="">All Ratings</option>
-              {% for i in "12345" %}
-                <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
-              {% endfor %}
-            </select>
+            <div class="select-wrapper">
+                <select id="rating" name="rating" class="form-select filter-pill">
+                <option value="">All Ratings</option>
+                {% for i in "12345" %}
+                    <option value="{{ i }}" {% if request.GET.rating == i %}selected{% endif %}>{{ i }} Stars</option>
+                {% endfor %}
+                </select>
+                <i class="fa-solid fa-circle-chevron-down select-icon" aria-hidden="true"></i>
+            </div>
           </div>
           <div class="col-md-3 d-flex gap-2">
             <button type="submit" class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-center gap-2">

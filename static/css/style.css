@@ -181,7 +181,7 @@ p {
 }
 
 .btn-neutral i {
-  font-size: 1.25rem;
+  color: var(--highlight-blue);
 }
 
 .text-highlight-blue {
@@ -190,6 +190,33 @@ p {
 
 .text-highlight-blue:hover {
   color: #305f6d !important;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+  background-color: #e6e6e6; /* match existing background */
+  padding-right: 2.5rem;
+}
+
+.select-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--highlight-blue);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.select-wrapper select:focus + .select-icon {
+  color: var(--highlight-yellow);
 }
 
 /************ Record Cards ************/
@@ -378,4 +405,16 @@ p {
   align-items: center;
   width: auto;
   max-width: 90%;
+}
+
+.toast {
+  min-width: 250px;
+  max-width: 500px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.toast .toast-body {
+  font-weight: 500;
 }
