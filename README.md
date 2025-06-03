@@ -158,3 +158,41 @@ Overall, the use of clean, bold, and culturally relevant imagery reinforces the 
 
 <br>
 <hr>
+
+
+
+
+
+
+
+
+<a id=content></a>
+
+### Content
+
+The content displayed throughout the site is based on my own personal vinyl collection. Record details such as album titles, artists, tracklists, genres, and release years were sourced from [Discogs](https://www.discogs.com/) ensuring accurate and comprehensive metadata for each entry.
+
+All other written content — including UI text, instructions, labels, button copy, and page descriptions — was created by me to align with the app’s tone, functionality, and user experience goals.
+
+<a id=media></a>
+
+### Media
+
+- [Adobe Stock](https://stock.adobe.com/) - Used to source royalty free imagery for the site.
+
+<a id=acknowledgement></a>
+
+### Acknowledgments
+
+I would like to acknowledge the following people:
+
+- [Jubril Akolade](https://github.com/Jubrillionaire) - My Code Institute Mentor.
+
+- Ax de Klerk, Jordan Acomba & Robert Lewis - My fellow Code Institute cohort, who helped each other over the course of our milestone projects.
+
+- The music fans in my family for helping me test my site.
+
+- The Code Institute Slack channel Peer Code Review - Thank you to everyone who took the time to view my site and look over the code.
+
+<br><hr>
+[🔼 Back to top](#contents)
