@@ -53,30 +53,30 @@ User roles are also considered in the planning:
 
 | User Type     | Feature                                      | Importance | Viability | Scope   | Delivered |
 |:------------- |:-------------------------------------------- |:----------:|:---------:|:-------:|:---------:|
-| All           | View public landing page                     | 5          | 5         | MVP     | ⬜        |
-| Guest         | Register for an account                      | 5          | 5         | MVP     | ⬜        |
-| User          | Log in/out and manage session                | 5          | 5         | MVP     | ⬜        |
+| All           | View public landing page                     | 5          | 5         | MVP     | ✅        |
+| Guest         | Register for an account                      | 5          | 5         | MVP     | ✅        |
+| User          | Log in/out and manage session                | 5          | 5         | MVP     | ✅        |
 | User          | Password recovery                            | 5          | 5         | MVP     | ⬜        |
-| User          | Create, view, update, delete own records     | 5          | 5         | MVP     | ⬜        |
-| User          | Upload cover image for record                | 5          | 5         | MVP     | ⬜        |
-| User          | Add individual tracks to each record         | 5          | 4         | MVP     | ⬜        |
-| Admin         | Access Django admin panel                    | 5          | 5         | MVP     | ⬜        |
+| User          | Create, view, update, delete own records     | 5          | 5         | MVP     | ✅        |
+| User          | Upload cover image for record                | 5          | 5         | MVP     | ✅        |
+| User          | Add individual tracks to each record         | 5          | 4         | MVP     | ✅        |
+| Admin         | Access Django admin panel                    | 5          | 5         | MVP     | ✅        |
 | Admin         | Moderate/edit user records via admin         | 5          | 5         | MVP     | ⬜        |
-| Admin         | Edit track list inline in Record admin panel | 4          | 5         | Should  | ⬜        |
-| User          | Filter/sort by genre, year, BPM, rating      | 4          | 5         | Should  | ⬜        |
-| User          | Search records by title/artist               | 4          | 4         | Should  | ⬜        |
-| User          | Include BPM, key, and duration per track     | 4          | 4         | Should  | ⬜        |
-| All           | Responsive design / Bootstrap UI             | 4          | 5         | MVP     | ⬜        |
+| Admin         | Edit track list inline in Record admin panel | 4          | 5         | Should  | ✅        |
+| User          | Filter/sort by genre, year, BPM, rating      | 4          | 5         | Should  | ✅        |
+| User          | Search records by title/artist               | 4          | 4         | Should  | ✅        |
+| User          | Include BPM, key, and duration per track     | 4          | 4         | Should  | ✅        |
+| All           | Responsive design / Bootstrap UI             | 4          | 5         | MVP     | ✅        |
 | All           | View mobile-friendly site                    | 4          | 5         | MVP     | ⬜        |
-| User          | Rate records with 1–5 stars                  | 4          | 5         | MVP     | ⬜        |
-| User          | Use dropdowns for genre and key              | 4          | 5         | MVP     | ⬜        |
+| User          | Rate records with 1–5 stars                  | 4          | 5         | MVP     | ✅        |
+| User          | Use dropdowns for genre and key              | 4          | 5         | MVP     | ✅        |
 | User          | Export collection as CSV                     | 3          | 4         | Could   | ⬜        |
 | Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ⬜        |
 | Admin         | Automatically show total track count per record | 3          | 3         | Could   | ⬜        |
 | User          | Edit/update account profile                  | 2          | 3         | Could   | ⬜        |
 | All           | Custom 404 and 500 error pages               | 2          | 4         | Could   | ⬜        |
 | All           | About/Contact page                           | 2          | 3         | Could   | ⬜        |
-| User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ⬜        |
+| User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ✅        |
 
 ---
 
