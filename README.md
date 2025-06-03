@@ -160,11 +160,22 @@ Overall, the use of clean, bold, and culturally relevant imagery reinforces the 
 <hr>
 
 
+<a id=dev-process></a>
 
+### Development Process
 
+Vinyl Crate was developed using an **iterative, feature-driven approach**:
 
+1. Planned the site structure, wireframes, and database schema
+2. Set up the Django project with a connected PostgreSQL database
+3. Implemented user authentication with Django Allauth
+4. Developed core CRUD functionality for records and tracklists
+5. Integrated Cloudinary for image uploads and Discogs for record metadata
+6. Built dynamic filtering, search, and user dashboard features
+7. Focused on accessibility, responsive design, and a clean UI
+8. Completed manual and automated testing, README documentation, and deployed to Heroku
 
-
+Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
 
 <a id=content></a>
 
