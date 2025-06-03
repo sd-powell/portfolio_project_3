@@ -37,7 +37,7 @@ class TrackInline(admin.TabularInline):
     """
     model = Track
     extra = 1
-    fields = ('bpm', 'duration', 'key', 'position', 'title')
+    fields = ('position', 'title', 'duration', 'bpm', 'key')
 
 
 @admin.register(Record)
