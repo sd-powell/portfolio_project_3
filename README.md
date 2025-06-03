@@ -180,6 +180,8 @@ All other written content — including UI text, instructions, labels, button co
 
 - [Adobe Stock](https://stock.adobe.com/) - Used to source royalty free imagery for the site.
 
+- User-uploaded images are handled securely and efficiently using [Cloudinary](https://cloudinary.com/), which provides scalable cloud-based image storage and delivery.
+
 <a id=acknowledgement></a>
 
 ### Acknowledgments
