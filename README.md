@@ -125,3 +125,23 @@ To resolve this, a dedicated `Track` model was introduced. Each track is linked 
 
 
 This structure ensures scalability and aligns with database best practices by reducing redundancy and improving data clarity.
+
+
+<a id=typography></a>
+
+### Typography
+
+[Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high-quality and accessible typography across all devices and browsers.
+
+- **Headings (h1, h2, h3):** The font [Montserrat](https://fonts.google.com/specimen/Montserrat) was chosen for its bold, geometric style that provides a clean, modern look. Its sharp edges and contemporary design help headlines stand out, giving the site a distinctive and polished visual identity while remaining easy to read.
+
+![Montserrat Font Example](documentation/type-montserrat.webp)
+
+- **Paragraphs and body text:** The font [Lato](https://fonts.google.com/specimen/Lato) was selected for body copy due to its warm, friendly tone and excellent legibility at various sizes. It complements Montserrat without competing for attention, supporting a harmonious and user-friendly reading experience throughout the site.
+
+![Lato Font Example](documentation/type-lato.webp)
+
+- **Icons and UI elements:** The [Font Awesome](https://fontawesome.com/) icon library was used to support the visual interface with clear, scalable icons. These icons align stylistically with the modern fonts and enhance user experience through recognizable visual cues for actions, navigation, and social media links.
+
+<br>
+<hr>
