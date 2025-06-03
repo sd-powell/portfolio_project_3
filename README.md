@@ -177,6 +177,20 @@ Vinyl Crate was developed using an **iterative, feature-driven approach**:
 
 Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
 
+<a id=accessibility></a>
+
+### Accessibility
+
+Accessibility has been a key consideration throughout the development of Vinyl Crate. Measures taken to ensure the site is inclusive and user-friendly include:
+
+- Using semantic HTML5 elements to improve structure and navigation for assistive technologies
+- Adding descriptive `alt` attributes to all meaningful images, including record covers and banners
+- Applying `aria-labels` to interactive elements such as icon-only buttons and links for screen reader clarity
+- Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colours))
+- Ensuring focus states and keyboard navigability across all interactive components
+
+Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
+
 <a id=content></a>
 
 ### Content
