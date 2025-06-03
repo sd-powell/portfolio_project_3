@@ -47,6 +47,7 @@ class RecordAdmin(admin.ModelAdmin):
     search_fields = RECORD_SEARCH_FIELDS
     readonly_fields = ('cover_thumb',)
     inlines = [TrackInline]
+    exclude = ('slug',)
 
     def cover_thumb(self, obj):
         """
