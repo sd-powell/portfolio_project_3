@@ -129,7 +129,7 @@ This structure ensures scalability and aligns with database best practices by re
 
 <a id=typography></a>
 
-### Typography
+#### Typography
 
 [Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high-quality and accessible typography across all devices and browsers.
 
@@ -148,7 +148,7 @@ This structure ensures scalability and aligns with database best practices by re
 
 <a id=imagery></a>
 
-### Imagery
+#### Imagery
 
 The imagery selected for this project was chosen to resonate with vinyl collectors and DJs — the app's core audience. The carousel banners feature high-quality visuals sourced from [Adobe Stock](https://stock.adobe.com/), showcasing vinyl records, listening setups, and DJ environments to immediately immerse users in the culture and aesthetics of record collecting.
 
@@ -158,6 +158,26 @@ Overall, the use of clean, bold, and culturally relevant imagery reinforces the 
 
 <br>
 <hr>
+
+### Skeleton Plane
+
+<a id="wireframes"></a>
+
+#### **Wireframes**
+
+Initial wireframes were created using [Balsamiq](https://balsamiq.com/) to plan the core layout and flow of the **Vinyl Crate** site. These included views for mobile, tablet, and desktop to ensure the design would be fully responsive and accessible.
+
+The wireframes helped shape the site’s information hierarchy and user journey, including key screens such as the homepage, dashboard, record collection view, and record detail view. They served as a visual blueprint during development, guiding the placement of search, filter, and CRUD functionality with a mobile-first mindset.
+
+<br>
+<hr>
+
+<a id=mobile-frames></a>
+
+#### **Mobile Wireframes**
+
+<details>
+<summary> Click here to see the Mobile Wireframes </summary>
 
 
 <a id=dev-process></a>
