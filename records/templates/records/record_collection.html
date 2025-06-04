@@ -26,18 +26,27 @@
     <div class="bg-white p-4 rounded-bottom">
       <form method="get">
         <!-- Search Bar -->
-        <div class="mb-4 search-bar-wrapper">
-            <input
-              type="text"
-              id="search"
-              name="search"
-              class="form-control search-input"
-              placeholder="Search by album or artist..."
-              value="{{ request.GET.search }}"
-              aria-label="Search your record collection">
-            <button type="submit" class="search-btn" aria-label="Search">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+        <div class="row mb-4 align-items-center g-2">
+          <div class="col-12 col-md-8">
+            <div class="search-bar-wrapper position-relative">
+              <input
+                type="text"
+                id="search"
+                name="search"
+                class="form-control search-input"
+                placeholder="Search by album or artist..."
+                value="{{ request.GET.search }}"
+                aria-label="Search your record collection">
+              <button type="submit" class="search-btn" aria-label="Search">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+            <a href="{% url 'record_create' %}" class="btn btn-ios-primary w-100 d-flex justify-content-center align-items-center gap-2">
+              <i class="fa-solid fa-plus-circle me-1"></i> Add Record
+            </a>
+          </div>
         </div>
 
         <!-- Filters Row -->
