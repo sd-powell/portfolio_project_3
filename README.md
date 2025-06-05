@@ -259,6 +259,57 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
  </details>
 
+ <a id=features></a>
+ 
+### Features
+
+Vinyl Crate is a full-stack web application designed to help users digitise and manage their vinyl record collections. The site includes a user-friendly dashboard, advanced filtering and search tools, detailed record views, and dynamic forms for adding albums and tracks. It also features custom 404 and 500 error pages to handle invalid URLs and unexpected server issues gracefully.
+ 
+ All Pages on the website are responsive and have:
+ 
+ - A favicon in the browser tab.
+ 
+ <details>
+ <summary> Click here to view the favicon </summary>
+ 
+ ![favicon](documentation/features-home-favicon.webp)
+ 
+ </details>
+
+<a id=home-page-features></a>
+
+#### The Home Page
+
+<details>
+<summary>Click here to view the home page</summary>
+
+![Vinyl Crate home page shown across multiple screen sizes](documentation/features-homepage.webp)
+
+</details>
+
+---
+
+The Vinyl Crate homepage introduces users to the purpose of the site: a place to catalogue and celebrate their vinyl collection. It balances a welcoming aesthetic with clear direction for both new and returning users.
+
+- **What it does:**
+  - Features a carousel designed to deliver key onboarding messages and highlight the unique selling points of the app.
+  - Displays a curated selection of staff-picked records to showcase site activity.
+  - Introduces the concept of digitising your analogue collection.
+  - Offers clear navigation to login, sign up, or explore.
+
+- **User Benefits:**
+  - Immediately communicates the site’s value proposition to record collectors and music lovers.
+  - Encourages new users to join and existing users to dive into their collection.
+  - Builds trust with a clean layout, bold typography, and a focus on usability.
+
+- **Interactive Elements:**
+  - Responsive navigation with login/signup for guests and dashboard access for users.
+  - Carousel: Sliding panels with bold messaging about features, benefits, and how to get started.
+  - Staff Picks: Interactive cards that highlight notable records from the database.
+  - Dynamic header and call-to-action tailored to the user’s login state.
+
+The homepage acts as a stylish entry point for the Vinyl Crate experience — whether you're just browsing or ready to log your latest wax addition. It introduces key features, educates through the carousel, and encourages exploration through an intuitive and visually appealing design.
+
 <a id=dev-process></a>
 
 ### Development Process
