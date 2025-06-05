@@ -1,0 +1,435 @@
+/************ Google Fonts import ************/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/************ CSS Variables ************/
+:root {
+      --highlight-blue: #40798c;
+      --highlight-yellow: #ffb633;
+      --footer-charcoal: #333333;
+      --site-bg-grey: #efefef;
+
+    /************ Typography ************/
+    --primary-font: "Lato", sans-serif;
+    --secondary-font: "Montserrat", sans-serif;
+}
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: var(--site-bg-grey);
+}
+
+/************ Typography ************/
+h1, h2 {
+  font-family: var(--secondary-font);
+  font-weight: 600;
+}
+
+p {
+  font-family: var(--primary-font);
+  font-weight: 500;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/************ Dashboard ************/
+
+.welcome-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background: linear-gradient(to bottom, #ffb633, #f7931e);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  min-height: 160px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.welcome-image-bg {
+  background-image: url('/static/images/welcome-image.png');
+  background-size: 57%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: -42px;
+  left: -10px;
+  right: 0;
+  z-index: 1;
+}
+
+.welcome-banner-content {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  z-index: 2;
+}
+
+.welcome-banner-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-banner-content p {
+  font-size: 1.5rem;
+}
+
+/* Search bar wrapper for icon positioning */
+.search-bar-wrapper {
+  position: relative;
+}
+
+/* Search icon inside the input */
+.search-bar-wrapper .fa-search {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+/* Styled search input */
+.search-input {
+  padding-left: 2.5rem;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 999px;
+  height: 48px;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 999px;
+  height: 48px;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+}
+
+.search-btn {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 1.25rem;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  color: #000;
+}
+
+/* Filters styled like pills */
+.filter-pill {
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  appearance: none;
+}
+
+/* Maintain consistent button styling */
+.btn-neutral {
+  background-color: var(--site-bg-grey);
+  color: var(--footer-charcoal);
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-neutral:hover {
+  background-color: var(--highlight-yellow);
+}
+
+.btn-neutral i {
+  color: var(--highlight-blue);
+}
+
+.text-highlight-blue {
+  color: var(--highlight-blue) !important;
+}
+
+.text-highlight-blue:hover {
+  color: #305f6d !important;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+  background-color: #e6e6e6; /* match existing background */
+  padding-right: 2.5rem;
+}
+
+.select-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--highlight-blue);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.select-wrapper select:focus + .select-icon {
+  color: var(--highlight-yellow);
+}
+
+.btn-ios-primary {
+  background-color: var(--highlight-blue);
+  color: var(--background-color);
+  border: none;
+  border-radius: 999px;
+  padding: 6px 20px;
+  font-weight: 600;
+  font-family: var(--primary-font);
+}
+
+.btn-ios-primary:hover {
+  background-color: #3d82e0;
+  color: white;
+}
+
+/************ Record Cards ************/
+
+.record-cover-img {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.record-cover-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.placeholder-cover {
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+}
+
+.quick-add-tile {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    border: 2px dashed #ccc;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.quick-add-tile:hover {
+    border-color: #40798c;
+    background-color: #f8f9fa;
+}
+
+/* Responsive record card truncation */
+.card-title-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.card.record-hover:hover {
+  background-color: var(--highlight-yellow);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+/************ Buttons ************/
+
+/* iOS-Inspired Primary Button */
+.btn-ios-primary {
+    background: linear-gradient(to bottom, #5aa2b5, #40798c);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+.btn-ios-primary:hover,
+.btn-ios-primary:focus {
+    background: linear-gradient(to bottom, #40798c, #305f6d);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* iOS-Inspired Outline Button */
+.btn-ios-outline {
+    background-color: white;
+    color: #40798c;
+    border: 2px solid #40798c;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+.btn-ios-outline:hover,
+.btn-ios-outline:focus {
+    background-color: #e8f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
+}
+
+/************ Footer ************/
+
+.footer {
+  font-family: 'Inter', sans-serif;
+}
+.footer a i {
+  transition: transform 0.3s ease;
+  color: var(--footer-charcoal);
+}
+.footer i:hover {
+  transform: scale(1.2);
+}
+
+/************ Media queries ************/
+
+/* Responsive aspect ratios */
+@media (max-width: 769px) {
+  #homeCarousel {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 770px) {
+  #homeCarousel {
+    aspect-ratio: 40 / 9;
+  }
+}
+
+/************ Carousel ************/
+
+#homeCarousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item picture {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Accessible CTA for screen readers */
+.visually-hidden-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 1rem 0;
+  overflow: visible;
+  clip: auto;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+/************ Toasts ************/
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1055;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: auto;
+  max-width: 90%;
+}
+
+.toast {
+  min-width: 250px;
+  max-width: 500px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.toast .toast-body {
+  font-weight: 500;
+}
