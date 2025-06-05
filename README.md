@@ -345,7 +345,41 @@ The Vinyl Crate dashboard is the user’s personal gateway into their collection
 
 The dashboard acts as a central hub for Vinyl Crate users — helping them navigate, discover, and grow their record collection with ease.
 
+<a id="my-crate-features"></a>
 
+#### My Crate Page
+
+<details>
+<summary> Click here to view the My Crate page </summary>
+
+![My Crate page showing search, filters, and record cards on multiple devices](documentation/features-my-crate.webp)
+
+</details>
+
+---
+
+The My Crate page serves as the core of the Vinyl Crate experience — a personalised dashboard where users can explore, search, and manage their full record collection.
+
+- **What it does:**
+  - Displays all records in the user’s collection as responsive, interactive cards.
+  - Provides a search bar for quickly locating specific albums or artists.
+  - Offers filters by genre, artist, and rating to narrow results.
+  - Enables sorting by: Newest Addition, Oldest Addition, Artist (A–Z), Artist (Z–A), Title (A–Z), and Title (Z–A).
+  - Includes a clear **Add Record** button to grow the collection.
+
+- **User Benefits:**
+  - Gives users complete control over how they view and organise their collection.
+  - Offers quick access to edit or view details for each record.
+  - Makes it easy to discover trends, favourites, and gaps in their collection.
+  - Mobile-friendly design ensures a seamless experience on any device.
+
+- **Interactive Elements:**
+  - Real-time search and filter inputs update the record list based on user selections.
+  - Sorting dropdown helps tailor the display to user preferences.
+  - Add Record button remains easily accessible for seamless catalogue updates.
+  - Each record card links directly to the full record detail view.
+
+This page transforms the idea of a traditional record shelf into a sleek, digital experience — searchable, sortable, and built around the collector’s unique taste.
 
 <a id=dev-process></a>
 
