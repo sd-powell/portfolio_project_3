@@ -310,6 +310,43 @@ The Vinyl Crate homepage introduces users to the purpose of the site: a place to
 
 The homepage acts as a stylish entry point for the Vinyl Crate experience — whether you're just browsing or ready to log your latest wax addition. It introduces key features, educates through the carousel, and encourages exploration through an intuitive and visually appealing design.
 
+<a id=dashboard-page-features></a>
+
+#### The Dashboard
+
+<details>
+<summary> Click here to view the dashboard </summary>
+
+![Vinyl Crate dashboard view on multiple devices](documentation/features-dashboard.webp)
+
+</details>
+
+---
+
+The Vinyl Crate dashboard is the user’s personal gateway into their collection. Upon logging in, users are greeted with a streamlined view that highlights recent activity and offers quick access to key actions.
+
+- **What it does:**
+  - Automatically redirects users here after login.
+  - Welcomes the user back with a personalised greeting and a summary of their crate contents.
+  - Displays the latest 6 staff-picked or recently added records for inspiration and quick browsing.
+  - Provides access to search, filtering, and record management options.
+
+- **User Benefits:**
+  - Offers a personalised landing space for returning users.
+  - Encourages engagement by showcasing new or notable records.
+  - Reduces friction in managing your collection with direct access to tools.
+
+- **Interactive Elements:**
+  - **View Crate** button redirects the user to a full list of records in their collection.
+  - **Add Record** button for fast entry of new vinyl.
+  - Additional **View all** button on recently added section which takes the user to their collection.
+  - A card-shaped **Add Record** icon invites the user to click and begin adding a new record.
+  - Clear, responsive layout optimised for desktop and mobile.
+
+The dashboard acts as a central hub for Vinyl Crate users — helping them navigate, discover, and grow their record collection with ease.
+
+
+
 <a id=dev-process></a>
 
 ### Development Process
