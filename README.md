@@ -179,6 +179,85 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 <details>
 <summary> Click here to see the Mobile Wireframes </summary>
 
+|                Home page wireframe                |                Dashboard page wireframe                 |                   My Crate page wireframe                    |
+| :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------: |
+| ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![My Crate](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) |
+
+|                   Collection page wireframe                   |                Quiz page wireframe                |                 Results page wireframe                  |
+| :-----------------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------------: |
+| ![Collection](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Quiz](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Results](documentation/mobile-wireframe-results.webp) |
+
+|               404 page wireframe                |               500 page wireframe                |
+| :---------------------------------------------: | :---------------------------------------------: |
+| ![404](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![500](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) |
+
+</details>
+
+<a id=tablet-frames></a>
+
+#### Tablet Wireframes
+
+<details>
+<summary> Click here to see the Tablet Wireframes </summary>
+
+|                Home page wireframe                |                Dashboard page wireframe                 |
+| :-----------------------------------------------: | :-------------------------------------------------: |
+| ![Home](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+
+|                   My Crate page wireframe                    |                   Collection page wireframe                   |
+| :-------------------------------------------------------------: | :-----------------------------------------------------------: |
+| ![My Crate](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Collection](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+
+|                Quiz page wireframe                |                 Results page wireframe                  |
+| :-----------------------------------------------: | :-----------------------------------------------------: |
+| ![Quiz](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Results](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+
+|               404 page wireframe                |               500 page wireframe                |
+| :---------------------------------------------: | :---------------------------------------------: |
+| ![404](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![500](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+
+ </details>
+
+<a id=desktop-frames></a>
+
+#### Desktop Wireframes
+
+<details>
+<summary> Click here to see the Desktop Wireframes </summary>
+
+- Home page wireframe
+
+![Home](documentation/desktop-wireframe-info.webp)
+
+- Rules page wireframe
+
+![Rules](documentation/desktop-wireframe-rules.webp)
+
+- Leaderboard page wireframe
+
+![Leaderboard](documentation/desktop-wireframe-leaderboard.webp)
+
+- Difficulty page wireframe
+
+![Difficulty](documentation/desktop-wireframe-difficulty.webp)
+
+- Quiz page wireframe
+
+![Quiz](documentation/desktop-wireframe-quiz.webp)
+
+- Results page wireframe
+
+![Success](documentation/desktop-wireframe-results.webp)
+
+- 404 page wireframe
+
+![404](documentation/desktop-wireframe-404.webp)
+
+- 500 page wireframe
+
+![500](documentation/desktop-wireframe-500.webp)
+
+ </details>
 
 <a id=dev-process></a>
 
