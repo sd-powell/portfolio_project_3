@@ -181,11 +181,11 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
 |                Home page wireframe                |                Dashboard page wireframe                 |                   My Crate page wireframe                    |
 | :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------: |
-| ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![My Crate](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) |
+| ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-mobile-dashboard.webp) | ![My Crate](documentation/readme/skeleton_plane/wireframe-mobile-collection.webp) |
 
-|                   Collection page wireframe                   |                Quiz page wireframe                |                 Results page wireframe                  |
+|                   Record Detail page wireframe                   |                Quiz page wireframe                |                 Results page wireframe                  |
 | :-----------------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------------: |
-| ![Collection](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Quiz](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Results](documentation/mobile-wireframe-results.webp) |
+| ![Record Detail](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Quiz](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Results](documentation/mobile-wireframe-results.webp) |
 
 |               404 page wireframe                |               500 page wireframe                |
 | :---------------------------------------------: | :---------------------------------------------: |
@@ -202,15 +202,15 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
 |                Home page wireframe                |                Dashboard page wireframe                 |
 | :-----------------------------------------------: | :-------------------------------------------------: |
-| ![Home](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+| ![Home](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-tablet-dashboard.webp) |
 
-|                   My Crate page wireframe                    |                   Collection page wireframe                   |
+|                   My Crate page wireframe                    |                   Record Detail page wireframe                   |
 | :-------------------------------------------------------------: | :-----------------------------------------------------------: |
-| ![My Crate](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Collection](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+| ![My Crate](documentation/readme/skeleton_plane/wireframe-tablet-collection.webp) | ![Record Detail](documentation/readme/skeleton_plane/wireframe-tablet-collection.webp) |
 
-|                Quiz page wireframe                |                 Results page wireframe                  |
+|                Record Detail page wireframe                |                 Results page wireframe                  |
 | :-----------------------------------------------: | :-----------------------------------------------------: |
-| ![Quiz](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Results](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+| ![Record Detail](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Results](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
 
 |               404 page wireframe                |               500 page wireframe                |
 | :---------------------------------------------: | :---------------------------------------------: |
@@ -227,35 +227,35 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
 - Home page wireframe
 
-![Home](documentation/desktop-wireframe-info.webp)
+![Home](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
-- Rules page wireframe
+- Dashboard page wireframe
 
-![Rules](documentation/desktop-wireframe-rules.webp)
+![Dashboard](documentation/readme/skeleton_plane/wireframe-desktop-dashboard.webp)
 
-- Leaderboard page wireframe
+- My Crate page wireframe
 
-![Leaderboard](documentation/desktop-wireframe-leaderboard.webp)
+![My Crate](documentation/readme/skeleton_plane/wireframe-desktop-collection.webp)
 
-- Difficulty page wireframe
+- Collection page wireframe
 
-![Difficulty](documentation/desktop-wireframe-difficulty.webp)
+![Collection](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
-- Quiz page wireframe
+- Record Detail page wireframe
 
-![Quiz](documentation/desktop-wireframe-quiz.webp)
+![Record Detail](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
 - Results page wireframe
 
-![Success](documentation/desktop-wireframe-results.webp)
+![Success](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
 - 404 page wireframe
 
-![404](documentation/desktop-wireframe-404.webp)
+![404](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
 - 500 page wireframe
 
-![500](documentation/desktop-wireframe-500.webp)
+![500](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
  </details>
 
