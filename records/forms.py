@@ -1,9 +1,8 @@
 from django import forms
 from django.forms import inlineformset_factory
+from django.core.exceptions import ValidationError
 from allauth.account.forms import SignupForm
 from .models import Record, Track
-
-from django.core.exceptions import ValidationError
 import re
 
 
@@ -81,6 +80,67 @@ class RecordForm(forms.ModelForm):
     Record entries with styling and validation.
     """
 
+    title = forms.CharField(
+        max_length=255,
+        validators=[validate_no_whitespace_only],
+        widget=form_control_input('e.g. Discovery'),
+        label='Record Title',
+        help_text='Enter the title of the record.',
+        error_messages={
+            'required': 'Please enter the title of the record.',
+            'max_length': 'Title is too long (255 characters max).',
+        }
+    )
+
+    artist = forms.CharField(
+        max_length=255,
+        validators=[validate_no_whitespace_only],
+        widget=form_control_input('e.g. Daft Punk'),
+        label='Artist Name',
+        help_text='Enter the name of the artist or band.',
+        error_messages={
+            'required': 'Please enter the artist\'s name.',
+            'max_length': 'Artist name is too long (255 characters max).',
+        }
+    )
+
+    year = forms.IntegerField(
+        min_value=1000,
+        max_value=9999,
+        widget=form_control_number('e.g. 2001', 1000, 9999),
+        label='Release Year',
+        help_text='Enter the release year (4 digits - e.g. 1982).',
+        error_messages={
+            'invalid': 'Please enter a valid 4-digit year.',
+            'min_value': 'Year must be no earlier than 1000.',
+            'max_value': 'Year must be no later than 9999.',
+        }
+    )
+
+    genre = forms.ChoiceField(
+        choices=Record._meta.get_field('genre').choices,
+        widget=form_control_select(),
+        label='Genre',
+        help_text='Select the genre of the record from the dropdown.'
+    )
+
+    cover_image = forms.ImageField(
+        required=False,
+        widget=form_control_file(),
+        label='Cover Image',
+        help_text='Upload a cover image for the record (optional).'
+    )
+
+    rating = forms.ChoiceField(
+        choices=Record._meta.get_field('rating').choices,
+        widget=form_control_select(),
+        label='Rating (1-5)',
+        help_text='Rate this record from 1 (worst) to 5 (best).',
+        error_messages={
+            'invalid_choice': 'Select a valid rating between 1 and 5.',
+        }
+    )
+
     class Meta:
         model = Record
         fields = [
@@ -90,52 +150,6 @@ class RecordForm(forms.ModelForm):
             'genre',
             'cover_image',
             'rating']
-
-        labels = {
-            'title': 'Record Title',
-            'artist': 'Artist Name',
-            'year': 'Release Year',
-            'genre': 'Genre',
-            'cover_image': 'Cover Image',
-            'rating': 'Rating (1-5)',
-        }
-
-        help_texts = {
-            'title': 'Enter the title of the record.',
-            'artist': 'Enter the name of the artist or band.',
-            'year': 'Enter the release year (4 digits - e.g. 1982).',
-            'genre': 'Select the genre of the record from the dropdown.',
-            'cover_image': 'Upload a cover image for the record (optional).',
-            'rating': 'Rate this record from 1 (worst) to 5 (best).',
-        }
-
-        error_messages = {
-            'title': {
-                'required': 'Please enter the title of the record.',
-                'max_length': 'Title is too long (255 characters max).',
-            },
-            'artist': {
-                'required': 'Please enter the artist\'s name.',
-                'max_length': 'Artist name is too long (255 characters max).',
-            },
-            'year': {
-                'invalid': 'Please enter a valid 4-digit year.',
-                'min_value': 'Year must be no earlier than 1000.',
-                'max_value': 'Year must be no later than 9999.',
-            },
-            'rating': {
-                'invalid_choice': 'Select a valid rating between 1 and 5.',
-            },
-        }
-
-        widgets = {
-            'title': form_control_input('e.g. Discovery'),
-            'artist': form_control_input('e.g. Daft Punk'),
-            'year': form_control_number('e.g. 2001', 1000, 9999),
-            'genre': form_control_select(),
-            'cover_image': form_control_file(),
-            'rating': form_control_select(),
-        }
 
 
 class TrackForm(forms.ModelForm):
