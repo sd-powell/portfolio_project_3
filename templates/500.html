@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}Server Error{% endblock %}
+
+{% block content %}
+<!-- Custom 500 page using Bootstrap -->
+<div class="container py-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <img src="{% static 'images/500-vinyl.svg' %}" alt="500 Vinyl" class="img-fluid mb-4" style="max-height: 200px;">
+            <h1 class="display-4 fw-bold">Oh no! Something went wrong.</h1>
+            <p class="lead text-muted my-3">
+                The server encountered an error. We're on it, and things should be back to normal soon.
+            </p>
+            <a href="{% url 'index' %}" class="btn btn-primary mt-3">
+                <i class="fa fa-arrow-left me-1"></i> Return to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
