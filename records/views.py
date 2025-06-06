@@ -91,11 +91,11 @@ def record_list(request):
     Returns:
         HttpResponse: Rendered dashboard template with:
             - records: All user-owned records
-            - recently_added: Latest six records added by the user
+            - recently_added: Latest eight records added by the user
             - staff_picks (optional): Highlighted records for new users
     """
     records = Record.objects.filter(user=request.user)
-    recently_added = records.order_by('-created_on')[:6]
+    recently_added = records.order_by('-created_on')[:8]
 
     context = {
         'records': records,
