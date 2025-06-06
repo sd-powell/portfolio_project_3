@@ -512,6 +512,44 @@ Accessibility has been a key consideration throughout the development of Vinyl C
 
 Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
 
+<a id=future-implementation></a>
+
+#### Future Implementations
+
+To expand the functionality of Vinyl Crate and improve the user experience, the following features are being considered for future development:
+
+1. **Dark & Light Mode (Manual & Auto Toggle)** – Introduce a theme switcher that enables users to toggle between light and dark modes, with an additional setting that respects their device’s system preference. This would improve accessibility and make the app more comfortable for use in different lighting conditions.
+
+2. **Export Collection to CSV** – Allow users to download their vinyl collection as a `.csv` file for offline reference, backups, or importing into other applications. This supports data portability and collection management flexibility.
+
+3. **User Profile Functionality** – Add a profile page where users can view and edit their personal information, set collection preferences, and track their activity across the app. This lays the groundwork for deeper personalization and community features.
+
+4. **Discogs API Integration & Form Autocomplete** – Connect to the Discogs API to allow users to search for records and auto-populate fields when adding to their crate. This would speed up the submission process and improve data consistency.
+
+5. **Social Media Sign-In Options** – Enhance account creation and login by offering OAuth-based sign-ins through Google, Facebook, or Apple. This simplifies user onboarding and provides a more seamless authentication process.
+
+6. **Public Crate Sharing** – Let users create a public view of their vinyl collection, sharable via a link (e.g. `vinylcrate.app/username`), great for DJs and collectors.
+
+7. **Wishlist Feature** – Allow users to build a "Want List" for records they’d like to add in the future, with possible integration to match against other users or Discogs listings.
+
+8. **Community Comments & Crate Notes** – Add the ability to leave thoughts or mini-reviews on records, fostering a social sense of discovery and shared taste.
+
+9. **Advanced Filtering & Tagging** – Introduce more powerful filtering options using multiple tags like sub-genres, moods, or special editions.
+
+10. **Record Condition & Edition Info** – Allow collectors to log condition (e.g. VG, NM), pressing variant, colour vinyl, and catalogue number for more accurate collection records.
+
+11. **Track Previews via Spotify or YouTube** – Add embedded links to sample music, where available, giving users a quick listen option before adding a record.
+
+12. **Barcode Scanner (Mobile Only)** – Enable users to scan a barcode to look up and autofill album data via the Discogs API.
+
+13. **Bulk Record Upload via CSV** – Provide an option for advanced users to upload large collections at once using a pre-formatted `.csv` template.
+
+14. **Crate Backup & Sync Options** – Let users export a JSON backup of their collection, or link a Google Drive account for automated backups.
+
+15. **Monthly Summary Emails** – Allow opt-in emails that highlight new staff picks, crate activity, or “you haven’t logged anything in a while” reminders.
+
+These enhancements aim to enrich the Vinyl Crate experience while making it easier for users to engage with and manage their collections.
+
 <a id=content></a>
 
 ### Content
