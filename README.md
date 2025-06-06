@@ -498,20 +498,6 @@ Vinyl Crate was developed using an **iterative, feature-driven approach**:
 
 Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
 
-<a id=accessibility></a>
-
-### Accessibility
-
-Accessibility has been a key consideration throughout the development of Vinyl Crate. Measures taken to ensure the site is inclusive and user-friendly include:
-
-- Using semantic HTML5 elements to improve structure and navigation for assistive technologies
-- Adding descriptive `alt` attributes to all meaningful images, including record covers and banners
-- Applying `aria-labels` to interactive elements such as icon-only buttons and links for screen reader clarity
-- Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colours))
-- Ensuring focus states and keyboard navigability across all interactive components
-
-Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
-
 <a id=future-implementation></a>
 
 #### Future Implementations
@@ -549,6 +535,79 @@ To expand the functionality of Vinyl Crate and improve the user experience, the 
 15. **Monthly Summary Emails** – Allow opt-in emails that highlight new staff picks, crate activity, or “you haven’t logged anything in a while” reminders.
 
 These enhancements aim to enrich the Vinyl Crate experience while making it easier for users to engage with and manage their collections.
+
+<a id=accessibility></a>
+
+### Accessibility
+
+Accessibility has been a key consideration throughout the development of Vinyl Crate. Measures taken to ensure the site is inclusive and user-friendly include:
+
+- Using semantic HTML5 elements to improve structure and navigation for assistive technologies
+- Adding descriptive `alt` attributes to all meaningful images, including record covers and banners
+- Applying `aria-labels` to interactive elements such as icon-only buttons and links for screen reader clarity
+- Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colours))
+- Ensuring focus states and keyboard navigability across all interactive components
+
+Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
+
+<a id="technologies"></a>
+
+## Technologies Used
+
+<a id="languages"></a>
+
+### Languages Used
+
+- HTML
+- CSS
+- JavaScript
+- Python
+
+<a id="frameworks"></a>
+
+### Frameworks, Libraries & Tools
+
+- [Django](https://www.djangoproject.com/) – Version 4.2.20 - The main web framework used to build the application.
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) - Version 65.8.0 - Used for authentication, registration & account management.
+- [Django Environ](https://django-environ.readthedocs.io/en/latest/) – Version 0.12.0 - Used to manage environment variables from a `.env` file.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) – Version 0.5.0 - Simplifies database configuration with Heroku's environment.
+- [Pillow](https://pillow.readthedocs.io/en/stable/) – Version 11.2.1 - Required for image handling in Django models.
+- [psycopg2](https://pypi.org/project/psycopg2/) - Version 2.9.10 (Binary) - a postgres database adapter which allow us to connect with a postgres database
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) – Version 2025.4 - Used to render Django forms with Bootstrap 5 styling.
+- [Bootstrap 5](https://getbootstrap.com/) – Front-end framework for responsive design.
+- [Gunicorn](https://gunicorn.org/) – Version 20.1.0 - WSGI HTTP server used in production on Heroku.
+- [Whitenoise](https://whitenoise.evans.io/en/stable/) – Version 6.5.0 - Used to serve static files in production.
+
+<a id="design"></a>
+
+### Design & Visuals
+
+- [Balsamiq](https://balsamiq.com/) – Used to create wireframes for mobile, tablet and desktop layouts.
+- [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) – Used to design the logo and some UI elements.
+- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) – Used for cropping, resizing and exporting images in webp format.
+
+<a id="development-tools"></a>
+
+### Development & Deployment
+
+- [Heroku](https://www.heroku.com/) – Cloud platform used to deploy the final version of the application.
+- [Cloudinary](https://cloudinary.com/) – Used to host and deliver user-uploaded images.
+- [Git](https://git-scm.com/) – For version control.
+- [GitHub](https://github.com/) – Repository hosting and collaboration.
+- [Pip](https://pypi.org/project/pip/) - A tool for installing Python packages.
+- [Visual Studio Code](https://code.visualstudio.com/) – Primary code editor used for development.
+- [Google Fonts](https://fonts.google.com/) – For custom font integration.
+- [Font Awesome](https://fontawesome.com/) – Icon library for UI icons.
+
+<a id="testing-tools"></a>
+
+### Testing & Accessibility Tools
+
+- [Coverage.py](https://coverage.readthedocs.io/) – Used to evaluate the effectiveness of the test suite by checking code coverage.
+- [Google Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) – For debugging and responsive testing.
+- [Mobile First Plugin](https://www.webmobilefirst.com/en/) – Used to simulate how the site appears on mobile devices.
+- [Aria DevTools](https://github.com/ziolko/aria-devtools) – Used to simulate screen reader accessibility.
+- [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik) – Chrome extension used to check for spelling errors across the site and README.
 
 <a id=content></a>
 
