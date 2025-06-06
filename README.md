@@ -416,6 +416,37 @@ The Record Detail page is designed to showcase individual records with rich meta
 
 This page supports in-depth cataloguing, reflecting the physical experience of pulling a record from the shelf and exploring its contents — all within a responsive, streamlined interface.
 
+<a id="404-page-features"></a>
+
+#### The 404 Page
+
+<details>
+<summary>Click here to view the 404 Page</summary>
+
+![Custom 404 page with vinyl-themed illustration and return button](documentation/features-404-page.webp)
+
+</details>
+
+---
+
+The custom 404 page provides a friendly and branded experience for users who encounter a broken or incorrect link. Rather than showing a generic error message, it reinforces Vinyl Crate’s design personality while guiding users back to a valid route.
+
+- **What it does:**
+  - Displays a clear message that the requested page could not be found.
+  - Uses a vinyl-themed illustration to keep the branding consistent.
+  - Offers a single, prominent call-to-action to return to the homepage.
+
+- **User Benefits:**
+  - Prevents confusion with a clear, user-friendly explanation of the issue.
+  - Maintains brand tone and visual consistency, even in error scenarios.
+  - Provides an immediate path back to safety, reducing frustration.
+
+- **Interactive Elements:**
+  - Branded SVG illustration to lighten the experience.
+  - Return to Home button styled with Bootstrap and an icon.
+
+This page helps maintain trust and polish by turning an error into an opportunity to reinforce the Vinyl Crate experience.
+
 <a id=dev-process></a>
 
 ### Development Process
