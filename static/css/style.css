@@ -7,6 +7,7 @@
       --highlight-yellow: #ffb633;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
+      --foreground-white: #ffffff;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -176,12 +177,21 @@ p {
   gap: 0.5rem;
 }
 
+.btn-action {
+  background-color: var(--highlight-blue);
+  color: var(--foreground-white);
+}
+
 .btn-neutral:hover {
   background-color: var(--highlight-yellow);
 }
 
 .btn-neutral i {
   color: var(--highlight-blue);
+}
+
+.btn-action i {
+  color: var(--foreground-white);
 }
 
 .text-highlight-blue {
