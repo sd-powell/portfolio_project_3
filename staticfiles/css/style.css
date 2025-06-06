@@ -7,6 +7,7 @@
       --highlight-yellow: #ffb633;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
+      --foreground-white: #ffffff;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -176,12 +177,21 @@ p {
   gap: 0.5rem;
 }
 
+.btn-action {
+  background-color: var(--highlight-blue);
+  color: var(--foreground-white);
+}
+
 .btn-neutral:hover {
   background-color: var(--highlight-yellow);
 }
 
 .btn-neutral i {
   color: var(--highlight-blue);
+}
+
+.btn-action i {
+  color: var(--foreground-white);
 }
 
 .text-highlight-blue {
@@ -221,7 +231,7 @@ p {
 
 .btn-ios-primary {
   background-color: var(--highlight-blue);
-  color: var(--background-color);
+  color: var(--foreground-white);
   border: none;
   border-radius: 999px;
   padding: 6px 20px;
@@ -230,7 +240,7 @@ p {
 }
 
 .btn-ios-primary:hover {
-  background-color: #3d82e0;
+  background-color: var(--highlight-yellow);
   color: white;
 }
 
@@ -283,25 +293,6 @@ p {
 
 /************ Buttons ************/
 
-/* iOS-Inspired Primary Button */
-.btn-ios-primary {
-    background: linear-gradient(to bottom, #5aa2b5, #40798c);
-    color: white;
-    border: none;
-    border-radius: 999px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-}
-.btn-ios-primary:hover,
-.btn-ios-primary:focus {
-    background: linear-gradient(to bottom, #40798c, #305f6d);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
 /* iOS-Inspired Outline Button */
 .btn-ios-outline {
     background-color: white;
@@ -334,6 +325,13 @@ p {
 }
 
 /************ Media queries ************/
+
+@media (min-width: 350px) and (max-width: 575.98px) {
+  .col-2-sm {
+    width: 50%;
+    flex: 0 0 auto;
+  }
+}
 
 /* Responsive aspect ratios */
 @media (max-width: 769px) {
@@ -432,4 +430,21 @@ p {
 
 .toast .toast-body {
   font-weight: 500;
+}
+
+
+.link-highlight-blue {
+  color: var(--highlight-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-highlight-blue:hover {
+  color: #305f6d; /* Optional darker tone on hover */
+  text-decoration: underline;
+}
+
+/* Remove outline from hamburger toggler */
+.navbar-toggler:focus {
+  box-shadow: none;
 }
