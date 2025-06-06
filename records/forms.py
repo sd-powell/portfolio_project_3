@@ -3,6 +3,19 @@ from django.forms import inlineformset_factory
 from allauth.account.forms import SignupForm
 from .models import Record, Track
 
+from django.core.exceptions import ValidationError
+import re
+
+
+def validate_no_whitespace_only(value):
+    """
+    Ensures the input is not only whitespace.
+    """
+    if not re.match(r"\S(.*\S)?", value):
+        raise ValidationError(
+            "This field cannot be blank or contain only whitespace."
+            )
+
 
 # --- Form Helper Functions ---
 def form_control_input(placeholder):
