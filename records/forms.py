@@ -6,6 +6,7 @@ from .models import Record, Track
 import re
 
 
+# --- Validator Functions ---
 def validate_no_whitespace_only(value):
     """
     Ensures the input is not only whitespace.
@@ -14,6 +15,18 @@ def validate_no_whitespace_only(value):
         raise ValidationError(
             "This field cannot be blank or contain only whitespace."
             )
+
+
+def validate_duration_format(value):
+    """
+    Ensure the duration is in M:SS or MM:SS format with seconds < 60.
+    """
+    match = re.match(r'^(\d{1,2}):([0-5]\d)$', value)
+    if not match:
+        raise ValidationError(
+            "Duration must be in the format M:SS or MM:SS "
+            "with seconds between 00 and 59 (e.g. 4:32)."
+        )
 
 
 # --- Form Helper Functions ---
@@ -183,9 +196,14 @@ class TrackForm(forms.ModelForm):
 
     duration = forms.CharField(
         max_length=10,
+        validators=[validate_duration_format],
         widget=form_control_input('e.g. 4:32'),
         label='Duration',
-        help_text='Duration in minutes and seconds (e.g. 4:32).'
+        help_text='Duration in minutes and seconds (e.g. 4:32).',
+        error_messages={
+            'required': 'Please enter the duration.',
+            'max_length': 'Duration is too long (10 characters max).',
+        }
     )
 
     bpm = forms.IntegerField(
