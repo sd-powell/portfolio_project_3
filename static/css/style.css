@@ -231,7 +231,7 @@ p {
 
 .btn-ios-primary {
   background-color: var(--highlight-blue);
-  color: var(--background-color);
+  color: var(--foreground-white);
   border: none;
   border-radius: 999px;
   padding: 6px 20px;
@@ -240,7 +240,7 @@ p {
 }
 
 .btn-ios-primary:hover {
-  background-color: #3d82e0;
+  background-color: var(--highlight-yellow);
   color: white;
 }
 
@@ -292,25 +292,6 @@ p {
 }
 
 /************ Buttons ************/
-
-/* iOS-Inspired Primary Button */
-.btn-ios-primary {
-    background: linear-gradient(to bottom, #5aa2b5, #40798c);
-    color: white;
-    border: none;
-    border-radius: 999px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-}
-.btn-ios-primary:hover,
-.btn-ios-primary:focus {
-    background: linear-gradient(to bottom, #40798c, #305f6d);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
 
 /* iOS-Inspired Outline Button */
 .btn-ios-outline {
@@ -449,4 +430,16 @@ p {
 
 .toast .toast-body {
   font-weight: 500;
+}
+
+
+.link-highlight-blue {
+  color: var(--highlight-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-highlight-blue:hover {
+  color: #305f6d; /* Optional darker tone on hover */
+  text-decoration: underline;
 }
