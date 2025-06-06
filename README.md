@@ -381,6 +381,41 @@ The My Crate page serves as the core of the Vinyl Crate experience — a persona
 
 This page transforms the idea of a traditional record shelf into a sleek, digital experience — searchable, sortable, and built around the collector’s unique taste.
 
+<a id="record-detail-features"></a>
+
+#### The Record Detail Page
+
+<details>
+<summary>Click here to view the Record Detail page</summary>
+
+![Record detail page showing cover image, metadata, and track listing](documentation/features-record-detail.webp)
+
+</details>
+
+---
+
+The Record Detail page is designed to showcase individual records with rich metadata and a full track listing, offering both aesthetic appeal and functional detail for collectors.
+
+- **What it does:**
+  - Displays a large banner using the album’s artwork to create an immersive visual header.
+  - Shows key metadata including genre, release year, and user rating.
+  - Lists associated tracks with position, title, duration, and optional BPM/key data.
+  - Offers editing and deletion actions for the owner of the record.
+
+- **User Benefits:**
+  - Presents each record with a clean, focused layout that feels personal and polished.
+  - Allows easy management of each entry with intuitive controls.
+  - Helps users quickly assess the content of a record at a glance, supporting crate digging and browsing habits.
+
+- **Interactive Elements:**
+  - Back button to return to the previous page.
+  - Album detail box with cover image, title, and artist.
+  - Metadata cards with clear visual grouping.
+  - Tracklist section styled for readability, with musical metadata.
+  - Edit and delete buttons (visible only to the record owner).
+
+This page supports in-depth cataloguing, reflecting the physical experience of pulling a record from the shelf and exploring its contents — all within a responsive, streamlined interface.
+
 <a id=dev-process></a>
 
 ### Development Process
