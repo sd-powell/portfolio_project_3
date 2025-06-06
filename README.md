@@ -1,10 +1,20 @@
 # Vinyl Crate
 
+Visit the deployed site here: [Vinyl Crate](https://vinyl-crate-ab3f8a285d4e.herokuapp.com/)
+
 ## Introduction
 
-**Vinyl Crate** is a full-stack record collection management web application built using Django, Python, HTML, CSS, and JavaScript. The app uses PostgreSQL for data storage and is deployed to Heroku with a responsive front-end styled using Bootstrap.
+**Vinyl Crate** is a full-stack record collection management web application designed to help users digitally archive, explore, and celebrate their vinyl records. Built with Django, Python, HTML, CSS, and JavaScript, it features a PostgreSQL database and is deployed on Heroku. The app combines practical record tracking with a clean, responsive interface styled using Bootstrap.
 
-This project was created as my third milestone project for the Level 5 Diploma in Web Application Development with the Code Institute.
+**The aim and purpose of the site** is to provide vinyl enthusiasts with a personal, digital space to catalogue their analogue collections. Users can upload album art, store detailed metadata, and keep track of their growing crate — all in one place. By offering organisation, customisation, and inspiration, Vinyl Crate turns a static collection into an interactive experience.
+
+**The goal of the site** is to make record collection management accessible and enjoyable. Whether you're a casual collector or a devoted audiophile, the platform aims to reduce friction in logging records while encouraging deeper engagement with your music. Additional features like ratings, tracklists, and staff picks further enrich the user experience.
+
+Cataloguing your vinyl not only provides a sense of accomplishment but also helps preserve the legacy and story of your collection. The app supports mindful collecting, data-driven organisation, and a visually rewarding interface that reflects the pride many users take in their records.
+
+The platform offers intuitive search, filter, and sort features, allowing users to easily locate, review, and update their entries. With plans for enhanced integrations and personalisation, Vinyl Crate is designed to scale with users' collections and habits.
+
+**The target audience is vinyl collectors and music lovers of all ages** who want to track, explore, and share their record collections. Whether you're just getting started or managing hundreds of records, Vinyl Crate offers a curated and user-friendly environment tailored to analog enthusiasts in a digital world.
 
 ---
 
