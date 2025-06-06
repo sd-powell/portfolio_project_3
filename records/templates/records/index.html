@@ -71,7 +71,7 @@
     <div class="row g-4" role="list">
       {% for record in staff_picks %}
         <a href="{% url 'record_detail' record.slug %}"
-           class="col-12 col-sm-6 col-md-4 text-decoration-none text-dark"
+           class="col-12 col-2-sm col-sm-6 col-md-4 text-decoration-none text-dark"
            role="listitem">
           <article class="text-start h-100" itemscope itemtype="https://schema.org/MusicAlbum">
             {% if record.cover_image %}
