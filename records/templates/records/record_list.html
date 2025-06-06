@@ -72,7 +72,7 @@
 
             <div class="row g-4">
                 {% for record in recently_added %}
-                    <div class="col-6 col-md-4">
+                    <div class="col-sm-6 col-md-4 col-2-sm">
                         <a href="{% url 'record_detail' record.slug %}" 
                             class="text-decoration-none text-dark"
                             aria-label="View details for {{ record.title }} by {{ record.artist }}">
@@ -96,7 +96,7 @@
                 {% endfor %}
 
                 <!-- Quick Add Tile -->
-                <div class="col-6 col-md-4">
+                <div class="col-sm-6 col-md-4 col-2-sm">
                     <a href="{% url 'record_create' %}"
                     class="text-center text-decoration-none"
                     aria-label="Add a new record">
@@ -115,7 +115,7 @@
         <h2 class="fw-bold mb-4">Add to Your Crate</h2>
         <div class="row g-4">
             <!-- Quick Add Tile -->
-            <div class="col-6 col-md-4">
+            <div class="col-sm-6 col-md-4 col-2-sm">
                 <a href="{% url 'record_create' %}"
                 class="text-center text-decoration-none"
                 aria-label="Add a new record">
@@ -132,7 +132,7 @@
                         <h2 id="staff-picks-heading" class="mb-4 fw-bold">Staff Picks</h2>
                         <div class="row g-4">
                             {% for record in staff_picks %}
-                                <div class="col-6 col-md-4">
+                                <div class="col-sm-6 col-md-4 col-2-sm">
                                     <a href="{% url 'record_detail' record.slug %}"
                                         class="text-decoration-none text-dark"
                                         aria-label="View details for {{ record.title }} by {{ record.artist }}">
