@@ -162,6 +162,53 @@ class TrackForm(forms.ModelForm):
     labels, validation, and form styling.
     """
 
+    title = forms.CharField(
+        max_length=255,
+        validators=[validate_no_whitespace_only],
+        widget=form_control_input('e.g. Around The World'),
+        label='Track Title',
+        help_text='Enter the name of the track.',
+        error_messages={
+            'required': 'Please enter the title of the track.',
+            'max_length': 'Title is too long (255 characters max).',
+        }
+    )
+
+    position = forms.CharField(
+        max_length=10,
+        widget=form_control_input('e.g. A1'),
+        label='Track Position',
+        help_text='Track position on vinyl (e.g. A1, B2).'
+    )
+
+    duration = forms.CharField(
+        max_length=10,
+        widget=form_control_input('e.g. 4:32'),
+        label='Duration',
+        help_text='Duration in minutes and seconds (e.g. 4:32).'
+    )
+
+    bpm = forms.IntegerField(
+        required=False,
+        min_value=24,
+        max_value=1000,
+        widget=form_control_number('e.g. 120'),
+        label='BPM (Beats Per Minute)',
+        help_text='Typical range is 60–180 (optional).',
+        error_messages={
+            'invalid': 'Please enter a valid number for BPM.',
+            'min_value': 'Minimum BPM is 24.',
+            'max_value': 'Maximum BPM is 1000.',
+        }
+    )
+
+    key = forms.CharField(
+        required=False,
+        widget=form_control_select(),
+        label='Musical Key (Camelot Notation)',
+        help_text='Select the track’s key using Camelot notation (optional).'
+    )
+
     class Meta:
         model = Track
         fields = [
@@ -171,42 +218,6 @@ class TrackForm(forms.ModelForm):
             'bpm',
             'key'
         ]
-
-        labels = {
-            'title': 'Track Title',
-            'position': 'Track Position',
-            'duration': 'Duration',
-            'bpm': 'BPM (Beats Per Minute)',
-            'key': 'Musical Key (Camelot Notation)',
-        }
-
-        help_texts = {
-            'title': 'Enter the name of the track.',
-            'position': 'Track position on vinyl (e.g. A1, B2).',
-            'duration': 'Duration in minutes and seconds (e.g. 4:32).',
-            'bpm': 'Typical range is 60–180 (optional).',
-            'key': 'Select the track’s key using Camelot notation (optional).',
-        }
-
-        error_messages = {
-            'title': {
-                'required': 'Please enter the title of the track.',
-                'max_length': 'Title is too long (255 characters max).',
-            },
-            'bpm': {
-                'invalid': 'Please enter a valid number for BPM.',
-                'min_value': 'Minimum BPM is 24.',
-                'max_value': 'Maximum BPM is 1000.',
-            },
-        }
-
-        widgets = {
-            'title': form_control_input('e.g. Around The World'),
-            'position': form_control_input('e.g. A1'),
-            'duration': form_control_input('e.g. 4:32'),
-            'bpm': form_control_number('e.g. 120'),
-            'key': form_control_select(),
-        }
 
 
 # --- Inline Formset ---
