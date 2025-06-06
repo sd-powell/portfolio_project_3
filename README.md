@@ -1,12 +1,74 @@
 # Vinyl Crate
 
+## Introduction
+
 **Vinyl Crate** is a full-stack record collection management web application built using Django, Python, HTML, CSS, and JavaScript. The app uses PostgreSQL for data storage and is deployed to Heroku with a responsive front-end styled using Bootstrap.
 
 This project was created as my third milestone project for the Level 5 Diploma in Web Application Development with the Code Institute.
 
 ---
 
+<a id=contents></a>
+
+## CONTENTS
+
+- [User Experience](#ux)
+  - [Strategy Plane](#strategy-plane)
+  - [Scope Plane](#scope-plane)
+  - [Structure Plane](#structure-plane)
+  - [Skeleton Plane](#skeleton-plane)
+
+
+- [Design](#Design)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+  - [Imagery](#imagery)
+  - [Site Functionality Flow Diagram](#siteflow)
+  - [Game Logic Overview](#gameplay)
+  - [Wireframes](#wireframes)
+    - [Mobile Wireframes](#mobile-frames)
+    - [Tablet Wireframes](#tablet-frames)
+    - [Desktop Wireframes](#desktop-frames)
+      - [Features](#features)
+      - [The Home Page](#home-page-features)
+      - [The Rules Page](#rules-page-features)
+      - [The Leaderboard Page](#leaderboard-page-features)
+      - [The Difficulty Page](#difficulty-page-features)
+      - [The Quiz Page](#quiz-page-features)
+      - [The Results Page](#results-page-features)
+      - [The 404 Page](#404-page-features)
+      - [The 500 Page](#500-page-features)
+      - [Future Implementations](#future-implementation)
+
+* [Technologies Used](#technologies)
+
+  - [Languages Used](#languages)
+  - [Frameworks, Libraries & Programs Used](#frameworks)
+
+* [Deployment & Local Development](#deployment-development)
+
+  - [Deployment](#development)
+  - [Local Development](#local-development)
+    - [How to Fork](#fork)
+    - [How to clone](#clone)
+
+* [Testing](#testing-readme)
+
+  - [Solved Issues & Bugs](#solved-issues)
+  - [Known Issues & Bugs](#known-issues)
+
+* [Credits & Inspiration](#credits&inspiration)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgement](#acknowledgement)
+
+---
+
+<a id=ux></a>
+
 ##  User Experience (UX)
+
+<a id=strategy-plane></a>
 
 ### Strategy Plane
 
@@ -39,6 +101,8 @@ Whether you're tracking rare jazz pressings, building a DJ setlist, or simply do
 - 📱 **Mobile-ready** – Use it from the crate or the couch
 
 ---
+
+<a id=scope-plane></a>
 
 ### Scope Plane
 
@@ -79,6 +143,8 @@ User roles are also considered in the planning:
 | User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ✅        |
 
 ---
+
+<a id=structure-plane></a>
 
 ### Structure Plane
 
@@ -158,6 +224,8 @@ Overall, the use of clean, bold, and culturally relevant imagery reinforces the 
 
 <br>
 <hr>
+
+<a id="skeleton-plane"></a>
 
 ### Skeleton Plane
 
