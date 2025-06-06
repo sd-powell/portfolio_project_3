@@ -443,3 +443,8 @@ p {
   color: #305f6d; /* Optional darker tone on hover */
   text-decoration: underline;
 }
+
+/* Remove outline from hamburger toggler */
+.navbar-toggler:focus {
+  box-shadow: none;
+}
