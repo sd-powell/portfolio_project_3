@@ -447,6 +447,40 @@ The custom 404 page provides a friendly and branded experience for users who enc
 
 This page helps maintain trust and polish by turning an error into an opportunity to reinforce the Vinyl Crate experience.
 
+<a id="500-error-page"></a>
+
+#### The 500 Error Page
+
+<details>
+<summary> Click here to view the 500 error page </summary>
+
+![Custom 500 error page with vinyl theme](documentation/features-500-page.webp)
+
+</details>
+
+---
+
+The Vinyl Crate 500 error page provides a calm and friendly experience when an unexpected server error occurs. With its custom visual styling and reassuring message, it ensures that even errors feel intentional and on-brand.
+
+- **What it does:**
+  - Displays a custom server error message and themed vinyl graphic.
+  - Offers users a clear explanation and path to return to the homepage.
+  - Automatically shown when a 500-level error is triggered.
+
+- **User Benefits:**
+  - Reduces frustration by delivering a visually appealing and human response to errors.
+  - Maintains brand continuity even during service disruptions.
+  - Helps users quickly navigate back to a working part of the site.
+
+- **Interactive Elements:**
+  - Vinyl-themed illustration to match the site’s tone and theme.
+  - Prominent call-to-action button to return to the homepage.
+
+The 500 page ensures Vinyl Crate remains user-friendly and stylish, even in the face of technical errors, maintaining trust and usability throughout the experience.
+
+<br>
+<hr>
+
 <a id=dev-process></a>
 
 ### Development Process
