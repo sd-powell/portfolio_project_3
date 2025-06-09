@@ -29,16 +29,28 @@
         {% if messages %}
             <div class="toast-container">
                 {% for message in messages %}
-                <div class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true"
-                    data-bs-delay="4000" data-bs-autohide="true">
-                    <div class="d-flex">
-                    <div class="toast-body">
-                        <span class="visually-hidden">Notification</span>
-                        {{ message }}
+                    <div class="toast align-items-center text-white bg-success 
+                        {% if 'success' in message.tags %}
+                            bg-success
+                        {% elif 'error' in message.tags or 'danger' in message.tags %}
+                            bg-danger
+                        {% elif 'warning' in message.tags %}
+                            bg-warning text-dark
+                        {% elif 'info' in message.tags %}
+                            bg-info text-dark
+                        {% else %}
+                            bg-secondary
+                        {% endif %}
+                        border-0 show" role="alert" aria-live="assertive" aria-atomic="true"
+                        data-bs-delay="4000" data-bs-autohide="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <span class="visually-hidden">Notification</span>
+                                {{ message }}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
                     </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                </div>
                 {% endfor %}
             </div>
         {% endif %}
