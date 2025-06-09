@@ -109,23 +109,24 @@
                 </ul>
 
                 <!-- Desktop User Menu -->
-                <li class="nav-item dropdown d-none d-md-block">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdownDesktop"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-circle-user me-2"></i>
-                        {% if user.is_authenticated %}{{ user.first_name|default:user.username }}{% endif %}
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownDesktop">
-                        {% if user.is_authenticated %}
-                        <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
-                        <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
-                        {% else %}
-                        <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                        <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                </div>
+                <ul class="navbar-nav d-none d-md-block">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdownDesktop"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-circle-user me-2"></i>
+                            {% if user.is_authenticated %}{{ user.first_name|default:user.username }}{% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownDesktop">
+                            {% if user.is_authenticated %}
+                            <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
+                            <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
 
