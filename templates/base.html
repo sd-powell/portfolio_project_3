@@ -24,7 +24,7 @@
 
     </head>
 
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- Toast Notification -->
         {% if messages %}
             <div class="toast-container">
@@ -129,7 +129,7 @@
             </div>
         </nav>
 
-        <main>
+        <main class="flex-grow-1">
             {% block content %}
             <!-- Child templates inject here -->
             {% endblock %}
