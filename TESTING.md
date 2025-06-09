@@ -41,6 +41,20 @@ To ensure the site was **responsive and accessible across devices**, all views a
 
 ---
 
+<a id=w3c-validation></a>
+
+### W3C Validator
+
+[W3C Validator](https://validator.w3.org/) was used to check the HTML and CSS across all pages of the site. Since Django’s templating language is embedded within the HTML files, I viewed the rendered page source in the browser and submitted that output to the validator to ensure accuracy.
+
+| Directory | File tested | Screenshot | Notes |
+| --------- | ----------- | ---------- | ----- |
+| documentation/testing-w3c-home.webp | index.html | ![screenshot](documentation/testing-w3c-home.webp) | no errors occurred when checking |
+| documentation/testing-w3c-404.webp | 404.html | ![screenshot](documentation/testing-w3c-404.webp) | no errors occurred when checking |
+| documentation/testing-w3c-500.webp | 500.html | ![screenshot](documentation/testing-w3c-500.webp) | no errors occurred when checking |
+
+---
+
 <a id=automated-testing></a>
 
 ## Automated Testing
