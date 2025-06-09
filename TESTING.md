@@ -47,13 +47,23 @@ To ensure the site was **responsive and accessible across devices**, all views a
 
 [W3C Validator](https://validator.w3.org/) was used to check the HTML and CSS across all pages of the site. Since Django’s templating language is embedded within the HTML files, I viewed the rendered page source in the browser and submitted that output to the validator to ensure accuracy.
 
-| Page Tested | Result | Evidence |
+| Page tested | Result | Evidence |
 | --------- | ------ | ---------- |
 | Home | Pass | [Home Page Validation](documentation/testing/validation/w3c-home.webp) |
 | Dashboard | Pass | [Dashboard Page Validation](documentation/testing/validation/w3c-dashboard.webp) |
 | My Crate  | Pass | [My Crate Page Validation](documentation/testing/validation/w3c-my-crate.webp) |
 
 ---
+
+<a id=css-validation></a>
+
+### CSS Validator
+
+[CSS W3C Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file.
+
+| File tested | Result | Evidence |
+| ----------- | ------ | -------- |
+| base/style.css    | [base/style.css validation](documentation/testing/validation/w3c-style-css.webp) |
 
 <a id=automated-testing></a>
 
