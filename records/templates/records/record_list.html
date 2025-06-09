@@ -125,42 +125,43 @@
                     </div>
                 </a>
             </div>
-            <!-- Staff Picks Section -->
-            <section class="pt-5" aria-labelledby="staff-picks-heading">
-                <div class="container">
-                    <div class="bg-white rounded p-4 shadow-sm">
-                        <h2 id="staff-picks-heading" class="mb-4 fw-bold">Staff Picks</h2>
-                        <div class="row g-4">
-                            {% for record in staff_picks %}
-                                <div class="col-sm-6 col-md-4 col-2-sm">
-                                    <a href="{% url 'record_detail' record.slug %}"
-                                        class="text-decoration-none text-dark"
-                                        aria-label="View details for {{ record.title }} by {{ record.artist }}">
-                                        <div class="text-start">
-                                            {% if record.cover_image %}
-                                                <img src="{{ record.cover_image.url }}"
-                                                    alt="Cover of {{ record.title }} by {{ record.artist }}"
-                                                    class="img-fluid rounded record-cover-img">
-                                            {% else %}
-                                                <div class="bg-secondary rounded placeholder-cover"></div>
-                                            {% endif %}
-                                            <h5 class="mt-3 mb-1 card-title-truncate">
-                                                {{ record.title }}
-                                            </h5>
-                                            <p class="text-muted mb-0 card-title-truncate">
-                                                {{ record.artist }}
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% empty %}
-                                <p>No staff picks available at this time.</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     </div>
+    <!-- Staff Picks Section -->
+    <section class="pt-5" aria-labelledby="staff-picks-heading">
+        <div class="container">
+            <div class="bg-white rounded p-4 shadow-sm">
+                <h2 id="staff-picks-heading" class="mb-4 fw-bold">Staff Picks</h2>
+                <div class="row g-4">
+                    {% for record in staff_picks %}
+                        <div class="col-sm-6 col-md-4 col-2-sm">
+                            <a href="{% url 'record_detail' record.slug %}"
+                                class="text-decoration-none text-dark"
+                                aria-label="View details for {{ record.title }} by {{ record.artist }}">
+                                <div class="text-start">
+                                    {% if record.cover_image %}
+                                        <img src="{{ record.cover_image.url }}"
+                                            alt="Cover of {{ record.title }} by {{ record.artist }}"
+                                            class="img-fluid rounded record-cover-img">
+                                    {% else %}
+                                        <div class="bg-secondary rounded placeholder-cover"></div>
+                                    {% endif %}
+                                    <h5 class="mt-3 mb-1 card-title-truncate">
+                                        {{ record.title }}
+                                    </h5>
+                                    <p class="text-muted mb-0 card-title-truncate">
+                                        {{ record.artist }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    {% empty %}
+                        <p>No staff picks available at this time.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
     {% endif %}
+</div>
 {% endblock %}
