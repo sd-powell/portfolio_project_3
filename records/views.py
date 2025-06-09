@@ -228,7 +228,11 @@ def record_delete(request, pk):
     """
     record = get_object_or_404(Record, pk=pk, user=request.user)
     if request.method == 'POST':
+        title = record.title
         record.delete()
+        messages.success(
+            request, f"Record '{title}' was deleted successfully."
+            )
         return redirect('record_list')
     return render(
         request,
