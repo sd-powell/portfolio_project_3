@@ -369,6 +369,70 @@ p {
   }
 }
 
+/* Medium devices (tablets landscape) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .carousel-content {
+    max-width: 400px;
+  }
+  .carousel-content h1 {
+    font-size: 1.8rem;
+  }
+  .carousel-content p {
+    font-size: 0.8rem;
+  }
+  .btn-ios-primary {
+    padding: 4px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium-large breakpoint: between 991px and 1200px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .carousel-content {
+    max-width: 500px;
+  }
+
+  .carousel-content h1 {
+    font-size: 2.8rem;
+    letter-spacing: 0.12rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .carousel-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-ios-primary {
+    font-size: 0.95rem;
+    padding: 6px 16px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .carousel-content {
+    max-width: 800px;
+  }
+  .carousel-content h1 {
+    font-size: 4rem;
+  }
+  .carousel-content p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .carousel-content h1 {
+    font-size: 4.5rem;
+  }
+  .carousel-content {
+    max-width: 900px;
+  }
+  .carousel-content p {
+    font-size: 1.7rem;
+  }
+}
+
 /************ Carousel ************/
 
 #homeCarousel {
