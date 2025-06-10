@@ -63,7 +63,7 @@ To ensure the site was **responsive and accessible across devices**, all views a
 
 | File tested | Result | Evidence |
 | ----------- | ------ | -------- |
-| base/style.css    | [base/style.css validation](documentation/testing/validation/w3c-style-css.webp) |
+| base/style.css | Pass | [base/style.css validation](documentation/testing/validation/w3c-style-css.webp) |
 
 ---
 
