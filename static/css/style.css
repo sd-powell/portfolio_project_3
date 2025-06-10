@@ -47,7 +47,7 @@ p {
 .gradient-slide {
   background: linear-gradient(to bottom, #ffb633, #f7931e);
   height: 100vh;
-  padding: 0 1rem;
+  padding: 0 !important;
 }
 
 .carousel-content {
