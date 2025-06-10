@@ -65,6 +65,31 @@ To ensure the site was **responsive and accessible across devices**, all views a
 | ----------- | ------ | -------- |
 | base/style.css    | [base/style.css validation](documentation/testing/validation/w3c-style-css.webp) |
 
+---
+
+### Python
+
+All Python code was validated using the [Code Institute Python Linter](https://pep8ci.herokuapp.com/), which checks for compliance with PEP8 — the official Python style guide. This ensured consistent, readable, and well-structured code throughout the project.
+
+| File | Result | Evidence |
+| :--- | :--- | :---: |
+| **VINYLCRATE_PROJECT** |
+| records/asgi.py | Pass | [asgi.py validation](documentation/testing/validation/python-asgi.webp) |
+| records/settings.py | Pass | [admin.py validation](documentation/testing/validation/python-settings.webp) |
+| records/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-project-urls.webp) |
+| records/wsgi.py | Pass | [wsgi.py validation](documentation/testing/validation/python-wsgi.webp) |
+| **RECORDS** |
+| records/admin.py | Pass | [admin.py validation](documentation/testing/validation/python-admin.webp) |
+| records/apps.py | Pass | [apps.py validation](documentation/testing/validation/python-apps.webp) |
+| records/forms.py | Pass | [forms.py validation](documentation/testing/validation/python-forms.webp) |
+| records/models.py | Pass | [models.py validation](documentation/testing/validation/python-models.webp) |
+| records/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-urls.webp) |
+| records/views.py | Pass | [views.py validation](documentation/testing/validation/python-views.webp) |
+| records/tests_forms_signup.py | Pass | [tests_forms_signup.py validation](documentation/testing/validation/python-tests_forms_signup.webp) |
+| records/tests_forms_track.py | Pass | [tests_forms_track.py validation](documentation/testing/validation/python-tests_forms_track.webp) |
+| records/tests_forms.py | Pass | [tests_forms.py validation](documentation/testing/validation/python-tests_forms.webp) |
+| records/tests_views.py | Pass | [tests_views.py validation](documentation/testing/validation/python-tests_views.webp) |
+
 <a id=automated-testing></a>
 
 ## Automated Testing

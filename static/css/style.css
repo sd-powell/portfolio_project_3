@@ -41,6 +41,29 @@ p {
     box-shadow: none;
 }
 
+/************ Carousel ************/
+
+/* Carousel slide with gradient background */
+.gradient-slide {
+  background: linear-gradient(to bottom, #ffb633, #f7931e);
+  height: 100vh;
+  padding: 0 1rem;
+}
+
+.carousel-content {
+  max-width: 600px;
+}
+
+.carousel-content h1 {
+  font-size: 3.5rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+.carousel-content p {
+  font-family: var(--primary-font);
+}
+
 /************ Dashboard ************/
 
 .welcome-banner {
