@@ -379,6 +379,12 @@ p {
     box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
 }
 
+/************ 404 and 500 Error Pages ************/
+
+.error-img {
+  max-height: 250px;
+}
+
 /************ Footer ************/
 
 .footer {
