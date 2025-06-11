@@ -358,6 +358,10 @@ Vinyl Crate is a full-stack web application designed to help users digitise and 
 
 Defensive programming principles have been applied across the site to safeguard functionality and restrict access to authorised users only. Permission checks are in place to ensure that only superusers can perform admin-level tasks such as editing or deleting system-wide content. When a user attempts to access a restricted page or function without the appropriate permissions, they are redirected to a login page. This approach not only reinforces secure behaviour but also improves user experience by clearly communicating access boundaries.
 
+#### Footer
+
+The footer is divided into three key sections. The first section encourages user engagement by displaying a “Join us on” heading followed by links to the site’s social media profiles, each with accessible icons. The second section provides quick links to key pages such as Home, Register, Contact, and Privacy. The final section includes copyright information and a link to the developer’s GitHub profile. The layout is fully responsive, stacking neatly on smaller screens for optimal usability across devices.
+
 <a id=home-page-features></a>
 
 #### The Home Page
@@ -399,7 +403,7 @@ The homepage acts as a stylish entry point for the Vinyl Crate experience — wh
 <details>
 <summary> Click here to view the dashboard </summary>
 
-![Vinyl Crate dashboard view on multiple devices](documentation/features-dashboard.webp)
+![Vinyl Crate dashboard view on multiple devices](documentation/readme/surface_plane/features-dashboard.webp)
 
 </details>
 
@@ -434,7 +438,7 @@ The dashboard acts as a central hub for Vinyl Crate users — helping them navig
 <details>
 <summary> Click here to view the My Crate page </summary>
 
-![My Crate page showing search, filters, and record cards on multiple devices](documentation/features-my-crate.webp)
+![My Crate page showing search, filters, and record cards on multiple devices](documentation/readme/surface_plane/features-mycrate.webp)
 
 </details>
 
@@ -470,7 +474,7 @@ This page transforms the idea of a traditional record shelf into a sleek, digita
 <details>
 <summary>Click here to view the Record Detail page</summary>
 
-![Record detail page showing cover image, metadata, and track listing](documentation/features-record-detail.webp)
+![Record detail page showing cover image, metadata, and track listing](documentation/readme/surface_plane/features-record-detail.webp)
 
 </details>
 
