@@ -258,15 +258,33 @@ class CustomSignupForm(SignupForm):
     first_name = forms.CharField(
         max_length=30,
         label='First Name',
-        required=False,
+        required=True,
         widget=form_control_input('First Name')
     )
     last_name = forms.CharField(
         max_length=30,
         label='Last Name',
-        required=False,
+        required=True,
         widget=form_control_input('Last Name')
     )
+
+    def clean_first_name(self):
+        if not (first := self.cleaned_data.get('first_name', '').strip()):
+            raise forms.ValidationError(
+                "First name cannot be blank or whitespace."
+                )
+        if not re.match("^[A-Za-z '-]+$", first):
+            raise forms.ValidationError(
+                "First name contains invalid characters."
+                )
+        return first
+
+    def clean_last_name(self):
+        if not (last := self.cleaned_data.get('last_name', '').strip()):
+            raise forms.ValidationError(
+                "Last name cannot be blank or whitespace."
+                )
+        return last
 
     def save(self, request):
         user = super().save(request)
