@@ -533,6 +533,37 @@ The custom 404 page provides a friendly and branded experience for users who enc
 
 This page helps maintain trust and polish by turning an error into an opportunity to reinforce the Vinyl Crate experience.
 
+<a id="403-page-features"></a>
+
+#### The 403 Page
+
+<details>
+<summary>Click here to view the 403 Page</summary>
+
+![Custom 403 page with vinyl-themed illustration and access denied message](documentation/readme/surface_plane/features-403.webp)
+
+</details>
+
+---
+
+The custom 403 page handles cases where a user attempts to access a restricted page without the necessary permissions. Rather than delivering a cold or technical error, this page keeps the tone friendly and aligned with the Vinyl Crate brand.
+
+- **What it does:**
+  - Clearly informs users that access to the page is forbidden.
+  - Reinforces site identity using a vinyl-themed illustration.
+  - Guides users back to the homepage with a prominent CTA.
+
+- **User Benefits:**
+  - Prevents frustration by explaining that the issue is permission-based.
+  - Offers a visual experience that feels cohesive and intentional.
+  - Helps users recover quickly with a clear path to continue browsing.
+
+- **Interactive Elements:**
+  - SVG illustration that keeps the mood light while staying on-brand.
+  - A Bootstrap-styled button to return to the homepage, with a left arrow icon for clarity.
+
+This page transforms a potentially confusing moment into a branded touchpoint, ensuring users feel guided and respected even when access is denied.
+
 <a id="500-error-page"></a>
 
 #### The 500 Error Page
