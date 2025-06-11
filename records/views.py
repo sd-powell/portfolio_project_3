@@ -9,10 +9,6 @@ from .models import Record, Track, GENRE_CHOICES, RATING_CHOICES
 from .forms import RecordForm
 
 
-def trigger_400(request):
-    return render(request, '400.html', status=400)
-
-
 def get_staff_picks(limit=6):
     """
     Retrieve a queryset of staff-picked records, limited to a specified number.
