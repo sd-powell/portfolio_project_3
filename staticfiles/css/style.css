@@ -314,6 +314,51 @@ p {
   text-decoration: none;
 }
 
+/************ Record Detail Page ************/
+
+.hero-section {
+  position: relative;
+  min-height: 30vh;
+  overflow: hidden;
+}
+
+.hero-background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 40%;
+  filter: brightness(0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-overlay-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.hero-back-button {
+  padding-top: 1rem;
+}
+
+.hero-info-box {
+  padding-bottom: 1.5rem;
+}
+
+.album-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 /************ Buttons ************/
 
 /* iOS-Inspired Outline Button */
