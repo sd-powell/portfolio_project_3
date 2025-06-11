@@ -354,6 +354,10 @@ Vinyl Crate is a full-stack web application designed to help users digitise and 
  
  </details>
 
+#### Defensive Programming
+
+Defensive programming principles have been applied across the site to safeguard functionality and restrict access to authorised users only. Permission checks are in place to ensure that only superusers can perform admin-level tasks such as editing or deleting system-wide content. When a user attempts to access a restricted page or function without the appropriate permissions, they are redirected to a login page. This approach not only reinforces secure behaviour but also improves user experience by clearly communicating access boundaries.
+
 <a id=home-page-features></a>
 
 #### The Home Page
@@ -361,7 +365,7 @@ Vinyl Crate is a full-stack web application designed to help users digitise and 
 <details>
 <summary>Click here to view the home page</summary>
 
-![Vinyl Crate home page shown across multiple screen sizes](documentation/features-homepage.webp)
+![Vinyl Crate home page](documentation/readme/surface_plane/features-home.webp)
 
 </details>
 

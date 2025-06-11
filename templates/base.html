@@ -97,10 +97,12 @@
                     <ul class="navbar-nav me-auto">
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'record_list' %}">Dashboard</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'record_list' %}fw-bold{% endif %}"
+                            href="{% url 'record_list' %}">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'record_collection' %}">My Crate</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'record_collection' %}fw-bold{% endif %}"
+                            href="{% url 'record_collection' %}">My Crate</a>
                         </li>
                         {% else %}
                             <li><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
