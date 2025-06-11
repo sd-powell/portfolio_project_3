@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.core.exceptions import SuspiciousOperation
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -11,7 +10,7 @@ from .forms import RecordForm
 
 
 def trigger_400(request):
-    raise SuspiciousOperation("Deliberate 400 for testing")
+    return render(request, '400.html', status=400)
 
 
 def get_staff_picks(limit=6):
