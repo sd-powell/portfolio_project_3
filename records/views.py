@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.exceptions import PermissionDenied
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -7,6 +8,10 @@ from django.forms import inlineformset_factory
 
 from .models import Record, Track, GENRE_CHOICES, RATING_CHOICES
 from .forms import RecordForm
+
+
+def trigger_403(request):
+    raise PermissionDenied("Deliberate 403 error for testing")
 
 
 def get_staff_picks(limit=6):
