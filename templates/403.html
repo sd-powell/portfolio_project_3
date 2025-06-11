@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}Access Denied{% endblock %}
+
+{% block content %}
+<!-- Custom 403 page using Bootstrap -->
+<div class="container py-4 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <img src="{% static 'images/403-error.svg' %}" alt="403 Forbidden - Access Denied" class="img-fluid mb-4 error-img">
+            <h1 class="display-4 fw-bold">Access Denied</h1>
+            <p class="lead text-muted my-3">
+                You don’t have permission to view this page. It might be restricted to admin users or require additional access.
+            </p>
+            <a href="{% url 'index' %}" class="btn btn-ios-primary mt-3">
+                <i class="fa fa-arrow-left me-1"></i> Return to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

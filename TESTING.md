@@ -52,6 +52,7 @@ To ensure the site was **responsive and accessible across devices**, all views a
 | Home | Pass | [Home Page Validation](documentation/testing/validation/w3c-home.webp) |
 | Dashboard | Pass | [Dashboard Page Validation](documentation/testing/validation/w3c-dashboard.webp) |
 | My Crate  | Pass | [My Crate Page Validation](documentation/testing/validation/w3c-my-crate.webp) |
+| Record Detail  | Pass | [Record Detail Page Validation](documentation/testing/validation/w3c-record-detail.webp) |
 | 404  | Pass | [404 Page Validation](documentation/testing/validation/w3c-404.webp) |
 | 500  | Pass | [500 Page Validation](documentation/testing/validation/w3c-500.webp) |
 

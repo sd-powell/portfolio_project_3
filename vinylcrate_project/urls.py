@@ -33,3 +33,4 @@ if settings.DEBUG:
 
 handler404 = record_views.custom_404_view
 handler500 = "django.views.defaults.server_error"
+handler403 = "records.views.custom_403_view"
