@@ -255,6 +255,11 @@ class CustomSignupForm(SignupForm):
     Custom signup form that adds first and last name fields
     to the default Allauth form.
     """
+    email = forms.EmailField(
+        required=True,
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'})
+    )
+    
     first_name = forms.CharField(
         max_length=30,
         label='First Name',
