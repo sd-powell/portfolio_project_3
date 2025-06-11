@@ -502,36 +502,36 @@ The Record Detail page is designed to showcase individual records with rich meta
 
 This page supports in-depth cataloguing, reflecting the physical experience of pulling a record from the shelf and exploring its contents — all within a responsive, streamlined interface.
 
-<a id="404-page-features"></a>
+<a id="400-page-features"></a>
 
-#### The 404 Page
+#### The 400 Page
 
 <details>
-<summary>Click here to view the 404 Page</summary>
+<summary>Click here to view the 400 Page</summary>
 
-![Custom 404 page with vinyl-themed illustration and return button](documentation/readme/surface_plane/features-404.webp)
+![Custom 400 page with vinyl-themed illustration and bad request message](documentation/readme/surface_plane/features-400.webp)
 
 </details>
 
 ---
 
-The custom 404 page provides a friendly and branded experience for users who encounter a broken or incorrect link. Rather than showing a generic error message, it reinforces Vinyl Crate’s design personality while guiding users back to a valid route.
+The custom 400 page gracefully handles bad requests caused by malformed or incorrect input. Rather than displaying a generic server error, it provides a polished and brand-consistent response that reassures users and helps them recover quickly.
 
 - **What it does:**
-  - Displays a clear message that the requested page could not be found.
-  - Uses a vinyl-themed illustration to keep the branding consistent.
-  - Offers a single, prominent call-to-action to return to the homepage.
+  - Informs users that the request was invalid or could not be understood.
+  - Uses a familiar vinyl-themed illustration to maintain visual consistency.
+  - Includes a clear call-to-action button to return to the homepage.
 
 - **User Benefits:**
-  - Prevents confusion with a clear, user-friendly explanation of the issue.
-  - Maintains brand tone and visual consistency, even in error scenarios.
-  - Provides an immediate path back to safety, reducing frustration.
+  - Reduces confusion by presenting a friendly explanation of the issue.
+  - Maintains trust by avoiding abrupt or technical error messages.
+  - Helps users navigate away from error states without frustration.
 
 - **Interactive Elements:**
-  - Branded SVG illustration to lighten the experience.
-  - Return to Home button styled with Bootstrap and an icon.
+  - A custom SVG image styled to match the brand identity.
+  - A Bootstrap-styled button with an arrow icon for easy return to the home page.
 
-This page helps maintain trust and polish by turning an error into an opportunity to reinforce the Vinyl Crate experience.
+This page reinforces Vinyl Crate’s commitment to thoughtful UX, even when things go wrong, helping users feel supported rather than stuck.
 
 <a id="403-page-features"></a>
 
@@ -564,6 +564,37 @@ The custom 403 page handles cases where a user attempts to access a restricted p
 
 This page transforms a potentially confusing moment into a branded touchpoint, ensuring users feel guided and respected even when access is denied.
 
+<a id="404-page-features"></a>
+
+#### The 404 Page
+
+<details>
+<summary>Click here to view the 404 Page</summary>
+
+![Custom 404 page with vinyl-themed illustration and return button](documentation/readme/surface_plane/features-404.webp)
+
+</details>
+
+---
+
+The custom 404 page provides a friendly and branded experience for users who encounter a broken or incorrect link. Rather than showing a generic error message, it reinforces Vinyl Crate’s design personality while guiding users back to a valid route.
+
+- **What it does:**
+  - Displays a clear message that the requested page could not be found.
+  - Uses a vinyl-themed illustration to keep the branding consistent.
+  - Offers a single, prominent call-to-action to return to the homepage.
+
+- **User Benefits:**
+  - Prevents confusion with a clear, user-friendly explanation of the issue.
+  - Maintains brand tone and visual consistency, even in error scenarios.
+  - Provides an immediate path back to safety, reducing frustration.
+
+- **Interactive Elements:**
+  - Branded SVG illustration to lighten the experience.
+  - Return to Home button styled with Bootstrap and an icon.
+
+This page helps maintain trust and polish by turning an error into an opportunity to reinforce the Vinyl Crate experience.
+
 <a id="500-error-page"></a>
 
 #### The 500 Error Page
@@ -571,7 +602,7 @@ This page transforms a potentially confusing moment into a branded touchpoint, e
 <details>
 <summary> Click here to view the 500 error page </summary>
 
-![Custom 500 error page with vinyl theme](documentation/features-500-page.webp)
+![Custom 500 error page with vinyl theme](documentation/readme/surface_plane/features-500.webp)
 
 </details>
 

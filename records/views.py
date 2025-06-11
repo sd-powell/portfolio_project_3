@@ -310,6 +310,6 @@ def custom_403_view(request, exception=None):
 
 def custom_400_view(request, exception):
     """
-    Custom handler for 403 errors.
+    Custom handler for 400 errors.
     """
     return render(request, '400.html', status=400)
