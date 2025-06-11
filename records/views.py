@@ -311,3 +311,10 @@ def custom_403_view(request, exception=None):
     Custom handler for 403 errors.
     """
     return render(request, "403.html", status=403)
+
+
+def custom_400_view(request, exception):
+    """
+    Custom handler for 403 errors.
+    """
+    return render(request, '400.html', status=400)
