@@ -257,9 +257,11 @@ class CustomSignupForm(SignupForm):
     """
     email = forms.EmailField(
         required=True,
-        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'})
+        widget=forms.EmailInput(
+            attrs={'class': 'form-control', 'placeholder': 'Email'}
+            )
     )
-    
+
     first_name = forms.CharField(
         max_length=30,
         label='First Name',
@@ -272,6 +274,11 @@ class CustomSignupForm(SignupForm):
         required=True,
         widget=form_control_input('Last Name')
     )
+
+    def clean_email(self):
+        if not (email := self.cleaned_data.get('email', '').strip()):
+            raise ValidationError("Email cannot be blank.")
+        return email
 
     def clean_first_name(self):
         if not (first := self.cleaned_data.get('first_name', '').strip()):
@@ -293,6 +300,7 @@ class CustomSignupForm(SignupForm):
 
     def save(self, request):
         user = super().save(request)
+        user.email = self.cleaned_data['email']
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.save()
