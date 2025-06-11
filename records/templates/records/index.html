@@ -12,19 +12,13 @@
   <div class="carousel-item active">
     <div class="d-flex align-items-center gradient-slide h-100">
       <div class="container-fluid px-0">
-        <div class="row g-0 min-vh-100 align-items-center">
-          <!-- Left Side (Image placeholder) -->
-          <div class="col-md-5 d-none d-md-block px-0">
-            <img src="{% static 'images/vinyl-crate-record.png' %}"
-                alt="Vinyl Records"
-                class="w-100 h-100 object-fit-cover m-0 p-0 border-0">
-          </div>
-
-          <!-- Right Side (Centered Text Content) -->
-          <div class="col-md-7 h-100 d-flex justify-content-center align-items-center">
+        <div class="d-flex flex-column flex-md-row min-vh-100 align-items-center">
+          
+          <!-- Text Content (should be first on small screens) -->
+          <div class="col-md-7 order-1 order-md-2 d-flex justify-content-center align-items-center">
             <div class="carousel-content text-center w-100">
               <h1 class="display-4 fw-bold lh-1 mb-3 text-uppercase">
-                Your Collection<br>Fully Organised
+                Your Collection,<br>Fully Organised!
               </h1>
               <p class="lead mb-3 mb-md-4">
                 Search, sort, and filter your vinyl record collection from any device.<br>  
@@ -35,6 +29,14 @@
               </a>
             </div>
           </div>
+
+          <!-- Image (should appear below text on mobile) -->
+          <div class="col-md-5 order-2 order-md-1 d-block px-0">
+            <img src="{% static 'images/vinyl-crate-record.png' %}"
+                alt="Vinyl Records"
+                class="w-100 h-auto object-fit-cover m-0 p-0 border-0">
+          </div>
+
         </div>
       </div>
     </div>

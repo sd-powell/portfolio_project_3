@@ -356,6 +356,53 @@ p {
   }
 }
 
+@media (max-width: 767.98px) {
+  .carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+
+  .gradient-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 0;
+    height: 100%;
+  }
+
+  .carousel-content {
+    padding: 2rem 1rem 1rem;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .carousel-content h1 {
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .carousel-content p {
+    font-size: 0.9rem;
+  }
+
+  .btn-ios-primary {
+    font-size: 0.85rem;
+    padding: 4px 14px;
+  }
+
+  .carousel-item img {
+    margin-top: auto;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 40vh;
+    z-index: 1;
+  }
+}
+
 /* Responsive aspect ratios */
 @media (max-width: 769px) {
   #homeCarousel {
