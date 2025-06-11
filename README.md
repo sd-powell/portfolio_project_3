@@ -509,7 +509,7 @@ This page supports in-depth cataloguing, reflecting the physical experience of p
 <details>
 <summary>Click here to view the 404 Page</summary>
 
-![Custom 404 page with vinyl-themed illustration and return button](documentation/features-404-page.webp)
+![Custom 404 page with vinyl-themed illustration and return button](documentation/readme/surface_plane/features-404.webp)
 
 </details>
 
