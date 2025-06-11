@@ -24,4 +24,5 @@ urlpatterns = [
     path('<int:pk>/edit/', views.record_update, name='record_update'),
     path('<int:pk>/delete/', views.record_delete, name='record_delete'),
     path('<slug:slug>/', views.record_detail, name='record_detail'),
+    path("trigger-500/", views.trigger_500, name="trigger_500"),
 ]

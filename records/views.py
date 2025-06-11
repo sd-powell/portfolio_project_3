@@ -9,6 +9,10 @@ from .models import Record, Track, GENRE_CHOICES, RATING_CHOICES
 from .forms import RecordForm
 
 
+def trigger_500(request):
+    raise Exception("Deliberate server error for testing 500 page")
+
+
 def get_staff_picks(limit=6):
     """
     Retrieve a queryset of staff-picked records, limited to a specified number.
