@@ -36,7 +36,8 @@ class CustomSignupFormTests(TestCase):
 
     def test_form_invalid_without_names(self):
         """
-        Test that the form is invalid if first_name and last_name are blank or whitespace.
+        Test that the form is invalid if first_name
+        and last_name are blank or whitespace.
         """
         data = self.valid_data.copy()
         data['first_name'] = ' '

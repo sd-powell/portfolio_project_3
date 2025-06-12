@@ -98,3 +98,13 @@ class RecordFormTests(TestCase):
         form = RecordForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('title', form.errors)
+        
+    def test_artist_whitespace_only_invalid(self):
+        """
+        Form should reject artist with only whitespace (custom validator).
+        """
+        data = self.valid_data.copy()
+        data['artist'] = '   '
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('artist', form.errors)
