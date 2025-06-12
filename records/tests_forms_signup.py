@@ -34,16 +34,17 @@ class CustomSignupFormTests(TestCase):
         self.assertEqual(user.first_name, 'Test')
         self.assertEqual(user.last_name, 'User')
 
-    def test_form_valid_without_names(self):
+    def test_form_invalid_without_names(self):
         """
-        Test that form is still valid if first_name and last_name
-        are left blank.
+        Test that the form is invalid if first_name and last_name are blank or whitespace.
         """
         data = self.valid_data.copy()
-        data['first_name'] = ''
+        data['first_name'] = ' '
         data['last_name'] = ''
         form = CustomSignupForm(data=data)
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())
+        self.assertIn('first_name', form.errors)
+        self.assertIn('last_name', form.errors)
 
     def test_form_invalid_password_mismatch(self):
         """
