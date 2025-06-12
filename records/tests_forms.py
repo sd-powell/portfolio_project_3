@@ -116,3 +116,11 @@ class RecordFormTests(TestCase):
         form = RecordForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('year', form.errors)
+
+    def test_year_above_maximum(self):
+        """Form should be invalid for year above 9999."""
+        data = self.valid_data.copy()
+        data['year'] = 10000
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('year', form.errors)
