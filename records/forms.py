@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from allauth.account.forms import SignupForm
 from .models import Record, Track
 import re
+import uuid
 
 
 # --- Validator Functions ---
@@ -300,6 +301,7 @@ class CustomSignupForm(SignupForm):
 
     def save(self, request):
         user = super().save(request)
+        user.username = str(uuid.uuid4())[:30]  # Ensure unique username
         user.email = self.cleaned_data['email']
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
