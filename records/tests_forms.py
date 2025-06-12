@@ -108,3 +108,11 @@ class RecordFormTests(TestCase):
         form = RecordForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('artist', form.errors)
+
+    def test_year_below_minimum(self):
+        """Form should be invalid for year below 1000."""
+        data = self.valid_data.copy()
+        data['year'] = 999
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('year', form.errors)
