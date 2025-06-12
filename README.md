@@ -286,13 +286,13 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 | :-------------------------------------------------------------: | :-----------------------------------------------------------: |
 | ![My Crate](documentation/readme/skeleton_plane/wireframe-tablet-collection.webp) | ![Record Detail](documentation/readme/skeleton_plane/wireframe-tablet-detail.webp) |
 
-|                Record Detail page wireframe                |                 Results page wireframe                  |
+|                400 page wireframe                |                 403 page wireframe                  |
 | :-----------------------------------------------: | :-----------------------------------------------------: |
-| ![Record Detail](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![Results](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+| ![Record Detail](documentation/readme/skeleton_plane/wireframe-tablet-400.webp) | ![Results](documentation/readme/skeleton_plane/wireframe-tablet-403.webp) |
 
 |               404 page wireframe                |               500 page wireframe                |
 | :---------------------------------------------: | :---------------------------------------------: |
-| ![404](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) | ![500](documentation/readme/skeleton_plane/wireframe-tablet-home.webp) |
+| ![404](documentation/readme/skeleton_plane/wireframe-tablet-404.webp) | ![500](documentation/readme/skeleton_plane/wireframe-tablet-500.webp) |
 
  </details>
 
