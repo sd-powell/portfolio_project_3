@@ -734,6 +734,87 @@ Accessibility has been a key consideration throughout the development of Vinyl C
 
 Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
 
+<a id="deployment-development"></a>
+
+<a id="local-development"></a>
+
+## Local Development
+
+To run this project locally, you will need to fork and clone the repository, then install the required dependencies in a virtual environment.
+
+---
+
+<a id="fork"></a>
+
+#### How to Fork
+
+To create a personal copy of this repository:
+
+1. Log in (or sign up) to [GitHub](https://github.com/).
+2. Navigate to the repository: [sd-powell/vinyl-crate](https://github.com/sd-powell/portfolio_project_3).
+3. Click the **Fork** button in the top-right corner of the page.
+
+---
+
+<a id="clone"></a>
+
+#### How to Clone
+
+To clone your forked repository:
+
+1. Log in to [GitHub](https://github.com/).
+2. Go to the repository for this project, [sd-powell/portfolio_project_2](https://github.com/sd-powell/portfolio_project_3).
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location where you want to clone the repository.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+6. Set up a **virtual environment** by running:
+
+    ```bash
+    python3 -m venv env
+    ```
+
+7. Activate the virtual environment:
+    - On **macOS/Linux**:  
+      ```bash
+      source env/bin/activate
+      ```
+    - On **Windows**:  
+      ```bash
+      env\Scripts\activate
+      ```
+
+8. Install the required packages from `requirements.txt` by running:
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+
+### Local Development
+
+<a id=fork></a>
+
+#### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, [sd-powell/portfolio_project_2](https://github.com/sd-powell/portfolio_project_2).
+3. Click the Fork button in the top right corner.
+
+<a id=clone></a>
+
+#### How to Clone
+
+To clone the repository:
+
+1. Log in (or sign up) to GitHub.
+
+
+---
+
+
+
 <a id="technologies"></a>
 
 ## Technologies Used
