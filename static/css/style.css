@@ -429,6 +429,7 @@ p {
     padding: 2rem 1rem 1rem;
     text-align: center;
     z-index: 2;
+    max-width: 440px;
   }
 
   .carousel-content h1 {
@@ -446,7 +447,8 @@ p {
   }
 
   .carousel-item img {
-    margin-top: auto;
+    margin-top: -4rem !important;
+    transform: translateX(-15%);
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -511,7 +513,7 @@ p {
 /* Large devices: 1200px to 1599.98px */
 @media (min-width: 1200px) and (max-width: 1599.98px) {
   .carousel-content {
-    max-width: 650px;
+    max-width: 570px;
   }
 
   .carousel-content h1 {
@@ -533,7 +535,7 @@ p {
 
 @media (min-width: 1600px) {
   .carousel-content {
-    max-width: 800px;
+    max-width: 700px;
   }
   .carousel-content h1 {
     font-size: 4rem;
@@ -548,7 +550,7 @@ p {
     font-size: 4.5rem;
   }
   .carousel-content {
-    max-width: 900px;
+    max-width: 780px;
   }
   .carousel-content p {
     font-size: 1.7rem;

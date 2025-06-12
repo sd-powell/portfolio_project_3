@@ -57,7 +57,7 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-md navbar-light bg-light py-3">
-            <div class="container px-2 px-lg-3">
+            <div class="container position-relative px-2 px-lg-3">
                 <!-- Left: Hamburger Toggle for Mobile -->
                 <button class="navbar-toggler border-0 shadow-none me-auto" type="button"
                         data-bs-toggle="collapse" data-bs-target="#mainNavbar"
@@ -66,31 +66,28 @@
                 </button>
 
                 <!-- Center: Logo -->
-                <a class="navbar-brand mx-auto d-md-none" href="{% url 'index' %}">
+                <a class="navbar-brand d-md-none position-absolute start-50 translate-middle-x" href="{% url 'index' %}">
                 <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 50px;">
                 </a>
-                <a class="navbar-brand d-none d-md-block" href="{% url 'index' %}">
+                <a class="navbar-brand d-none d-md-block mx-auto" href="{% url 'index' %}">
                 <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 50px;">
                 </a>
 
+                {% if user.is_authenticated %}
                 <!-- Mobile User Icon and Dropdown -->
                 <div class="d-md-none ms-auto">
                     <div class="dropdown">
-                        <a href="#" class="nav-link p-0" id="userDropdownMobile" role="button"
+                    <a href="#" class="nav-link p-0" id="userDropdownMobile" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-circle-user fa-lg"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
-                        {% if user.is_authenticated %}
-                            <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
-                            <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
-                        {% else %}
-                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                        {% endif %}
-                        </ul>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
+                        <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
+                        <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
+                    </ul>
                     </div>
                 </div>
+                {% endif %}
 
                 <!-- Collapsible Nav Content -->
                 <div class="collapse navbar-collapse mt-3 mt-md-0" id="mainNavbar">
@@ -111,24 +108,21 @@
                     </ul>
 
                     <!-- Desktop User Menu -->
+                    {% if user.is_authenticated %}
                     <ul class="navbar-nav d-none d-md-block">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdownDesktop"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-circle-user me-2"></i>
-                                {% if user.is_authenticated %}{{ user.first_name|default:user.username }}{% endif %}
+                                {{ user.first_name|default:user.username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownDesktop">
-                                {% if user.is_authenticated %}
                                 <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
                                 <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
-                                {% else %}
-                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                                {% endif %}
                             </ul>
                         </li>
                     </ul>
+                    {% endif %}
                 </div>
             </div>
         </nav>
