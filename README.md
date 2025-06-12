@@ -261,13 +261,13 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 | :-----------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------: |
 | ![Home](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Dashboard](documentation/readme/skeleton_plane/wireframe-mobile-dashboard.webp) | ![My Crate](documentation/readme/skeleton_plane/wireframe-mobile-collection.webp) |
 
-|                   Record Detail page wireframe                   |                Quiz page wireframe                |                 Results page wireframe                  |
+|                   Record Detail page wireframe                   |                400 page wireframe                |                 403 page wireframe                  |
 | :-----------------------------------------------------------: | :-----------------------------------------------: | :-----------------------------------------------------: |
-| ![Record Detail](documentation/readme/skeleton_plane/wireframe-mobile-detail.webp) | ![Quiz](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![Results](documentation/mobile-wireframe-results.webp) |
+| ![Record Detail](documentation/readme/skeleton_plane/wireframe-mobile-detail.webp) | ![400](documentation/readme/skeleton_plane/wireframe-mobile-400.webp) | ![403](documentation/readme/skeleton_plane/wireframe-mobile-403.webp) |
 
 |               404 page wireframe                |               500 page wireframe                |
 | :---------------------------------------------: | :---------------------------------------------: |
-| ![404](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) | ![500](documentation/readme/skeleton_plane/wireframe-mobile-home.webp) |
+| ![404](documentation/readme/skeleton_plane/wireframe-mobile-404.webp) | ![500](documentation/readme/skeleton_plane/wireframe-mobile-500.webp) |
 
 </details>
 
