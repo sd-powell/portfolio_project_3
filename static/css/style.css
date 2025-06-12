@@ -46,7 +46,7 @@ p {
 
 /* Carousel slide with gradient background */
 .gradient-slide {
-  background: linear-gradient(to bottom, --highlight-yellow, --contrast-orange);
+  background: linear-gradient(to bottom, var(--highlight-yellow), var(--contrast-orange));
   height: 100vh;
   padding: 0 !important;
 }
@@ -505,6 +505,29 @@ p {
   .btn-ios-primary {
     font-size: 0.95rem;
     padding: 6px 16px;
+  }
+}
+
+/* Large devices: 1200px to 1599.98px */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+  .carousel-content {
+    max-width: 650px;
+  }
+
+  .carousel-content h1 {
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .carousel-content p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-ios-primary {
+    font-size: 1rem;
+    padding: 8px 20px;
   }
 }
 
