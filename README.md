@@ -811,6 +811,36 @@ All other written content — including UI text, instructions, labels, button co
 
 <a id=acknowledgement></a>
 
+
+<a id=testing-readme></a>
+
+## Testing
+
+> [!NOTE]
+> Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
+
+<a id=solved-issues></a>
+
+### Solved Issues & Bugs
+
+| No | Bug Description | Solution | Screenshot |
+| :- | :------------- | :-------- | :--------- |
+| 1  | When testing the HTML code with the W3C validator, it flagged an issue with trailing slashes (e.g., `<br />`). This was caused by the formatter in VS Code. | I disabled "Format on Save" in VS Code to resolve the issue and re-tested my HTML code. | ![Screenshot](documentation/testing-fix-slash.webp) |
+
+
+---
+
+<a id=known-issues></a>
+
+### Known Issues & Bugs
+
+| No | Bug Description | Screenshot |
+| :- | :------------- | :--------- |
+| 1 |	I have noticed that when the keyboard appears on mobile devices while a user is submitting their name in the form field, the panel is nudged up the screen, slightly obscuring the header background image. A tutor advised me that this shouldn’t be a concern. | ![Screenshot](documentation/testing-bugs-keyboard.webp) |
+
+---
+
+
 ### Acknowledgments
 
 I would like to acknowledge the following people:
