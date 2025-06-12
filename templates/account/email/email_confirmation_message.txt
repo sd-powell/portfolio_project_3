@@ -1,9 +1,26 @@
-{% extends "account/email/base_message.txt" %}
-{% load account %}
 {% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% trans "Verify Your Email Address" %}</title>
+  </head>
+  <body>
+    <h2 style="color: #222;">Welcome to Vinyl Crate, {{ user.email }}!</h2>
+    <p>{% blocktrans %}Please verify your email address by clicking the button below:{% endblocktrans %}</p>
 
-{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktranslate with site_name=current_site.name site_domain=current_site.domain %}You're receiving this email because user {{ user_display }} has given your email address to register an account on {{ site_domain }}.{% endblocktranslate %}
+    <p style="margin: 20px 0;">
+      <a href="{{ activate_url }}" style="background-color: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        {% trans "Verify Email" %}
+      </a>
+    </p>
 
-{% if code %}{% blocktranslate %}Your email verification code is listed below. Please enter it in your open browser window.{% endblocktranslate %}
+    <p>{% trans "If the button doesn't work, you can also use this link:" %}</p>
+    <p><a href="{{ activate_url }}">{{ activate_url }}</a></p>
 
-{{ code }}{% else %}{% blocktranslate %}To confirm this is correct, go to {{ activate_url }}{% endblocktranslate %}{% endif %}{% endautoescape %}{% endblock content %}
+    <hr>
+    <p style="font-size: 0.9em; color: #888;">
+      {% trans "If you did not sign up for this account, you can ignore this message." %}
+    </p>
+  </body>
+</html>
