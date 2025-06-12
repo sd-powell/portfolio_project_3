@@ -1,4 +1,6 @@
 from django.test import TestCase
+from io import BytesIO
+from PIL import Image
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 from records.forms import RecordForm
@@ -72,11 +74,27 @@ class RecordFormTests(TestCase):
         """
         Form should accept a minimal valid image file upload.
         """
-        image_mock = SimpleUploadedFile(
-            name='cover.gif',
-            content=b'\x47\x49\x46\x38\x39\x61',  # Minimal valid GIF binary
-            content_type='image/gif'
+        image_data = BytesIO()
+        image = Image.new('RGB', (100, 100), color='red')
+        image.save(image_data, format='PNG')
+        image_data.seek(0)
+
+        image_file = SimpleUploadedFile(
+            name='test.png',
+            content=image_data.read(),
+            content_type='image/png'
         )
+
         data = self.valid_data.copy()
-        form = RecordForm(data=data, files={'cover_image': image_mock})
-        self.assertTrue(form.is_valid())
+        form = RecordForm(data=data, files={'cover_image': image_file})
+        self.assertTrue(form.is_valid(), form.errors)
+
+    def test_title_whitespace_only_invalid(self):
+        """
+        Form should reject title with only whitespace (custom validator).
+        """
+        data = self.valid_data.copy()
+        data['title'] = '   '
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors)
