@@ -287,21 +287,21 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
 ![Collection](documentation/readme/skeleton_plane/wireframe-desktop-detail.webp)
 
-- Record Detail page wireframe
+- 400 page wireframe
 
-![Record Detail](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
+![400](documentation/readme/skeleton_plane/wireframe-desktop-400.webp)
 
-- Results page wireframe
+- 403 page wireframe
 
-![Success](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
+![403](documentation/readme/skeleton_plane/wireframe-desktop-403.webp)
 
 - 404 page wireframe
 
-![404](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
+![404](documentation/readme/skeleton_plane/wireframe-desktop-404.webp)
 
 - 500 page wireframe
 
-![500](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
+![500](documentation/readme/skeleton_plane/wireframe-desktop-500.webp)
 
  </details>
 
