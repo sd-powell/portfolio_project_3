@@ -18,7 +18,7 @@ The platform offers intuitive search, filter, and sort features, allowing users 
 
 ---
 
-<a id=contents></a>
+<a id="contents"></a>
 
 ## CONTENTS
 
@@ -27,28 +27,27 @@ The platform offers intuitive search, filter, and sort features, allowing users 
   - [Scope Plane](#scope-plane)
   - [Structure Plane](#structure-plane)
   - [Skeleton Plane](#skeleton-plane)
+      - [Wireframes](#wireframes)
+        - [Mobile Wireframes](#mobile-frames)
+        - [Tablet Wireframes](#tablet-frames)
+        - [Desktop Wireframes](#desktop-frames)
+  - [Surface Plane](#surface-plane)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+    - [Features](#features)
+        - [The Home Page](#home-page-features)
+        - [The Dashboard Page](#dashboard-features)
+        - [The My Crate Page](#my-crate-features)
+        - [The Record Detail Page](#record-detail-features)
+        - [The 400 Page](#400-page-features)
+        - [The 403 Page](#403-page-features)
+        - [The 404 Page](#404-page-features)
+        - [The 500 Page](#500-page-features)
 
-
-- [Design](#Design)
-  - [Colour Scheme](#colour-scheme)
-  - [Typography](#typography)
-  - [Imagery](#imagery)
-  - [Site Functionality Flow Diagram](#siteflow)
-  - [Game Logic Overview](#gameplay)
-  - [Wireframes](#wireframes)
-    - [Mobile Wireframes](#mobile-frames)
-    - [Tablet Wireframes](#tablet-frames)
-    - [Desktop Wireframes](#desktop-frames)
-      - [Features](#features)
-      - [The Home Page](#home-page-features)
-      - [The Rules Page](#rules-page-features)
-      - [The Leaderboard Page](#leaderboard-page-features)
-      - [The Difficulty Page](#difficulty-page-features)
-      - [The Quiz Page](#quiz-page-features)
-      - [The Results Page](#results-page-features)
-      - [The 404 Page](#404-page-features)
-      - [The 500 Page](#500-page-features)
-      - [Future Implementations](#future-implementation)
+- [Development Process](#dev-process)
+    - [Future Implementations](#future-implementation)
+    - [Accessibility](#accessibility)
 
 * [Technologies Used](#technologies)
 
@@ -74,11 +73,11 @@ The platform offers intuitive search, filter, and sort features, allowing users 
 
 ---
 
-<a id=ux></a>
+<a id="ux"></a>
 
 ##  User Experience (UX)
 
-<a id=strategy-plane></a>
+<a id="strategy-plane"></a>
 
 ### Strategy Plane
 
@@ -86,7 +85,7 @@ The platform offers intuitive search, filter, and sort features, allowing users 
 
 **Vinyl Crate** is a **personal record collection management app** created for vinyl enthusiasts, DJs, and music collectors. The platform allows users to build and organise a digital library of their physical records — complete with metadata such as artist, title, genre, BPM, musical key, and cover art.
 
-This app is designed to replace basic spreadsheets and paper lists with a user-friendly, mobile-responsive interface. Users can easily search, filter, and update their collections on the go — whether they're browsing at home, preparing a DJ set, or crate digging in a record shop.
+This app is designed to replace basic spreadsheets and paper lists with a user-friendly, mobile-responsive interface. Users can easily search, filter, and update their collections on the go — whether they're browsing at home, preparing a DJ set, or crate-digging in a record shop.
 
 Vinyl records have seen a major resurgence in popularity, and tools like **Vinyl Crate** empower collectors to track, rate, and catalogue their collections in a modern, cloud-based format. Built as part of a Level 5 Web Application Development course, Vinyl Crate focuses on usability, functionality, and clean design to deliver a polished user experience for managing music libraries.
 
@@ -112,7 +111,7 @@ Whether you're tracking rare jazz pressings, building a DJ setlist, or simply do
 
 ---
 
-<a id=scope-plane></a>
+<a id="scope-plane"></a>
 
 ### Scope Plane
 
@@ -154,7 +153,7 @@ User roles are also considered in the planning:
 
 ---
 
-<a id=structure-plane></a>
+<a id="structure-plane"></a>
 
 ### Structure Plane
 
@@ -187,7 +186,8 @@ User roles are also considered in the planning:
 | 23 | Mobile User    | Access my collection on a phone or tablet           | View or update records while crate digging or DJing |
 | 24 | Mobile User    | Upload cover images from my device                  | Add new records quickly without needing a computer |
 
-*All user stories were manually tested. See [ User Story Testing]() for full test results.*
+> [!NOTE]
+> All user stories were manually tested. See [User Story Testing](TESTING.md) for full test results.
 
 #### **Database Schema**
 
@@ -218,7 +218,7 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 <br>
 <hr>
 
-<a id=mobile-frames></a>
+<a id="mobile-frames"></a>
 
 #### **Mobile Wireframes**
 
@@ -239,7 +239,7 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
 </details>
 
-<a id=tablet-frames></a>
+<a id="tablet-frames"></a>
 
 #### Tablet Wireframes
 
@@ -264,7 +264,7 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
  </details>
 
-<a id=desktop-frames></a>
+<a id="desktop-frames"></a>
 
 #### Desktop Wireframes
 
@@ -341,7 +341,7 @@ These colours were defined as CSS variables for easy reuse and consistent applic
 <br>
 <hr>
 
- <a id=typography></a>
+<a id="typography"></a>
 
 #### Typography
 
@@ -360,7 +360,7 @@ These colours were defined as CSS variables for easy reuse and consistent applic
 <br>
 <hr>
 
-<a id=imagery></a>
+<a id="imagery"></a>
 
 #### Imagery
 
@@ -373,7 +373,7 @@ Overall, the use of clean, bold, and culturally relevant imagery reinforces the 
 <br>
 <hr>
 
- <a id=features></a>
+ <a id="features"></a>
  
 ### Features
 
@@ -398,7 +398,7 @@ Defensive programming principles have been applied across the site to safeguard 
 
 The footer is divided into three key sections. The first section encourages user engagement by displaying a “Join us on” heading followed by links to the site’s social media profiles, each with accessible icons. The second section provides quick links to key pages such as Home, Register, Contact, and Privacy. The final section includes copyright information and a link to the developer’s GitHub profile. The layout is fully responsive, stacking neatly on smaller screens for optimal usability across devices.
 
-<a id=home-page-features></a>
+<a id="home-page-features"></a>
 
 #### The Home Page
 
@@ -432,7 +432,7 @@ The Vinyl Crate homepage introduces users to the purpose of the site: a place to
 
 The homepage acts as a stylish entry point for the Vinyl Crate experience — whether you're just browsing or ready to log your latest wax addition. It introduces key features, educates through the carousel, and encourages exploration through an intuitive and visually appealing design.
 
-<a id=dashboard-page-features></a>
+<a id="dashboard-features"></a>
 
 #### The Dashboard
 
@@ -631,7 +631,7 @@ The custom 404 page provides a friendly and branded experience for users who enc
 
 This page helps maintain trust and polish by turning an error into an opportunity to reinforce the Vinyl Crate experience.
 
-<a id="500-error-page"></a>
+<a id="500-page-features"></a>
 
 #### The 500 Error Page
 
@@ -665,7 +665,7 @@ The 500 page ensures Vinyl Crate remains user-friendly and stylish, even in the 
 <br>
 <hr>
 
-<a id=dev-process></a>
+<a id="dev-process"></a>
 
 ### Development Process
 
@@ -682,7 +682,7 @@ Vinyl Crate was developed using an **iterative, feature-driven approach**:
 
 Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
 
-<a id=future-implementation></a>
+<a id="future-implementation"></a>
 
 #### Future Implementations
 
@@ -720,7 +720,7 @@ To expand the functionality of Vinyl Crate and improve the user experience, the 
 
 These enhancements aim to enrich the Vinyl Crate experience while making it easier for users to engage with and manage their collections.
 
-<a id=accessibility></a>
+<a id="accessibility"></a>
 
 ### Accessibility
 
@@ -768,7 +768,7 @@ Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in
 
 - [Balsamiq](https://balsamiq.com/) – Used to create wireframes for mobile, tablet and desktop layouts.
 - [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) – Used to design the logo and some UI elements.
-- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) – Used for cropping, resizing and exporting images in webp format.
+- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) – Used for cropping, resizing and exporting images in webp format for faster load times and modern compression.
 
 <a id="development-tools"></a>
 
@@ -793,33 +793,14 @@ Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in
 - [Aria DevTools](https://github.com/ziolko/aria-devtools) – Used to simulate screen reader accessibility.
 - [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik) – Chrome extension used to check for spelling errors across the site and README.
 
-<a id=content></a>
-
-### Content
-
-The content displayed throughout the site is based on my own personal vinyl collection. Record details such as album titles, artists, tracklists, genres, and release years were sourced from [Discogs](https://www.discogs.com/) ensuring accurate and comprehensive metadata for each entry.
-
-All other written content — including UI text, instructions, labels, button copy, and page descriptions — was created by me to align with the app’s tone, functionality, and user experience goals.
-
-<a id=media></a>
-
-### Media
-
-- [Adobe Stock](https://stock.adobe.com/) - Used to source royalty free imagery for the site.
-
-- User-uploaded images are handled securely and efficiently using [Cloudinary](https://cloudinary.com/), which provides scalable cloud-based image storage and delivery.
-
-<a id=acknowledgement></a>
-
-
-<a id=testing-readme></a>
+<a id="testing-readme"></a>
 
 ## Testing
 
 > [!NOTE]
 > Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 
-<a id=solved-issues></a>
+<a id="solved-issues"></a>
 
 ### Solved Issues & Bugs
 
@@ -830,7 +811,7 @@ All other written content — including UI text, instructions, labels, button co
 
 ---
 
-<a id=known-issues></a>
+<a id="known-issues"></a>
 
 ### Known Issues & Bugs
 
@@ -840,6 +821,23 @@ All other written content — including UI text, instructions, labels, button co
 
 ---
 
+<a id="content"></a>
+
+### Content
+
+The content displayed throughout the site is based on my own personal vinyl collection. Record details such as album titles, artists, tracklists, genres, and release years were sourced from [Discogs](https://www.discogs.com/) ensuring accurate and comprehensive metadata for each entry.
+
+All other written content — including UI text, instructions, labels, button copy, and page descriptions — was created by me to align with the app’s tone, functionality, and user experience goals.
+
+<a id="media"></a>
+
+### Media
+
+- [Adobe Stock](https://stock.adobe.com/) - Used to source royalty free imagery for the site.
+
+- User-uploaded images are handled securely and efficiently using [Cloudinary](https://cloudinary.com/), which provides scalable cloud-based image storage and delivery.
+
+<a id="acknowledgement"></a>
 
 ### Acknowledgments
 
