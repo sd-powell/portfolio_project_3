@@ -5,6 +5,7 @@
 :root {
       --highlight-blue: #40798c;
       --highlight-yellow: #ffb633;
+      --contrast-orange: #f7931e;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
       --foreground-white: #ffffff;
@@ -45,7 +46,7 @@ p {
 
 /* Carousel slide with gradient background */
 .gradient-slide {
-  background: linear-gradient(to bottom, #ffb633, #f7931e);
+  background: linear-gradient(to bottom, --highlight-yellow, --contrast-orange);
   height: 100vh;
   padding: 0 !important;
 }

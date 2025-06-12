@@ -203,38 +203,6 @@ To resolve this, a dedicated `Track` model was introduced. Each track is linked 
 This structure ensures scalability and aligns with database best practices by reducing redundancy and improving data clarity.
 
 
-<a id=typography></a>
-
-#### Typography
-
-[Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high-quality and accessible typography across all devices and browsers.
-
-- **Headings (h1, h2, h3):** The font [Montserrat](https://fonts.google.com/specimen/Montserrat) was chosen for its bold, geometric style that provides a clean, modern look. Its sharp edges and contemporary design help headlines stand out, giving the site a distinctive and polished visual identity while remaining easy to read.
-
-![Montserrat Font Example](documentation/type-montserrat.webp)
-
-- **Paragraphs and body text:** The font [Lato](https://fonts.google.com/specimen/Lato) was selected for body copy due to its warm, friendly tone and excellent legibility at various sizes. It complements Montserrat without competing for attention, supporting a harmonious and user-friendly reading experience throughout the site.
-
-![Lato Font Example](documentation/type-lato.webp)
-
-- **Icons and UI elements:** The [Font Awesome](https://fontawesome.com/) icon library was used to support the visual interface with clear, scalable icons. These icons align stylistically with the modern fonts and enhance user experience through recognizable visual cues for actions, navigation, and social media links.
-
-<br>
-<hr>
-
-<a id=imagery></a>
-
-#### Imagery
-
-The imagery selected for this project was chosen to resonate with vinyl collectors and DJs — the app's core audience. The carousel banners feature high-quality visuals sourced from [Adobe Stock](https://stock.adobe.com/), showcasing vinyl records, listening setups, and DJ environments to immediately immerse users in the culture and aesthetics of record collecting.
-
-The example record covers displayed in the application were sourced from [Discogs](https://www.discogs.com/) to reflect real-world artwork and enhance authenticity. These visuals not only demonstrate how the app works but also give prospective users a sense of the interface when populated with their own collection.
-
-Overall, the use of clean, bold, and culturally relevant imagery reinforces the platform’s purpose: celebrating analogue music collections in a modern digital format.
-
-<br>
-<hr>
-
 <a id="skeleton-plane"></a>
 
 ### Skeleton Plane
@@ -336,6 +304,74 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 ![500](documentation/readme/skeleton_plane/wireframe-desktop-home.webp)
 
  </details>
+
+ <a id="surface-plane"></a>
+
+### Surface Plane
+
+<a id="colour-scheme"></a>
+
+### Colour Scheme
+
+The Vinyl Crate colour palette is inspired by the rich textures and nostalgic warmth of analogue sound — drawing from classic **record sleeves**, vintage **audio gear**, and the **glow of golden-hour light** reflecting on a turntable. This scheme balances modern clarity with retro flair, giving the app a tactile, curated feel that aligns with the essence of vinyl collecting.
+
+The primary colours for the site are:
+
+- `#40798c` (**Highlight Blue**) – A muted teal used across headings, buttons, and links. It adds a calm, confident tone to the interface, echoing the **cool lacquer of vintage hi-fi systems**. This colour serves as a unifying accent throughout the UI.
+  
+- `#ffb633` (**Highlight Yellow**) – A vibrant amber that evokes **sunburst vinyl**, **retro labels**, and **golden details** from 70s/80s record art. It’s used for **call-to-actions**, badges, and **hover states**. In gradients, it transitions into a richer orange to create depth and warmth.
+
+- `#333333` (**Charcoal Footer**) – A near-black tone used for the footer and navigation elements. It provides a grounding base for content, ensuring **clear contrast** and reflecting the **sleek minimalism** of album inner sleeves and turntable platters.
+
+- `#efefef` (**Site Background Grey**) – A soft, neutral background that keeps focus on content while evoking the **matte paper textures** of classic album inserts. It promotes readability and enhances contrast with primary accents.
+
+- `#ffffff` (**Foreground White**) – Used for text, icons, and form elements on dark or coloured backgrounds, ensuring **clean, crisp readability** across devices.
+
+- `linear-gradient(to bottom, #ffb633, #f7931e)` – This gradient is applied to **highlighted sections and banners**, giving them a dynamic, analog **warmth that mimics sunlight** filtering through amber vinyl.
+
+These colours were defined as CSS variables for easy reuse and consistent application. Together, they create a cohesive, brand-forward aesthetic that reflects Vinyl Crate’s blend of nostalgia and modern utility.
+
+<details>
+<summary>- Toggle the arrow to view the colour swatches</summary>
+
+![Vinyl Crate Swatch Palette](documentation/readme/surface_plane/colours-swatches.webp)
+
+</details>
+
+<br>
+<hr>
+
+ <a id=typography></a>
+
+#### Typography
+
+[Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high-quality and accessible typography across all devices and browsers.
+
+- **Headings (h1, h2, h3):** The font [Montserrat](https://fonts.google.com/specimen/Montserrat) was chosen for its bold, geometric style that provides a clean, modern look. Its sharp edges and contemporary design help headlines stand out, giving the site a distinctive and polished visual identity while remaining easy to read.
+
+![Montserrat Font Example](documentation/readme/surface_plane/typography-montserrat.webp)
+
+- **Paragraphs and body text:** The font [Lato](https://fonts.google.com/specimen/Lato) was selected for body copy due to its warm, friendly tone and excellent legibility at various sizes. It complements Montserrat without competing for attention, supporting a harmonious and user-friendly reading experience throughout the site.
+
+![Lato Font Example](documentation/readme/surface_plane/typography-lato.webp)
+
+- **Icons and UI elements:** The [Font Awesome](https://fontawesome.com/) icon library was used to support the visual interface with clear, scalable icons. These icons align stylistically with the modern fonts and enhance user experience through recognizable visual cues for actions, navigation, and social media links.
+
+<br>
+<hr>
+
+<a id=imagery></a>
+
+#### Imagery
+
+The imagery selected for this project was chosen to resonate with vinyl collectors and DJs — the app's core audience. The carousel banners feature high-quality visuals sourced from [Adobe Stock](https://stock.adobe.com/), showcasing vinyl records, listening setups, and DJ environments to immediately immerse users in the culture and aesthetics of record collecting.
+
+The example record covers displayed in the application were sourced from [Discogs](https://www.discogs.com/) to reflect real-world artwork and enhance authenticity. These visuals not only demonstrate how the app works but also give prospective users a sense of the interface when populated with their own collection.
+
+Overall, the use of clean, bold, and culturally relevant imagery reinforces the platform’s purpose: celebrating analogue music collections in a modern digital format.
+
+<br>
+<hr>
 
  <a id=features></a>
  
