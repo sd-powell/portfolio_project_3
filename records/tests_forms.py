@@ -184,3 +184,11 @@ class RecordFormTests(TestCase):
         form = CustomSignupForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('first_name', form.errors)
+
+    def test_form_invalid_blank_last_name(self):
+        """Test that CustomSignupForm rejects blank last_name input."""
+        data = self.valid_data.copy()
+        data['last_name'] = '   '
+        form = CustomSignupForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('last_name', form.errors)
