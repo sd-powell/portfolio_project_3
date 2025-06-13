@@ -33,6 +33,11 @@ h1, h2 {
   font-weight: 600;
 }
 
+h1 span {
+  font-weight: 800;
+  font-style: italic;
+}
+
 p {
   font-family: var(--primary-font);
   font-weight: 500;
@@ -397,6 +402,28 @@ p {
 
 /************ Media queries ************/
 
+/* Responsive aspect ratios */
+@media (max-width: 767.98px) {
+  #homeCarousel {
+    aspect-ratio: 1 / 1;
+  }
+
+    .carousel .flex-md-row {
+    flex-direction: column !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #homeCarousel {
+    aspect-ratio: 40 / 9;
+  }
+
+  .carousel .flex-md-row {
+    flex-direction: row !important;
+  }
+}
+
+/* Mobile devices (between 350px and 575.98px) */
 @media (min-width: 350px) and (max-width: 575.98px) {
   .col-2-sm {
     width: 50%;
@@ -404,7 +431,13 @@ p {
   }
 }
 
-@media (max-width: 767.98px) {
+@media (min-width: 768px) and (max-width: 800px) {
+  .custom-carousel-subtext { 
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 767px) {
   .carousel-item {
     display: flex;
     flex-direction: column;
@@ -453,23 +486,17 @@ p {
   }
 }
 
-/* Responsive aspect ratios */
-@media (max-width: 769px) {
-  #homeCarousel {
-    aspect-ratio: 1 / 1;
-  }
-}
-
-@media (min-width: 770px) {
-  #homeCarousel {
-    aspect-ratio: 40 / 9;
+@media (max-width: 991.98px) {
+  #homeCarousel .flex-md-row {
+    min-height: unset !important;
   }
 }
 
 /* Medium devices (tablets landscape) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .carousel-content {
-    max-width: 400px;
+    max-width: 377px;
+    padding-bottom: 0.5rem;
   }
   .carousel-content h1 {
     font-size: 1.8rem;
@@ -479,7 +506,7 @@ p {
   }
   .btn-ios-primary {
     padding: 4px 14px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 }
 
