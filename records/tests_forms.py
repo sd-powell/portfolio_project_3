@@ -3,7 +3,7 @@ from io import BytesIO
 from PIL import Image
 from django.core.files.uploadedfile import SimpleUploadedFile
 
-from records.forms import RecordForm
+from records.forms import RecordForm, TrackForm
 from records.models import GENRE_CHOICES, RATING_CHOICES
 
 
@@ -124,3 +124,17 @@ class RecordFormTests(TestCase):
         form = RecordForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('year', form.errors)
+
+    def test_record_form_whitespace_title(self):
+        data = self.valid_data.copy()
+        data['title'] = '   '
+        form = RecordForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors)
+
+    def test_track_form_whitespace_title(self):
+        data = self.valid_data.copy()
+        data['title'] = '   '
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('title', form.errors)
