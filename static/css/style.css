@@ -177,17 +177,22 @@ p {
 }
 
 /* Maintain consistent button styling */
-.btn-neutral {
-  background-color: var(--site-bg-grey);
-  color: var(--footer-charcoal);
-  border: none;
-  padding: 0.6rem 1.5rem;
+.btn-neutral,
+.btn-action {
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: background-color 0.3s;
+  border: none;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-neutral {
+  background-color: var(--search-bg-grey);
+  color: var(--footer-charcoal);
 }
 
 .btn-action {
@@ -242,19 +247,41 @@ p {
   color: var(--highlight-yellow);
 }
 
+/************ Buttons ************/
+
+.btn-ios-primary,
+.btn-ios-outline {
+    border-radius: 999px;
+    font-weight: 600;
+    font-family: var(--primary-font);
+}
+
 .btn-ios-primary {
   background-color: var(--highlight-blue);
   color: var(--foreground-white);
   border: none;
-  border-radius: 999px;
   padding: 6px 20px;
-  font-weight: 600;
-  font-family: var(--primary-font);
+}
+
+.btn-ios-outline {
+    background-color: var(--foreground-white);
+    color: #40798c;
+    border: 2px solid #40798c;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-ios-outline:hover,
+.btn-ios-outline:focus {
+    background-color: #e8f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
 }
 
 .btn-ios-primary:hover {
   background-color: var(--highlight-yellow);
-  color: white;
+  color: var(--foreground-white);
 }
 
 /************ Record Cards ************/
@@ -347,26 +374,6 @@ p {
   object-fit: cover;
   border: 4px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/************ Buttons ************/
-
-/* iOS-Inspired Outline Button */
-.btn-ios-outline {
-    background-color: white;
-    color: #40798c;
-    border: 2px solid #40798c;
-    border-radius: 999px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-}
-.btn-ios-outline:hover,
-.btn-ios-outline:focus {
-    background-color: #e8f4f6;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
 }
 
 /************ 404 and 500 Error Pages ************/
