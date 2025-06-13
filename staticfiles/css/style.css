@@ -8,6 +8,7 @@
       --contrast-orange: #f7931e;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
+      --search-input-bg: #e6e6e6;
       --foreground-white: #ffffff;
 
     /************ Typography ************/
@@ -116,11 +117,6 @@ p {
   font-size: 1.5rem;
 }
 
-/* Search bar wrapper for icon positioning */
-.search-bar-wrapper {
-  position: relative;
-}
-
 /* Search icon inside the input */
 .search-bar-wrapper .fa-search {
   position: absolute;
@@ -131,27 +127,20 @@ p {
   pointer-events: none;
 }
 
-/* Styled search input */
-.search-input {
-  padding-left: 2.5rem;
-  background-color: #e6e6e6;
-  border: none;
-  border-radius: 999px;
-  height: 48px;
-}
-
+/* Search bar wrapper for icon positioning */
 .search-bar-wrapper {
   position: relative;
   width: 100%;
 }
 
+/* Styled search input */
 .search-input {
   width: 100%;
-  background-color: #e6e6e6;
+  background-color: var(--search-input-bg);
   border: none;
   border-radius: 999px;
   height: 48px;
-  padding-left: 1rem;
+  padding-left: 2.5rem; # could be 2.5rem
   padding-right: 3rem;
   font-size: 1rem;
 }

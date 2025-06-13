@@ -8,6 +8,7 @@
       --contrast-orange: #f7931e;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
+      --search-bg-grey: #e6e6e6;
       --foreground-white: #ffffff;
 
     /************ Typography ************/
@@ -131,23 +132,15 @@ p {
   pointer-events: none;
 }
 
-/* Styled search input */
-.search-input {
-  padding-left: 2.5rem;
-  background-color: #e6e6e6;
-  border: none;
-  border-radius: 999px;
-  height: 48px;
-}
-
 .search-bar-wrapper {
   position: relative;
   width: 100%;
 }
 
+/* Styled search input */
 .search-input {
   width: 100%;
-  background-color: #e6e6e6;
+  background-color: var(--search-bg-grey);
   border: none;
   border-radius: 999px;
   height: 48px;
