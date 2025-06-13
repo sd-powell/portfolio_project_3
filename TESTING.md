@@ -176,9 +176,13 @@ The automated test suite was planned and executed to cover the following key are
 | tests_views.py | All key views covered including CRUD and 404 |
 | tests_admin.py | Admin thumbnail image rendering logic |
 
-#### Coverage
+#### Coverage Testing
 
 Testing was monitored using `coverage.py`, and line-by-line analysis was conducted to identify and address gaps. Areas typically hard to reach (like admin methods or error branches) were tested explicitly. Coverage reached a high level, with all business-critical logic tested and documented.
+
+| Coverage for | Total | Evidence |
+| ------------ | ----- | -------- |
+| Records      | 96%   | [Coverage Records](documentation/testing/validation/coverage_records.webp) |
 
 #### Edge Cases Covered
 - Submitting forms with missing, invalid, or out-of-range data
