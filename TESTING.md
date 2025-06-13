@@ -257,12 +257,12 @@ Additionally, I used the [Mobile First Plugin](https://www.webmobilefirst.com/en
 
 | Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
 | :---: | :---: | :---: | :---: | :---: |
-| MacBook Air 13” ![MacBook Air 13”](documentation/testing-responsive-macbookair.webp) | Dell Latitude ![Dell Latitude](documentation/testing-responsive-dell.webp) | Macbook Pro 16" ![Macbook Pro 16"](documentation/testing-responsive-macbook.webp) | iMac 24" ![iMac 24"](documentation/testing-responsive-imac24.webp) | Full HD monitor ![Full HD monitor](documentation/testing-responsive-hdmonitor.webp) |
+| MacBook Air 13” ![MacBook Air 13”](documentation/testing/responsiveness/responsive-macbookair.webp) | Dell Latitude ![Dell Latitude](documentation/testing/responsiveness/responsive-dell.webp) | Macbook Pro 16" ![Macbook Pro 16"](documentation/testing/responsiveness/responsive-macbook.webp) | iMac 24" ![iMac 24"](documentation/testing/responsiveness/responsive-imac24.webp) | Full HD monitor ![Full HD monitor](documentation/testing/responsiveness/responsive-hdmonitor.webp) |
 | MacBook Air 13” | 1280px | 800px | ✅ Pass | ✅ Fully responsive |
 | Dell Latitude | 1440px | 809px | ✅ Pass | ✅ Fully responsive |
-| Macbook Pro 16" | 1728px | 1085px | ✅ Pass | ✅ Fully responsive <br>🛠️ Added additional graphic to fill blank space on larger screens|
-| iMac 24" | 2048px | 1142px | ✅ Pass | ✅ Fully responsive <br>🛠️ Added additional graphic to fill blank space on larger screens|
-| Full HD monitor | 1920px  | 1080px | ✅ Pass | ✅ Fully responsive <br>🛠️ Added additional graphic to fill blank space on larger screens|
+| Macbook Pro 16" | 1728px | 1085px | ✅ Pass | ✅ Fully responsive |
+| iMac 24" | 2048px | 1142px | ✅ Pass | ✅ Fully responsive |
+| Full HD monitor | 1920px  | 1080px | ✅ Pass | ✅ Fully responsive |
 
 ---
 
