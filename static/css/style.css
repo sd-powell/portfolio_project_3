@@ -120,6 +120,7 @@ p {
 /* Search bar wrapper for icon positioning */
 .search-bar-wrapper {
   position: relative;
+  width: 100%;
 }
 
 /* Search icon inside the input */
@@ -130,11 +131,6 @@ p {
   transform: translateY(-50%);
   color: #666;
   pointer-events: none;
-}
-
-.search-bar-wrapper {
-  position: relative;
-  width: 100%;
 }
 
 /* Styled search input */
