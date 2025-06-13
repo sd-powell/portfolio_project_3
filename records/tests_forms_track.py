@@ -1,13 +1,14 @@
+# records/tests_forms_track.py
+
 from django.test import TestCase
 from records.forms import TrackForm
-
 from records.models import CAMELOT_KEYS
 
 
 class TrackFormTests(TestCase):
     """
-    Unit tests for the TrackForm used to create and edit Track entries.
-    Covers validation rules, required fields, and expected widget behaviour.
+    Unit tests for TrackForm validating required fields,
+    custom validators, and acceptable value ranges.
     """
 
     def setUp(self):
@@ -38,6 +39,22 @@ class TrackFormTests(TestCase):
     def test_track_form_missing_title(self):
         """Test that the form is invalid if the title is missing."""
         self.assert_invalid_field('title', '')
+
+    def test_track_form_whitespace_title(self):
+        """Test that TrackForm is invalid when title is only whitespace."""
+        self.assert_invalid_field('title', '   ')
+
+    def test_track_form_invalid_duration_format_seconds(self):
+        """Test that TrackForm is invalid with invalid seconds in duration."""
+        self.assert_invalid_field('duration', '4:78')
+
+    def test_track_form_invalid_duration_non_time(self):
+        """Test that TrackForm is invalid with non-numeric duration string."""
+        self.assert_invalid_field('duration', 'abc')
+
+    def test_track_form_duration_missing(self):
+        """Test that TrackForm is invalid with empty duration field."""
+        self.assert_invalid_field('duration', '')
 
     def test_track_form_invalid_bpm_type(self):
         """Test that non-numeric BPM causes a validation error."""

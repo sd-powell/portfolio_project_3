@@ -1,66 +1,72 @@
-from django.test import TestCase, Client
+from django.test import TestCase, RequestFactory
 from records.forms import CustomSignupForm
 
 
 class CustomSignupFormTests(TestCase):
     """
-    Unit tests for the CustomSignupForm, which adds first and last name
-    fields to the default Allauth signup form and saves them to the user model.
+    Unit tests for CustomSignupForm covering field validation
+    and user creation logic via the save() method.
     """
 
     def setUp(self):
-        self.valid_data = {
-            'username': 'testuser',
-            'email': 'test@example.com',
-            'password1': 'Str0ng!Pass123',
-            'password2': 'Str0ng!Pass123',
+        self.factory = RequestFactory()
+
+    def make_form(self, **overrides):
+        """
+        Helper to create a valid CustomSignupForm instance
+        with optional field overrides for targeted tests.
+        """
+        data = {
+            'email': 'user@example.com',
             'first_name': 'Test',
             'last_name': 'User',
+            'password1': 'testpass123',
+            'password2': 'testpass123'
         }
+        data.update(overrides)
+        return CustomSignupForm(data=data)
 
-    def test_form_saves_names_correctly(self):
-        """
-        Test that first_name and last_name are saved correctly to the user.
-        """
-        client = Client()
-        client.get("/")
-        request = client.request().wsgi_request
+    def test_valid_form(self):
+        """Form should be valid with all required fields correctly filled."""
+        form = self.make_form()
+        self.assertTrue(form.is_valid())
 
-        form = CustomSignupForm(data=self.valid_data)
-        self.assertTrue(form.is_valid(), form.errors)
+    def test_blank_email(self):
+        """Form should be invalid if email is blank or whitespace."""
+        form = self.make_form(email='   ')
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors)
 
-        user = form.save(request)
-
-        self.assertEqual(user.first_name, 'Test')
-        self.assertEqual(user.last_name, 'User')
-
-    def test_form_invalid_without_names(self):
-        """
-        Test that the form is invalid if first_name
-        and last_name are blank or whitespace.
-        """
-        data = self.valid_data.copy()
-        data['first_name'] = ' '
-        data['last_name'] = ''
-        form = CustomSignupForm(data=data)
+    def test_blank_first_name(self):
+        """Form should be invalid if first name is blank or whitespace."""
+        form = self.make_form(first_name='   ')
         self.assertFalse(form.is_valid())
         self.assertIn('first_name', form.errors)
+
+    def test_invalid_first_name_characters(self):
+        """Form should be invalid if first name contains invalid characters."""
+        form = self.make_form(first_name='Test123!')
+        self.assertFalse(form.is_valid())
+        self.assertIn('first_name', form.errors)
+
+    def test_blank_last_name(self):
+        """Form should be invalid if last name is blank or whitespace."""
+        form = self.make_form(last_name='   ')
+        self.assertFalse(form.is_valid())
         self.assertIn('last_name', form.errors)
 
-    def test_form_invalid_password_mismatch(self):
+    def test_save_method_creates_user_with_expected_fields(self):
         """
-        Test that the form is invalid if passwords do not match.
+        CustomSignupForm.save() should assign email, names,
+        and a 30-character UUID-based username.
         """
-        data = self.valid_data.copy()
-        data['password2'] = 'differentpassword'
-        form = CustomSignupForm(data=data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('password2', form.errors)
+        request = self.factory.post('/accounts/signup/')
+        request.session = {}
 
-    def test_form_fields_present(self):
-        """
-        Test that the form includes first_name and last_name fields.
-        """
-        form = CustomSignupForm()
-        self.assertIn('first_name', form.fields)
-        self.assertIn('last_name', form.fields)
+        form = self.make_form()
+        self.assertTrue(form.is_valid())
+        user = form.save(request=request)
+        self.assertEqual(user.email, 'user@example.com')
+        self.assertEqual(user.first_name, 'Test')
+        self.assertEqual(user.last_name, 'User')
+        self.assertEqual(len(user.username), 30)
