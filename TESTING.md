@@ -110,9 +110,10 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | records/models.py | Pass | [models.py validation](documentation/testing/validation/python-models.webp) |
 | records/urls.py | Pass | [urls.py validation](documentation/testing/validation/python-urls.webp) |
 | records/views.py | Pass | [views.py validation](documentation/testing/validation/python-views.webp) |
+| records/tests_admin.py | Pass | [tests_admin.py validation](documentation/testing/validation/python-tests_admin.webp) |
 | records/tests_forms_signup.py | Pass | [tests_forms_signup.py validation](documentation/testing/validation/python-tests_forms_signup.webp) |
 | records/tests_forms_track.py | Pass | [tests_forms_track.py validation](documentation/testing/validation/python-tests_forms_track.webp) |
-| records/tests_forms.py | Pass | [tests_forms.py validation](documentation/testing/validation/python-tests_forms.webp) |
+| records/tests_forms_record.py | Pass | [tests_forms_record.py validation](documentation/testing/validation/python-tests_forms_record.webp) |
 | records/tests_views.py | Pass | [tests_views.py validation](documentation/testing/validation/python-tests_views.webp) |
 
 <a id="automated-testing"></a>
@@ -170,7 +171,7 @@ The automated test suite was planned and executed to cover the following key are
 
 | File Name | Contents | 
 | ---- | ------- |
-| tests_forms.py | RecordForm validation and required field logic |
+| tests_forms_record.py | RecordForm validation and required field logic |
 | tests_forms_track.py | TrackForm validation, optional fields, and data types |
 | tests_forms_signup.py | Signup logic and first/last name persistence |
 | tests_views.py | All key views covered including CRUD and 404 |
@@ -197,3 +198,75 @@ Testing was monitored using `coverage.py`, and line-by-line analysis was conduct
 ### Summary
 
 This comprehensive automated test suite ensures that Vinyl Crate is robust, secure, and scalable. It gave confidence to iterate rapidly, knowing that regressions would be caught early in development.
+
+--
+<a id="manual-testing"></a>
+
+## Manual Testing
+
+<a id="full-testing"></a>
+
+### Full Testing
+
+This section outlines the **manual testing** process conducted to ensure the Vinyl Crate web application functions correctly across all major user interactions, devices, and screen sizes. Testing focused on form validation, navigation flows, responsiveness, and general usability. Each feature was tested systematically to identify potential issues related to layout, logic, or access control.
+
+Additional feedback was gathered through informal testing by friends and family on a variety of devices and browsers to further validate the user experience and cross-device compatibility.
+
+<a id=browser></a>
+
+### Browser Compatibility
+
+- [Safari](https://www.apple.com/uk/safari/)
+- [Chrome](https://www.google.com/chrome)
+- [Firefox](https://www.mozilla.org/firefox)
+- [Bing](https://www.bing.com/)
+- [Edge](https://www.microsoft.com/en-gb/edge?form=MA13FJ)
+
+I tested my deployed project on multiple browsers to check for compatibility issues.
+
+---
+
+<a id=responsiveness></a>
+
+### Responsiveness
+
+In addition to testing my deployed site on different devices, I thoroughly tested its responsiveness using Chrome Developer Tools.  
+I researched the **narrowest width of modern devices** on [Stack Exchange](https://ux.stackexchange.com/questions/74798/are-there-devices-narrower-than-320px-and-data-on-their-usage-for-web-browsing) and based my testing on **320px** as a standard minimum width.  
+Additionally, I used the [Mobile First Plugin](https://www.webmobilefirst.com/en/), a Chrome extension designed to test site responsiveness across different devices.
+
+#### Mobile Devices
+
+| Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
+| :---: | :---: | :---: | :---: | :---: |
+| iPhone 5 ![iPhone 5](documentation/testing-responsive-iphone5.webp) | iPhone 12/13/14 ![iPhone 12/13/14](documentation/testing-responsive-iphone15.webp) | Google Pixel 8 ![Google Pixel 8](documentation/testing-responsive-pixel8.webp) | iPhone 16 Pro Max ![iPhone 16 Pro Max](documentation/testing-responsive-iphone16max.webp) |
+| iPhone 5 | 320px | 568px | ✅ Pass | 🛠️ Removed background image and filled screen with panel |
+| iPhone 12/13/14 | 390px | 844px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
+| Google Pixel 8 | 412px | 916px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
+| iPhone 16 Pro Max | 440px | 956px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
+
+#### Tablets
+
+| Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
+| :---: | :---: | :---: | :---: | :---: |
+| iPad Mini ![iPad Mini](documentation/testing-responsive-ipadmini.webp) | Galaxy Tab S7 ![Galaxy Tab S7](documentation/testing-responsive-galaxytab.webp) | iPad Pro 11 ![iPad Pro 11](documentation/testing-responsive-ipadpro11.webp) | | |
+| iPad Mini | 768px | 1024px | ✅ Pass | 🛠️ Increased font-size to improve UI |
+| Galaxy Tab S7 | 800px | 1280px | ✅ Pass | 🛠️ Increased font-size to improve UI |
+| iPad Pro 11 | 834px | 1194px | ✅ Pass | 🛠️ Increased font-size to improve UI |
+
+#### Laptops & Desktops
+
+| Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
+| :---: | :---: | :---: | :---: | :---: |
+| MacBook Air 13” ![MacBook Air 13”](documentation/testing-responsive-macbookair.webp) | Dell Latitude ![Dell Latitude](documentation/testing-responsive-dell.webp) | Macbook Pro 16" ![Macbook Pro 16"](documentation/testing-responsive-macbook.webp) | iMac 24" ![iMac 24"](documentation/testing-responsive-imac24.webp) | Full HD monitor ![Full HD monitor](documentation/testing-responsive-hdmonitor.webp) |
+| MacBook Air 13” | 1280px | 800px | ✅ Pass | ✅ Fully responsive |
+| Dell Latitude | 1440px | 809px | ✅ Pass | ✅ Fully responsive |
+| Macbook Pro 16" | 1728px | 1085px | ✅ Pass | ✅ Fully responsive <br>🛠️ Added additional graphic to fill blank space on larger screens|
+| iMac 24" | 2048px | 1142px | ✅ Pass | ✅ Fully responsive <br>🛠️ Added additional graphic to fill blank space on larger screens|
+| Full HD monitor | 1920px  | 1080px | ✅ Pass | ✅ Fully responsive <br>🛠️ Added additional graphic to fill blank space on larger screens|
+
+---
+
+### Testing User Stories
+
+| User Story ID | As a/an | I want to be able to ... | So that I can... | How is this achieved? | Evidence |
+| :--- | :--- | :--- | :---| :--- | :---: |
