@@ -166,3 +166,21 @@ class RecordFormTests(TestCase):
         form = CustomSignupForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('email', form.errors)
+        
+    def test_form_invalid_blank_first_name(self):
+        """Test that CustomSignupForm rejects
+        blank first_name input."""
+        data = self.valid_data.copy()
+        data['first_name'] = '   '
+        form = CustomSignupForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('first_name', form.errors)
+
+    def test_form_invalid_first_name_characters(self):
+        """Test that CustomSignupForm rejects
+        first_name with invalid characters."""
+        data = self.valid_data.copy()
+        data['first_name'] = 'Test123!'
+        form = CustomSignupForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('first_name', form.errors)
