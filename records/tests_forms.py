@@ -149,3 +149,12 @@ class RecordFormTests(TestCase):
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('duration', form.errors)
+
+    def test_track_form_invalid_duration_format_letters(self):
+        """Test that TrackForm rejects invalid
+        duration with invalid seconds."""
+        data = self.valid_data.copy()
+        data['duration'] = 'abc'
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('duration', form.errors)
