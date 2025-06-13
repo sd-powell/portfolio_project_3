@@ -3,7 +3,7 @@ from io import BytesIO
 from PIL import Image
 from django.core.files.uploadedfile import SimpleUploadedFile
 
-from records.forms import RecordForm, TrackForm
+from records.forms import RecordForm, TrackForm, CustomSignupForm
 from records.models import GENRE_CHOICES, RATING_CHOICES
 
 
@@ -151,10 +151,18 @@ class RecordFormTests(TestCase):
         self.assertIn('duration', form.errors)
 
     def test_track_form_invalid_duration_format_letters(self):
-        """Test that TrackForm rejects invalid
-        duration with invalid seconds."""
+        """Test that TrackForm rejects non-time
+        format strings in duration."""
         data = self.valid_data.copy()
         data['duration'] = 'abc'
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('duration', form.errors)
+
+    def test_form_invalid_blank_email(self):
+        """Test that CustomSignupForm rejects a blank email string."""
+        data = self.valid_data.copy()
+        data['email'] = '   '
+        form = CustomSignupForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors)
