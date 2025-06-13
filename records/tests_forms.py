@@ -98,7 +98,7 @@ class RecordFormTests(TestCase):
         form = RecordForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('title', form.errors)
-        
+
     def test_artist_whitespace_only_invalid(self):
         """
         Form should reject artist with only whitespace (custom validator).
@@ -126,6 +126,7 @@ class RecordFormTests(TestCase):
         self.assertIn('year', form.errors)
 
     def test_record_form_whitespace_title(self):
+        """Test that RecordForm rejects a title with only whitespace."""
         data = self.valid_data.copy()
         data['title'] = '   '
         form = RecordForm(data=data)
@@ -133,8 +134,18 @@ class RecordFormTests(TestCase):
         self.assertIn('title', form.errors)
 
     def test_track_form_whitespace_title(self):
+        """Test that TrackForm rejects a title with only whitespace."""
         data = self.valid_data.copy()
         data['title'] = '   '
         form = TrackForm(data=data)
         self.assertFalse(form.is_valid())
         self.assertIn('title', form.errors)
+
+    def test_track_form_invalid_duration_format(self):
+        """Test that TrackForm rejects invalid
+        duration with invalid seconds."""
+        data = self.valid_data.copy()
+        data['duration'] = '4:78'  # invalid seconds
+        form = TrackForm(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('duration', form.errors)
