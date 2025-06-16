@@ -140,7 +140,7 @@ p {
   border: none;
   border-radius: 999px;
   height: 48px;
-  padding-left: 2.5rem; # could be 2.5rem
+  padding-left: 2.5rem; /* could be 2.5rem */
   padding-right: 3rem;
   font-size: 1rem;
 }

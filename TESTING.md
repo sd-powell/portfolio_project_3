@@ -238,7 +238,7 @@ Additionally, I used the [Mobile First Plugin](https://www.webmobilefirst.com/en
 
 | Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
 | :---: | :---: | :---: | :---: | :---: |
-| iPhone 5 ![iPhone 5](documentation/testing-responsive-iphone5.webp) | iPhone 12/13/14 ![iPhone 12/13/14](documentation/testing-responsive-iphone15.webp) | Google Pixel 8 ![Google Pixel 8](documentation/testing-responsive-pixel8.webp) | iPhone 16 Pro Max ![iPhone 16 Pro Max](documentation/testing-responsive-iphone16max.webp) |
+| iPhone 5 ![iPhone 5](documentation/testing-responsive-iphone5.webp) | iPhone 12/13/14 ![iPhone 12/13/14](documentation/testing/responsiveness/responsive-iphone14.webp) | Google Pixel 8 ![Google Pixel 8](documentation/testing/responsiveness/responsive-googlepixel8.webp) | iPhone 16 Pro Max ![iPhone 16 Pro Max](documentation/testing/responsiveness/responsive-iphone16promax.webp) |
 | iPhone 5 | 320px | 568px | ✅ Pass | 🛠️ Removed background image and filled screen with panel |
 | iPhone 12/13/14 | 390px | 844px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
 | Google Pixel 8 | 412px | 916px | ✅ Pass | 🛠️ Set info panel to hidden when other panels are visible |
@@ -248,10 +248,10 @@ Additionally, I used the [Mobile First Plugin](https://www.webmobilefirst.com/en
 
 | Device tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
 | :---: | :---: | :---: | :---: | :---: |
-| iPad Mini ![iPad Mini](documentation/testing-responsive-ipadmini.webp) | Galaxy Tab S7 ![Galaxy Tab S7](documentation/testing-responsive-galaxytab.webp) | iPad Pro 11 ![iPad Pro 11](documentation/testing-responsive-ipadpro11.webp) | | |
-| iPad Mini | 768px | 1024px | ✅ Pass | 🛠️ Increased font-size to improve UI |
-| Galaxy Tab S7 | 800px | 1280px | ✅ Pass | 🛠️ Increased font-size to improve UI |
-| iPad Pro 11 | 834px | 1194px | ✅ Pass | 🛠️ Increased font-size to improve UI |
+| iPad Mini ![iPad Mini](documentation/testing/responsiveness/responsive-ipadmini.webp) | Galaxy Tab S7 ![Galaxy Tab S7](documentation/testing/responsiveness/responsive-galaxytab.webp) | iPad Pro 11 ![iPad Pro 11](documentation/testing/responsiveness/responsive-ipadpro.webp) | | |
+| iPad Mini | 768px | 1024px | ✅ Pass | 🛠️ Decreased margin spacing to improve UI |
+| Galaxy Tab S7 | 800px | 1280px | ✅ Pass | 🛠️ Decreased margin spacing to improve UI |
+| iPad Pro 11 | 834px | 1194px | ✅ Pass | 🛠️ Decreased margin spacing to improve UI |
 
 #### Laptops & Desktops
 
