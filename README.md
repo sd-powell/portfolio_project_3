@@ -760,9 +760,9 @@ While `sqlite3` was used for local development, this is not suitable for product
 4. In the connectivity section, enable public access and ensure security group rules allow inbound connections from your IP.
 5. Launch the database and wait for the instance to become available.
 6. Once ready, copy the **Endpoint** and construct your `DATABASE_URL` in the following format:
-```
-postgres://:@:5432/
-```
+    ```
+    postgres://:@:5432/
+    ```
 
 #### **Heroku App Setup**
 
@@ -771,6 +771,166 @@ postgres://:@:5432/
 3. Go to the **Settings** tab, click **Reveal Config Vars**, and add a new config variable:
 - Key: `DATABASE_URL`
 - Value: paste the constructed database URL (no quotation marks).
+
+### Preparation for Deployment in VS Code (with PostgreSQL on AWS)
+
+1. **Install required packages**  
+   Install `dj_database_url` and `psycopg2` to enable Django to connect to an external PostgreSQL database:
+
+   ```bash
+   pip3 install dj_database_url==0.5.0 psycopg2
+   ```
+
+2. **Freeze dependencies**  
+   Save the installed packages to your `requirements.txt`:
+
+   ```bash
+   pip3 freeze > requirements.txt
+   ```
+
+3. **Update `settings.py`**  
+   Add the following import near the top of `settings.py`:
+
+   ```python
+   import dj_database_url
+   ```
+
+4. **Temporarily connect to AWS PostgreSQL**  
+   In `settings.py`, comment out the default `DATABASES` block and add the following (replace with your actual AWS RDS connection string):
+
+   > **This is temporary and should NOT be pushed to GitHub.**
+
+   ```python
+   DATABASES = {
+       'default': dj_database_url.parse('your-aws-rds-db-url-here')
+   }
+   ```
+
+5. **Test connection**  
+   Run the server to confirm the connection works:
+
+   ```bash
+   python3 manage.py runserver
+   ```
+
+6. **Apply migrations to AWS**  
+   If successful, migrate your models to the new external database:
+
+   ```bash
+   python3 manage.py migrate
+   ```
+
+7. **Create a superuser**  
+   Set up admin access on the new database:
+
+   ```bash
+   python3 manage.py createsuperuser
+   ```
+
+8. **Switch between local and external DB automatically**  
+   Replace the temporary block in `settings.py` with the following conditional logic:
+
+   ```python
+   if 'DATABASE_URL' in os.environ:
+       DATABASES = {
+           'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+       }
+   else:
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.sqlite3',
+               'NAME': BASE_DIR / 'db.sqlite3',
+           }
+       }
+   ```
+
+9. **Install Gunicorn**  
+   Add Gunicorn to serve your Django app in production:
+
+   ```bash
+   pip3 install gunicorn
+   pip3 freeze > requirements.txt
+   ```
+
+10. **Create a `Procfile`**  
+    In the root of your project, create a file named `Procfile` with the following line (no extension, no blank line below):
+
+    ```Procfile
+    web: gunicorn your_project_name.wsgi:application
+    ```
+
+    > Replace `your_project_name` with your actual Django project folder name (the one containing `settings.py`).
+
+11. **Disable collectstatic on Heroku (for now)**  
+    Prevent Heroku from trying to collect static files during deployment:
+
+    ```bash
+    heroku config:set DISABLE_COLLECTSTATIC=1 --app your-heroku-app-name
+    ```
+
+12. **Update allowed hosts**  
+    In `settings.py`, update `ALLOWED_HOSTS` to include Heroku and local development:
+
+    ```python
+    ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'localhost']
+    ```
+
+13. **Commit and push changes**  
+    Save all changes, commit, and push to GitHub:
+
+    ```bash
+    git add .
+    git commit -m "Prepare for Heroku deployment with AWS DB"
+    git push origin main
+    ```
+
+14. **Connect to Heroku Git and deploy**  
+    Link your repo and deploy:
+
+    ```bash
+    heroku git:remote -a your-heroku-app-name
+    git push heroku main
+    ```
+
+15. **Verify deployment**  
+    Your site should now be live (without static files).
+
+16. **Enable automatic deploys**  
+    Go to your Heroku app’s **Deploy** tab:
+    - Connect your GitHub repo
+    - Click **Enable Automatic Deploys**
+
+#### **Generating a Secure SECRET_KEY & Configuring DEBUG Settings**
+
+1. When a Django project is created, it includes a default `SECRET_KEY`. However, using this default in production poses a security risk. Instead, generate a new secure key specifically for deployment and store it safely.
+
+2. Use a tool like the [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) to create a strong, random key. Copy the generated key.
+
+3. In your Heroku dashboard, navigate to the app’s **Settings** tab and add a new Config Var:
+   - **Key**: `SECRET_KEY`
+   - **Value**: Paste your newly generated secret key
+
+4. In your `settings.py`, update the `SECRET_KEY` definition to retrieve the value securely from the environment:
+
+    ```python
+    SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
+    ```
+
+5. Update the `DEBUG` setting so it is only enabled during development:
+
+    ```python
+    DEBUG = 'DEVELOPMENT' in os.environ
+    ```
+
+6. Save your changes, then add, commit, and push them to your repository:
+
+    ```bash
+    git add .
+    git commit -m "Configure SECRET_KEY and DEBUG for secure deployment"
+    git push origin main
+    ```
+
+
 
 <a id="local-development"></a>
 
