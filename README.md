@@ -744,6 +744,34 @@ Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in
 
 <a id="deployment-development"></a>
 
+## Deployment & Local Development
+
+### Deployment
+
+The project is deployed using Heroku. To deploy the project:
+
+#### **Create the Live Database**
+
+While `sqlite3` was used for local development, this is not suitable for production. Instead, a free-tier PostgreSQL database from Amazon AWS was used for deployment.
+
+1. Sign in to your [Amazon RDS Console](https://console.aws.amazon.com/rds/) and click **Create Database**.
+2. Select **Standard Create**, choose **PostgreSQL**, and select the **Free tier** template.
+3. Set a unique DB instance identifier, master username, and password.
+4. In the connectivity section, enable public access and ensure security group rules allow inbound connections from your IP.
+5. Launch the database and wait for the instance to become available.
+6. Once ready, copy the **Endpoint** and construct your `DATABASE_URL` in the following format:
+```
+postgres://:@:5432/
+```
+
+#### **Heroku App Setup**
+
+1. From the [Heroku dashboard](https://dashboard.heroku.com/), click the **New** button and select **Create new app**.
+2. Give your app a unique name, select the appropriate region, and click **Create App**.
+3. Go to the **Settings** tab, click **Reveal Config Vars**, and add a new config variable:
+- Key: `DATABASE_URL`
+- Value: paste the constructed database URL (no quotation marks).
+
 <a id="local-development"></a>
 
 ## Local Development
