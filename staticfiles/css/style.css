@@ -8,7 +8,7 @@
       --contrast-orange: #f7931e;
       --footer-charcoal: #333333;
       --site-bg-grey: #efefef;
-      --search-input-bg: #e6e6e6;
+      --search-bg-grey: #e6e6e6;
       --foreground-white: #ffffff;
 
     /************ Typography ************/
@@ -31,6 +31,11 @@ body {
 h1, h2 {
   font-family: var(--secondary-font);
   font-weight: 600;
+}
+
+h1 span {
+  font-weight: 800;
+  font-style: italic;
 }
 
 p {
@@ -117,6 +122,12 @@ p {
   font-size: 1.5rem;
 }
 
+/* Search bar wrapper for icon positioning */
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 /* Search icon inside the input */
 .search-bar-wrapper .fa-search {
   position: absolute;
@@ -127,20 +138,14 @@ p {
   pointer-events: none;
 }
 
-/* Search bar wrapper for icon positioning */
-.search-bar-wrapper {
-  position: relative;
-  width: 100%;
-}
-
 /* Styled search input */
 .search-input {
   width: 100%;
-  background-color: var(--search-input-bg);
+  background-color: var(--search-bg-grey);
   border: none;
   border-radius: 999px;
   height: 48px;
-  padding-left: 2.5rem; /* could be 2.5rem */
+  padding-left: 1rem;
   padding-right: 3rem;
   font-size: 1rem;
 }
@@ -177,17 +182,22 @@ p {
 }
 
 /* Maintain consistent button styling */
-.btn-neutral {
-  background-color: var(--site-bg-grey);
-  color: var(--footer-charcoal);
-  border: none;
-  padding: 0.6rem 1.5rem;
+.btn-neutral,
+.btn-action {
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: background-color 0.3s;
+  border: none;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-neutral {
+  background-color: var(--search-bg-grey);
+  color: var(--footer-charcoal);
 }
 
 .btn-action {
@@ -242,19 +252,41 @@ p {
   color: var(--highlight-yellow);
 }
 
+/************ Buttons ************/
+
+.btn-ios-primary,
+.btn-ios-outline {
+    border-radius: 999px;
+    font-weight: 600;
+    font-family: var(--primary-font);
+}
+
 .btn-ios-primary {
   background-color: var(--highlight-blue);
   color: var(--foreground-white);
   border: none;
-  border-radius: 999px;
   padding: 6px 20px;
-  font-weight: 600;
-  font-family: var(--primary-font);
+}
+
+.btn-ios-outline {
+    background-color: var(--foreground-white);
+    color: #40798c;
+    border: 2px solid #40798c;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-ios-outline:hover,
+.btn-ios-outline:focus {
+    background-color: #e8f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
 }
 
 .btn-ios-primary:hover {
   background-color: var(--highlight-yellow);
-  color: white;
+  color: var(--foreground-white);
 }
 
 /************ Record Cards ************/
@@ -349,26 +381,6 @@ p {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/************ Buttons ************/
-
-/* iOS-Inspired Outline Button */
-.btn-ios-outline {
-    background-color: white;
-    color: #40798c;
-    border: 2px solid #40798c;
-    border-radius: 999px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-}
-.btn-ios-outline:hover,
-.btn-ios-outline:focus {
-    background-color: #e8f4f6;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(64, 121, 140, 0.3);
-}
-
 /************ 404 and 500 Error Pages ************/
 
 .error-img {
@@ -390,6 +402,28 @@ p {
 
 /************ Media queries ************/
 
+/* Responsive aspect ratios */
+@media (max-width: 767.98px) {
+  #homeCarousel {
+    aspect-ratio: 1 / 1;
+  }
+
+    .carousel .flex-md-row {
+    flex-direction: column !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #homeCarousel {
+    aspect-ratio: 40 / 9;
+  }
+
+  .carousel .flex-md-row {
+    flex-direction: row !important;
+  }
+}
+
+/* Mobile devices (between 350px and 575.98px) */
 @media (min-width: 350px) and (max-width: 575.98px) {
   .col-2-sm {
     width: 50%;
@@ -397,7 +431,13 @@ p {
   }
 }
 
-@media (max-width: 767.98px) {
+@media (min-width: 768px) and (max-width: 800px) {
+  .custom-carousel-subtext { 
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 767px) {
   .carousel-item {
     display: flex;
     flex-direction: column;
@@ -418,7 +458,7 @@ p {
     padding: 2rem 1rem 1rem;
     text-align: center;
     z-index: 2;
-    max-width: 440px;
+    max-width: 390px;
   }
 
   .carousel-content h1 {
@@ -446,23 +486,17 @@ p {
   }
 }
 
-/* Responsive aspect ratios */
-@media (max-width: 769px) {
-  #homeCarousel {
-    aspect-ratio: 1 / 1;
-  }
-}
-
-@media (min-width: 770px) {
-  #homeCarousel {
-    aspect-ratio: 40 / 9;
+@media (max-width: 991.98px) {
+  #homeCarousel .flex-md-row {
+    min-height: unset !important;
   }
 }
 
 /* Medium devices (tablets landscape) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .carousel-content {
-    max-width: 400px;
+    max-width: 377px;
+    padding-bottom: 0.5rem;
   }
   .carousel-content h1 {
     font-size: 1.8rem;
@@ -472,7 +506,7 @@ p {
   }
   .btn-ios-primary {
     padding: 4px 14px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 }
 

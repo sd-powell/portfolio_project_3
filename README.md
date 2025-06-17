@@ -2,12 +2,11 @@
 
 Visit the deployed site here: [Vinyl Crate](https://vinyl-crate-ab3f8a285d4e.herokuapp.com/)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/sd-powell/portfolio_project_3)
-![GitHub repo size](https://img.shields.io/github/repo-size/sd-powell/portfolio_project_3)
+![GitHub last commit](https://img.shields.io/github/last-commit/sd-powell/portfolio_project_3) ![GitHub repo size](https://img.shields.io/github/repo-size/sd-powell/portfolio_project_3) ![GitHub language count](https://img.shields.io/github/languages/count/sd-powell/portfolio_project_3)
 
 ## Introduction
 
-**Vinyl Crate** is a full-stack record collection management web application designed to help users digitally archive, explore, and celebrate their vinyl records. Built with Django, Python, HTML, CSS, and JavaScript, it features a PostgreSQL database and is deployed on Heroku. The app combines practical record tracking with a clean, responsive interface styled using Bootstrap.
+**Vinyl Crate** is a full-stack record collection management web application designed to help users digitally archive, explore, and celebrate their vinyl records. Built with **Django, Python, HTML, CSS, and JavaScript**, it features a **PostgreSQL** database and is deployed on **Heroku**. The app combines practical record tracking with a clean, responsive interface styled using Bootstrap.
 
 **The aim and purpose of the site** is to provide vinyl enthusiasts with a personal, digital space to catalogue their analogue collections. Users can upload album art, store detailed metadata, and keep track of their growing crate — all in one place. By offering organisation, customisation, and inspiration, Vinyl Crate turns a static collection into an interactive experience.
 
