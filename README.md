@@ -746,9 +746,11 @@ Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in
 
 ## Deployment & Local Development
 
+<a id="deployment"></a>
+
 ### Deployment
 
-The project is deployed using Heroku. To deploy the project:
+The Vinyl Crate project is deployed using **Heroku**, with **Amazon RDS PostgreSQL** for the live database and **Cloudinary** for media file storage.
 
 #### **Create the Live Database**
 
@@ -761,16 +763,16 @@ While `sqlite3` was used for local development, this is not suitable for product
 5. Launch the database and wait for the instance to become available.
 6. Once ready, copy the **Endpoint** and construct your `DATABASE_URL` in the following format:
     ```
-    postgres://:@:5432/
+    postgres://username:password@hostname:5432/dbname
     ```
 
 #### **Heroku App Setup**
 
-1. From the [Heroku dashboard](https://dashboard.heroku.com/), click the **New** button and select **Create new app**.
-2. Give your app a unique name, select the appropriate region, and click **Create App**.
-3. Go to the **Settings** tab, click **Reveal Config Vars**, and add a new config variable:
-- Key: `DATABASE_URL`
-- Value: paste the constructed database URL (no quotation marks).
+1. In the [Heroku Dashboard](https://dashboard.heroku.com/), click **New** → **Create new app**.
+2. Name your app uniquely, select a region, and click **Create App**.
+3. Go to the **Settings** tab → **Reveal Config Vars** → Add:
+
+    - `DATABASE_URL`: paste your constructed PostgreSQL URL (no quotes)
 
 ### Preparation for Deployment in VS Code (with PostgreSQL on AWS)
 
@@ -930,7 +932,85 @@ While `sqlite3` was used for local development, this is not suitable for product
     git push origin main
     ```
 
+#### **Set Up Cloudinary for Media File Storage**
 
+To handle media files (such as record cover images), this project uses [Cloudinary](https://cloudinary.com/), a cloud-based image and video management service.
+
+---
+
+1. Create a Cloudinary Account
+
+- Go to [cloudinary.com](https://cloudinary.com/) and sign up for a free account.
+- After logging in, navigate to the **Dashboard**.
+- Copy your **Cloud name**, **API Key**, and **API Secret** – you'll need these for your environment variables.
+
+2. Install Required Packages
+
+    Install the required Python packages using pip:
+    ```bash
+    pip3 install cloudinary django-cloudinary-storage
+    ```
+
+    Then update your requirements.txt:
+    ```
+    pip3 freeze > requirements.txt
+    ```
+
+3. Configure Cloudinary in Django
+
+    In your settings.py, add the following:
+
+    Add to INSTALLED_APPS:
+    ```python
+    INSTALLED_APPS = [
+        ...
+        'cloudinary',
+        'cloudinary_storage',
+        ...
+    ]
+    ```
+
+    Configure the default file storage:
+    ```Python
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    ```
+
+    Add your Cloudinary credentials:
+
+    These will be pulled from environment variables for security:
+    ```python
+    import cloudinary
+    import cloudinary.uploader
+    import cloudinary.api
+
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+    }
+    ```
+
+4. Set Config Vars in Heroku
+
+    Go to your app on Heroku, open the Settings tab, and add the following Config Vars:
+
+    ```python
+    CLOUDINARY_CLOUD_NAME = your_cloud_name
+    CLOUDINARY_API_KEY = your_api_key
+    CLOUDINARY_API_SECRET = your_api_secret
+    ```
+
+5. Use CloudinaryField in Your Models
+
+    Your Record model (or any other models needing media upload) should use:
+
+    ```python
+    from cloudinary.models import CloudinaryField
+
+    cover_image = CloudinaryField('image', blank=True, null=True)
+    ```
+
+Cloudinary will now automatically handle image storage, optimization, and delivery via CDN.
 
 <a id="local-development"></a>
 
@@ -985,31 +1065,7 @@ To clone your forked repository:
     pip3 install -r requirements.txt
     ```
 
-
-### Local Development
-
-<a id=fork></a>
-
-#### How to Fork
-
-To fork the repository:
-
-1. Log in (or sign up) to Github.
-2. Go to the repository for this project, [sd-powell/portfolio_project_2](https://github.com/sd-powell/portfolio_project_2).
-3. Click the Fork button in the top right corner.
-
-<a id=clone></a>
-
-#### How to Clone
-
-To clone the repository:
-
-1. Log in (or sign up) to GitHub.
-
-
 ---
-
-
 
 <a id="technologies"></a>
 
@@ -1084,7 +1140,6 @@ To clone the repository:
 | No | Bug Description | Solution | Screenshot |
 | :- | :------------- | :-------- | :--------- |
 | 1  | When testing the HTML code with the W3C validator, it flagged an issue with trailing slashes (e.g., `<br />`). This was caused by the formatter in VS Code. | I disabled "Format on Save" in VS Code to resolve the issue and re-tested my HTML code. | ![Screenshot](documentation/testing-fix-slash.webp) |
-
 
 ---
 
