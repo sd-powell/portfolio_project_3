@@ -1141,7 +1141,7 @@ To clone your forked repository:
 
 | No | Bug Description | Solution | Screenshot |
 | :- | :------------- | :-------- | :--------- |
-| 1  | When testing the HTML code with the W3C validator, it flagged an issue with trailing slashes (e.g., `<br />`). This was caused by the formatter in VS Code. | I disabled "Format on Save" in VS Code to resolve the issue and re-tested my HTML code. | ![Screenshot](documentation/testing-fix-slash.webp) |
+| 1  | Lighthouse flagged Cloudinary image URLs as being "automatically upgraded to HTTPS", which could delay loading and affect performance scores. | Added `SECURE: True` to the `CLOUDINARY_STORAGE` settings in `settings.py` and moved Cloudinary credentials to `env.py` for secure, HTTPS image delivery. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
 
 ---
 
