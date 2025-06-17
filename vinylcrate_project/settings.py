@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 import environ
+import cloudinary
 
 from django.urls import reverse_lazy
 
@@ -185,12 +186,6 @@ DEFAULT_FILE_STORAGE = env(
     default="cloudinary_storage.storage.MediaCloudinaryStorage"
 )
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env("CLOUDINARY_CLOUD_NAME"),
-    'API_KEY': env("CLOUDINARY_API_KEY"),
-    'API_SECRET': env("CLOUDINARY_API_SECRET"),
-    'SECURE': True,
-}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -218,5 +213,17 @@ SECURE_SSL_REDIRECT = not DEBUG
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-# if DEBUG:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+cloudinary.config(
+    cloud_name=env("CLOUDINARY_CLOUD_NAME"),
+    api_key=env("CLOUDINARY_API_KEY"),
+    api_secret=env("CLOUDINARY_API_SECRET"),
+    secure=True
+)
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env("CLOUDINARY_CLOUD_NAME"),
+    'API_KEY': env("CLOUDINARY_API_KEY"),
+    'API_SECRET': env("CLOUDINARY_API_SECRET"),
+    'SECURE': True,
+}
