@@ -179,7 +179,7 @@
                 <div class="d-flex justify-content-between align-items-center flex-column flex-md-row text-muted small">
                     <p class="mb-2 mb-md-0">&copy; 2025 Steve Powell</p>
                     <a href="https://github.com/sd-powell" target="_blank" rel="noopener" class="text-muted">
-                        <i class="fab fa-github me-2"></i> Visit my GitHub
+                        <i class="fab fa-github me-2" aria-hidden="true"></i> Visit my GitHub
                     </a>
                 </div>
             </div>
@@ -194,8 +194,7 @@
         </script>
         <!-- Custom JS for track form -->
         <script src="{% static 'js/track_formset.js' %}"></script>
-        <!-- Custom JS for toast notifications -->
-        <script src="{% static 'js/toast.js' %}"></script>
+        <!-- Auto-show Bootstrap toast notifications on page load -->
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toastElements = document.querySelectorAll('.toast');
