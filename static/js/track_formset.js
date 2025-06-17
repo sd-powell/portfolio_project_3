@@ -64,6 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         updateRemoveButtons(); // attach to initial forms
     } else {
-        console.warn('Required elements not found or template missing');
+        // Formset not present on this page; skipping dynamic form logic
     }
 });
