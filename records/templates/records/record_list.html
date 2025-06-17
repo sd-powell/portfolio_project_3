@@ -15,7 +15,7 @@
 
                     <!-- Text Content Positioned Right -->
                     <div class="welcome-banner-content">
-                        <h1 class="fw-bold">Welcome Back, {{ user.first_name|default:user.username }}</h1>
+                        <h1 class="fw-bold fs-2">Welcome Back, {{ user.first_name|default:user.username }}</h1>
                         <p class="text-muted mb-0">
                             You have <strong>{{ records.count }}</strong> records in your crate.
                         </p>
