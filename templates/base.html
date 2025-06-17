@@ -95,7 +95,8 @@
                 <div class="d-md-none ms-auto">
                     <div class="dropdown">
                     <a href="#" class="nav-link p-0" id="userDropdownMobile" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        aria-label="User account menu">
                         <i class="fa-solid fa-circle-user fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
@@ -129,7 +130,8 @@
                     <ul class="navbar-nav d-none d-md-block">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdownDesktop"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                aria-label="User account menu">
                                 <i class="fa-solid fa-circle-user me-2"></i>
                                 {{ user.first_name|default:user.username }}
                             </a>
