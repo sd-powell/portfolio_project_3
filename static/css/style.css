@@ -91,8 +91,8 @@ p {
 }
 
 .welcome-image-bg {
-  background-image: url('/static/images/welcome-image.png');
-  background-size: 57%;
+  background-image: url('/static/images/dashboard-image.png');
+  /* background-size: 100%; */
   background-position: left bottom;
   background-repeat: no-repeat;
   opacity: 1;
