@@ -116,6 +116,21 @@ All Python code was validated using the [Code Institute Python Linter](https://p
 | records/tests_forms_record.py | Pass | [tests_forms_record.py validation](documentation/testing/validation/python-tests_forms_record.webp) |
 | records/tests_views.py | Pass | [tests_views.py validation](documentation/testing/validation/python-tests_views.webp) |
 
+<a id=lighthouse></a>
+
+### Lighthouse
+
+I've tested my deployed project using the Lighthouse Audit tool to test the performance, accessibility, best practices and SEO of the website.
+
+| Page | Mobile | Desktop | Notes |
+| :--: | :--: | :--: | :--: |
+| Home | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed with great results |
+| Record Detail | ![screenshot](documentation/testing/validation/lighthouse-desktop-detail.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-detail.webp) | ✅ Passed with great results |
+| 404 | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed with great results |
+| 500 | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed with great results |
+
+---
+
 <a id="automated-testing"></a>
 
 ## Automated Testing
@@ -263,6 +278,26 @@ Additionally, I used the [Mobile First Plugin](https://www.webmobilefirst.com/en
 | Macbook Pro 16" | 1728px | 1085px | ✅ Pass | ✅ Fully responsive |
 | iMac 24" | 2048px | 1142px | ✅ Pass | ✅ Fully responsive |
 | Full HD monitor | 1920px  | 1080px | ✅ Pass | ✅ Fully responsive |
+
+---
+
+<a id=accessibility></a>
+
+### Accessibility
+
+#### Colour contrast compliance
+
+In addition to the automated tests for accessibility standards, I used [WebAIM](https://webaim.org/resources/contrastchecker/) to test the contrast of the colours on the site for visually impaired users.
+
+| Foreground colour | Background colour | Screenshot | Testing results |
+| :-----------------: | :-----------------: | :---------------: | :---------------: |
+| `#ffffff`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour1.webp)| ✅ Pass |
+| `#151724`         | `#4f9aff`         | ![Screenshot1](documentation/testing-access-colour2.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
+| `#4eb738`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour3.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
+| `#e83c5a`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour4.webp)| ⛔️ Fail on all text <br> ✅  Pass on graphics |
+| `#f59527`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour5.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
+
+---
 
 ---
 

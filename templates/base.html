@@ -42,6 +42,9 @@
     </head>
 
     <body class="d-flex flex-column min-vh-100">
+        <a href="#main-content" class="visually-hidden-focusable skip-link">
+            Skip to main content
+        </a>
         <!-- Toast Notification -->
         {% if messages %}
             <div class="toast-container">
@@ -97,6 +100,7 @@
                     <a href="#" class="nav-link p-0" id="userDropdownMobile" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         aria-label="User account menu">
+                        <span class="visually-hidden">Open user menu</span>
                         <i class="fa-solid fa-circle-user fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
@@ -146,7 +150,7 @@
             </div>
         </nav>
 
-        <main class="flex-grow-1">
+        <main id="main-content" class="flex-grow-1">
             {% block content %}
             <!-- Child templates inject here -->
             {% endblock %}
