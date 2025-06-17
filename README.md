@@ -1142,7 +1142,7 @@ To clone your forked repository:
 | No | Bug Description | Solution | Screenshot |
 | :- | :------------- | :-------- | :--------- |
 | 1  | Inline formsets for adding tracks weren’t working properly with the dynamic “Add another track” button. | Updated the JavaScript to correctly increment form index and bind events; ensured `form-TOTAL_FORMS` was updated on each addition. | ![Screenshot](documentation/testing/bugs/testing-trackform-increment.webp)
-| 2  | Lighthouse flagged Cloudinary image URLs as being "automatically upgraded to HTTPS", which could delay loading and affect performance scores. | Added `SECURE: True` to the `CLOUDINARY_STORAGE` settings in `settings.py` and moved Cloudinary credentials to `env.py` for secure, HTTPS image delivery. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
+| 2  | Cloudinary image URLs were being generated with `http://`, triggering Lighthouse and mixed content warnings. This persisted even after setting `SECURE: True` in `CLOUDINARY_STORAGE`. | Added explicit `cloudinary.config(..., secure=True)` to `settings.py` to force secure URLs for all Cloudinary resources. Also removed `CLOUDINARY_URL` from `env.py` to avoid override conflicts. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
 
 ---
 
