@@ -2,6 +2,9 @@
 
 Visit the deployed site here: [Vinyl Crate](https://vinyl-crate-ab3f8a285d4e.herokuapp.com/)
 
+![GitHub last commit](https://img.shields.io/github/last-commit/sd-powell/portfolio_project_3)
+![GitHub repo size](https://img.shields.io/github/repo-size/sd-powell/portfolio_project_3)
+
 ## Introduction
 
 **Vinyl Crate** is a full-stack record collection management web application designed to help users digitally archive, explore, and celebrate their vinyl records. Built with Django, Python, HTML, CSS, and JavaScript, it features a PostgreSQL database and is deployed on Heroku. The app combines practical record tracking with a clean, responsive interface styled using Bootstrap.
@@ -129,25 +132,25 @@ User roles are also considered in the planning:
 | All           | View public landing page                     | 5          | 5         | MVP     | ✅        |
 | Guest         | Register for an account                      | 5          | 5         | MVP     | ✅        |
 | User          | Log in/out and manage session                | 5          | 5         | MVP     | ✅        |
-| User          | Password recovery                            | 5          | 5         | MVP     | ⬜        |
+| User          | Password recovery                            | 5          | 5         | MVP     | ✅        |
 | User          | Create, view, update, delete own records     | 5          | 5         | MVP     | ✅        |
 | User          | Upload cover image for record                | 5          | 5         | MVP     | ✅        |
 | User          | Add individual tracks to each record         | 5          | 4         | MVP     | ✅        |
 | Admin         | Access Django admin panel                    | 5          | 5         | MVP     | ✅        |
-| Admin         | Moderate/edit user records via admin         | 5          | 5         | MVP     | ⬜        |
+| Admin         | Moderate/edit user records via admin         | 5          | 5         | MVP     | ✅        |
 | Admin         | Edit track list inline in Record admin panel | 4          | 5         | Should  | ✅        |
 | User          | Filter/sort by genre, year, BPM, rating      | 4          | 5         | Should  | ✅        |
 | User          | Search records by title/artist               | 4          | 4         | Should  | ✅        |
 | User          | Include BPM, key, and duration per track     | 4          | 4         | Should  | ✅        |
 | All           | Responsive design / Bootstrap UI             | 4          | 5         | MVP     | ✅        |
-| All           | View mobile-friendly site                    | 4          | 5         | MVP     | ⬜        |
+| All           | View mobile-friendly site                    | 4          | 5         | MVP     | ✅        |
 | User          | Rate records with 1–5 stars                  | 4          | 5         | MVP     | ✅        |
 | User          | Use dropdowns for genre and key              | 4          | 5         | MVP     | ✅        |
 | User          | Export collection as CSV                     | 3          | 4         | Could   | ⬜        |
 | Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ⬜        |
-| Admin         | Automatically show total track count per record | 3          | 3         | Could   | ⬜        |
+| Admin         | Automatically show total track count per record | 3       | 3         | Could   | ⬜        |
 | User          | Edit/update account profile                  | 2          | 3         | Could   | ⬜        |
-| All           | Custom 404 and 500 error pages               | 2          | 4         | Could   | ⬜        |
+| All           | Custom 404 and 500 error pages               | 2          | 4         | Could   | ✅        |
 | All           | About/Contact page                           | 2          | 3         | Could   | ⬜        |
 | User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ✅        |
 
@@ -895,7 +898,7 @@ While `sqlite3` was used for local development, this is not suitable for product
     ```
 
 15. **Verify deployment**  
-    Your site should now be live (without static files).
+    Your site should now be live (without static files). Re-enable collectstatic and confirm static assets are served correctly.
 
 16. **Enable automatic deploys**  
     Go to your Heroku app’s **Deploy** tab:
