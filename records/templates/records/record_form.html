@@ -13,13 +13,13 @@
                 aria-label="Back to your dashboard">
                     <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
                 </a>
-                <h2 class="card-title text-center mb-0">
+                <h1 class="card-title text-center mb-0 h2">
                     {% if form.instance.pk %}
                         Edit Record
                     {% else %}
                         Add a New Record
                     {% endif %}
-                </h2>
+                </h1>
             </div>
 
             <!-- Record Form -->
@@ -29,13 +29,13 @@
 
                 <!-- Track Formset -->
                 <hr class="my-4">
-                <h4 class="mb-3">
+                <h2 class="mb-3 h4">
                     {% if form.instance.pk %}
                         Edit Tracks
                     {% else %}
                         Add Tracks
                     {% endif %}
-                </h4>
+                </h2>
                 <div id="formset-container">
                     {{ formset.management_form }}
                     {% if formset.forms %}
