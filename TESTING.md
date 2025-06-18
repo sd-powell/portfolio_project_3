@@ -312,11 +312,11 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 | 23            | Mobile User  | Access my collection on a phone or tablet            | View or update records while crate digging or DJing      | **Vinyl Crate** is built using responsive design principles and tested across multiple mobile and tablet devices using Chrome DevTools and physical devices. All views — including the dashboard, record detail pages, and add/edit forms — adjust layout and font sizes to suit smaller screens. Navigation menus adapt using a mobile-friendly hamburger menu, ensuring users can access, view, and update their collection on the go with full functionality. | [Mobile View Example](documentation/testing/user-story-testing/testing-mobile.gif) |
 | 24            | Mobile User  | Upload cover images from my device                   | Add new records quickly without needing a computer       | The Add Record form supports image uploads via mobile devices using the `<input type="file">` field. Users can select a photo from their phone’s gallery or take one directly using their camera. The form has been tested on mobile browsers to ensure file inputs work correctly and integrate seamlessly with Cloudinary, which stores and serves uploaded images responsively. | [Mobile Upload Example](documentation/testing/user-story-testing/testing-upload.gif) |
 | **Registration and user accounts** | | | | | |
-| 3             | New Visitor  | See a clear sign-up or log-in prompt                 | Know how to get started                                  |                        |          |
-| 4             | User         | Register and log in                                  | Access my personal dashboard and collection              |                        |          |
-| 14            | User         | Recover my password                                  | Regain access if I forget my login details               |                        |          |
-| 15            | User         | Edit my account profile                              | Update my display name, location, or bio                 |                        |          |
-| 16            | User         | Sign in via social media (optional)                  | Log in more quickly or conveniently                      |                        |          |
+| 3  | New Visitor | See a clear sign-up or log-in prompt | Know how to get started | The homepage and navigation bar include prominent **“Sign Up”** and **“Log In”** buttons, using `allauth` templates. Unauthenticated users are prompted to log in when attempting to access restricted pages. | [Signup Prompt](documentation/testing/user-story-testing/testing-signup-prompt.webp) |
+| 4  | User        | Register and log in                   | Access my personal dashboard and collection | Registration and authentication use **Django Allauth**, allowing users to securely register, log in, and log out. On successful login, users are redirected to their personal dashboard view (`record_list`). | [Login Flow](documentation/testing/user-story-testing/testing-login.gif) |
+| 14 | User        | Recover my password                   | Regain access if I forget my login details | A **password reset** link is available on the login page via `allauth`. Users receive an email to reset their password securely. | [Password Reset](documentation/testing/user-story-testing/testing-password-reset.webp) |
+| 15 | User | Edit my account profile | Update my display name, location, or bio | ❌ This feature was **not implemented in this release**. User profiles default to the data provided during registration. A profile update form was considered but de-prioritised in favour of core collection features. | ⛔ Not implemented |
+| 16 | User        | Sign in via social media (optional)   | Log in more quickly or conveniently | ❌ Not implemented. Social authentication (e.g. Google, GitHub) was considered but **excluded from this release** to focus on core features. May be included in a future enhancement. | ⛔ Not implemented |
 | **Sorting and searching** | | | | | |
 | 5             | User    | Add new records to my collection                | Keep an up-to-date log of the vinyl I own              | Authenticated users can access the “Add Record” form from their dashboard. Each record can include title, artist, year, genre, rating, and a cover image. Submissions are saved to the database and displayed in the user’s personal collection. | [Add Record](documentation/testing/user-story-testing/testing-add-record.gif) |
 | 6             | User    | Upload a cover image for a record               | Make my collection visually rich                       | The record form includes an image field allowing uploads via Cloudinary. Uploaded cover images are displayed across dashboard views, record details, and the admin panel. | [Upload Cover](documentation/testing/user-story-testing/testing-upload-cover.gif) |
@@ -336,6 +336,28 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 
 > [!NOTE]
 > User stories can also be viewed in the [README](README.md) file.
+
+
+<a id="solved-issues"></a>
+
+### Solved Issues & Bugs
+
+| No | Bug Description | Solution | Screenshot |
+| :- | :------------- | :-------- | :--------- |
+| 1  | Inline formsets for adding tracks weren’t working properly with the dynamic “Add another track” button. | Updated the JavaScript to correctly increment form index and bind events; ensured `form-TOTAL_FORMS` was updated on each addition. | ![Screenshot](documentation/testing/bugs/testing-trackform-increment.webp)
+| 2  | Cloudinary image URLs were being generated with `http://`, triggering Lighthouse and mixed content warnings. This persisted even after setting `SECURE: True` in `CLOUDINARY_STORAGE`. | Added explicit `cloudinary.config(..., secure=True)` to `settings.py` to force secure URLs for all Cloudinary resources. Also removed `CLOUDINARY_URL` from `env.py` to avoid override conflicts. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
+
+---
+
+<a id="known-issues"></a>
+
+### Known Issues & Bugs
+
+| No | Bug Description | Screenshot |
+| :- | :------------- | :--------- |
+| 1 |	I have noticed that when the keyboard appears on mobile devices while a user is submitting their name in the form field, the panel is nudged up the screen, slightly obscuring the header background image. A tutor advised me that this shouldn’t be a concern. | ![Screenshot](documentation/testing-bugs-keyboard.webp) |
+
+---
 
 ---
 

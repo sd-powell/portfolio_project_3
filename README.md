@@ -1135,30 +1135,9 @@ To clone your forked repository:
 > [!NOTE]
 > Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 
-<a id="solved-issues"></a>
-
-### Solved Issues & Bugs
-
-| No | Bug Description | Solution | Screenshot |
-| :- | :------------- | :-------- | :--------- |
-| 1  | Inline formsets for adding tracks weren’t working properly with the dynamic “Add another track” button. | Updated the JavaScript to correctly increment form index and bind events; ensured `form-TOTAL_FORMS` was updated on each addition. | ![Screenshot](documentation/testing/bugs/testing-trackform-increment.webp)
-| 2  | Cloudinary image URLs were being generated with `http://`, triggering Lighthouse and mixed content warnings. This persisted even after setting `SECURE: True` in `CLOUDINARY_STORAGE`. | Added explicit `cloudinary.config(..., secure=True)` to `settings.py` to force secure URLs for all Cloudinary resources. Also removed `CLOUDINARY_URL` from `env.py` to avoid override conflicts. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
-
----
-
-<a id="known-issues"></a>
-
-### Known Issues & Bugs
-
-| No | Bug Description | Screenshot |
-| :- | :------------- | :--------- |
-| 1 |	I have noticed that when the keyboard appears on mobile devices while a user is submitting their name in the form field, the panel is nudged up the screen, slightly obscuring the header background image. A tutor advised me that this shouldn’t be a concern. | ![Screenshot](documentation/testing-bugs-keyboard.webp) |
-
----
-
 <a id="content"></a>
 
-### Content
+## Content
 
 The content displayed throughout the site is based on my own personal vinyl collection. Record details such as album titles, artists, tracklists, genres, and release years were sourced from [Discogs](https://www.discogs.com/) ensuring accurate and comprehensive metadata for each entry.
 
