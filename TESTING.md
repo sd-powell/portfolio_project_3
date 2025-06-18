@@ -29,6 +29,8 @@ This document outlines the testing processes and results for the **Vinyl Crate**
   - [Features Testing](#features-test)
   - [Existing Features](#existing-features)
   - [Manual Features Testing](#manual-features-test)
+  - [Solved Issues & Bugs](#solved-issues)
+  - [Known Issues & Bugs](#known-issues)
 
 <br>
 <hr>
@@ -336,6 +338,26 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 
 > [!NOTE]
 > User stories can also be viewed in the [README](README.md) file.
+
+### Manual Features Testing
+
+#### Navbar (Header)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Vinyl Crate** Logo (mobile & desktop) | Clicking the **Vinyl Crate** logo navigates to home page (`/`) | Clicked the **Vinyl Crate** logo | The home page was shown | ✅ Pass |
+| **Login** link | Navigates to `/accounts/login/` | Clicked on the **Login** link | Navigated to `/accounts/login/` | ✅ Pass |
+| **Register** link | Navigates to `/accounts/signup/` | Clicked on the **Register** link | Navigated to `/accounts/signup/` | ✅ Pass |
+
+#### Homepage Content
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Start your collection** CTA Button | Navigates to `/accounts/signup/` | Clicked on the **Start your collection** button | Navigated to `/accounts/signup/` | ✅ Pass |
+| Carousel controls: Previous button | Click scrolls to previous slide | | | |
+| Carousel controls: Next button | Click scrolls to next slide | | | |
+| Carousel indicators (dots) | Clicking each dot navigates to correct slide | | | |
+| **Staff Picks** Record links | Clicking on each of the 6 **Staff Picks** record covers navigates to their record detail pages | Clicked on each of the Staff Picks covers | Navigated to each of their record detail pages | ✅ Pass |
 
 
 <a id="solved-issues"></a>

@@ -65,9 +65,6 @@ The platform offers intuitive search, filter, and sort features, allowing users 
 
 * [Testing](#testing-readme)
 
-  - [Solved Issues & Bugs](#solved-issues)
-  - [Known Issues & Bugs](#known-issues)
-
 * [Credits & Inspiration](#credits&inspiration)
   - [Content](#content)
   - [Media](#media)
