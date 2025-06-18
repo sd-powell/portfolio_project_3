@@ -303,8 +303,36 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 
 ### Testing User Stories
 
-| User Story ID | As a/an | I want to be able to ... | So that I can... | How is this achieved? | Evidence |
-| :--- | :--- | :--- | :---| :--- | :---: |
+| User Story ID | As a/an      | I want to be able to ...                            | So that I can...                                         | How is this achieved? | Evidence |
+|---------------|--------------|------------------------------------------------------|----------------------------------------------------------|------------------------|----------|
+| **Viewing and Navigation** | | | | | |
+| 1             | New Visitor  | Browse a public record or staff-picked collection    | See what the site is about before registering            | The homepage features a staff picks section with six records marked as staff picks in the admin panel, all publicly viewable without login. Unauthenticated users can click these entries to view full metadata, cover art, and track listings using the record_detail view, giving a sense of the app’s purpose and design before registering. | [Staff Picks Section](documentation/testing/user-story-testing/testing-staffpicks.gif) |
+| 2             | New Visitor  | View example record entries with metadata            | Understand how records are displayed and organised       | Public staff-picked records on the homepage link to detailed record pages rendered by the `record_detail` view. Each page displays full metadata including artist, title, genre, rating, release year, and cover image. If tracks are included, they are listed with optional BPM, key, and duration fields. This allows visitors to preview how records are structured and organised before signing up. | [Example Record Entries](documentation/testing/user-story-testing/testing-examples.gif) |
+| 9             | User         | View full details for a single record                | See all metadata and visuals in one place                | Each record in the user’s collection or the public staff-pick section links to a dedicated detail page (`record_detail` view). This page displays all metadata fields submitted through the form — including artist, title, genre, rating, release year, label, and notes — along with a cover image and a full tracklist table showing track name, BPM, musical key, and duration (if available). The layout is mobile-responsive and styled for clear presentation. | [Record Details View](documentation/testing/user-story-testing/testing-details.webp) |
+| 23            | Mobile User  | Access my collection on a phone or tablet            | View or update records while crate digging or DJing      | **Vinyl Crate** is built using responsive design principles and tested across multiple mobile and tablet devices using Chrome DevTools and physical devices. All views — including the dashboard, record detail pages, and add/edit forms — adjust layout and font sizes to suit smaller screens. Navigation menus adapt using a mobile-friendly hamburger menu, ensuring users can access, view, and update their collection on the go with full functionality. | [Mobile View Example](documentation/testing/user-story-testing/testing-mobile.gif) |
+| 24            | Mobile User  | Upload cover images from my device                   | Add new records quickly without needing a computer       | The Add Record form supports image uploads via mobile devices using the `<input type="file">` field. Users can select a photo from their phone’s gallery or take one directly using their camera. The form has been tested on mobile browsers to ensure file inputs work correctly and integrate seamlessly with Cloudinary, which stores and serves uploaded images responsively. | [Mobile Upload Example](documentation/testing/user-story-testing/testing-upload.gif) |
+| **Registration and user accounts** | | | | | |
+| 3             | New Visitor  | See a clear sign-up or log-in prompt                 | Know how to get started                                  |                        |          |
+| 4             | User         | Register and log in                                  | Access my personal dashboard and collection              |                        |          |
+| 14            | User         | Recover my password                                  | Regain access if I forget my login details               |                        |          |
+| 15            | User         | Edit my account profile                              | Update my display name, location, or bio                 |                        |          |
+| 16            | User         | Sign in via social media (optional)                  | Log in more quickly or conveniently                      |                        |          |
+| **Sorting and searching** | | | | | |
+| 5             | User         | Add new records to my collection                     | Keep an up-to-date log of the vinyl I own                |                        |          |
+| 6             | User         | Upload a cover image for a record                    | Make my collection visually rich                         |                        |          |
+| 7             | User         | Edit existing records                                | Correct mistakes or update metadata                      |                        |          |
+| 8             | User         | Delete a record from my collection                   | Keep my library clean and relevant                       |                        |          |
+| 10            | User         | Sort and filter my collection                        | Quickly find records by genre, BPM, or rating            |                        |          |
+| 11            | User         | Search for a specific record                         | Find entries fast without scrolling                      |                        |          |
+| 12            | User         | Rate a record using 1–5 stars                        | Track how much I value or enjoy a record                 |                        |          |
+| 13            | User         | Export my collection as a CSV                        | Back it up or use it in another system                   |                        |          |
+| 17            | User         | Add individual tracks to each record                 | Log full tracklists for more detailed entries            |                        |          |
+| 18            | User         | Include BPM, key, and duration for each track        | Help with DJing or playlist curation                     |                        |          |
+| **Administration** | | | | | |        
+| 19            | Admin        | Access the Django admin panel                        | Manage users and records directly                        |                        |          |
+| 20            | Admin        | Edit or delete any record in the system              | Support users and maintain database integrity            |                        |          |
+| 21            | Admin        | Review user-submitted content                        | Ensure the platform remains clean and appropriate        |                        |          |
+| 22            | Admin        | Manage tracks directly from the Record admin view    | Save time editing metadata without switching models      |                        |          |
 
 
 ---
