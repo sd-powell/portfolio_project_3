@@ -305,3 +305,10 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 
 | User Story ID | As a/an | I want to be able to ... | So that I can... | How is this achieved? | Evidence |
 | :--- | :--- | :--- | :---| :--- | :---: |
+
+
+---
+
+## Conclusion
+
+Through a combination of validation tools, automated test coverage, manual cross-browser and device testing, and accessibility checks, Vinyl Crate has been rigorously tested to ensure a robust, user-friendly, and inclusive experience. Remaining areas for improvement (e.g. enhanced screen reader testing or extending JavaScript test coverage) have been noted and could form part of future iterations.
