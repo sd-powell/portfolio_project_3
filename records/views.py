@@ -206,7 +206,7 @@ def record_update(request, slug):
             messages.success(
                 request, f"Record '{record.title}' updated successfully!"
                 )
-            return redirect('record_list', slug=record.slug)
+            return redirect('record_detail', slug=record.slug)
     else:
         form = RecordForm(instance=record)
         formset = TrackFormSet(instance=record)
