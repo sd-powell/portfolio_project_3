@@ -34,6 +34,7 @@
     <div class="row text-center mb-3">
         <div class="col-md-4 mb-2">
             <div class="bg-light border rounded p-3 h-100">
+                <p>Debug: slug is {{ record.slug }} / pk is {{ record.pk }}</p>
                 <strong>Genre:</strong> {{ record.genre }}
             </div>
         </div>
@@ -94,13 +95,13 @@
     <!-- Record Action Buttons -->
     <div class="d-flex justify-content-end gap-3 mt-4">
         {% if user.is_authenticated and user == record.user %}
-            <a href="{% url 'record_update' record.pk %}"
+            <a href="{% url 'record_update' record.slug %}"
                 class="btn btn-outline-primary"
                 role="button"
                 aria-label="Edit this record: {{ record.title }} by {{ record.artist }}">
                 <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i> Edit
             </a>
-            <a href="{% url 'record_delete' record.pk %}"
+            <a href="{% url 'record_delete' record.slug %}"
             class="btn btn-outline-danger"
             role="button"
             aria-label="Delete this record: {{ record.title }} by {{ record.artist }}">
