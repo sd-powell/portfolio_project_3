@@ -339,18 +339,18 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 > [!NOTE]
 > User stories can also be viewed in the [README](README.md) file.
 
-### Features Testing
-
-#### Existing Features
+## Features Testing
 
 ### Home Page
 
 #### Overview  
 The **Home Page Panel** serves as the landing screen for Vinyl Crate, introducing users to the purpose of the app and encouraging them to sign up. It’s designed to make a strong first impression and provide clear, immediate pathways for new and returning users.  
 
-Both **unauthenticated visitors** and **logged-in users** see the same homepage layout, but the **navigation bar adapts dynamically**. Non-registered users see **“Login”** and **“Register”** links, while authenticated users are shown links to their **Dashboard**, **My Crate**, and a **user dropdown** with their name and logout option.  
+Both **unauthenticated visitors** and **logged-in users** see the same homepage layout, but the **navigation bar adapts dynamically**. Non-registered users see **“Login”** and **“Register”** links, while authenticated users are shown links to their **Dashboard**, **My Crate**, and a **user dropdown** with their name and logout option.
 
-#### Features Tested
+---
+
+##### Features Tested
 - **Introduction & Engagement**  
   - The carousel headline and description clearly communicate the app’s core benefit: organising and exploring a vinyl collection.  
   - Text is styled responsively and uses semantic HTML for readability across devices.  
@@ -374,12 +374,81 @@ Both **unauthenticated visitors** and **logged-in users** see the same homepage 
 - **Performance & Functionality**  
   - The homepage loads quickly with optimised assets.  
   - Carousel transitions are smooth and include accessible labels.  
-  - Navigation elements (e.g., login/register or dashboard links) behave correctly depending on authentication status.  
+  - Navigation elements (e.g., login/register or dashboard links) behave correctly depending on authentication status.
+
+<details>
+<summary>Click here to see the Home Page</summary>
+
+![Home Page](documentation/testing/features/testing-features-home.webp)
+
+</details>
+<br>
+<hr>
+
+### Dashboard
+
+#### Overview  
+The **Dashboard** serves as the personalised entry point for authenticated users of Vinyl Crate. It greets the user by name and summarises the current size of their record collection. The page adapts dynamically based on whether or not the user has added any records, helping provide a tailored experience for both new and returning users.
+
+---
+
+##### Features Tested
+
+**Welcome & Personalisation**  
+- Displays a welcome message using the user's first name (or username fallback) and shows a count of how many records they currently own.  
+- Provides two large buttons:  
+  - **“View Crate”** leads to the full collection (`record_collection`).  
+  - **“Add Record”** directs users to the form for creating a new record (`record_create`).  
+- Action buttons are styled for accessibility and screen-reader navigation.
+
+**Recently Added Section (for returning users)**  
+- If the user has records, up to **eight recently added records** are shown in a responsive grid.  
+- Each record includes:
+  - Album artwork (or a placeholder if none uploaded)
+  - Title and artist name
+  - Link to the individual record detail page
+- Includes a **“View All”** link to the full record collection.
+- A final “Add Record” tile is shown as a call-to-action.
+
+**Empty State (for new users)**  
+- If the user has not yet added any records, they are shown:
+  - A prominent **“Add Record”** quick tile.  
+  - Below this, the **Staff Picks** section reappears to inspire users and reinforce how collections appear once populated.  
+
+**Staff Picks Section (fallback display)**  
+- Shown below the quick-add tile when the user's collection is empty.  
+- Reuses the public-facing staff-picked records with images, titles, and artist links.  
+- Clicking any staff pick opens its full detail view.
+
+**Branding & Design**  
+- Maintains consistent colour scheme and branding across all dashboard elements.  
+- Uses cards, spacing, and large CTAs to create a user-friendly and visually appealing layout.  
+
+**Responsiveness & Accessibility**  
+- Fully responsive: layout adapts seamlessly across desktop, tablet, and mobile views.  
+- All interactive elements include ARIA labels and keyboard navigability.  
+- Semantic HTML ensures screen readers can correctly interpret the page structure.
+
+**Performance & Functionality**  
+- Dashboard content renders quickly and dynamically based on record presence.  
+- No broken images or links, including fallback states for missing cover artwork.  
+- Navigational elements behave as expected, and transitions between actions (add/view) are smooth.
+
+<details>
+<summary>Click here to see the Dashboard</summary>
+
+![Dashboard](documentation/testing/features/testing-features-dashboard.webp)
+
+</details>
+<br>
+<hr>
 
 
-### Manual Features Testing
 
-#### Navbar (Header) - base.html
+
+## Manual Features Testing
+
+### Navbar (Header) - base.html
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
