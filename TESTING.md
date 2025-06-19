@@ -694,6 +694,65 @@ The **Record Update Page** allows users to edit an existing record and its assoc
 <br>
 <hr>
 
+### Record Delete Page
+
+#### Overview  
+The **Record Delete Page** allows authenticated users to permanently remove a record from their collection. This action is protected by a confirmation prompt and limited strictly to the record’s owner. It ensures data cannot be deleted accidentally or by unauthorized users.
+
+---
+
+**Features Tested**
+
+**Access & Permissions**
+- Only the record’s owner can access the delete page.
+- Any attempt to access another user's record for deletion returns a 404 error.
+- Page is protected with the `@login_required` decorator.
+
+**Delete Confirmation Prompt**
+- Page displays a confirmation message with:
+  - The record’s title and artist.
+  - A thumbnail of the cover image (if uploaded).
+- This ensures users can visually confirm the correct record before deletion.
+
+**Form Submission (POST)**
+- If the user confirms:
+  - The record is deleted from the database.
+  - A success message is shown using Django’s `messages` framework.
+  - The user is redirected to the record list (`record_list`) for a smooth workflow.
+
+**Cancel Option**
+- The **Cancel** button links back to the individual record’s detail page.
+- Ensures users can safely exit the delete process without making changes.
+
+**CSRF Protection**
+- The form includes a CSRF token to protect against cross-site request forgery attacks.
+
+**UI & Accessibility**
+- Clear visual hierarchy with the danger icon and heading:  
+  `<i class="fa-solid fa-circle-exclamation"></i> Confirm Deletion`
+- Buttons have appropriate visual contrast and semantic labels.
+- Responsive design: layout adjusts on mobile and tablet screens.
+
+**Validation & Error Handling**
+- Invalid requests (wrong user, non-existent record) return a 404 error.
+- If deletion is successful, the user receives immediate feedback.
+- If the user reloads after deletion, they're redirected safely away from a broken view.
+
+**Performance**
+- Fast loading confirmation screen.
+- Deletion is instant with minimal user disruption.
+
+<details>
+<summary>Click here to see the Record Delete page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-delete.webp)
+
+</details>
+<br>
+<hr>
+
+---
+
 ## Manual Features Testing
 
 ### Navbar (Header) - base.html
