@@ -164,7 +164,7 @@ def record_create(request):
             messages.success(
                 request, f"Record '{record.title}' created successfully!"
                 )
-            return redirect('record_list')
+            return redirect('record_list', slug=record.slug)
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
@@ -206,7 +206,7 @@ def record_update(request, slug):
             messages.success(
                 request, f"Record '{record.title}' updated successfully!"
                 )
-            return redirect('record_list')
+            return redirect('record_list', slug=record.slug)
     else:
         form = RecordForm(instance=record)
         formset = TrackFormSet(instance=record)
@@ -233,7 +233,7 @@ def record_delete(request, slug):
         messages.success(
             request, f"Record '{title}' was deleted successfully."
             )
-        return redirect('record_list')
+        return redirect('record_list', slug=record.slug)
     return render(
         request,
         'records/record_confirm_delete.html',
