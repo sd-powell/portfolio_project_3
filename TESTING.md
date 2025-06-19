@@ -568,6 +568,71 @@ The **Record Detail Page** provides a visually rich and informative view of a si
 <br>
 <hr>
 
+### Record Create Page
+
+#### Overview  
+The **Record Create Page** allows authenticated users to add new vinyl records to their personal collection. It features a structured form for record-level metadata and an inline formset for adding individual track entries. The layout uses Django’s crispy forms for styling and integrates with custom JavaScript to support dynamic track addition.
+
+---
+
+**Features Tested**
+
+**Header & Navigation**  
+- A **Back button** allows users to return to the dashboard (`record_list` view).
+- Page title dynamically updates to "Add a New Record" or "Edit Record" based on whether a new or existing entry is being edited.
+
+**Record Form**  
+- The form captures key metadata about the record, including:
+  - `Title` and `Artist` with whitespace validation.
+  - `Year` with a 4-digit integer limit (1000–9999).
+  - `Genre` from a pre-defined choice set.
+  - Optional `Cover Image` upload.
+  - `Rating` from 1 to 5 stars.
+- All inputs are styled using custom Bootstrap widgets.
+- Validation errors are clearly displayed with custom error messages.
+
+**Track Formset (Inline Form)**  
+- Supports multiple track entries using Django's `inlineformset_factory`.
+- Each track captures:
+  - `Title`, `Position`, and `Duration` (with strict format validation).
+  - Optional `BPM` (numeric) and `Musical Key`.
+- Tracks can be **dynamically added** using the "Add a Track" button.
+- Each added track form has a **remove button**, styled with a close icon.
+- If no tracks exist yet, a message is displayed for context.
+
+**Dynamic Track Handling**  
+- A hidden `empty-form-template` is used to clone new blank track forms via JavaScript.
+- Formset uses Django's management form to handle total form count during submission.
+
+**Form Buttons**  
+- `Cancel` button returns the user to the dashboard without submitting.
+- `Add Record` or `Update` button submits the form to create or update the entry.
+- All buttons are styled for clarity and accessibility.
+
+**Branding & Design**  
+- Uses a clean, card-based layout with subtle shadows and spacing.
+- Form fields are grouped into logical sections for usability.
+- Consistent use of rounded corners, button icons, and pill shapes.
+
+**Responsiveness & Accessibility**  
+- Page and form layout adapt well to mobile, tablet, and desktop breakpoints.
+- Inputs, buttons, and formset fields are keyboard-accessible and labelled semantically.
+- `aria-label` attributes enhance screen reader usability for all interactive elements.
+
+**Performance & Functionality**  
+- Form uses CSRF protection and server-side validation.
+- Dynamic client-side track addition works without full-page reload.
+- Edge cases such as empty fields, invalid duration formats, or excessively long input are gracefully handled.
+
+<details>
+<summary>Click here to see the Record Create page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-create.webp)
+
+</details>
+<br>
+<hr>
+
 ## Manual Features Testing
 
 ### Navbar (Header) - base.html
