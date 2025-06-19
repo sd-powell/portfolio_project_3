@@ -106,7 +106,7 @@
     <!-- Records Display -->
     <div class="mt-4">
         {% for record in records %}
-            <a href="{% url 'record_detail' record.slug %}"
+            <a href="{% url 'record_detail' record.slug %}?from={{ request.get_full_path|urlencode }}"
                 class="card record-hover mb-3 p-3 d-flex flex-row align-items-center justify-content-between text-decoration-none text-dark"
                 aria-label="View details for {{ record.title }} by {{ record.artist }}">
                 <div class="d-flex align-items-center">

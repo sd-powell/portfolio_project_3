@@ -113,8 +113,11 @@ def record_detail(request, slug):
     Display the details of a single public record.
 
     This view retrieves a record by its slug and displays its details,
-    including cover image, title, artist, and any associated metadata.
+    including cover image, title, artist, and associated metadata.
     It is accessible to both authenticated and unauthenticated users.
+
+    If a `from` parameter is included in the query string, it is preserved
+    to allow the user to return to their previous filtered collection view.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
@@ -122,10 +125,18 @@ def record_detail(request, slug):
 
     Returns:
         HttpResponse: Rendered template with the record's details,
-                      or 404 if the record is not found.
+                    or 404 if the record is not found.
     """
-    record = get_object_or_404(Record, slug=slug)
-    previous_url = request.META.get('HTTP_REFERER', reverse('record_list'))
+    record = get_object_or_404(Record, slug=slug, user=request.user)
+
+    previous_url = request.GET.get('from') or request.META.get('HTTP_REFERER')
+
+    # Optional: Only allow back to known pages
+    if previous_url and not previous_url.startswith(
+        request.build_absolute_uri(reverse('record_collection'))
+    ):
+        previous_url = reverse('record_collection')
+
     return render(request, 'records/record_detail.html', {
         'record': record,
         'previous_url': previous_url,
