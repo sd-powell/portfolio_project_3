@@ -1026,7 +1026,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 
 ## Manual Features Testing
 
-### Navbar (Header) - base.html
+### Navbar (Header) - (`base.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
@@ -1034,7 +1034,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **Login** link | Navigates to `/accounts/login/` | Clicked on the **Login** link | Navigated to `/accounts/login/` | ✅ Pass |
 | **Register** link | Navigates to `/accounts/signup/` | Clicked on the **Register** link | Navigated to `/accounts/signup/` | ✅ Pass |
 
-#### Homepage Content (Public) - index.html
+### Homepage Content (Public) - (`index.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
@@ -1044,7 +1044,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | Carousel indicators (dots) | Clicking each dot navigates to correct slide | | | |
 | **Staff Picks** Record links | Clicking on each of the 6 **Staff Picks** record covers navigates to their record detail pages | Clicked on each of the Staff Picks covers | Navigated to each of their record detail pages | ✅ Pass |
 
-#### Footer - base.html
+### Footer - (`base.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
@@ -1060,14 +1060,19 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | “Privacy” quick link | Currently inactive (`#`), should ideally link to privacy policy | | | |
 | **GitHub** link | Opens my **GitHub** profile in new tab | Clicked on **GitHub** link | My **GitHub** profile opened in a new tab | ✅ Pass |
 
-#### Dashboard - record_list.html
+### Dashboard (`record_list.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
-| Only shows user records | No other users’ records are visible | | | |
-| Edit/Delete links present | Each record has Edit/Delete icons | | | |
-| Add Record button | Button/link visible to add a new record | | | |
-| User feedback messages | Success or error messages shown | | | |
+| **Welcome message displays** | Header shows “Welcome Back, [First Name]” and count of user’s records | Log in as different users and verify correct name and record count appears | Logged in as two test users with different record counts (admin and user). Dashboard correctly displayed **“Welcome Back, [First Name]”** and accurate total records in crate for each user. Dynamic name fallback worked when no first name was provided. | ✅ Pass |
+| **Add Record button**        | Button links to the add record form (`/record/create/`) | Click **Add Record** button and verify navigation to record form | Clicked **Add Record button** on dashboard. Successfully navigated to the record creation form (/records/add/) with form fields and track formset rendered correctly. Page title and back link also displayed as expected. | ✅ Pass |
+| **View Crate button**        | Button links to full collection view (`/record_collection/`) | Click **View Crate** button and verify navigation works | Clicked **View Crate button** on dashboard. Successfully navigated to the “My Crate” page (/records/collection/), where filter and search options loaded correctly and user-specific records were displayed as expected. | ✅ Pass |
+| **Recently Added list shows up to 8 records** | Displays most recently added records with cover, title, artist; each links to detail page       | Add multiple records and verify only 8 appear, newest first | Added more than 8 records as a logged-in user. Dashboard correctly displayed only the 8 most recently added records in the “Recently Added” section, with the newest entries appearing first in reverse chronological order. Older records were excluded from this view. | ✅ Pass |
+| **Each card links to record detail** | Clicking on a record card opens the detail view | Click several record cards and ensure they open the correct detail view | Clicked on multiple record cards in the Recently Added section. Each card correctly navigated to the matching **Record Detail** page, displaying the expected title, artist, cover image, and track information. No mismatches or navigation errors occurred. | ✅ Pass |
+| **Quick Add tile appears**   | A tile with vinyl icon appears at the end of Recently Added list | Click the tile and verify it links to `/record/create/` | Clicked the **Add Record** tile in the Recently Added section. It successfully navigated to the **Add Record form** at `/record/create/`, with the form loading correctly and ready for input. | ✅ Pass |
+| **Empty state shows Staff Picks** | If no user records exist, an “Add Record” prompt and staff-picked records are displayed | Log in with a new account or remove all records; verify fallback UI loads with example entries | Logged in with a new account containing no records. The **Add to Your Crate** heading appeared alongside a large **Add Record** tile. Below this, the **Staff Picks** section was visible with example entries. All links and visuals loaded correctly, confirming the fallback UI behaves as expected when the user has no records. | ✅ Pass |
+| **Staff Picks cards link to record detail** | Clicking on staff-picked entries opens their respective detail pages | Click on each example entry and verify correct page loads | Clicked on each staff-picked entry displayed on the dashboard fallback UI. Each card correctly navigated to its respective record detail page, showing accurate metadata and cover image. All links functioned properly, confirming that the staff pick cards open the appropriate detail views. |  |
+| **Responsive layout**        | The layout and tiles adapt across screen sizes (mobile, tablet, desktop) | Resize browser and test on devices/emulators | Resized browser window and tested the dashboard on **Chrome DevTools** emulators for mobile, tablet, and desktop. The layout adapted smoothly across breakpoints: buttons stacked vertically on smaller screens, cards resized and wrapped appropriately, and text remained readable. Verified consistent spacing and alignment. All elements remained usable and visually intact. | ✅ Pass |
 
 
 <a id="solved-issues"></a>
