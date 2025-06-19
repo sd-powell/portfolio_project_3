@@ -850,6 +850,99 @@ Authentication features in Vinyl Crate are powered by **Django Allauth**, offeri
 <br>
 <hr>
 
+### Admin Panel
+
+#### Overview  
+The Django admin interface for Vinyl Crate has been customized to streamline backend record and track management. This includes visual improvements, inline editing of related models, and branded layout via a custom `base_site.html`.
+
+---
+
+#### Features Tested
+
+**Custom Branding (base_site.html)**
+- The admin interface uses a custom template extending `admin/base.html`.
+- The `<title>` is customized to show:  
+  `{{ subtitle }} | {{ title }} | Vinyl Crate Admin`
+- The site name header links back to the admin index and reads:  
+  `Vinyl Crate Admin`
+- The global navigation bar is disabled for a clean, focused UI.
+
+✅ Branding displays correctly on all admin pages  
+✅ Template correctly overrides the default Django admin appearance
+
+---
+
+**Record Model Admin**
+- Records appear in the admin list with custom fields:
+  - `title`, `artist`, `user`, `genre`, `year`, `rating`
+  - `is_staff_pick` (shows True/False)
+  - `cover_thumb` – displays thumbnail preview
+- Admin filters:
+  - Genre, Rating, Year, and Staff Pick
+- Search field supports:
+  - Record title
+  - Artist name
+  - Username of record owner
+- `slug` is excluded from form view to reduce clutter
+- `cover_thumb` is read-only to prevent editing but aids quick visual identification
+
+✅ Cover image thumbnail displays with fallback logic  
+✅ Admin filtering and search return correct results  
+✅ Fields are organized for clarity and editing is intuitive
+
+---
+
+**Inline Tracks (TrackInline)**
+- Admin users can view and manage a record’s tracks **inline** on the Record admin page.
+- Track fields included:
+  - `position`, `title`, `duration`, `bpm`, and `key`
+- Minimum of one extra blank row provided to encourage additional track input
+
+✅ Track inlines appear correctly within Record admin  
+✅ Existing tracks are editable inline  
+✅ New tracks can be added without switching pages  
+✅ BPM and key fields handle optional input as expected
+
+---
+
+**Track Model Admin**
+- Tracks can be managed as standalone entries
+- List display includes:
+  - `title`, `record`, `position`, `duration`, `bpm`, `key`
+- Filters:
+  - Key and BPM
+- Searchable by:
+  - Track title
+  - Associated record title and artist
+
+✅ Standalone track management behaves as expected  
+✅ Linking back to associated records works smoothly
+
+---
+
+#### Accessibility & Usability
+- All admin forms follow Django admin standards for accessibility
+- Thumbnail images have descriptive `alt` text fallback if needed
+- Inline forms are fully keyboard-navigable
+
+---
+
+#### Security & Permissions
+- Only authenticated **superusers** can access `/admin/`
+- Admin views are protected with CSRF tokens and staff-only access
+
+---
+
+<details>
+<summary>Click here to see the Admin Panel</summary>
+
+![Dashboard](documentation/testing/features/testing-features-admin.gif)
+
+</details>
+<br>
+<hr>
+
+
 
 ## Manual Features Testing
 
