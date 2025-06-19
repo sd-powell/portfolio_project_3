@@ -350,31 +350,32 @@ Both **unauthenticated visitors** and **logged-in users** see the same homepage 
 
 ---
 
-##### Features Tested
-- **Introduction & Engagement**  
-  - The carousel headline and description clearly communicate the app’s core benefit: organising and exploring a vinyl collection.  
-  - Text is styled responsively and uses semantic HTML for readability across devices.  
-  - Imagery complements the theme, displaying a vinyl-related graphic alongside the message.  
+**Features Tested**
 
-- **Navigation & Call to Action**  
-  - The **“Start your collection”** call-to-action button leads to the registration page (`/accounts/signup/`).  
-  - The navigation bar dynamically updates based on user authentication state.  
-  - ARIA labels and button roles are used to support screen readers and improve accessibility.  
+**Introduction & Engagement**  
+- The carousel headline and description clearly communicate the app’s core benefit: organising and exploring a vinyl collection.  
+- Text is styled responsively and uses semantic HTML for readability across devices.  
+- Imagery complements the theme, displaying a vinyl-related graphic alongside the message.  
 
-- **Branding & Design**  
-  - Consistent branding is maintained throughout the page, including logo, typography, and colour scheme.  
-  - The layout features a centered carousel with alternating content and imagery for a balanced visual experience.  
-  - Carousel controls and indicators offer interactive navigation between promotional slides.  
+**Navigation & Call to Action**  
+- The **“Start your collection”** call-to-action button leads to the registration page (`/accounts/signup/`).  
+- The navigation bar dynamically updates based on user authentication state.  
+- ARIA labels and button roles are used to support screen readers and improve accessibility.  
 
-- **Responsiveness & Accessibility**  
-  - The homepage is fully responsive, tested across mobile, tablet, and desktop breakpoints.  
-  - Buttons, links, and carousel indicators are keyboard-navigable.  
-  - Semantic HTML elements (`<h1>`, `<p>`, `<a>`, `<button>`) are used to enhance accessibility.  
+**Branding & Design**  
+- Consistent branding is maintained throughout the page, including logo, typography, and colour scheme.  
+- The layout features a centered carousel with alternating content and imagery for a balanced visual experience.  
+- Carousel controls and indicators offer interactive navigation between promotional slides.  
 
-- **Performance & Functionality**  
-  - The homepage loads quickly with optimised assets.  
-  - Carousel transitions are smooth and include accessible labels.  
-  - Navigation elements (e.g., login/register or dashboard links) behave correctly depending on authentication status.
+**Responsiveness & Accessibility**  
+- The homepage is fully responsive, tested across mobile, tablet, and desktop breakpoints.  
+- Buttons, links, and carousel indicators are keyboard-navigable.  
+- Semantic HTML elements (`<h1>`, `<p>`, `<a>`, `<button>`) are used to enhance accessibility.  
+
+**Performance & Functionality**  
+- The homepage loads quickly with optimised assets.  
+- Carousel transitions are smooth and include accessible labels.  
+- Navigation elements (e.g., login/register or dashboard links) behave correctly depending on authentication status.
 
 <details>
 <summary>Click here to see the Home Page</summary>
@@ -392,7 +393,7 @@ The **Dashboard** serves as the personalised entry point for authenticated users
 
 ---
 
-##### Features Tested
+**Features Tested**
 
 **Welcome & Personalisation**  
 - Displays a welcome message using the user's first name (or username fallback) and shows a count of how many records they currently own.  
@@ -450,7 +451,7 @@ The **Dashboard** serves as the personalised entry point for authenticated users
 
 ---
 
-##### Features Tested
+**Features Tested**
 
 **Page Introduction & User Summary**  
 - Displays a personalised headline using the user’s first name or username fallback.
@@ -504,7 +505,7 @@ The **Dashboard** serves as the personalised entry point for authenticated users
 - URL state reflects filter/search context for deep linking and bookmarking.
 
 <details>
-<summary>Click here to see My Crate</summary>
+<summary>Click here to see the My Crate page</summary>
 
 ![Dashboard](documentation/testing/features/testing-features-mycrate.webp)
 
@@ -512,6 +513,60 @@ The **Dashboard** serves as the personalised entry point for authenticated users
 <br>
 <hr>
 
+### Record Detail Page
+
+#### Overview  
+The **Record Detail Page** provides a visually rich and informative view of a single record in the user's collection. It includes album metadata, a full track listing, and user-specific actions such as editing or deleting the entry. This page is available to both anonymous (through Staff Picks) and authenticated users, though only the record owner can modify or remove the record.
+
+---
+
+**Features Tested**
+
+**Hero Section & Visual Layout**  
+- A large **background image** uses the record's cover art to create visual impact.
+- A compact **info box** overlays the hero image, displaying the record’s title and artist alongside a thumbnail version of the cover.
+- A **back button** is shown in the top left, returning the user to the previous page using the `previous_url` context variable.
+
+**Metadata Display**  
+- Record genre, year, and star rating are displayed in **separate styled boxes**.
+- Rating is visualised with filled and unfilled FontAwesome star icons based on the numeric value.
+- Layout adjusts cleanly across screen sizes (stacked on mobile, inline on desktop).
+
+**Tracklist Section**  
+- Each track is listed with its **position**, **title**, and **duration**.
+- If available, **BPM** and **musical key** are shown below the track name in a muted style.
+- Tracks are displayed in a vertically scrollable, accessible list format.
+- If no tracks are present, a fallback message `No tracks added yet.` is shown.
+
+**Record Action Buttons**  
+- If the authenticated user **owns** the record, two buttons appear:
+  - **Edit**: Navigates to the `record_update` view.
+  - **Delete**: Navigates to the `record_delete` view.
+- Buttons include icons and descriptive `aria-labels` for accessibility.
+- Users cannot modify records they do not own (buttons are hidden).
+
+**Branding & Design**  
+- Consistent use of site styling: buttons, rounded boxes, and typographic scale.
+- Colours and layout reinforce Vinyl Crate’s clean and functional brand.
+
+**Responsiveness & Accessibility**  
+- Page adjusts gracefully for mobile, tablet, and desktop views.
+- Semantic HTML and proper label usage support screen reader accessibility.
+- Interactive elements are keyboard-navigable and labelled appropriately.
+
+**Performance & Functionality**  
+- Cover images load via Cloudinary and are optimized with caching.
+- Record data is safely passed via context and avoids errors if content is missing.
+- Page renders quickly and remains usable even with large tracklists or missing fields.
+
+<details>
+<summary>Click here to see the Record Detail page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-detail.webp)
+
+</details>
+<br>
+<hr>
 
 ## Manual Features Testing
 
