@@ -751,7 +751,105 @@ The **Record Delete Page** allows authenticated users to permanently remove a re
 <br>
 <hr>
 
+### Authentication Pages
+
+#### Overview  
+Authentication features in Vinyl Crate are powered by **Django Allauth**, offering users a secure and intuitive way to register, log in, and manage their accounts. The system supports form validation, error feedback, and accessibility features throughout the process.
+
 ---
+
+**Features Tested**
+
+** Login Page**
+- URL: `/accounts/login/`
+- Users can log in using their **email** and **password**.
+- Form validation triggers errors for:
+  - Blank fields
+  - Incorrect credentials
+- If login is successful:
+  - User is redirected to their **dashboard**.
+  - Navbar updates to show **Dashboard**, **My Crate**, and user icon.
+- If login fails:
+  - Error message is shown without losing form input.
+- “Forgot password?” link correctly navigates to password reset page.
+
+** Register Page**
+- URL: `/accounts/signup/`
+- Users can sign up by providing:
+  - First name
+  - Last name
+  - Email
+  - Password (twice for confirmation)
+- Form is validated for:
+  - Required fields
+  - Password mismatch
+  - Email format
+- On success:
+  - Account is created and user is logged in automatically.
+  - Redirect to dashboard occurs with welcome message.
+- On error:
+  - Helpful error messages are displayed inline.
+  - Fields with issues are highlighted.
+
+** Logout**
+- Accessible from user dropdown (top right of navbar) when logged in.
+- Logs the user out and redirects to the **home page**.
+- A toast message confirms successful logout.
+
+** Password Reset**
+- URL: `/accounts/password/reset/`
+- Users enter their email to receive a reset link.
+- Valid email:
+  - Redirects to a confirmation page.
+  - Email is sent with secure reset link (mocked in testing).
+- Invalid or unregistered email:
+  - Still triggers confirmation page (no information leakage).
+- Reset process includes:
+  - Secure token validation
+  - Form to set a new password
+  - Confirmation screen on success
+
+---
+
+#### Accessibility & UI
+- All forms include:
+  - Proper `<label>` and `aria` attributes
+  - Clear focus states and accessible error feedback
+- Responsive layout works on mobile, tablet, and desktop.
+- Button text and input labels are descriptive and consistent.
+
+---
+
+#### Security Notes
+- All pages are CSRF-protected.
+- Passwords are never shown in plain text.
+- Rate limiting is handled by Allauth/Django under default middleware.
+
+---
+
+<details>
+<summary>Click here to see the Authentication pages</summary>
+
+<summary>Login page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-login.webp)
+
+<summary>Register page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-register.webp)
+
+<summary>Logout page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-signout.webp)
+
+<summary>Password reset page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-reset.webp)
+
+</details>
+<br>
+<hr>
+
 
 ## Manual Features Testing
 
