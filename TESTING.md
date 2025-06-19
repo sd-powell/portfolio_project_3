@@ -339,9 +339,47 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 > [!NOTE]
 > User stories can also be viewed in the [README](README.md) file.
 
+### Features Testing
+
+#### Existing Features
+
+### Home Page
+
+#### Overview  
+The **Home Page Panel** serves as the landing screen for Vinyl Crate, introducing users to the purpose of the app and encouraging them to sign up. It’s designed to make a strong first impression and provide clear, immediate pathways for new and returning users.  
+
+Both **unauthenticated visitors** and **logged-in users** see the same homepage layout, but the **navigation bar adapts dynamically**. Non-registered users see **“Login”** and **“Register”** links, while authenticated users are shown links to their **Dashboard**, **My Crate**, and a **user dropdown** with their name and logout option.  
+
+#### Features Tested
+- **Introduction & Engagement**  
+  - The carousel headline and description clearly communicate the app’s core benefit: organising and exploring a vinyl collection.  
+  - Text is styled responsively and uses semantic HTML for readability across devices.  
+  - Imagery complements the theme, displaying a vinyl-related graphic alongside the message.  
+
+- **Navigation & Call to Action**  
+  - The **“Start your collection”** call-to-action button leads to the registration page (`/accounts/signup/`).  
+  - The navigation bar dynamically updates based on user authentication state.  
+  - ARIA labels and button roles are used to support screen readers and improve accessibility.  
+
+- **Branding & Design**  
+  - Consistent branding is maintained throughout the page, including logo, typography, and colour scheme.  
+  - The layout features a centered carousel with alternating content and imagery for a balanced visual experience.  
+  - Carousel controls and indicators offer interactive navigation between promotional slides.  
+
+- **Responsiveness & Accessibility**  
+  - The homepage is fully responsive, tested across mobile, tablet, and desktop breakpoints.  
+  - Buttons, links, and carousel indicators are keyboard-navigable.  
+  - Semantic HTML elements (`<h1>`, `<p>`, `<a>`, `<button>`) are used to enhance accessibility.  
+
+- **Performance & Functionality**  
+  - The homepage loads quickly with optimised assets.  
+  - Carousel transitions are smooth and include accessible labels.  
+  - Navigation elements (e.g., login/register or dashboard links) behave correctly depending on authentication status.  
+
+
 ### Manual Features Testing
 
-#### Navbar (Header)
+#### Navbar (Header) - base.html
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
@@ -349,7 +387,7 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 | **Login** link | Navigates to `/accounts/login/` | Clicked on the **Login** link | Navigated to `/accounts/login/` | ✅ Pass |
 | **Register** link | Navigates to `/accounts/signup/` | Clicked on the **Register** link | Navigated to `/accounts/signup/` | ✅ Pass |
 
-#### Homepage Content
+#### Homepage Content (Public) - index.html
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
@@ -359,7 +397,7 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 | Carousel indicators (dots) | Clicking each dot navigates to correct slide | | | |
 | **Staff Picks** Record links | Clicking on each of the 6 **Staff Picks** record covers navigates to their record detail pages | Clicked on each of the Staff Picks covers | Navigated to each of their record detail pages | ✅ Pass |
 
-#### Footer
+#### Footer - base.html
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |--------|------------------|-------------------|--------|-----------|
@@ -374,6 +412,15 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 | “Contact” quick link | Currently inactive (`#`), should ideally link to contact form | | | |
 | “Privacy” quick link | Currently inactive (`#`), should ideally link to privacy policy | | | |
 | **GitHub** link | Opens my **GitHub** profile in new tab | Clicked on **GitHub** link | My **GitHub** profile opened in a new tab | ✅ Pass |
+
+#### Dashboard - record_list.html
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| Only shows user records | No other users’ records are visible | | | |
+| Edit/Delete links present | Each record has Edit/Delete icons | | | |
+| Add Record button | Button/link visible to add a new record | | | |
+| User feedback messages | Success or error messages shown | | | |
 
 
 <a id="solved-issues"></a>
