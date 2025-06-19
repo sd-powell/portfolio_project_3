@@ -942,7 +942,87 @@ The Django admin interface for Vinyl Crate has been customized to streamline bac
 <br>
 <hr>
 
+### Error Pages
 
+#### Overview  
+Vinyl Crate includes four fully customized error pages to handle unexpected user behavior and server-side issues. These templates ensure that even when something goes wrong, the user experience remains informative, friendly, and visually consistent with the rest of the site.
+
+Each page is styled with Bootstrap and includes a unique SVG image, helpful messaging, and a call-to-action button linking back to the homepage.
+
+---
+
+**Features Tested**
+
+**Shared Features**
+- All pages extend the `base.html` template for consistent layout and styling.
+- Each page displays:
+  - A distinct heading and supporting message
+  - A themed SVG illustration (e.g., `400-error.svg`, `404-error.svg`)
+  - A prominent return button:  
+    **`<a href="/"> Return to Home </a>`**
+- Pages are mobile-responsive and accessible, using appropriate ARIA labels and semantic headings.
+
+✅ Styling and layout match the rest of the site  
+✅ Accessible structure: `<h1>`, `<p>`, and focusable buttons  
+✅ All pages are reachable by triggering the relevant status code
+
+---
+
+**400 – Bad Request**
+- Triggered when the client sends a malformed request.
+- Message: "Something went wrong with the request."
+- Example triggers: manually editing URLs, submitting broken forms
+
+**403 – Forbidden**
+- Shown when a user tries to access a restricted page (e.g., editing another user's record).
+- Message: "You don’t have permission to view this page."
+
+**404 – Page Not Found**
+- Default fallback when a user navigates to a non-existent route.
+- Message: "We couldn’t find the page you were looking for."
+
+**500 – Server Error**
+- Catches server-side issues or unexpected backend failures.
+- Message: "The server encountered an error."
+
+✅ Each error page uses a relevant image and message  
+✅ Homepage button always returns the user to safety  
+✅ Status codes handled by Django using `handlerXXX` settings in `urls.py`
+
+---
+
+#### Technical Setup
+
+- Custom error handlers registered in `vinylcrate_project/urls.py`:
+  ```python
+  handler404 = record_views.custom_404_view
+  handler500 = "django.views.defaults.server_error"
+  handler403 = "records.views.custom_403_view"
+  handler400 = record_views.custom_400_view
+  ```
+
+<details>
+<summary>Click here to see the Error pages</summary>
+
+<summary>400 page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-400.webp)
+
+<summary>403 page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-403.webp)
+
+<summary>404 page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-404.webp)
+
+<summary>500 page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-500.webp)
+
+</details>
+<br>
+<hr>
 
 ## Manual Features Testing
 
