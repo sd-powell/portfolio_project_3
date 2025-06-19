@@ -53,7 +53,6 @@
                     {% endif %}
                 </div>
 
-                {% if not form.instance.pk %}
                 <!-- Hidden empty form template to clone -->
                     <div id="empty-form-template" class="d-none">
                         <div class="track-form mb-3 position-relative">
@@ -64,7 +63,6 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
 
                 <!-- Add another button -->
                 <button type="button" id="add-track-btn" class="btn btn-outline-secondary mt-3">

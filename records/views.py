@@ -188,13 +188,18 @@ def record_update(request, slug):
     Handle the update of an existing record and its associated tracks
     for the logged-in user.
 
-    This view retrieves a record by its slug and ensures it
-    belongs to the current user. It displays a form pre-filled with the
-    record’s existing data, along with an inline formset for editing
-    associated tracks.
+    Retrieves the specified record by slug and ensures it belongs to the
+    current user. Displays a pre-filled form and an inline formset to
+    allow editing of both the record and its related tracks.
 
-    If the request method is POST and both the record form and formset
-    are valid, the updated data is saved to the database.
+    On GET requests:
+        - Displays the existing record and tracks.
+        - Includes one extra blank track form to
+        support JavaScript duplication.
+
+    On POST requests:
+        - Processes the submitted data without extra blank forms.
+        - Saves updates only if both the record form and formset are valid.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
@@ -202,15 +207,15 @@ def record_update(request, slug):
 
     Returns:
         HttpResponse:
-            - Redirects to the record list on successful update.
-            - Renders the edit form with validation errors otherwise.
+            - Redirects to the record detail page on successful update.
+            - Re-renders the form with validation errors otherwise.
     """
     record = get_object_or_404(Record, slug=slug, user=request.user)
-    TrackFormSet = get_track_formset(extra=0)
 
     if request.method == 'POST':
+        TrackFormSet = get_track_formset(extra=0)
         form = RecordForm(request.POST, request.FILES, instance=record)
-        formset = TrackFormSet(request.POST, instance=record)
+        formset = TrackFormSet(request.POST, instance=record, prefix='tracks')
         if form.is_valid() and formset.is_valid():
             form.save()
             formset.save()
@@ -219,8 +224,9 @@ def record_update(request, slug):
                 )
             return redirect('record_detail', slug=record.slug)
     else:
+        TrackFormSet = get_track_formset(extra=1)
         form = RecordForm(instance=record)
-        formset = TrackFormSet(instance=record)
+        formset = TrackFormSet(instance=record, prefix='tracks')
     return render_record_form(request, form, formset)
 
 
