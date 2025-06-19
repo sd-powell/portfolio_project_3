@@ -344,7 +344,7 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 ### Home Page
 
 #### Overview  
-The **Home Page Panel** serves as the landing screen for Vinyl Crate, introducing users to the purpose of the app and encouraging them to sign up. It’s designed to make a strong first impression and provide clear, immediate pathways for new and returning users.  
+The **Home Page** serves as the landing screen for Vinyl Crate, introducing users to the purpose of the app and encouraging them to sign up. It’s designed to make a strong first impression and provide clear, immediate pathways for new and returning users.  
 
 Both **unauthenticated visitors** and **logged-in users** see the same homepage layout, but the **navigation bar adapts dynamically**. Non-registered users see **“Login”** and **“Register”** links, while authenticated users are shown links to their **Dashboard**, **My Crate**, and a **user dropdown** with their name and logout option.
 
@@ -443,7 +443,74 @@ The **Dashboard** serves as the personalised entry point for authenticated users
 <br>
 <hr>
 
+### My Crate page
 
+#### Overview  
+**My Crate** offers logged-in users an interactive overview of their personal record collection. It enables searching, filtering, and browsing their records with an emphasis on usability, clarity, and responsive layout. Whether the user owns 1 or 100 records, this page helps them efficiently explore their vinyl archive.
+
+---
+
+##### Features Tested
+
+**Page Introduction & User Summary**  
+- Displays a personalised headline using the user’s first name or username fallback.
+- Shows a dynamic count of the records in the user’s crate.
+- Background image enhances visual engagement without distracting from functionality.
+
+**Search and Filter Functionality**  
+- A **search bar** allows users to search by album or artist.
+- Dropdown filters enable refined browsing:
+  - **Genre**: populated from available genres.
+  - **Artist**: auto-populated from user’s existing collection.
+  - **Rating**: allows filtering by 1–5 stars.
+- Form submission triggers updated display based on search and filter terms.
+- **Apply** and **Reset** buttons support user control over filters.
+- All form inputs use ARIA labels and appropriate input types for accessibility.
+
+**Add Record Shortcut**  
+- A clear and accessible **“Add Record”** button links to the `record_create` form view.
+- Styled with icon and rounded-pill design for visual hierarchy and mobile usability.
+
+**Record List Display**  
+- Records are listed in a scrollable card format with consistent styling.
+- Each card includes:
+  - Thumbnail image (or fallback block if no image)
+  - Title and artist
+  - Chevron icon to indicate interactivity
+- Clicking a card navigates to the **Record Detail** page.
+- Cards are fully keyboard- and screen-reader accessible.
+
+**Empty State**  
+- If no records match the filters/search, a friendly message encourages users to adjust terms.
+- Provides a non-broken layout and keeps user confidence intact.
+
+**Branding & Design**  
+- Visual elements are consistent with the rest of the app, using:
+  - Clean typography
+  - Rounded buttons
+  - Subtle drop shadows
+  - Colour-coded filters
+- Consistent design improves user orientation and trust.
+
+**Responsiveness & Accessibility**  
+- Fully responsive layout adapts across mobile, tablet, and desktop.
+- Filter forms collapse neatly on mobile.
+- Focus indicators and labelled controls improve usability for keyboard users.
+- Semantic HTML elements used throughout (e.g. `<form>`, `<section>`, `<button>`, `<label>`).
+
+**Performance & Functionality**  
+- Search and filter updates are handled server-side via GET parameters.
+- Record display loads efficiently, including thumbnails via Cloudinary.
+- URL state reflects filter/search context for deep linking and bookmarking.
+
+<details>
+<summary>Click here to see My Crate</summary>
+
+![Dashboard](documentation/testing/features/testing-features-mycrate.webp)
+
+</details>
+<br>
+<hr>
 
 
 ## Manual Features Testing
