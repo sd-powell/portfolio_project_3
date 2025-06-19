@@ -359,6 +359,22 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 | Carousel indicators (dots) | Clicking each dot navigates to correct slide | | | |
 | **Staff Picks** Record links | Clicking on each of the 6 **Staff Picks** record covers navigates to their record detail pages | Clicked on each of the Staff Picks covers | Navigated to each of their record detail pages | ✅ Pass |
 
+#### Footer
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Instagram** icon | Opens **Instagram** in new tab | Clicked on **Instagram** icon | **Instagram** opened in a new tab | ✅ Pass |
+| **Facebook** icon | Opens **Facebook** in new tab | Clicked on **Facebook** icon | **Facebook** opened in a new tab | ✅ Pass |
+| **X** (Twitter) icon | Opens **X** in new tab | Clicked on **X**  icon | **X**  opened in a new tab | ✅ Pass |
+| **YouTube** icon | Opens **YouTube** in new tab | Clicked on **YouTube** icon | **YouTube** opened in a new tab | ✅ Pass |
+| **Spotify** icon | Opens **Spotify** in new tab | Clicked on **Spotify** icon | **Spotify** opened in a new tab | ✅ Pass |
+| **SoundCloud** icon | Opens **SoundCloud** in new tab | Clicked on **SoundCloud** icon | **SoundCloud** opened in a new tab | ✅ Pass |
+| **Home** quick link | Clicking the **Home** quick link navigates to home page (`/`) | Clicked on **Home** quick link | The home page was shown | ✅ Pass |
+| **Register** quick link | Navigates to `/accounts/signup/` | Clicked on **Register** quick link | Navigated to `/accounts/signup/` | ✅ Pass |
+| “Contact” quick link | Currently inactive (`#`), should ideally link to contact form | | | |
+| “Privacy” quick link | Currently inactive (`#`), should ideally link to privacy policy | | | |
+| **GitHub** link | Opens my **GitHub** profile in new tab | Clicked on **GitHub** link | My **GitHub** profile opened in a new tab | ✅ Pass |
+
 
 <a id="solved-issues"></a>
 
