@@ -1091,6 +1091,21 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **No records fallback** | Shows message when no results match filters or user has no records | Applied filters that returned no results and logged in as a user with an empty crate. | Message “No records found...” appeared in both cases. | ✅ Pass |
 | **Responsive layout** | Page adapts across mobile, tablet, and desktop screen sizes | Used Chrome DevTools and resized browser to test responsiveness. | Layout remained usable and well-structured across all breakpoints. | ✅ Pass |
 
+### Record Detail Page (`record_detail.html`)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Hero image and overlay display correctly** | Background uses cover image; overlay shows title and artist | Viewed multiple records with different cover images; verified background and info box loaded accurately | All images displayed correctly and fallback styling worked when image missing | ✅ Pass |
+| **Back button works** | Clicking **Back** returns to previous page | Navigated from various pages and clicked **Back** link | Browser returned to correct previous route or fallback link worked when unavailable | ✅ Pass |
+| **Metadata panels show genre, year, and rating** | Metadata section renders with three info boxes | Verified content for genre, year, and star rating display across various records | Correct formatting and conditional star logic rendered as expected | ✅ Pass |
+| **Star rating renders accurately** | Filled and unfilled stars match record's rating value | Checked records rated from 1 to 5 | Visual stars matched stored rating for all entries | ✅ Pass |
+| **Track list shows all tracks** | List of tracks appears under Track Listing header | Tested records with 0, 1, and multiple tracks | ✅ Track list rendered in correct order; empty fallback message displayed if no tracks present | ✅ Pass |
+| **Track metadata displayed (position, title, duration)** | Each track displays position, title, and time | Visually checked layout of each field across devices | ✅ Info formatted clearly, even for longer titles or multiple lines | ✅ Pass |
+| **Optional BPM and Key appear if added** | BPM and/or Key values render underneath track line if present | Tested tracks with and without optional values | ✅ Conditional rendering handled correctly, separators shown only if both present | ✅ Pass |
+| **Edit and Delete buttons appear only for owner** | Buttons are hidden for non-owners and unauthenticated users | Logged in as owner, non-owner, and unauthenticated user | ✅ Owner saw buttons; other users did not | ✅ Pass |
+| **Edit button links to update page** | Button navigates to pre-filled record form | Clicked Edit and verified pre-filled data loaded in `/record/update/` view | ✅ Navigation successful, form loaded with correct instance data | ✅ Pass |
+| **Delete button links to confirmation page** | Button opens delete confirmation page | Clicked Remove from Collection button | ✅ Delete confirmation loaded with correct record details | ✅ Pass |
+| **Responsive layout** | Page content adjusts properly for mobile, tablet, desktop | Resized browser and tested on multiple devices | ✅ Layout reflows cleanly and hero section scales appropriately | ✅ Pass |
 
 <a id="solved-issues"></a>
 
@@ -1098,8 +1113,10 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 
 | No | Bug Description | Solution | Screenshot |
 | :- | :------------- | :-------- | :--------- |
-| 1  | Inline formsets for adding tracks weren’t working properly with the dynamic “Add another track” button. | Updated the JavaScript to correctly increment form index and bind events; ensured `form-TOTAL_FORMS` was updated on each addition. | ![Screenshot](documentation/testing/bugs/testing-trackform-increment.webp)
+| 1  | Inline formsets for adding tracks weren’t working properly with the dynamic “Add another track” button. | Updated the JavaScript to correctly increment form index and bind events; ensured `form-TOTAL_FORMS` was updated on each addition. | ![Screenshot](documentation/testing/bugs/testing-trackform-increment.webp) |
 | 2  | Cloudinary image URLs were being generated with `http://`, triggering Lighthouse and mixed content warnings. This persisted even after setting `SECURE: True` in `CLOUDINARY_STORAGE`. | Added explicit `cloudinary.config(..., secure=True)` to `settings.py` to force secure URLs for all Cloudinary resources. Also removed `CLOUDINARY_URL` from `env.py` to avoid override conflicts. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
+| 3  | Record edit and delete views were using numeric `pk` values in the URL (e.g., `/7/edit/`) instead of slugs, which broke consistency with record detail pages (e.g., `/album-title/`). | Updated `urls.py` and all related views (`record_update`, `record_delete`) and template links to use the `slug` field instead of `pk`. Also added slug conflict resolution logic to the model to ensure uniqueness, ensuring all record routes use consistent, human-readable slugs. | ![Screenshot](documentation/testing/bugs/testing-record-slug-url.webp) |
+| 4 | Editing a record triggered 500 error due to incorrect redirect using non-existent URL pattern with slug | Updated `record_update` view to redirect to `'record_detail'` with correct slug keyword argument | ![screenshot](documentation/testing/bugs/testing-fix-redirect.webp) |
 
 ---
 
