@@ -21,7 +21,7 @@ urlpatterns = [
         name='record_collection'
     ),
     path('add/', views.record_create, name='record_create'),
-    path('<int:pk>/edit/', views.record_update, name='record_update'),
-    path('<int:pk>/delete/', views.record_delete, name='record_delete'),
+    path('<slug:slug>/edit/', views.record_update, name='record_update'),
+    path('<slug:slug>/delete/', views.record_delete, name='record_delete'),
     path('<slug:slug>/', views.record_detail, name='record_detail'),
 ]

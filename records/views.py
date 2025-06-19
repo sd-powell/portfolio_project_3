@@ -172,7 +172,7 @@ def record_create(request):
 
 
 @login_required
-def record_update(request, pk):
+def record_update(request, slug):
     """
     Handle the update of an existing record and its associated tracks
     for the logged-in user.
@@ -187,14 +187,14 @@ def record_update(request, pk):
 
     Parameters:
         request (HttpRequest): The HTTP request object.
-        pk (int): The primary key of the record to be updated.
+        slug (str): The slug of the record to be updated.
 
     Returns:
         HttpResponse:
             - Redirects to the record list on successful update.
             - Renders the edit form with validation errors otherwise.
     """
-    record = get_object_or_404(Record, pk=pk, user=request.user)
+    record = get_object_or_404(Record, slug=slug, user=request.user)
     TrackFormSet = get_track_formset(extra=0)
 
     if request.method == 'POST':
@@ -214,19 +214,19 @@ def record_update(request, pk):
 
 
 @login_required
-def record_delete(request, pk):
+def record_delete(request, slug):
     """
     Delete an existing record owned by the logged-in user.
 
     Parameters:
         request (HttpRequest): The HTTP request object.
-        pk (int): Primary key of the record to delete.
+        slug (str): The slug of the record to be updated.
 
     Returns:
         HttpResponse: Redirects to the record list after deletion,
                       or renders a confirmation page before deleting.
     """
-    record = get_object_or_404(Record, pk=pk, user=request.user)
+    record = get_object_or_404(Record, slug=slug, user=request.user)
     if request.method == 'POST':
         title = record.title
         record.delete()
