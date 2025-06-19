@@ -86,42 +86,44 @@ class Record(models.Model):
 
     slug = models.SlugField(blank=True, max_length=255, unique=True)
 
+    def save(self, *args, **kwargs):
+        """
+        Override the default save method to:
 
-def save(self, *args, **kwargs):
-    """
-    Override the default save method to:
+        1. Automatically generate a unique slug based on the
+        record's title and artist.
+        - Slug is created using Django’s `slugify()` utility.
+        - If a slug conflict is detected
+        (i.e., already exists in the database),
+            a numeric suffix (e.g., -1, -2) is appended until
+            uniqueness is achieved.
+        - This avoids clashes and ensures stable, human-readable URLs.
 
-    1. Automatically generate a unique slug based on the
-    record's title and artist.
-       - Slug is created using Django’s `slugify()` utility.
-       - If a slug conflict is detected (i.e., already exists in the database),
-         a numeric suffix (e.g., -1, -2) is appended until
-         uniqueness is achieved.
-       - This avoids clashes and ensures stable, human-readable URLs.
+        2. Assign a default cover image if none is provided by the user.
 
-    2. Assign a default cover image if none is provided by the user.
+        Calls the superclass `save()` method to persist the instance.
+        """
+        if not self.slug:
+            base_slug = slugify(f"{self.title}-{self.artist}")
+            slug = base_slug
+            num = 1
+            while Record.objects.filter(slug=slug).exclude(
+                pk=self.pk
+            ).exists():
+                slug = f"{base_slug}-{num}"
+                num += 1
+            self.slug = slug
 
-    Calls the superclass `save()` method to persist the instance.
-    """
-    if not self.slug:
-        base_slug = slugify(f"{self.title}-{self.artist}")
-        slug = base_slug
-        num = 1
-        while Record.objects.filter(slug=slug).exclude(pk=self.pk).exists():
-            slug = f"{base_slug}-{num}"
-            num += 1
-        self.slug = slug
+        if not self.cover_image:
+            self.cover_image = DEFAULT_COVER_URL
 
-    if not self.cover_image:
-        self.cover_image = DEFAULT_COVER_URL
+        super().save(*args, **kwargs)
 
-    super().save(*args, **kwargs)
+        class Meta:
+            ordering = ["title"]
 
-    class Meta:
-        ordering = ["title"]
-
-    def __str__(self):
-        return f"{self.title} by {self.artist}"
+        def __str__(self):
+            return f"{self.title} by {self.artist}"
 
 
 class Track(models.Model):

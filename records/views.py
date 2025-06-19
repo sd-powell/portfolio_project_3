@@ -177,7 +177,7 @@ def record_update(request, slug):
     Handle the update of an existing record and its associated tracks
     for the logged-in user.
 
-    This view retrieves a record by its primary key (pk) and ensures it
+    This view retrieves a record by its slug and ensures it
     belongs to the current user. It displays a form pre-filled with the
     record’s existing data, along with an inline formset for editing
     associated tracks.

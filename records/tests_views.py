@@ -89,10 +89,10 @@ class RecordViewsTests(TestCase):
         Test that record_delete view shows confirmation on GET
         and deletes record on POST.
         """
-        url = reverse('record_delete', args=[self.record.pk])
+        url = reverse('record_delete', args=[self.record.slug])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        url = reverse('record_delete', args=[self.record.pk])
+        url = reverse('record_delete', args=[self.record.slug])
         response = self.client.post(url)
         self.assertRedirects(response, reverse('record_list'))
 
@@ -137,7 +137,7 @@ class RecordUpdateViewTests(TestCase):
             rating=3,
             user=self.user,
         )
-        self.url = reverse('record_update', args=[self.record.pk])
+        self.url = reverse('record_update', args=[self.record.slug])
 
     def test_record_update_get(self):
         """
