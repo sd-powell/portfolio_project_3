@@ -633,6 +633,67 @@ The **Record Create Page** allows authenticated users to add new vinyl records t
 <br>
 <hr>
 
+### Record Update Page
+
+#### Overview  
+The **Record Update Page** allows users to edit an existing record and its associated tracks. This page uses the same form and layout as the Create page but is pre-populated with the current record's data. It ensures users can manage and maintain accurate metadata in their personal vinyl collection.
+
+---
+
+**Features Tested**
+
+**Access & Authorization**
+- Only authenticated users who own the record can access the page.
+- Unauthorized access attempts are blocked with a 404 error if the record doesn't belong to the user.
+
+**Prefilled Record Form**
+- The record form loads with all current values:
+  - Title, Artist, Year, Genre, Cover Image, Rating.
+- Fields can be updated and validated similarly to the Create form.
+- Server-side validation ensures data integrity.
+
+**Editable Track Formset**
+- All previously entered tracks are displayed in the formset.
+- Users can update:
+  - Track title, position, duration, BPM, and musical key.
+- The formset is rendered with `extra=0` to avoid unnecessary empty forms.
+- Validation rules are enforced (e.g. valid duration format, BPM range).
+
+**Form Submission Handling**
+- On `POST`, both the record form and track formset are validated.
+- If valid:
+  - Updated data is saved to the database.
+  - A success message is shown via Django’s `messages` framework.
+  - The user is redirected to the record list (`record_list`).
+- If invalid:
+  - The form re-renders with error messages and retained user input.
+
+**Layout & Reuse**
+- The page reuses the `record_form.html` template, ensuring consistent design.
+- The page title updates dynamically to **"Edit Record"**.
+- An inline Back button allows users to return to their dashboard.
+
+**Responsiveness & Accessibility**
+- Forms are responsive across all screen sizes.
+- Button and form field accessibility features (e.g. `aria-labels`, labels) are preserved from the Create page.
+
+**Error Handling**
+- If a user attempts to access a record they do not own, a `404 Not Found` is returned instead of exposing unauthorized data.
+- Inline error messages appear next to fields when validation fails.
+
+**Performance & Feedback**
+- Uses Django’s message framework to confirm success with a toast-style alert.
+- File uploads (e.g. cover image) are handled efficiently without unnecessary reloads.
+
+<details>
+<summary>Click here to see the Record Update page</summary>
+
+![Dashboard](documentation/testing/features/testing-features-update.webp)
+
+</details>
+<br>
+<hr>
+
 ## Manual Features Testing
 
 ### Navbar (Header) - base.html
