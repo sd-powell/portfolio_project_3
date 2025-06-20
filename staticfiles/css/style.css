@@ -43,6 +43,12 @@ p {
   font-weight: 500;
 }
 
+.banner-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
 .navbar-toggler:focus {
     outline: none;
     box-shadow: none;
@@ -177,8 +183,14 @@ p {
   border: none;
   border-radius: 999px;
   padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   appearance: none;
+}
+
+.btn-neutral,
+.filter-pill {
+  height: 48px;
 }
 
 /* Maintain consistent button styling */
@@ -217,6 +229,15 @@ p {
   color: var(--foreground-white);
 }
 
+.btn-action:hover {
+  background-color: var(--highlight-yellow);
+  color: var(--footer-charcoal);
+}
+
+.btn-action:hover i {
+  color: var(--highlight-blue);
+}
+
 .text-highlight-blue {
   color: var(--highlight-blue) !important;
 }
@@ -234,13 +255,13 @@ p {
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: none !important;
-  background-color: #e6e6e6; /* match existing background */
+  background-color: #e6e6e6;
   padding-right: 2.5rem;
 }
 
 .select-icon {
   position: absolute;
-  right: 1rem;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--highlight-blue);
@@ -250,6 +271,22 @@ p {
 
 .select-wrapper select:focus + .select-icon {
   color: var(--highlight-yellow);
+}
+
+.filter-prefix-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--highlight-blue);
+  z-index: 2;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+/* Add left padding to make space for the icon inside the select */
+.select-wrapper select {
+  padding-left: 2.2rem;
 }
 
 /************ Buttons ************/
