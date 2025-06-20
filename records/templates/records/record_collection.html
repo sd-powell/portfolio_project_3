@@ -128,29 +128,30 @@
 
     <!-- Records Display -->
     <div class="mt-4">
-        {% for record in records %}
-            <a href="{% url 'record_detail' record.slug %}?from={{ request.get_full_path|urlencode }}"
-                class="card record-hover mb-3 p-3 d-flex flex-row align-items-center justify-content-between text-decoration-none text-dark"
-                aria-label="View details for {{ record.title }} by {{ record.artist }}">
-                <div class="d-flex align-items-center">
-                    {% if record.cover_image %}
-                        <img src="{{ record.cover_image.url }}" alt="{{ record.title }} cover"
-                            class="img-thumbnail me-3"
-                            style="width: 80px; height: 80px; object-fit: cover;">
-                    {% else %}
-                        <div class="bg-secondary me-3"
-                            style="width: 80px; height: 80px;"></div>
-                    {% endif %}
-                    <div>
-                        <h5 class="mb-1">{{ record.title }}</h5>
-                        <p class="text-muted mb-0">{{ record.artist }}</p>
-                    </div>
-                </div>
-                <i class="fa-solid fa-circle-chevron-right fa-lg text-dark" aria-hidden="true"></i>
-            </a>
-        {% empty %}
-            <p>No records found. Try adjusting your filters or search terms.</p>
-        {% endfor %}
+      {% for record in records %}
+        <a href="{% url 'record_detail' record.slug %}?from={{ request.get_full_path|urlencode }}"
+          class="card record-hover mb-3 p-3 d-flex flex-row align-items-center justify-content-between text-decoration-none text-dark"
+          aria-label="View details for {{ record.title }} by {{ record.artist }}">
+          
+          <div class="d-flex align-items-center">
+            {% if record.cover_image %}
+              <img src="{{ record.cover_image.url }}" alt="{{ record.title }} cover"
+                  class="img-thumbnail me-3 record-thumbnail">
+            {% else %}
+              <div class="bg-secondary me-3 record-placeholder"></div>
+            {% endif %}
+            
+            <div>
+              <h3 class="h5 mb-1">{{ record.title }}</h3>
+              <p class="text-muted mb-0">{{ record.artist }}</p>
+            </div>
+          </div>
+          
+          <i class="fa-solid fa-circle-chevron-right fa-lg text-dark" aria-hidden="true"></i>
+        </a>
+      {% empty %}
+        <p>No records found. Try adjusting your filters or search terms.</p>
+      {% endfor %}
     </div>
 </div>
 {% endblock %}
