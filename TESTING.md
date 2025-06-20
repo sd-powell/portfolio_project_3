@@ -1034,6 +1034,13 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **Login** link | Navigates to `/accounts/login/` | Clicked on the **Login** link | Navigated to `/accounts/login/` | ✅ Pass |
 | **Register** link | Navigates to `/accounts/signup/` | Clicked on the **Register** link | Navigated to `/accounts/signup/` | ✅ Pass |
 
+### ⛔️ Navbar (Header) - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Navbar links for unauthenticated users** | Should only show Login/Register | Logged out and viewed navbar | Correct links displayed | ✅ Pass |
+| **Broken navigation** | Manually edited link in DevTools to non-existent route | Got 404 error page | ✅ Pass |
+
 ### Homepage Content (Public) - (`index.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -1043,6 +1050,12 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | Carousel controls: Next button | Click scrolls to next slide | | | |
 | Carousel indicators (dots) | Clicking each dot navigates to correct slide | | | |
 | **Staff Picks** Record links | Clicking on each of the 6 **Staff Picks** record covers navigates to their record detail pages | Clicked on each of the Staff Picks covers | Navigated to each of their record detail pages | ✅ Pass |
+
+### ⛔️ Homepage Content (Public) - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Unauthenticated access** | Site should load fully without login | Accessed homepage while logged out | All public elements loaded correctly | ✅ Pass |
 
 ### Footer - (`base.html`)
 
@@ -1074,6 +1087,12 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **Staff Picks cards link to record detail** | Clicking on staff-picked entries opens their respective detail pages | Click on each example entry and verify correct page loads. | Clicked on each staff-picked entry displayed on the dashboard fallback UI. Each card correctly navigated to its respective record detail page, showing accurate metadata and cover image. All links functioned properly, confirming that the staff pick cards open the appropriate detail views. |  |
 | **Responsive layout**        | The layout and tiles adapt across screen sizes (mobile, tablet, desktop) | Resize browser and test on devices/emulators | Resized browser window and tested the dashboard on **Chrome DevTools** emulators for mobile, tablet, and desktop. The layout adapted smoothly across breakpoints: buttons stacked vertically on smaller screens, cards resized and wrapped appropriately, and text remained readable. Verified consistent spacing and alignment. All elements remained usable and visually intact. | ✅ Pass |
 
+### ⛔️ Dashboard - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **No records in crate** | Should show fallback Staff Picks UI | Created new account with no records | Fallback UI displayed with Add Record prompt | ✅ Pass |
+
 ### My Crate Page (`record_collection.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -1091,6 +1110,13 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **No records fallback** | Shows message when no results match filters or user has no records | Applied filters that returned no results and logged in as a user with an empty crate. | Message “No records found...” appeared in both cases. | ✅ Pass |
 | **Responsive layout** | Page adapts across mobile, tablet, and desktop screen sizes | Used Chrome DevTools and resized browser to test responsiveness. | Layout remained usable and well-structured across all breakpoints. | ✅ Pass |
 
+### ⛔️ My Crate Page - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Filter returns no results** | Show “no records found” message | Selected filters with no match | Correct fallback message displayed | ✅ Pass |
+| **Record card with missing cover** | Placeholder image should show | Removed image from record | Fallback placeholder displayed correctly | ✅ Pass |
+
 ### Record Detail Page (`record_detail.html`)
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -1107,6 +1133,39 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **Delete button links to confirmation page** | Button opens delete confirmation page | Clicked Remove from Collection button | ✅ Delete confirmation loaded with correct record details | ✅ Pass |
 | **Responsive layout** | Page content adjusts properly for mobile, tablet, desktop | Resized browser and tested on multiple devices | ✅ Layout reflows cleanly and hero section scales appropriately | ✅ Pass |
 
+### ⛔️ Record Detail Page - Negative Testing Scenarios
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Unauthenticated user views record** | Record detail should display publicly | Logged out and visited a public record page | Record detail was visible | ✅ Pass |
+| **Invalid slug** | Displays 404 error | Accessed a URL with a non-existent slug | Custom 404 page displayed | ✅ Pass |
+| **Missing track data** | Should handle gracefully | Removed all tracks from a record | “No tracks” message displayed, no errors | ✅ Pass |
+
+### Record Forms – `record_create` & `record_update`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+|--------|------------------|-------------------|--------|-----------|
+| **Record form displays all required fields** | Fields for title, artist, genre, year, rating, cover image, etc. appear | Loaded the form in browser for both Add and Edit views | All form fields appeared with expected labels and input types | ✅ Pass |
+| **Track formset displays one blank track form on creation** | User sees one empty form for track input | Visited `/record/create/` as logged-in user | One blank track form was rendered below record form | ✅ Pass |
+| **Track formset shows existing tracks on update** | All existing tracks populate pre-filled forms | Edited a record with multiple tracks | Existing track forms were rendered with correct data | ✅ Pass |
+| **Add Another Track button works** | Clicking adds a new blank form below the others | Clicked button several times | New track forms were appended each time | ✅ Pass |
+| **Remove track (X icon) works** | Clicking removes that track form and reindexes remaining | Removed forms from top, middle, and bottom | Forms removed and index updated cleanly | ✅ Pass |
+| **Saving a valid record with multiple tracks** | Record and all tracks are saved correctly | Submitted a new record with 3 tracks | Record saved with all track data intact | ✅ Pass |
+| **Form retains input on validation error** | Form fields stay populated after failed validation | Submitted form with missing required fields | Errors displayed and user input preserved | ✅ Pass |
+| **Successful update redirects to detail view** | After editing and submitting, redirected to `record_detail` | Edited a record and clicked update | Redirected to detail page showing updated data | ✅ Pass |
+| **Responsive layout** | Form elements and track list adapt to screen size | Tested in DevTools mobile, tablet, desktop | Layout reflowed correctly across breakpoints | ✅ Pass |
+
+### ⛔️ Record Forms – Negative Testing
+
+| Scenario | Expected Handling | Testing Performed | Result | Pass/Fail |
+|----------|------------------|-------------------|--------|-----------|
+| **Missing required record fields** | Form shows validation errors and does not submit | Submitted with missing title, genre, etc. | Errors shown inline; form not submitted | ✅ Pass |
+| **Missing track title (required)** | Formset should prevent submission, show error | Added blank track with no title | Validation error displayed; record not saved | ✅ Pass |
+| **Invalid year value** | Non-numeric input should raise error | Entered text in year field | Form blocked submission; error shown | ✅ Pass |
+| **Uploading invalid image type** | Should fail validation or reject file | Uploaded `.txt` file instead of `.jpg` | Error raised; file rejected | ✅ Pass |
+| **JavaScript disabled** | Dynamic Add/Remove should be unavailable | Disabled JS and reloaded page | Only initial forms visible, no add/remove actions | ✅ Pass (expected limitation) |
+| **Submitting with deleted required fields** | Should not allow submission; highlight missing | Removed data from required fields before submit | Inline form errors appeared, preventing submission | ✅ Pass |
+
 <a id="solved-issues"></a>
 
 ### Solved Issues & Bugs
@@ -1117,6 +1176,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | 2  | Cloudinary image URLs were being generated with `http://`, triggering Lighthouse and mixed content warnings. This persisted even after setting `SECURE: True` in `CLOUDINARY_STORAGE`. | Added explicit `cloudinary.config(..., secure=True)` to `settings.py` to force secure URLs for all Cloudinary resources. Also removed `CLOUDINARY_URL` from `env.py` to avoid override conflicts. | ![Screenshot](documentation/testing/bugs/testing-cloudinary-https.webp) |
 | 3  | Record edit and delete views were using numeric `pk` values in the URL (e.g., `/7/edit/`) instead of slugs, which broke consistency with record detail pages (e.g., `/album-title/`). | Updated `urls.py` and all related views (`record_update`, `record_delete`) and template links to use the `slug` field instead of `pk`. Also added slug conflict resolution logic to the model to ensure uniqueness, ensuring all record routes use consistent, human-readable slugs. | ![Screenshot](documentation/testing/bugs/testing-record-slug-url.webp) |
 | 4 | Editing a record triggered 500 error due to incorrect redirect using non-existent URL pattern with slug | Updated `record_update` view to redirect to `'record_detail'` with correct slug keyword argument | ![screenshot](documentation/testing/bugs/testing-fix-redirect.webp) |
+| 5 | Unable to add or remove tracks when editing a record | Moved the `empty_form_template` block outside the `if not form.instance.pk` condition so JavaScript can clone new forms when editing. Updated JS to correctly handle both new and existing forms using the DELETE checkbox and dynamic reindexing. | ![screenshot](documentation/testing/bugs/testing-track-form.webp) |
 
 ---
 

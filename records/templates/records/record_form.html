@@ -43,6 +43,11 @@
                             <div class="track-form mb-3 position-relative">
                                 <div class="card p-3">
                                     {{ track_form|crispy }}
+                                    {% if track_form.DELETE %}
+                                        <div class="d-none">
+                                            {{ track_form.DELETE }}
+                                        </div>
+                                    {% endif %}
                                     <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
                                             aria-label="Remove track"></button>
                                 </div>
@@ -58,6 +63,11 @@
                         <div class="track-form mb-3 position-relative">
                             <div class="card p-3">
                                 {{ formset.empty_form|crispy }}
+                                {% if formset.empty_form.DELETE %}
+                                    <div class="d-none">
+                                        {{ formset.empty_form.DELETE }}
+                                    </div>
+                                {% endif %}
                                 <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
                                         aria-label="Remove track"></button>
                             </div>
