@@ -545,6 +545,43 @@ The Record Detail page is designed to showcase individual records with rich meta
 
 This page supports in-depth cataloguing, reflecting the physical experience of pulling a record from the shelf and exploring its contents — all within a responsive, streamlined interface.
 
+<a id="record-track-forms"></a>
+
+#### Record and Track Forms
+
+<details>
+<summary>Click here to view the Record and Track Forms page</summary>
+
+![Record detail page showing cover image, metadata, and track listing](documentation/readme/surface_plane/features-record-detail.webp)
+
+</details>
+
+---
+
+The Record and Track forms are central to the user’s ability to create and maintain their collection, offering a seamless way to add detailed information about each vinyl entry.
+
+- **What it does:**
+  - Allows users to add or edit records with fields for title, artist, release year, genre, rating, and optional cover image.
+  - Supports inline addition of track listings, each with position, title, duration, and optional BPM/key fields.
+  - Enforces validation on key fields (e.g. whitespace-only titles, duration format).
+  - Enables dynamic add/remove of track forms via JavaScript, with consistent indexing and deletion tracking.
+
+- **User Benefits:**
+  - Makes it easy to catalogue both high-level record data and specific track details in one intuitive interface.
+  - Inline formsets allow users to build a full track list without navigating away or reloading the page.
+  - Real-time error messages ensure users can correct issues before submission, improving form reliability.
+
+- **Interactive Elements:**
+  - Add and remove buttons for track forms with JavaScript-driven behaviour.
+  - Validation feedback on incorrect or missing inputs (e.g. invalid durations or blank titles).
+  - Smart deletion of tracks using Django’s `can_delete` handling — hidden from view but flagged for removal.
+  - Dynamically rendered help text for each field to guide the user.
+
+> *Note: Tracks are optional, allowing users to add a record entry without any associated track listings. This provides flexibility for users who wish to catalogue records gradually or with minimal detail.*
+
+This form system balances flexibility and control, making it easy for collectors to maintain a clean, consistent archive of their vinyl library — whether adding just the basics or entering full metadata for every track.
+
+
 <a id="400-page-features"></a>
 
 #### The 400 Page
