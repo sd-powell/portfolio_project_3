@@ -469,6 +469,12 @@ p {
 
 /************ Media queries ************/
 
+@media (max-width: 374.98px) {
+  .carousel-image {
+    display: none !important;
+  }
+}
+
 /* Responsive aspect ratios */
 @media (max-width: 767.98px) {
   #homeCarousel {
