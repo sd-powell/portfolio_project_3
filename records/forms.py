@@ -231,6 +231,7 @@ class TrackForm(forms.ModelForm):
     class Meta:
         model = Track
         fields = [
+            'id',
             'title',
             'position',
             'duration',

@@ -66,6 +66,9 @@
 
                 <div id="formset-container">
                     {{ formset.management_form }}
+                    {% for hidden in formset.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
 
                     <!-- 
                         Track formset rendered field-by-field with error handling for each input.
@@ -75,6 +78,9 @@
                     {% for track_form in formset %}
                         <div class="track-form mb-3 position-relative">
                             <div class="card p-3">
+                                {% for hidden in track_form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
                                 {% for field in track_form.visible_fields %}
                                     <div class="mb-2">
                                         {{ field|as_crispy_field }}
@@ -103,6 +109,10 @@
                 <div id="empty-form-template" class="d-none">
                     <div class="track-form mb-3 position-relative">
                         <div class="card p-3">
+                            <input type="hidden" name="tracks-__prefix__-id" id="id_tracks-__prefix__-id" value="">
+                            {% for hidden in formset.empty_form.hidden_fields %}
+                                {{ hidden }}
+                            {% endfor %}
                             {% for field in formset.empty_form.visible_fields %}
                                 <div class="mb-2">
                                     {{ field|as_crispy_field }}

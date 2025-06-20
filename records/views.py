@@ -223,6 +223,15 @@ def record_update(request, slug):
                 request, f"Record '{record.title}' updated successfully!"
                 )
             return redirect('record_detail', slug=record.slug)
+        else:
+            if form.errors:
+                print("Record form errors:", form.errors)
+            if formset.errors:
+                print("Track formset errors:", formset.errors)
+            if formset.non_form_errors():
+                print("Track formset non-form errors:",
+                      formset.non_form_errors()
+                      )
     else:
         TrackFormSet = get_track_formset(extra=1)
         form = RecordForm(instance=record)
