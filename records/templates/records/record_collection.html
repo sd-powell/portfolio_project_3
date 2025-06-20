@@ -10,14 +10,14 @@
     <div class="p-0 overflow-hidden shadow-sm">
       <div class="welcome-banner text-black">
         <!-- Background Image via CSS -->
-        <div class="welcome-image-bg d-none d-md-block"></div>
+        <div class="welcome-image-bg d-none d-lg-block"></div>
 
         <!-- Text Content -->
-        <div class="welcome-banner-content">
+        <div class="welcome-banner-content text-center text-lg-end mx-auto mx-lg-0">
           <h1 class="banner-title">{{ user.first_name|default:user.username }}'s Crate</h1>
-          <p class="text-muted mb-0">
+          <h2 class="h5 text-muted fw-normal mb-0">
             Search and filter the <strong>{{ records.count }}</strong> records in your crate
-          </p>
+          </h2>
         </div>
       </div>
     </div>
