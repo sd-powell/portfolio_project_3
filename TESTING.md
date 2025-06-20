@@ -1165,6 +1165,9 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **Uploading invalid image type** | Should fail validation or reject file | Uploaded `.txt` file instead of `.jpg` | Error raised; file rejected | ✅ Pass |
 | **JavaScript disabled** | Dynamic Add/Remove should be unavailable | Disabled JS and reloaded page | Only initial forms visible, no add/remove actions | ✅ Pass (expected limitation) |
 | **Submitting with deleted required fields** | Should not allow submission; highlight missing | Removed data from required fields before submit | Inline form errors appeared, preventing submission | ✅ Pass |
+| **Create record without tracks** | User can save a record even if no tracks are added | Filled in record form without adding tracks and clicked submit | Record saved successfully without validation errors | ✅ Pass |
+
+**Note:** This is an intentional design choice to allow flexibility. Users may wish to log a new record and add tracks later.
 
 <a id="solved-issues"></a>
 

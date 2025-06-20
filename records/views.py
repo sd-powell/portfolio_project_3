@@ -157,7 +157,7 @@ def record_create(request):
 
     Returns:
         HttpResponse:
-            - Redirects to the record list on successful creation.
+            - Redirects to the record detail on successful creation.
             - Renders the form again with validation errors otherwise.
     """
     TrackFormSet = get_track_formset(extra=1)
@@ -175,7 +175,7 @@ def record_create(request):
             messages.success(
                 request, f"Record '{record.title}' created successfully!"
                 )
-            return redirect('record_list', slug=record.slug)
+            return redirect('record_detail', slug=record.slug)
     else:
         form = RecordForm()
         formset = TrackFormSet(prefix='tracks')
@@ -250,7 +250,7 @@ def record_delete(request, slug):
         messages.success(
             request, f"Record '{title}' was deleted successfully."
             )
-        return redirect('record_list', slug=record.slug)
+        return redirect('record_list')
     return render(
         request,
         'records/record_confirm_delete.html',
