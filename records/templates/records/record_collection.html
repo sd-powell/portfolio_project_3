@@ -26,8 +26,8 @@
     <div class="bg-white p-4 rounded-bottom">
       <form method="get">
         <!-- Search Bar -->
-        <div class="row mb-4 align-items-center g-2">
-          <div class="col-12 col-md-8">
+        <div class="row mb-3">
+          <div class="col-12 col-md-8 mb-3 mb-md-0">
             <div class="search-bar-wrapper position-relative">
               <input
                 type="text"
@@ -42,19 +42,26 @@
               </button>
             </div>
         </div>
-        <div class="col-12 col-md-4 text-md-end">
-            <a href="{% url 'record_create' %}" class="btn btn-neutral rounded-pill w-100 d-flex justify-content-center align-items-center gap-2">
-              <i class="fa-solid fa-plus-circle me-1"></i> Add Record
+        <div class="col-12 col-md-4">
+            <a href="{% url 'record_create' %}"
+              class="btn btn-action rounded-pill w-100 d-flex align-items-center justify-content-between text-start gap-2 fw-semibold"
+              aria-label="Add a new record to your collection">
+                <span class="d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-record-vinyl" aria-hidden="true"></i>
+                    Add Record
+                </span>
+                <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
         <!-- Filters Row -->
-        <div class="row g-3 align-items-end">
+        <div class="row g-3 mb-2">
         <!-- Genre Filter -->
-          <div class="col-4 col-md-3">
+          <div class="col-12 col-lg-4">
             <label for="genre" class="visually-hidden">Filter by Genre</label>
             <div class="select-wrapper">
+                <i class="fa-solid fa-filter filter-prefix-icon" aria-hidden="true"></i>
                 <select id="genre" name="genre" class="form-select filter-pill">
                 <option value="">All Genres</option>
                 {% for value, label in genres %}
@@ -65,9 +72,10 @@
             </div>
           </div>
         <!-- Artist Filter -->
-          <div class="col-4 col-md-3">
+          <div class="col-12 col-lg-4">
             <label for="artistFilter" class="visually-hidden">Filter by Artist</label>
             <div class="select-wrapper">
+                <i class="fa-solid fa-filter filter-prefix-icon" aria-hidden="true"></i>
                 <select id="artistFilter" name="artist" class="form-select filter-pill">
                 <option value="">All Artists</option>
                 {% for artist in artists %}
@@ -78,9 +86,10 @@
             </div>
           </div>
         <!-- Rating Filter -->
-          <div class="col-4 col-md-3">
+          <div class="col-12 col-lg-4">
             <label for="rating" class="visually-hidden">Filter by Rating</label>
             <div class="select-wrapper">
+                <i class="fa-solid fa-filter filter-prefix-icon" aria-hidden="true"></i>
                 <select id="rating" name="rating" class="form-select filter-pill">
                 <option value="">All Ratings</option>
                 {% for i in "12345" %}
@@ -90,13 +99,27 @@
                 <i class="fa-solid fa-circle-chevron-down select-icon" aria-hidden="true"></i>
             </div>
           </div>
-          <div class="col-md-3 d-flex gap-2">
-            <button type="submit" class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-center gap-2">
-                Apply <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
-            </button>
-            <a href="{% url 'record_collection' %}" class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-center gap-2">
-                Reset <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
-            </a>
+          <div class="col-12">
+            <div class="d-flex flex-column flex-lg-row gap-2">
+              <!-- Apply Button -->
+              <button type="submit" class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-between text-start gap-2 fw-semibold mb-2">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
+                  Apply
+                </span>
+                <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
+              </button>
+              <!-- Reset Button -->
+              <a href="{% url 'record_collection' %}"
+                class="btn btn-neutral rounded-pill flex-fill d-flex align-items-center justify-content-between text-start gap-2 fw-semibold"
+                aria-label="Reset all filters and reload your collection">
+                  <span class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+                      Reset
+                  </span>
+                  <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </div>
       </form>
