@@ -259,7 +259,7 @@ def record_delete(request, slug):
         messages.success(
             request, f"Record '{title}' was deleted successfully."
             )
-        return redirect('record_list')
+        return redirect('record_collection')
     return render(
         request,
         'records/record_confirm_delete.html',
