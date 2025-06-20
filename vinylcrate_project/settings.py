@@ -64,11 +64,10 @@ INSTALLED_APPS = [
     "records",
 ]
 
-
 SITE_ID = 1
-# Redirects after login/logout
 LOGIN_REDIRECT_URL = reverse_lazy('record_list')
-LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGIN_REDIRECT_URL = reverse_lazy('record_list')
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -204,8 +203,6 @@ ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/'
-ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Vinyl Crate] '
 
 SECURE_SSL_REDIRECT = not DEBUG

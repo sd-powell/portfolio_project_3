@@ -1167,7 +1167,7 @@ To clone your forked repository:
 ## Testing
 
 > [!NOTE]
-> Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
+> Manual testing covered all user flows, including edge cases and JavaScript interactions. For full detail, see [TESTING.md](TESTING.md)
 
 <a id="content"></a>
 
