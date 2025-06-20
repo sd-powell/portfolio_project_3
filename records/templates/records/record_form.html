@@ -25,6 +25,23 @@
             <!-- Record Form -->
             <form id="record-form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+
+                {# --- Display RecordForm validation errors --- #}
+                {% if form.errors %}
+                  <div class="alert alert-danger">
+                    <ul class="mb-0">
+                      {% for field in form %}
+                        {% for error in field.errors %}
+                          <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                        {% endfor %}
+                      {% endfor %}
+                      {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
                 {{ form|crispy }}
 
                 <!-- Track Formset -->
@@ -36,6 +53,18 @@
                         Add Tracks
                     {% endif %}
                 </h2>
+
+                {# --- Display TrackFormSet non-form errors --- #}
+                {% if formset.non_form_errors %}
+                  <div class="alert alert-danger">
+                    <ul class="mb-0">
+                      {% for error in formset.non_form_errors %}
+                        <li>{{ error }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
                 <div id="formset-container">
                     {{ formset.management_form }}
                     {% if formset.forms %}
