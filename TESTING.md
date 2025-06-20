@@ -25,12 +25,13 @@ This document outlines the testing processes and results for the **Vinyl Crate**
   - [Browser Compatibility](#browser)
   - [Responsiveness](#responsiveness)
   - [Accessibility](#accessibility)
-  - [Testing User Stories](#testing-user)
-  - [Features Testing](#features-test)
+  - [Testing User Stories](#user-story-testing)
+  - [Features Testing](#features-testing)
   - [Existing Features](#existing-features)
-  - [Manual Features Testing](#manual-features-test)
+  - [Manual Features Testing](#manual-features-testing)
   - [Solved Issues & Bugs](#solved-issues)
   - [Known Issues & Bugs](#known-issues)
+  - [Conclusion](#conclusion)
 
 <br>
 <hr>
@@ -293,15 +294,15 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 
 | Foreground colour | Background colour | Screenshot | Testing results |
 | :-----------------: | :-----------------: | :---------------: | :---------------: |
-| `#ffffff`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour1.webp)| ✅ Pass |
-| `#151724`         | `#4f9aff`         | ![Screenshot1](documentation/testing-access-colour2.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
-| `#4eb738`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour3.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
-| `#e83c5a`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour4.webp)| ⛔️ Fail on all text <br> ✅  Pass on graphics |
-| `#f59527`         | `#252733`         | ![Screenshot1](documentation/testing-access-colour5.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
+| `#212529`         | `#ffb633`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-1.webp)| ✅ Pass |
+| `#212529`         | `#efefef`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-2.webp)| ✅ Pass |
+| `#305F6D`         | `#e6e6e6`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-3.webp)| ⛔️ Fail on normal text <br> ✅  Pass on larger text and graphics |
+| `#ffffff`         | `#305F6D`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-4.webp)| ✅ Pass |
+| `#305F6D`         | `#FFB633`         | ![Screenshot1](documentation/testing/accessibility/testing-webaim-5.webp)| ⛔️ Fail on small text <br> ✅  Pass on larger text and graphics |
 
 ---
 
----
+<a id="user-story-testing"></a>
 
 ### Testing User Stories
 
@@ -338,6 +339,8 @@ In addition to the automated tests for accessibility standards, I used [WebAIM](
 
 > [!NOTE]
 > User stories can also be viewed in the [README](README.md) file.
+
+<a id="features-testing"></a>
 
 ## Features Testing
 
@@ -1024,6 +1027,8 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 <br>
 <hr>
 
+<a id="manual-features-testing"></a>
+
 ## Manual Features Testing
 
 ### Navbar (Header) - (`base.html`)
@@ -1192,6 +1197,12 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | **Toast auto-hides after 4 seconds** | Toast disappears without interaction | Waited 4 seconds after triggering toast | Toast auto-dismissed as expected | ✅ Pass |
 | **Multiple toasts stack correctly** | If multiple messages fire, they display in order | Triggered back-to-back actions (e.g., login then update) | Toasts stacked correctly without overlap | ✅ Pass |
 
+### Media Storage Handling
+
+| Scenario | Expected Handling | Testing Performed | Result | Pass/Fail |
+|----------|------------------|-------------------|--------|-----------|
+| **Image uploads save to Cloudinary** | File stored remotely with public URL |	Uploaded cover image and checked admin & page | Image loaded from Cloudinary | ✅ Pass |
+
 <a id="solved-issues"></a>
 
 ### Solved Issues & Bugs
@@ -1218,7 +1229,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 
 ---
 
----
+<a id="conclusion"></a>
 
 ## Conclusion
 

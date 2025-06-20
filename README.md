@@ -338,6 +338,9 @@ The primary colours for the site are:
 
 These colours were defined as CSS variables for easy reuse and consistent application. Together, they create a cohesive, brand-forward aesthetic that reflects Vinyl Crate’s blend of nostalgia and modern utility.
 
+> [!NOTE]
+> Contrast compliance was fully tested and reported. For full detail, see [TESTING.md](TESTING.md)
+
 <details>
 <summary>- Toggle the arrow to view the colour swatches</summary>
 
