@@ -26,82 +26,98 @@
             <form id="record-form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                {# --- Display RecordForm validation errors --- #}
-                {% if form.errors %}
-                  <div class="alert alert-danger">
-                    <ul class="mb-0">
-                      {% for field in form %}
-                        {% for error in field.errors %}
-                          <li><strong>{{ field.label }}:</strong> {{ error }}</li>
-                        {% endfor %}
-                      {% endfor %}
-                      {% for error in form.non_field_errors %}
-                        <li>{{ error }}</li>
-                      {% endfor %}
-                    </ul>
-                  </div>
+                <!-- Display non-field errors for the main form -->
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form.non_field_errors }}
+                    </div>
                 {% endif %}
 
-                {{ form|crispy }}
+
+                <!-- 
+                    Field-by-field rendering with scoped error messages adapted from:
+                    https://docs.djangoproject.com/en/4.2/ref/forms/api/#looping-over-form-fields
+                    This approach helps ensure precise display of validation errors.
+                -->
+
+                {% for field in form %}
+                    <div class="mb-3">
+                        {{ field|as_crispy_field }}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger mt-1" role="alert">
+                                {{ field.label }}: {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
 
                 <!-- Track Formset -->
                 <hr class="my-4">
                 <h2 class="mb-3 h4">
-                    {% if form.instance.pk %}
-                        Edit Tracks
-                    {% else %}
-                        Add Tracks
-                    {% endif %}
+                    {% if form.instance.pk %}Edit Tracks{% else %}Add Tracks{% endif %}
                 </h2>
 
-                {# --- Display TrackFormSet non-form errors --- #}
+                <!-- Display non-form errors for the formset (e.g., duplicate track validation) -->
                 {% if formset.non_form_errors %}
-                  <div class="alert alert-danger">
-                    <ul class="mb-0">
-                      {% for error in formset.non_form_errors %}
-                        <li>{{ error }}</li>
-                      {% endfor %}
-                    </ul>
-                  </div>
+                    <div class="alert alert-danger" role="alert">
+                        {{ formset.non_form_errors }}
+                    </div>
                 {% endif %}
 
                 <div id="formset-container">
                     {{ formset.management_form }}
-                    {% if formset.forms %}
-                        {% for track_form in formset %}
-                            <div class="track-form mb-3 position-relative">
-                                <div class="card p-3">
-                                    {{ track_form|crispy }}
-                                    {% if track_form.DELETE %}
-                                        <div class="d-none">
-                                            {{ track_form.DELETE }}
-                                        </div>
-                                    {% endif %}
-                                    <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
-                                            aria-label="Remove track"></button>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p class="text-muted fst-italic">No tracks have been added yet.</p>
-                    {% endif %}
-                </div>
 
-                <!-- Hidden empty form template to clone -->
-                    <div id="empty-form-template" class="d-none">
+                    <!-- 
+                        Track formset rendered field-by-field with error handling for each input.
+                        Based on Django's recommended practice for handling inline formsets:
+                        https://docs.djangoproject.com/en/4.2/topics/forms/modelforms/#inline-formsets
+                    -->
+                    {% for track_form in formset %}
                         <div class="track-form mb-3 position-relative">
                             <div class="card p-3">
-                                {{ formset.empty_form|crispy }}
-                                {% if formset.empty_form.DELETE %}
+                                {% for field in track_form.visible_fields %}
+                                    <div class="mb-2">
+                                        {{ field|as_crispy_field }}
+                                        {% for error in field.errors %}
+                                            <div class="alert alert-danger mt-1" role="alert">
+                                                {{ field.label }}: {{ error }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                                {% if track_form.DELETE %}
                                     <div class="d-none">
-                                        {{ formset.empty_form.DELETE }}
+                                        {{ track_form.DELETE }}
                                     </div>
                                 {% endif %}
                                 <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
                                         aria-label="Remove track"></button>
                             </div>
                         </div>
+                    {% empty %}
+                        <p class="text-muted fst-italic">No tracks have been added yet.</p>
+                    {% endfor %}
+                </div>
+
+                <!-- Hidden empty form template to clone -->
+                <div id="empty-form-template" class="d-none">
+                    <div class="track-form mb-3 position-relative">
+                        <div class="card p-3">
+                            {% for field in formset.empty_form.visible_fields %}
+                                <div class="mb-2">
+                                    {{ field|as_crispy_field }}
+                                </div>
+                            {% endfor %}
+                            {% if formset.empty_form.DELETE %}
+                                <div class="d-none">
+                                    {{ formset.empty_form.DELETE }}
+                                </div>
+                            {% endif %}
+                            <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
+                                    aria-label="Remove track"></button>
+                        </div>
                     </div>
+                </div>
 
                 <!-- Add another button -->
                 <button type="button" id="add-track-btn" class="btn btn-outline-secondary mt-3">
