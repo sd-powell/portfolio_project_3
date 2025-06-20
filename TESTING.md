@@ -1169,6 +1169,29 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 
 **Note:** This is an intentional design choice to allow flexibility. Users may wish to log a new record and add tracks later.
 
+### Additional Tests
+
+### Account / Authentication Testing
+
+| Scenario | Expected Handling | Testing Performed | Result | Pass/Fail |
+|----------|------------------|-------------------|--------|-----------|
+| **Successful login redirects to dashboard**	| Redirects to `/my-records/`	| Logged in as user | Dashboard loaded | ✅ Pass |
+| **Logout returns to homepage**	| Navigates to `/`	| Clicked logout | Home page shown | ✅ Pass |
+| **Email signup validation**	| Blank/invalid email rejected	| Tried submitting signup without email | Error shown	| ✅ Pass |
+
+### Toast Notifications
+
+| Scenario | Expected Handling | Testing Performed | Result | Pass/Fail |
+|----------|------------------|-------------------|--------|-----------|
+| **Success toast after login** | Toast notification confirms login success | Logged in as a valid user | Green success toast displayed with appropriate message | ✅ Pass |
+| **Success toast after logout** | Toast confirms logout | Clicked logout from the user dropdown | Toast appeared confirming successful sign-out | ✅ Pass |
+| **Success toast after adding a record** | Toast confirms successful record creation | Submitted a new record with valid data | Toast appeared showing "Record '[title]' added successfully!" | ✅ Pass |
+| **Success toast after updating a record** | Toast confirms successful update | Edited a record and submitted form | Toast appeared showing "Record '[title]' updated successfully!" | ✅ Pass |
+| **Success toast after deleting a record** | Toast confirms deletion | Deleted a record via the delete confirmation page | Toast appeared confirming the record was removed | ✅ Pass |
+| **Toast dismissible by user** | User can manually close the toast | Clicked the "x" button on toast | Toast dismissed immediately | ✅ Pass |
+| **Toast auto-hides after 4 seconds** | Toast disappears without interaction | Waited 4 seconds after triggering toast | Toast auto-dismissed as expected | ✅ Pass |
+| **Multiple toasts stack correctly** | If multiple messages fire, they display in order | Triggered back-to-back actions (e.g., login then update) | Toasts stacked correctly without overlap | ✅ Pass |
+
 <a id="solved-issues"></a>
 
 ### Solved Issues & Bugs
@@ -1181,6 +1204,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | 4 | Editing a record triggered 500 error due to incorrect redirect using non-existent URL pattern with slug | Updated `record_update` view to redirect to `'record_detail'` with correct slug keyword argument | ![screenshot](documentation/testing/bugs/testing-fix-redirect.webp) |
 | 5 | Unable to add or remove tracks when editing a record | Moved the `empty_form_template` block outside the `if not form.instance.pk` condition so JavaScript can clone new forms when editing. Updated JS to correctly handle both new and existing forms using the DELETE checkbox and dynamic reindexing. | ![screenshot](documentation/testing/bugs/testing-track-form.webp) |
 | 6  | Validation errors not visible on Heroku deployment | Added explicit error handling blocks for `form.errors` and `formset.non_form_errors` in `record_form.html` to ensure user feedback is shown consistently across environments. Commented source links to Django documentation to demonstrate research and best practice adoption. | ![screenshot](documentation/testing/bugs/testing-validation-error.webp) |
+| 7 | Successful login redirects to home page instead of dashboard | Added `ACCOUNT_LOGIN_REDIRECT_URL = reverse_lazy('record_list')` to settings and removed conflicting duplicate `LOGIN_REDIRECT_URL = '/'` entry. Now both standard and allauth login flows direct users to their dashboard after login. | ![screenshot](documentation/testing/bugs/testing-login-redirect.webp) |
 
 ---
 
