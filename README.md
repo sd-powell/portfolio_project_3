@@ -37,6 +37,7 @@ By supporting mindful collecting and visual storytelling, Vinyl Crate helps user
     - [Typography](#typography)
     - [Imagery](#imagery)
     - [Features](#features)
+        - [Footer](#footer-features)
         - [The Home Page](#home-page-features)
         - [The Dashboard Page](#dashboard-features)
         - [The My Crate Page](#my-crate-features)
@@ -473,16 +474,32 @@ These features work together to streamline collection management and enhance use
 
 If a user attempts to access a **restricted page** or function without the appropriate permissions, they are redirected to the login page. This approach reinforces secure behaviour and improves user experience by clearly communicating access boundaries and preventing unexpected errors.
 
+<a id="footer-features"></a>
+
 #### Footer
 
-The footer is divided into three key sections. The first section encourages user engagement by displaying a “Join us on” heading followed by links to the site’s social media profiles, each with accessible icons. The second section provides quick links to key pages such as Home, Register, Contact, and Privacy. The final section includes copyright information and a link to the developer’s GitHub profile. The layout is fully responsive, stacking neatly on smaller screens for optimal usability across devices.
+The footer is a **common site component**, appearing consistently across all pages to support navigation, brand presence, and accessibility.
+
+The footer is divided into three key sections:
+- 1.	**Social Links** – A “Join us on” heading followed by accessible icons linking to the site’s social media profiles. These icons are sized for clarity and styled for strong contrast.
+- 2.	**Quick Links** – Direct access to key pages such as Home and Register (which conditionally displays as Dashboard when a user is logged in). This section dynamically adapts to user session state.
+- 3.	**Footer Base** – Includes copyright information and a right-aligned link to the developer’s GitHub profile.
+
+The entire layout is fully responsive, adjusting seamlessly on smaller screens to preserve accessibility and user experience across devices.
+
+<details>
+<summary>Click here to view the footer</summary>
+
+![Vinyl Crate home page](documentation/readme/surface_plane/features-footer.webp)
+
+</details>
 
 <a id="home-page-features"></a>
 
 #### The Home Page
 
 <details>
-<summary>Click here to view the home page</summary>
+<summary>Click here to view the homepage</summary>
 
 ![Vinyl Crate home page](documentation/readme/surface_plane/features-home.webp)
 
