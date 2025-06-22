@@ -869,7 +869,7 @@ Accessibility has been a key consideration throughout the development of Vinyl C
 - Using semantic HTML5 elements to improve structure and navigation for assistive technologies
 - Providing descriptive `alt` text for all meaningful images, including record covers and banners
 - Applying `aria-labels` to interactive elements such as icon-only buttons and links for screen reader clarity
-- Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colours))
+- Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colour-scheme))
 - Ensuring focus states and keyboard navigability across all interactive components
 
 Accessibility was evaluated using **Lighthouse**, **WAVE**, and manual checks in Chrome DevTools. Detailed results are available in the [TESTING.md](TESTING.md) document.
@@ -1171,7 +1171,7 @@ To create a personal copy of this repository:
 To clone your forked repository:
 
 1. Log in to [GitHub](https://github.com/).
-2. Go to the repository for this project, [sd-powell/portfolio_project_2](https://github.com/sd-powell/portfolio_project_3).
+2. Go to the repository for this project, [sd-powell/portfolio_project_3](https://github.com/sd-powell/portfolio_project_3).
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 4. Open the terminal in your code editor and change the current working directory to the location where you want to clone the repository.
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
