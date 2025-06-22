@@ -234,9 +234,9 @@ The database schema diagram was generated using [dbdiagram.io](https://dbdiagram
 
 #### **Wireframes**
 
-Initial wireframes were created using [Balsamiq](https://balsamiq.com/) to plan the core layout and flow of the **Vinyl Crate** site. These included views for mobile, tablet, and desktop to ensure the design would be fully responsive and accessible.
+Initial wireframes were created using [Balsamiq](https://balsamiq.com/) to plan the layout and user flow of the **Vinyl Crate** web application. Wireframes were developed for **mobile, tablet, and desktop** to ensure the site would be fully responsive and accessible across devices.
 
-The wireframes helped shape the site’s information hierarchy and user journey, including key screens such as the homepage, dashboard, record collection view, and record detail view. They served as a visual blueprint during development, guiding the placement of search, filter, and CRUD functionality with a mobile-first mindset.
+These wireframes informed the site’s **information hierarchy** and **user journey**, covering key views such as the homepage, dashboard, record collection, and record detail pages. They served as a visual blueprint throughout development, helping guide the placement of search, filter, and CRUD elements with a **mobile-first** approach.
 
 <br>
 <hr>
@@ -334,7 +334,7 @@ The wireframes helped shape the site’s information hierarchy and user journey,
 
 <a id="colour-scheme"></a>
 
-### Colour Scheme
+#### Colour Scheme
 
 The Vinyl Crate colour palette is inspired by the rich textures and nostalgic warmth of analogue sound — drawing from classic **record sleeves**, vintage **audio gear**, and the **glow of golden-hour light** reflecting on a turntable. This scheme balances modern clarity with retro flair, giving the app a tactile, curated feel that aligns with the essence of vinyl collecting.
 
