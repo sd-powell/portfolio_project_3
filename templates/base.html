@@ -130,7 +130,7 @@
                         </li>
                         {% else %}
                             <li><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
-                            <li><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
+                            <li><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
                         {% endif %}
                     </ul>
 
@@ -198,15 +198,18 @@
                 <!-- Quick Links -->
                 <div class="text-center fs-5 mb-4">
                     <a href="{% url 'index' %}" class="text-decoration-none text-muted mx-2" aria-label="Return to the home page">Home</a>
-                    <a href="{% url 'account_signup' %}" class="text-decoration-none text-muted mx-2">Register</a>
-                    <a href="#" class="text-decoration-none text-muted mx-2">Contact</a>
-                    <a href="#" class="text-decoration-none text-muted mx-2">Privacy</a>
+                    <!-- Conditionally show 'Register' or 'Dashboard' based on user authentication status -->
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'record_list' %}" class="text-decoration-none text-muted mx-2" aria-label="Go to your dashboard">Dashboard</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="text-decoration-none text-muted mx-2" aria-label="Sign up for a Vinyl Crate account">Sign up</a>
+                    {% endif %}
                 </div>
 
                 <!-- Bottom Bar -->
                 <div class="d-flex justify-content-between align-items-center flex-column flex-md-row text-muted small">
                     <p class="mb-2 mb-md-0">&copy; 2025 Steve Powell</p>
-                    <a href="https://github.com/sd-powell" target="_blank" rel="noopener" class="text-muted">
+                    <a href="https://github.com/sd-powell" target="_blank" rel="noopener noreferrer" class="text-muted">
                         <i class="fab fa-github me-2" aria-hidden="true"></i> Visit my GitHub
                     </a>
                 </div>
