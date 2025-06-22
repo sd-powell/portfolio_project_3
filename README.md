@@ -185,6 +185,8 @@ User roles are also considered in the planning:
 | 22 | Admin          | Manage tracks directly from the Record admin view   | Save time editing metadata without switching models |
 | 23 | Mobile User    | Access my collection on a phone or tablet           | View or update records while crate digging or DJing |
 | 24 | Mobile User    | Upload cover images from my device                  | Add new records quickly without needing a computer |
+| 25 | All Users      | See a friendly error page (404/500)                 | Know if something has gone wrong and what to do next |
+| 26 | User           | See my most recently added records at the top       | Quickly access what I just added                     |
 
 > [!NOTE]
 > All user stories were manually tested. See [User Story Testing](TESTING.md) for full test results.
