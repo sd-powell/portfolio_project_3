@@ -4,8 +4,9 @@
 {% block content %}
 <!-- index.html content starts here -->
 
-<!-- Carousel -->
-<div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000">
+<!-- Hero section: Carousel functionality has been deactivated for this release. 
+     Structure retained for potential future feature expansion. -->
+<div id="homeCarousel" class="carousel slide" aria-label="Welcome section">
   <div class="carousel-inner">
 
   <!-- Slide 1 -->
@@ -30,7 +31,7 @@
             </div>
           </div>
 
-          <!-- Image (should appear below text on mobile) -->
+          <!-- Image (should appear below text on mobile & is hidden on small screens) -->
           <div class="col-md-5 order-2 order-md-1 px-0 carousel-image">
             <img src="{% static 'images/vinyl-crate-record.png' %}"
                 alt="Vinyl Records"
@@ -42,26 +43,9 @@
     </div>
   </div>
   </div>
-
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
 </div>
 
-<!-- Staff Picks Section -->
+<!-- Staff Picks Section (Album cards for featured staff picks) -->
 <section class="py-5" aria-labelledby="staff-picks-heading">
   <div class="container">
     <h2 id="staff-picks-heading" class="mb-4 fw-bold">Staff Picks</h2>
