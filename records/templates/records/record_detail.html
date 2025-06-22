@@ -3,19 +3,22 @@
 
 {% block content %}
 <!-- Hero Section -->
-<header class="hero-section">
+<header class="hero-section position-relative">
   <!-- Background Image -->
   <div class="hero-background" style="background-image: url('{{ record.cover_image.url }}');"></div>
+
+  <!-- Gradient Overlay -->
+  <div class="hero-gradient-overlay"></div>
 
   <!-- Overlay Container -->
   <div class="hero-overlay-container">
     <!-- Back Button -->
     <div class="container hero-back-button">
-    <a href="{{ previous_url|default:'#' }}"
-        class="btn btn-link text-white text-decoration-none"
-        aria-label="Back to previous page or crate">
-    <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
-    </a>
+      <a href="{{ previous_url|default:'#' }}"
+         class="btn btn-link text-white text-decoration-none"
+         aria-label="Back to previous page or crate">
+        <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
+      </a>
     </div>
 
     <!-- Info Box -->
@@ -95,13 +98,13 @@
     <div class="d-flex justify-content-end gap-3 mt-4">
         {% if user.is_authenticated and user == record.user %}
             <a href="{% url 'record_update' record.slug %}"
-                class="btn btn-outline-primary"
+                class="btn btn-neutral rounded-pill d-flex align-items-center gap-2 fw-semibold"
                 role="button"
                 aria-label="Edit this record: {{ record.title }} by {{ record.artist }}">
                 <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i> Edit
             </a>
             <a href="{% url 'record_delete' record.slug %}"
-            class="btn btn-outline-danger"
+            class="btn btn-danger-pill"
             role="button"
             aria-label="Delete this record: {{ record.title }} by {{ record.artist }}">
                 <i class="fa-solid fa-trash me-2" aria-hidden="true"></i> Remove from Collection

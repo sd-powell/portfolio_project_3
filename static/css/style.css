@@ -10,6 +10,7 @@
       --site-bg-grey: #efefef;
       --search-bg-grey: #e6e6e6;
       --foreground-white: #ffffff;
+      --danger-red: #dc3545;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -184,6 +185,21 @@ input, button, select, textarea {
 
 .search-btn:hover {
   color: #000;
+}
+
+.btn-danger-pill {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.btn-danger-pill:hover {
+  background-color: #c82333;
+  color: #fff;
 }
 
 /* Filters styled like pills */
@@ -449,6 +465,20 @@ input, button, select, textarea {
 
 .hero-info-box {
   padding-bottom: 1.5rem;
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.1) 35%,
+    rgba(0, 0, 0, 0.1) 65%,
+    rgba(0, 0, 0, 0.8) 100%);
 }
 
 .album-thumbnail {
