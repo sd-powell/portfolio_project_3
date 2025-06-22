@@ -43,6 +43,10 @@ p {
   font-weight: 500;
 }
 
+.text-highlight-blue {
+  color: var(--highlight-blue) !important;
+}
+
 .banner-title {
   font-size: 40px;
   font-weight: 700;

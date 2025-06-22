@@ -263,7 +263,10 @@ def record_collection(request):
     """
     Display a searchable and filterable collection of the user's records.
     """
-    records = Record.objects.filter(user=request.user)
+    all_user_records = Record.objects.filter(user=request.user)
+    total_records = all_user_records.count()
+
+    records = all_user_records
 
     # Handle filters
     search_query = request.GET.get('search', '')
@@ -301,6 +304,7 @@ def record_collection(request):
 
     return render(request, 'records/record_collection.html', {
         'records': records,
+        'total_records': total_records,
         'genres': genres,
         'ratings': ratings,
         'artists': artists,
