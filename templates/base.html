@@ -61,13 +61,18 @@
                         {% else %}
                             bg-secondary
                         {% endif %}
-                        border-0 show" role="alert" aria-live="assertive" aria-atomic="true"
-                        data-bs-delay="4000" data-bs-autohide="true">
+                        border-0 show"
+                        role="alertdialog"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                        data-bs-delay="4000"
+                        data-bs-autohide="true"
+                        aria-describedby="toast-body-{{ forloop.counter }}">
                         <div class="d-flex">
-                            <div class="toast-body">
-                                <span class="visually-hidden">Notification</span>
-                                {{ message }}
-                            </div>
+                        <div class="toast-body" id="toast-body-{{ forloop.counter }}">
+                            <span class="visually-hidden">Notification</span>
+                            {{ message }}
+                        </div>
                             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
                     </div>
@@ -163,27 +168,27 @@
                 <div class="text-center mb-4">
                     <h4 class="fw-semibold fs-4 mb-3">Join us on:</h4>
                     <div class="d-flex justify-content-center flex-wrap gap-4 fs-4">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram"
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"
                             aria-label="Follow us on Instagram (opens in new tab)">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook"
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"
                             aria-label="Follow us on Facebook (opens in new tab)">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.x.com" target="_blank" rel="noopener" title="X"
+                        <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X"
                             aria-label="Follow us on X (formerly Twitter) (opens in new tab)">
                             <i class="fab fa-x-twitter"></i>
                         </a>
-                        <a href="https://www.youtube.com" target="_blank" rel="noopener" title="YouTube"
+                        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" title="YouTube"
                             aria-label="Follow us on YouTube (opens in new tab)">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://www.spotify.com" target="_blank" rel="noopener" title="Spotify"
+                        <a href="https://www.spotify.com" target="_blank" rel="noopener noreferrer" title="Spotify"
                             aria-label="Follow us on Spotify (opens in new tab)">
                             <i class="fab fa-spotify"></i>
                         </a>
-                        <a href="https://soundcloud.com" target="_blank" rel="noopener" title="SoundCloud"
+                        <a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer" title="SoundCloud"
                             aria-label="Follow us on SoundCloud (opens in new tab)">
                             <i class="fab fa-soundcloud"></i>
                         </a>
@@ -215,7 +220,7 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous">
         </script>
-        <!-- Custom JS for track form -->
+        <!-- Enables dynamic track form interactions for Record forms -->
         <script src="{% static 'js/track_formset.js' %}"></script>
         <!-- Auto-show Bootstrap toast notifications on page load -->
         <script>
