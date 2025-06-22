@@ -24,7 +24,8 @@
 }
 
 body {
-    background-color: var(--site-bg-grey);
+  font-family: var(--primary-font);
+  background-color: var(--site-bg-grey);
 }
 
 /************ Typography ************/
@@ -41,6 +42,10 @@ h1 span {
 p {
   font-family: var(--primary-font);
   font-weight: 500;
+}
+
+input, button, select, textarea {
+  font-family: var(--primary-font);
 }
 
 .text-highlight-blue {
