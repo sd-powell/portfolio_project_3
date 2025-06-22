@@ -400,7 +400,7 @@ These colours were defined as CSS variables for easy reuse and consistent applic
 
 #### Typography
 
-[Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high-quality and accessible typography across all devices and browsers.
+[Google Fonts](https://fonts.google.com/) was used to import the selected fonts for the site, ensuring high-quality and accessible typography across all devices and browsers. Fonts are imported using CSS @import, with appropriate fallbacks defined for maximum cross-device compatibility.
 
 - **Headings (h1, h2, h3):** The font [Montserrat](https://fonts.google.com/specimen/Montserrat) was chosen for its bold, geometric style that provides a clean, modern look. Its sharp edges and contemporary design help headlines stand out, giving the site a distinctive and polished visual identity while remaining easy to read.
 
@@ -410,7 +410,20 @@ These colours were defined as CSS variables for easy reuse and consistent applic
 
 ![Lato Font Example](documentation/readme/surface_plane/typography-lato.webp)
 
+- Together, Montserrat and Lato provide strong typographic contrast—balancing bold headlines with highly readable body text for an accessible, modern feel.
+
 - **Icons and UI elements:** The [Font Awesome](https://fontawesome.com/) icon library was used to support the visual interface with clear, scalable icons. These icons align stylistically with the modern fonts and enhance user experience through recognizable visual cues for actions, navigation, and social media links.
+
+> [!NOTE]
+> Defined in static/css/style.css
+
+```css
+:root {
+    /************ Typography ************/
+    --primary-font: "Lato", sans-serif;
+    --secondary-font: "Montserrat", sans-serif;
+}
+```
 
 <br>
 <hr>
