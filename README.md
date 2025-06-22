@@ -645,7 +645,7 @@ This page supports in-depth cataloguing, echoing the experience of pulling a rec
 <details>
 <summary>Click here to view the Record and Track Forms page</summary>
 
-![Record detail page showing cover image, metadata, and track listing](documentation/readme/surface_plane/features-record-detail.webp)
+![Record detail page showing cover image, metadata, and track listing](documentation/readme/surface_plane/features-record-form.webp)
 
 </details>
 
@@ -656,23 +656,26 @@ The Record and Track forms are central to the user’s ability to create and mai
 - **What it does:**
   - Allows users to add or edit records with fields for title, artist, release year, genre, rating, and optional cover image.
   - Supports inline addition of track listings, each with position, title, duration, and optional BPM/key fields.
-  - Enforces validation on key fields (e.g. whitespace-only titles, duration format).
-  - Enables dynamic add/remove of track forms via JavaScript, with consistent indexing and deletion tracking.
+  - Includes validation on key fields (e.g. required title, correctly formatted durations, and no whitespace-only entries).
+  - Uses a custom inline formset with a hidden `id` field to reliably track and save updates to individual track instances.
+  - Enables dynamic JavaScript-driven addition and removal of track forms, with accurate form indexing and deletion flags.
 
 - **User Benefits:**
   - Makes it easy to catalogue both high-level record data and specific track details in one intuitive interface.
   - Inline formsets allow users to build a full track list without navigating away or reloading the page.
-  - Real-time error messages ensure users can correct issues before submission, improving form reliability.
+  - Real-time error messages help users identify and correct issues before submission, improving form accuracy and reducing frustration.
+  - Hidden IDs and dynamic form management prevent data loss and ensure existing tracks are updated rather than duplicated.
 
 - **Interactive Elements:**
-  - Add and remove buttons for track forms with JavaScript-driven behaviour.
-  - Validation feedback on incorrect or missing inputs (e.g. invalid durations or blank titles).
-  - Smart deletion of tracks using Django’s `can_delete` handling — hidden from view but flagged for removal.
-  - Dynamically rendered help text for each field to guide the user.
-
-> *Note: Tracks are optional, allowing users to add a record entry without any associated track listings. This provides flexibility for users who wish to catalogue records gradually or with minimal detail.*
+  - Add and remove buttons for track forms with JavaScript-powered behaviour.
+  - Automatic renumbering of form indexes and `name`/`id` attributes as forms are added or removed.
+  - Inline validation feedback for inputs such as duration and title.
+  - Smart deletion of tracks using Django’s `can_delete` flags — handled invisibly but passed correctly to the backend.
 
 This form system balances flexibility and control, making it easy for collectors to maintain a clean, consistent archive of their vinyl library — whether adding just the basics or entering full metadata for every track.
+
+> [!NOTE]
+> Tracks are optional, allowing users to add a record entry without any associated track listings. This provides flexibility for users who wish to catalogue records gradually or with minimal detail.
 
 
 <a id="400-page-features"></a>
@@ -815,7 +818,7 @@ Vinyl Crate was developed using an **iterative, feature-driven approach**:
 5. Integrated Cloudinary for image uploads and Discogs for record metadata
 6. Built dynamic filtering, search, and user dashboard features
 7. Focused on accessibility, responsive design, and a clean UI
-8. Completed manual and automated testing, README documentation, and deployed to Heroku
+8. Completed manual and automated testing, final documentation, and deployed to Heroku
 
 Version control was managed using **Git** and **GitHub**, with regular, descriptive commits to track progress and maintain a clear development history.
 
@@ -833,7 +836,7 @@ To expand the functionality of Vinyl Crate and improve the user experience, the 
 
 4. **Discogs API Integration & Form Autocomplete** – Connect to the Discogs API to allow users to search for records and auto-populate fields when adding to their crate. This would speed up the submission process and improve data consistency.
 
-5. **Social Media Sign-In Options** – Enhance account creation and login by offering OAuth-based sign-ins through Google, Facebook, or Apple. This simplifies user onboarding and provides a more seamless authentication process.
+5. **Social Media Sign-In Options** – Enhance account creation and login by offering third-party sign-ins through Google, Facebook, or Apple. This simplifies user onboarding and provides a more seamless authentication process.
 
 6. **Public Crate Sharing** – Let users create a public view of their vinyl collection, sharable via a link (e.g. `vinylcrate.app/username`), great for DJs and collectors.
 
@@ -864,7 +867,7 @@ These enhancements aim to enrich the Vinyl Crate experience while making it easi
 Accessibility has been a key consideration throughout the development of Vinyl Crate. Measures taken to ensure the site is inclusive and user-friendly include:
 
 - Using semantic HTML5 elements to improve structure and navigation for assistive technologies
-- Adding descriptive `alt` attributes to all meaningful images, including record covers and banners
+- Providing descriptive `alt` text for all meaningful images, including record covers and banners
 - Applying `aria-labels` to interactive elements such as icon-only buttons and links for screen reader clarity
 - Maintaining strong colour contrast across the UI, particularly in key areas like filters, buttons, and navigation (see [Colour Scheme](#colours))
 - Ensuring focus states and keyboard navigability across all interactive components
@@ -1213,24 +1216,24 @@ To clone your forked repository:
 
 ### Frameworks, Libraries & Tools
 
-- [Django](https://www.djangoproject.com/) – Version 4.2.20 - The main web framework used to build the application.
-- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) - Version 65.8.0 - Used for authentication, registration & account management.
-- [Django Environ](https://django-environ.readthedocs.io/en/latest/) – Version 0.12.0 - Used to manage environment variables from a `.env` file.
-- [dj-database-url](https://pypi.org/project/dj-database-url/) – Version 0.5.0 - Simplifies database configuration with Heroku's environment.
-- [Pillow](https://pillow.readthedocs.io/en/stable/) – Version 11.2.1 - Required for image handling in Django models.
-- [psycopg2](https://pypi.org/project/psycopg2/) - Version 2.9.10 (Binary) - a postgres database adapter which allow us to connect with a postgres database
-- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) – Version 2025.4 - Used to render Django forms with Bootstrap 5 styling.
-- [Bootstrap 5](https://getbootstrap.com/) – Front-end framework for responsive design.
-- [Gunicorn](https://gunicorn.org/) – Version 20.1.0 - WSGI HTTP server used in production on Heroku.
-- [Whitenoise](https://whitenoise.evans.io/en/stable/) – Version 6.5.0 - Used to serve static files in production.
+- [Django](https://www.djangoproject.com/) – Version 4.2.20 – The primary web framework used to build the application.
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) – Version 65.8.0 – Provides authentication, registration, and account management.
+- [Django Environ](https://django-environ.readthedocs.io/en/latest/) – Version 0.12.0 – Manages environment variables from a `.env` file.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) – Version 0.5.0 – Simplifies database configuration for deployment on Heroku.
+- [Pillow](https://pillow.readthedocs.io/en/stable/) – Version 11.2.1 – Handles image uploads and processing in Django models.
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) – Version 2.9.10 – PostgreSQL database adapter used for connecting to the PostgreSQL database.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) – Version 2025.4 – Used to render Django forms with Bootstrap 5 styling.
+- [Bootstrap 5](https://getbootstrap.com/) – Front-end framework for building responsive, mobile-first interfaces.
+- [Gunicorn](https://gunicorn.org/) – Version 20.1.0 – WSGI HTTP server used for deploying the Django application on Heroku.
+- [Whitenoise](https://whitenoise.evans.io/en/stable/) – Version 6.5.0 – Serves static files efficiently in production environments.
 
 <a id="design"></a>
 
 ### Design & Visuals
 
-- [Balsamiq](https://balsamiq.com/) – Used to create wireframes for mobile, tablet and desktop layouts.
-- [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) – Used to design the logo and some UI elements.
-- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) – Used for cropping, resizing and exporting images in webp format for faster load times and modern compression.
+- [Balsamiq](https://balsamiq.com/) – Used to create wireframes for mobile, tablet, and desktop layouts.
+- [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) – Used to design the logo and key UI elements.
+- [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html) – Used for cropping, resizing, and exporting images in WebP format to ensure faster load times and modern compression efficiency.
 
 <a id="development-tools"></a>
 
@@ -1238,26 +1241,22 @@ To clone your forked repository:
 
 - [Heroku](https://www.heroku.com/) – Cloud platform used to deploy the final version of the application.
 - [Cloudinary](https://cloudinary.com/) – Used to host and deliver user-uploaded images.
-- [Git](https://git-scm.com/) – For version control.
-- [GitHub](https://github.com/) – Repository hosting and collaboration.
-- [Pip](https://pypi.org/project/pip/) - A tool for installing Python packages.
-- [Visual Studio Code](https://code.visualstudio.com/) – Primary code editor used for development.
-- [Google Fonts](https://fonts.google.com/) – For custom font integration.
-- [Font Awesome](https://fontawesome.com/) – Icon library for UI icons.
+- [Git](https://git-scm.com/) – Used for version control throughout development.
+- [GitHub](https://github.com/) – Repository hosting and collaboration platform.
+- [Pip](https://pypi.org/project/pip/) – Python package manager used to install project dependencies.
+- [Visual Studio Code](https://code.visualstudio.com/) – Primary code editor used for writing and debugging code.
+- [Google Fonts](https://fonts.google.com/) – Used to integrate custom typography into the UI.
+- [Font Awesome](https://fontawesome.com/) – Icon library used to enhance visual elements across the interface.
 
 <a id="testing-tools"></a>
 
 ### Testing & Accessibility Tools
 
-- [Coverage.py](https://coverage.readthedocs.io/) – Used to evaluate the effectiveness of the test suite by checking code coverage.
-- [Google Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) – For debugging and responsive testing.
-- [Mobile First Plugin](https://www.webmobilefirst.com/en/) – Used to simulate how the site appears on mobile devices.
-- [Aria DevTools](https://github.com/ziolko/aria-devtools) – Used to simulate screen reader accessibility.
-- [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik) – Chrome extension used to check for spelling errors across the site and README.
-
-<a id="testing-readme"></a>
-
-## Testing
+- [Coverage.py](https://coverage.readthedocs.io/) – Evaluates test suite effectiveness by reporting code coverage.
+- [Google Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) – Used for debugging, inspecting elements, and responsive testing across screen sizes.
+- [Mobile First Plugin](https://www.webmobilefirst.com/en/) – Simulates mobile device views to verify layout and responsiveness.
+- [Aria DevTools](https://github.com/ziolko/aria-devtools) – Assesses screen reader accessibility and ARIA landmark use.
+- [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik) – Chrome extension for detecting typos across page content and documentation.
 
 > [!NOTE]
 > Manual testing covered all user flows, including edge cases and JavaScript interactions. For full detail, see [TESTING.md](TESTING.md)
@@ -1266,9 +1265,9 @@ To clone your forked repository:
 
 ## Content
 
-The content displayed throughout the site is based on my own personal vinyl collection. Record details such as album titles, artists, tracklists, genres, and release years were sourced from [Discogs](https://www.discogs.com/) ensuring accurate and comprehensive metadata for each entry.
+The content displayed throughout the site is based on my own personal vinyl collection. Record details such as album titles, artists, tracklists, genres, and release years were sourced from [Discogs](https://www.discogs.com/) to ensure accurate and comprehensive metadata for each entry.
 
-All other written content — including UI text, instructions, labels, button copy, and page descriptions — was created by me to align with the app’s tone, functionality, and user experience goals.
+All other written content — including UI text, instructions, labels, button copy, and page descriptions — was written by me to align with the app’s tone, functionality, and user experience goals.
 
 <a id="media"></a>
 
