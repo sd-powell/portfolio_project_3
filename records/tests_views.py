@@ -94,7 +94,7 @@ class RecordViewsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         url = reverse('record_delete', args=[self.record.slug])
         response = self.client.post(url)
-        self.assertRedirects(response, reverse('record_list'))
+        self.assertRedirects(response, reverse('record_collection'))
 
     def test_record_collection_filters(self):
         """
@@ -163,7 +163,9 @@ class RecordUpdateViewTests(TestCase):
             'tracks-TOTAL_FORMS': 0,
             'tracks-INITIAL_FORMS': 0,
         })
-        self.assertRedirects(response, reverse('record_list'))
+        self.assertRedirects(
+            response, reverse('record_detail', args=[self.record.slug])
+            )
         self.record.refresh_from_db()
         self.assertEqual(self.record.title, 'Updated Title')
         self.assertEqual(self.record.rating, 5)
