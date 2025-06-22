@@ -152,7 +152,15 @@
           <i class="fa-solid fa-circle-chevron-right fa-lg text-highlight-blue me-4" aria-hidden="true"></i>
         </a>
       {% empty %}
-        <p class="text-center text-muted fs-5 fw-semibold">No records found. Try adjusting your filters or search terms.</p>
+        {% if records %}
+          <p class="text-center text-muted fs-5 fw-semibold">
+            No records match your current filters or search terms. Try adjusting them.
+          </p>
+        {% else %}
+          <p class="text-center text-muted fs-5 fw-semibold">
+            Add some records to start viewing and filtering your collection.
+          </p>
+        {% endif %}
       {% endfor %}
     </div>
 </div>
