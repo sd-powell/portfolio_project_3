@@ -13,7 +13,7 @@
     <div class="container hero-back-button">
     <a href="{{ previous_url|default:'#' }}"
         class="btn btn-link text-white text-decoration-none"
-        aria-label="Back to previous page">
+        aria-label="Back to previous page or crate">
     <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
     </a>
     </div>
@@ -22,8 +22,8 @@
     <div class="container d-flex align-items-center hero-info-box">
       <img src="{{ record.cover_image.url }}" alt="{{ record.title }}" class="img-thumbnail me-3 album-thumbnail">
       <div class="text-white">
-        <h4 class="mb-1">{{ record.title }}</h4>
-        <p class="mb-0">{{ record.artist }}</p>
+        <h1 class="mb-1 h4">{{ record.title }}</h1>
+        <h2 class="mb-0 h6">{{ record.artist }}</h2>
       </div>
     </div>
   </div>
@@ -59,8 +59,8 @@
     </div>
         
     <!-- Track List -->
-    <div class="mt-5">
-        <h4 class="mb-3">Track Listing</h4>
+    <div class="mt-5" role="region" aria-labelledby="track-listing-heading">
+        <h3 class="mb-3 h4" id="track-listing-heading">Track Listing</h3>
         {% if record.tracks.all %}
             <div class="list-group">
             {% for track in record.tracks.all %}
@@ -87,11 +87,11 @@
             {% endfor %}
             </div>
         {% else %}
-            <p class="text-muted">No tracks added yet.</p>
+            <p class="text-center text-muted fs-5 fw-semibold">No tracks added yet.</p>
         {% endif %}
     </div>
 
-    <!-- Record Action Buttons -->
+    <!-- Owner-only actions: edit or delete record -->
     <div class="d-flex justify-content-end gap-3 mt-4">
         {% if user.is_authenticated and user == record.user %}
             <a href="{% url 'record_update' record.slug %}"
