@@ -122,7 +122,7 @@ User roles are also considered in the planning:
 - **Users** – Registered members with a personalised dashboard
 - **Admins** – Staff or superusers with additional content management access
 
-| User Type     | Feature                                      | Importance | Viability | Scope   | Delivered |
+| User Type     | Feature                                      | Importance | Viability | Priority| Delivered |
 |:------------- |:-------------------------------------------- |:----------:|:---------:|:-------:|:---------:|
 | All           | View public landing page                     | 5          | 5         | MVP     | ✅        |
 | Guest         | Register for an account                      | 5          | 5         | MVP     | ✅        |
@@ -141,13 +141,15 @@ User roles are also considered in the planning:
 | All           | View mobile-friendly site                    | 4          | 5         | MVP     | ✅        |
 | User          | Rate records with 1–5 stars                  | 4          | 5         | MVP     | ✅        |
 | User          | Use dropdowns for genre and key              | 4          | 5         | MVP     | ✅        |
-| User          | Export collection as CSV                     | 3          | 4         | Could   | ⬜        |
-| Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ⬜        |
-| Admin         | Automatically show total track count per record | 3       | 3         | Could   | ⬜        |
-| User          | Edit/update account profile                  | 2          | 3         | Could   | ⬜        |
+| User          | Export collection as CSV                     | 3          | 4         | Could   | ❌        |
+| Guest         | Social media login/sign-up                   | 3          | 4         | Could   | ❌        |
+| Admin         | Automatically show total track count per record | 3       | 3         | Could   | ❌        |
+| User          | Edit/update account profile                  | 2          | 3         | Could   | ❌        |
 | All           | Custom 404 and 500 error pages               | 2          | 4         | Could   | ✅        |
-| All           | About/Contact page                           | 2          | 3         | Could   | ⬜        |
+| All           | About/Contact page                           | 2          | 3         | Could   | ❌        |
 | User          | Pre-populated demo records / staff picks     | 2          | 3         | Could   | ✅        |
+| Guest         | Public profile for viewing crates            | 3          | 2         | Could   | ❌        |
+| User          | Integrate Discogs API                        | 4          | 2         | Could   | ❌        |
 
 ---
 
