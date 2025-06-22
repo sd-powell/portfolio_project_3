@@ -469,7 +469,9 @@ These features work together to streamline collection management and enhance use
 
 #### Defensive Programming
 
-Defensive programming principles have been applied across the site to safeguard functionality and restrict access to authorised users only. Permission checks are in place to ensure that only superusers can perform admin-level tasks such as editing or deleting system-wide content. When a user attempts to access a restricted page or function without the appropriate permissions, they are redirected to a login page. This approach not only reinforces secure behaviour but also improves user experience by clearly communicating access boundaries.
+**Defensive programming principles** have been applied throughout the site to protect functionality and ensure that only **authorised users** can access sensitive actions. Permission checks are in place to restrict admin-level tasks — such as editing or deleting system-wide content — to superusers only.
+
+If a user attempts to access a **restricted page** or function without the appropriate permissions, they are redirected to the login page. This approach reinforces secure behaviour and improves user experience by clearly communicating access boundaries and preventing unexpected errors.
 
 #### Footer
 
