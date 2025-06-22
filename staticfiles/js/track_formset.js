@@ -20,56 +20,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const templateElement = document.getElementById('empty-form-template');
 
     function updateRemoveButtons() {
-        const removeButtons = container.querySelectorAll('.remove-track-btn');
-        removeButtons.forEach(button => {
+        container.querySelectorAll('.remove-track-btn').forEach(button => {
             button.removeEventListener('click', handleRemove); // prevent duplicates
             button.addEventListener('click', handleRemove);
         });
     }
 
+    function reindexForms() {
+        const forms = container.querySelectorAll('.track-form');
+        forms.forEach((form, index) => {
+            form.querySelectorAll('input, select, textarea, label').forEach(el => {
+                if (el.name) el.name = el.name.replace(/tracks-\d+-/, `tracks-${index}-`);
+                if (el.id) el.id = el.id.replace(/tracks-\d+-/, `tracks-${index}-`);
+                if (el.htmlFor) el.htmlFor = el.htmlFor.replace(/tracks-\d+-/, `tracks-${index}-`);
+            });
+        });
+        totalForms.value = forms.length;
+    }
+
     function handleRemove(e) {
         const trackForm = e.target.closest('.track-form');
-        if (trackForm) {
-            const deleteCheckbox = trackForm.querySelector('input[type="checkbox"][name*="DELETE"]');
-            if (deleteCheckbox) {
-                // For existing saved forms, mark for deletion and hide from view
-                deleteCheckbox.checked = true;
-                trackForm.style.display = 'none';
-            } else {
-                // For newly added forms, just remove from the DOM
-                trackForm.remove();
-                const forms = container.querySelectorAll('.track-form');
-                totalForms.value = forms.length;
+        if (!trackForm) return;
 
-                // Update all form indexes
-                forms.forEach((form, index) => {
-                    form.querySelectorAll('input, select, textarea, label').forEach(el => {
-                        if (el.name) {
-                            el.name = el.name.replace(/tracks-\d+-/, `tracks-${index}-`);
-                        }
-                        if (el.id) {
-                            el.id = el.id.replace(/tracks-\d+-/, `tracks-${index}-`);
-                        }
-                        if (el.htmlFor) {
-                            el.htmlFor = el.htmlFor.replace(/tracks-\d+-/, `tracks-${index}-`);
-                        }
-                    });
-                });
-            }
+        const deleteCheckbox = trackForm.querySelector('input[type="checkbox"][name*="DELETE"]');
+        if (deleteCheckbox) {
+            deleteCheckbox.checked = true;
+            trackForm.style.display = 'none';
+        } else {
+            trackForm.remove();
+            reindexForms();
         }
     }
 
-    function refreshTooltips() {
-        const tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    function initTooltip(el) {
+        return new bootstrap.Tooltip(el);
+    }
+
+    function refreshTooltips(scope = document) {
+        const tooltips = scope.querySelectorAll('[data-bs-toggle="tooltip"]');
         tooltips.forEach(el => {
-            new bootstrap.Tooltip(el);
+            /* global bootstrap */
+            initTooltip(el);
         });
     }
 
     if (container && totalForms && addBtn && templateElement) {
         addBtn.addEventListener('click', function () {
             const formCount = parseInt(totalForms.value, 10);
-            // Replace Django's __prefix__ placeholder with the current form index
             const newFormHtml = templateElement.innerHTML.replace(/__prefix__/g, formCount);
 
             const tempDiv = document.createElement('div');
@@ -79,19 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
             container.appendChild(newForm);
             totalForms.value = formCount + 1;
 
-            updateRemoveButtons(); // reattach listeners for all
+            updateRemoveButtons();
+            refreshTooltips(newForm);
         });
-        updateRemoveButtons(); // attach to initial forms
-    } else {
-        // Formset not present on this page; skipping dynamic form logic
+
+        updateRemoveButtons();
+        refreshTooltips(container);
     }
-
-    // Initialize Bootstrap tooltips on page load
-    refreshTooltips();
-
-    // Enable Bootstrap tooltips
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl);
-    });
 });

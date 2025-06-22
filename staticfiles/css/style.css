@@ -56,23 +56,13 @@ input, button, select, textarea {
   font-family: var(--primary-font);
 }
 
-.text-highlight-blue {
-  color: var(--highlight-blue) !important;
-}
-
 .banner-title {
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.navbar-toggler:focus {
-    outline: none;
-    box-shadow: none;
-}
-
 /************ Navbar ************/
-
 .logo-img {
   width: 61px;
   height: 50px;
@@ -86,13 +76,15 @@ input, button, select, textarea {
 
 .desktop-logo {
   padding-right: 1.5rem; /* pe-4 equivalent */
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 /************ Carousel ************/
-
-/* Carousel slide with gradient background */
 .gradient-slide {
   background: linear-gradient(to bottom, var(--highlight-yellow), var(--contrast-orange));
   height: 100vh;
@@ -114,7 +106,6 @@ input, button, select, textarea {
 }
 
 /************ Dashboard ************/
-
 .welcome-banner {
   position: relative;
   display: flex;
@@ -126,8 +117,6 @@ input, button, select, textarea {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   min-height: 160px;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
   overflow: hidden;
   padding: 0 2rem;
 }
@@ -192,6 +181,18 @@ input, button, select, textarea {
   font-size: 1rem;
 }
 
+/************ Buttons ************/
+/* Maintain consistent button styling */
+.btn-neutral,
+.btn-action,
+.btn-ios-primary,
+.btn-ios-outline,
+.filter-pill,
+.btn-danger-pill {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
 .search-btn {
   position: absolute;
   top: 50%;
@@ -217,9 +218,7 @@ input, button, select, textarea {
   background-color: var(--danger-red);
   color: #fff;
   border: none;
-  border-radius: 999px;
   padding: 0.6rem 1.5rem;
-  font-weight: 600;
   font-size: 1.1rem;
 }
 
@@ -232,10 +231,8 @@ input, button, select, textarea {
 .filter-pill {
   background-color: #e6e6e6;
   border: none;
-  border-radius: 999px;
   padding: 0.6rem 1.2rem;
   font-size: 1.1rem;
-  font-weight: 600;
   appearance: none;
 }
 
@@ -244,12 +241,9 @@ input, button, select, textarea {
   height: 48px;
 }
 
-/* Maintain consistent button styling */
 .btn-neutral,
 .btn-action {
-  font-weight: 600;
   border: none;
-  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -289,12 +283,17 @@ input, button, select, textarea {
   color: var(--highlight-blue);
 }
 
-.text-highlight-blue {
-  color: var(--highlight-blue) !important;
+.text-highlight-blue,
+.link-highlight-blue {
+  color: var(--highlight-blue);
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.text-highlight-blue:hover {
-  color: #305f6d !important;
+.text-highlight-blue:hover,
+.link-highlight-blue:hover {
+  color: #305f6d;
+  text-decoration: underline;
 }
 
 .select-wrapper {
@@ -308,6 +307,11 @@ input, button, select, textarea {
   background-image: none !important;
   background-color: #e6e6e6;
   padding-right: 2.5rem;
+  padding-left: 2.2rem;
+}
+
+.select-wrapper select:focus + .select-icon {
+  color: var(--highlight-yellow);
 }
 
 .select-icon {
@@ -318,10 +322,6 @@ input, button, select, textarea {
   color: var(--highlight-blue);
   font-size: 1rem;
   pointer-events: none;
-}
-
-.select-wrapper select:focus + .select-icon {
-  color: var(--highlight-yellow);
 }
 
 .filter-prefix-icon {
@@ -335,17 +335,8 @@ input, button, select, textarea {
   pointer-events: none;
 }
 
-/* Add left padding to make space for the icon inside the select */
-.select-wrapper select {
-  padding-left: 2.2rem;
-}
-
-/************ Buttons ************/
-
 .btn-ios-primary,
 .btn-ios-outline {
-    border-radius: 999px;
-    font-weight: 600;
     font-family: var(--primary-font);
 }
 
@@ -394,7 +385,6 @@ input, button, select, textarea {
 }
 
 /************ Record Cards ************/
-
 .record-cover-img {
     width: 100%;
     max-width: 320px;
@@ -443,7 +433,6 @@ input, button, select, textarea {
 }
 
 /************ My Collection Page ************/
-
 .record-thumbnail {
   width: 80px;
   height: 80px;
@@ -457,7 +446,6 @@ input, button, select, textarea {
 }
 
 /************ Record Detail Page ************/
-
 .hero-section {
   position: relative;
   min-height: 30vh;
@@ -516,19 +504,16 @@ input, button, select, textarea {
 }
 
 /************ Record Form ************/
-
 .form-check-label {
   color: var(--danger-red);
 }
 
 /************ 404 and 500 Error Pages ************/
-
 .error-img {
   max-height: 250px;
 }
 
 /************ Footer ************/
-
 .footer {
   font-family: 'Inter', sans-serif;
 }
@@ -541,7 +526,6 @@ input, button, select, textarea {
 }
 
 /************ Media queries ************/
-
 @media (max-width: 374.98px) {
   .carousel-image {
     display: none !important;
@@ -771,7 +755,6 @@ input, button, select, textarea {
 }
 
 /************ Carousel ************/
-
 #homeCarousel {
   width: 100%;
   overflow: hidden;
@@ -829,7 +812,6 @@ input, button, select, textarea {
 }
 
 /************ Toasts ************/
-
 .toast-container {
   position: fixed;
   top: 1rem;
@@ -854,21 +836,4 @@ input, button, select, textarea {
 
 .toast .toast-body {
   font-weight: 500;
-}
-
-
-.link-highlight-blue {
-  color: var(--highlight-blue);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.link-highlight-blue:hover {
-  color: #305f6d; /* Optional darker tone on hover */
-  text-decoration: underline;
-}
-
-/* Remove outline from hamburger toggler */
-.navbar-toggler:focus {
-  box-shadow: none;
 }
