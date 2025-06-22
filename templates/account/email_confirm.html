@@ -1,31 +1,41 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% load static %}
 {% load crispy_forms_tags %}
-{% block title %}Confirm Your Email{% endblock %}
+
+{% block head_title %}{% trans "Confirm Your Email" %}{% endblock %}
 
 {% block content %}
-<div class="container my-5">
-  <div class="card mx-auto" style="max-width: 480px;">
-    <div class="card-body">
-      <h2 class="mb-4 text-center">Confirm Your Email</h2>
+<!-- Custom email confirmation template using Bootstrap -->
+<div class="container my-5" style="max-width: 500px;">
+  <div class="card shadow-sm">
+    <div class="card-body p-4 text-center">
+      <!-- Logo -->
+      <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 60px;" class="mb-3 d-block mx-auto">
+
+      <h2 class="card-title mb-3">{% trans "Confirm Your Email" %}</h2>
 
       {% if confirmation %}
         {% if can_confirm %}
-          <p class="mb-4">
-            Please confirm that <strong>{{ confirmation.email_address.email }}</strong> is your email address.
+          <p class="text-muted mb-4">
+            {% trans "Please confirm that" %} <strong>{{ confirmation.email_address.email }}</strong> {% trans "is your email address." %}
           </p>
           <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
             {% csrf_token %}
             {{ redirect_field }}
-            <button type="submit" class="btn btn-action w-100">Confirm</button>
+            <button type="submit" class="btn btn-action w-100">
+              {% trans "Confirm" %}
+            </button>
           </form>
         {% else %}
           <p class="text-danger">
-            This email is already confirmed by another account.
+            {% trans "This email is already confirmed by another account." %}
           </p>
         {% endif %}
       {% else %}
         <p class="text-danger">
-          This confirmation link is invalid or expired. Please <a href="{% url 'account_email' %}">request a new one</a>.
+          {% trans "This confirmation link is invalid or expired. Please" %}
+          <a href="{% url 'account_email' %}">{% trans "request a new one" %}</a>.
         </p>
       {% endif %}
     </div>
