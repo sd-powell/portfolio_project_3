@@ -533,9 +533,11 @@ The homepage acts as a stylish entry point for the Vinyl Crate experience — wh
 #### The Dashboard
 
 <details>
-<summary> Click here to view the dashboard </summary>
+<summary>Click here to view the dashboard</summary>
 
-![Vinyl Crate dashboard view on multiple devices](documentation/readme/surface_plane/features-dashboard.webp)
+![Vinyl Crate dashboard - user has records](documentation/readme/surface_plane/features-dashboard.webp)
+
+![Vinyl Crate dashboard - user has no records](documentation/readme/surface_plane/features-dashboard-norecords.webp)
 
 </details>
 
