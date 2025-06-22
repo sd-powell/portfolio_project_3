@@ -84,7 +84,7 @@
         {% endif %}
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-md navbar-light bg-light py-3" role="navigation" aria-label="Main navigation">
+        <nav class="navbar navbar-expand-md navbar-light bg-light py-3" aria-label="Main navigation">
             <div class="container position-relative px-2 px-lg-3">
                 <!-- Left: Hamburger Toggle for Mobile -->
                 <button class="navbar-toggler border-0 shadow-none me-auto" type="button"
@@ -94,11 +94,11 @@
                 </button>
 
                 <!-- Center: Logo -->
-                <a class="navbar-brand d-md-none position-absolute start-50 translate-middle-x" href="{% url 'index' %}">
-                <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="img-fluid" width="61.39" height="50">
+                <a class="navbar-brand mobile-logo d-md-none" href="{% url 'index' %}">
+                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="img-fluid logo-img">
                 </a>
-                <a class="navbar-brand d-none d-md-block mx-auto pe-4" href="{% url 'index' %}">
-                <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="img-fluid" width="61.39" height="50">
+                <a class="navbar-brand desktop-logo d-none d-md-block mx-auto pe-4" href="{% url 'index' %}">
+                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="img-fluid logo-img">
                 </a>
 
                 {% if user.is_authenticated %}

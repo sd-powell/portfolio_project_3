@@ -71,6 +71,25 @@ input, button, select, textarea {
     box-shadow: none;
 }
 
+/************ Navbar ************/
+
+.logo-img {
+  width: 61px;
+  height: 50px;
+}
+
+.mobile-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.desktop-logo {
+  padding-right: 1.5rem; /* pe-4 equivalent */
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /************ Carousel ************/
 
 /* Carousel slide with gradient background */
