@@ -101,8 +101,13 @@
                                     </label>
                                 </div>
                                 {% endif %}
-                                <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
-                                        aria-label="Remove track"></button>
+                                <button type="button"
+                                    class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="left"
+                                    title="Remove this track from the form"
+                                    aria-label="Remove track"></button>
+                                <small class="text-muted d-block mt-1">Use the checkbox to delete saved tracks. The X only removes new ones from view.</small>
                             </div>
                         </div>
                     {% empty %}
@@ -128,8 +133,13 @@
                                     {{ formset.empty_form.DELETE }}
                                 </div>
                             {% endif %}
-                            <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
-                                    aria-label="Remove track"></button>
+                            <button type="button"
+                                class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="left"
+                                title="Remove this track from the form"
+                                aria-label="Remove track"></button>
+                            <small class="text-muted d-block mt-1">Use the checkbox to delete saved tracks. The X only removes new ones from view.</small>
                         </div>
                     </div>
                 </div>

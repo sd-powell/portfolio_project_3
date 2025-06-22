@@ -1,16 +1,17 @@
 /**
- * Handles dynamic add/remove functionality for track formsets in the record form.
+ * Handles dynamic add/remove functionality for Django inline track formsets.
  *
  * Features:
- * - Clones a hidden template form when "Add Another Track" is clicked
- * - Replaces __prefix__ placeholders with correct form indices
- * - Appends new track forms to the formset container
- * - Allows removal of track forms:
- *    - For newly added (unsaved) forms: removes from the DOM
- *    - For existing forms: checks the DELETE checkbox and hides the form
- * - Reindexes form fields and updates the management TOTAL_FORMS count
+ * - Adds new track forms by cloning a hidden template when "Add Another Track" is clicked
+ * - Replaces Django's `__prefix__` placeholder with an updated index for new form elements
+ * - Reindexes form field names, IDs, and labels after removal to maintain consistency
+ * - Removes track forms:
+ *    - Unsaved forms: completely removed from the DOM
+ *    - Saved forms: marked for deletion via the DELETE checkbox and hidden
+ * - Updates the `TOTAL_FORMS` input to reflect the current number of visible forms
+ * - Initializes and refreshes Bootstrap tooltips for enhanced accessibility
  *
- * Ensures compatibility with Django’s inline formset mechanism.
+ * Ensures full compatibility with Django’s inline formset mechanism and Bootstrap UI behaviors.
  */
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('formset-container');
@@ -58,9 +59,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function refreshTooltips() {
+        const tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltips.forEach(el => {
+            new bootstrap.Tooltip(el);
+        });
+    }
+
     if (container && totalForms && addBtn && templateElement) {
         addBtn.addEventListener('click', function () {
-            const formCount = parseInt(totalForms.value);
+            const formCount = parseInt(totalForms.value, 10);
             // Replace Django's __prefix__ placeholder with the current form index
             const newFormHtml = templateElement.innerHTML.replace(/__prefix__/g, formCount);
 
@@ -77,4 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         // Formset not present on this page; skipping dynamic form logic
     }
+
+    // Initialize Bootstrap tooltips on page load
+    refreshTooltips();
+
+    // Enable Bootstrap tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 });
