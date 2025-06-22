@@ -26,6 +26,7 @@ By supporting mindful collecting and visual storytelling, Vinyl Crate helps user
   - [Strategy Plane](#strategy-plane)
   - [Scope Plane](#scope-plane)
   - [Structure Plane](#structure-plane)
+  - [Database Schema](#database-schema)
   - [Skeleton Plane](#skeleton-plane)
       - [Wireframes](#wireframes)
         - [Mobile Wireframes](#mobile-frames)
@@ -191,17 +192,29 @@ User roles are also considered in the planning:
 > [!NOTE]
 > All user stories were manually tested. See [User Story Testing](TESTING.md) for full test results.
 
+<a id="database-schema"></a>
+
 #### **Database Schema**
 
-This project uses a **relational database (PostgreSQL)** to provide structured, reliable storage with built-in support for **referential integrity**—ideal for managing user-specific vinyl collections.
+This project uses a **relational database (PostgreSQL)** to provide structured, reliable storage with built-in support for **referential integrity** — ideal for managing user-specific vinyl collections.
 
-The **initial MVP** centred on a single `Record` model linked to Django’s built-in `User` model. This model captured core metadata such as title, artist, genre, release year, rating, and a cover image. It allowed for rapid prototyping, admin integration, and full CRUD functionality.
+The **initial MVP** centered on a single `Record` model linked to Django’s built-in `User` model. This model captured core metadata such as title, artist, genre, release year, rating, and a cover image. It allowed for rapid prototyping, admin integration, and full CRUD functionality.
 
-However, during development it became clear that additional granularity was required to represent **individual tracks** on a vinyl release. Track-specific details like **position (e.g. A1, B2)**, **duration**, **BPM**, and **musical key (Camelot notation)** could not be accurately modeled within the `Record` itself. Initially, fields like BPM and key were stored on the `Record`, but this design broke down for **multi-track records** where values differ per track.
+However, during development it became clear that additional granularity was required to represent **individual tracks** on a vinyl release. Initially, fields like BPM and key were stored on the `Record`, which resulted in inaccurate or conflicting data for albums with multiple tracks. This design limitation highlighted the need for normalization.
 
 To address this, a dedicated `Track` model was introduced. Each `Track` is linked to a `Record` via a foreign key, establishing a clear **one-to-many relationship**. Track-specific fields (such as BPM and key) were moved accordingly, improving both **data accuracy** and **model scalability**.
 
-This schema reflects **database best practices**, reducing redundancy, improving clarity, and allowing for future expansion—such as sorting, filtering, or displaying track-level data.
+This updated schema follows **relational database best practices**, reducing redundancy, improving clarity, and allowing for future expansion — such as sorting, filtering, or displaying track-level data.
+
+#### Core Models
+
+- `Record`
+  - `user` (ForeignKey to User)
+  - `title`, `artist`, `genre`, `year`, `rating`, `cover_image`, `slug`, etc.
+  
+- `Track`
+  - `record` (ForeignKey to Record)
+  - `title`, `position`, `duration`, `bpm`, `key`
 
 The database schema diagram was generated using [dbdiagram.io](https://dbdiagram.io), which provided a clear visual representation of the relational structure between users, records, and tracks using DBML syntax.
 
