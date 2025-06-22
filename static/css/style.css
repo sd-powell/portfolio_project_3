@@ -11,6 +11,7 @@
       --search-bg-grey: #e6e6e6;
       --foreground-white: #ffffff;
       --danger-red: #dc3545;
+      --danger-red-hover: #a30414;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -188,7 +189,7 @@ input, button, select, textarea {
 }
 
 .btn-danger-pill {
-  background-color: #dc3545;
+  background-color: var(--danger-red);
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -198,7 +199,7 @@ input, button, select, textarea {
 }
 
 .btn-danger-pill:hover {
-  background-color: #c82333;
+  background-color: var(--danger-red-hover);
   color: #fff;
 }
 
@@ -487,6 +488,12 @@ input, button, select, textarea {
   object-fit: cover;
   border: 4px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/************ Record Form ************/
+
+.form-check-label {
+  color: var(--danger-red);
 }
 
 /************ 404 and 500 Error Pages ************/

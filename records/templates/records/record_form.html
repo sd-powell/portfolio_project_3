@@ -6,14 +6,13 @@
 <div class="container my-5">
     <div class="card shadow-sm rounded">
         <div class="card-body p-4">
-            <div class="position-relative mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-4">
                 <a href="{% url 'record_list' %}"
-                class="btn btn-link text-decoration-none position-absolute top-0 start-0"
-                style="z-index: 1;"
+                class="btn btn-link text-highlight-blue text-decoration-none px-0 mb-2 mb-md-0"
                 aria-label="Back to your dashboard">
                     <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
                 </a>
-                <h1 class="card-title text-center mb-0 h2">
+                <h1 class="card-title text-center text-md-end flex-grow-1 mb-0 h2">
                     {% if form.instance.pk %}
                         Edit Record
                     {% else %}
@@ -23,6 +22,7 @@
             </div>
 
             <!-- Record Form -->
+            <h2 class="h5 mb-3">Record Details</h2>
             <form id="record-form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
@@ -53,9 +53,9 @@
 
                 <!-- Track Formset -->
                 <hr class="my-4">
-                <h2 class="mb-3 h4">
+                <h3 class="mb-3 h4">
                     {% if form.instance.pk %}Edit Tracks{% else %}Add Tracks{% endif %}
-                </h2>
+                </h3>
 
                 <!-- Display non-form errors for the formset (e.g., duplicate track validation) -->
                 {% if formset.non_form_errors %}
@@ -82,19 +82,24 @@
                                     {{ hidden }}
                                 {% endfor %}
                                 {% for field in track_form.visible_fields %}
-                                    <div class="mb-2">
-                                        {{ field|as_crispy_field }}
-                                        {% for error in field.errors %}
-                                            <div class="alert alert-danger mt-1" role="alert">
-                                                {{ field.label }}: {{ error }}
-                                            </div>
-                                        {% endfor %}
-                                    </div>
+                                    {% if field.name != 'DELETE' %}
+                                        <div class="mb-2">
+                                            {{ field|as_crispy_field }}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger mt-1" role="alert">
+                                                    {{ field.label }}: {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                                 {% if track_form.DELETE %}
-                                    <div class="d-none">
-                                        {{ track_form.DELETE }}
-                                    </div>
+                                <div class="form-check mt-2">
+                                    {{ track_form.DELETE.as_widget }}
+                                    <label class="form-check-label" for="{{ track_form.DELETE.id_for_label }}">
+                                        Check this box to delete this track
+                                    </label>
+                                </div>
                                 {% endif %}
                                 <button type="button" class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
                                         aria-label="Remove track"></button>
