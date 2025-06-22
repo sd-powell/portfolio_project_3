@@ -126,15 +126,13 @@
                                 {% endif %}
                             {% endfor %}
                             {% for field in formset.empty_form.visible_fields %}
-                                <div class="mb-2">
-                                    {{ field|as_crispy_field }}
-                                </div>
+                                {% if field.name != 'DELETE' %}
+                                    <div class="mb-2">
+                                        {{ field|as_crispy_field }}
+                                    </div>
+                                {% endif %}
                             {% endfor %}
-                            {% if formset.empty_form.DELETE %}
-                                <div class="d-none">
-                                    {{ formset.empty_form.DELETE }}
-                                </div>
-                            {% endif %}
+                            {# DELETE checkbox already rendered above; no need to duplicate it #}
                             <button type="button"
                                 class="btn-close position-absolute top-0 end-0 m-2 remove-track-btn"
                                 data-bs-toggle="tooltip"
