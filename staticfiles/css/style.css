@@ -10,6 +10,8 @@
       --site-bg-grey: #efefef;
       --search-bg-grey: #e6e6e6;
       --foreground-white: #ffffff;
+      --danger-red: #dc3545;
+      --danger-red-hover: #a30414;
 
     /************ Typography ************/
     --primary-font: "Lato", sans-serif;
@@ -24,7 +26,8 @@
 }
 
 body {
-    background-color: var(--site-bg-grey);
+  font-family: var(--primary-font);
+  background-color: var(--site-bg-grey);
 }
 
 /************ Typography ************/
@@ -38,9 +41,23 @@ h1 span {
   font-style: italic;
 }
 
+h3.h1 {
+  font-size: 2rem; /* Matches your h2 sizing */
+  font-family: var(--secondary-font);
+  font-weight: 600;
+}
+
 p {
   font-family: var(--primary-font);
   font-weight: 500;
+}
+
+input, button, select, textarea {
+  font-family: var(--primary-font);
+}
+
+.text-highlight-blue {
+  color: var(--highlight-blue) !important;
 }
 
 .banner-title {
@@ -175,6 +192,21 @@ p {
 
 .search-btn:hover {
   color: #000;
+}
+
+.btn-danger-pill {
+  background-color: var(--danger-red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.btn-danger-pill:hover {
+  background-color: var(--danger-red-hover);
+  color: #fff;
 }
 
 /* Filters styled like pills */
@@ -367,12 +399,13 @@ p {
     width: 100%;
     max-width: 320px;
     aspect-ratio: 1 / 1;
-    border: 2px dashed #ccc;
+    border: 2px dashed var(--highlight-blue);
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 .quick-add-tile:hover {
-    border-color: #40798c;
-    background-color: #f8f9fa;
+    border-color: var(--highlight-blue);
+    border: 3px dashed var(--highlight-blue);
+    background-color: var(--highlight-yellow);
 }
 
 /* Responsive record card truncation */
@@ -381,12 +414,27 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+  max-width: 275px;
 }
 
 .card.record-hover:hover {
   background-color: var(--highlight-yellow);
   transition: background-color 0.3s ease;
   text-decoration: none;
+}
+
+/************ My Collection Page ************/
+
+.record-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.record-placeholder {
+  width: 80px;
+  height: 80px;
+  background-color: var(--search-bg-grey);
 }
 
 /************ Record Detail Page ************/
@@ -426,12 +474,32 @@ p {
   padding-bottom: 1.5rem;
 }
 
+.hero-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.1) 35%,
+    rgba(0, 0, 0, 0.1) 65%,
+    rgba(0, 0, 0, 0.8) 100%);
+}
+
 .album-thumbnail {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border: 4px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/************ Record Form ************/
+
+.form-check-label {
+  color: var(--danger-red);
 }
 
 /************ 404 and 500 Error Pages ************/
@@ -454,6 +522,12 @@ p {
 }
 
 /************ Media queries ************/
+
+@media (max-width: 374.98px) {
+  .carousel-image {
+    display: none !important;
+  }
+}
 
 /* Responsive aspect ratios */
 @media (max-width: 767.98px) {
