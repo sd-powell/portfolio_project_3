@@ -1,14 +1,30 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
 {% load i18n %}
-{% load allauth %}
-{% block head_title %}
-    {% trans "Verify Your Email Address" %}
-{% endblock head_title %}
+{% load static %}
+
+{% block head_title %}{% trans "Email Verification Sent" %}{% endblock %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Verify Your Email Address" %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}We have sent an email to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes.{% endblocktrans %}
-    {% endelement %}
-{% endblock content %}
+<!-- Custom email verification sent template -->
+<div class="container my-5" style="max-width: 500px;">
+    <div class="card shadow-sm">
+        <div class="card-body p-4 text-center">
+            <!-- Logo -->
+            <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" style="height: 60px;" class="mb-3 d-block mx-auto">
+
+            <h2 class="card-title mb-3">{% trans "Verify Your Email Address" %}</h2>
+
+            <p class="text-muted mb-4">
+                {% trans "We have sent an email to you for verification. Follow the link provided to finalize the signup process." %}
+            </p>
+            <p class="text-muted mb-4">
+                {% trans "If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes." %}
+            </p>
+
+            <a href="{% url 'index' %}" class="btn btn-ios-primary mt-3">
+                <i class="fa fa-arrow-left me-1"></i> {% trans "Return to Home" %}
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
