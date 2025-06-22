@@ -59,7 +59,8 @@
                 <img src="{{ record.cover_image.url }}"
                     alt="Cover of {{ record.title }} by {{ record.artist }}"
                     class="img-fluid rounded record-cover-img"
-                    itemprop="image">
+                    itemprop="image"
+                    loading="lazy">
               {% else %}
                 <div class="bg-secondary rounded placeholder-cover"></div>
               {% endif %}
