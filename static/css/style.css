@@ -367,12 +367,13 @@ p {
     width: 100%;
     max-width: 320px;
     aspect-ratio: 1 / 1;
-    border: 2px dashed #ccc;
+    border: 2px dashed var(--highlight-blue);
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 .quick-add-tile:hover {
-    border-color: #40798c;
-    background-color: #f8f9fa;
+    border-color: var(--highlight-blue);
+    border: 3px dashed var(--highlight-blue);
+    background-color: var(--highlight-yellow);
 }
 
 /* Responsive record card truncation */
@@ -381,6 +382,7 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+  max-width: 275px;
 }
 
 .card.record-hover:hover {

@@ -53,6 +53,7 @@
         </div>
     </section>
 
+    <!-- If user has records, show Recently Added and Quick Add. Otherwise, show intro call-to-action and Staff Picks. -->
     {% if records.count > 0 %}
     <!-- Recently Added Section -->
     <section class="py-3" aria-labelledby="recently-added-heading">
@@ -80,7 +81,8 @@
                                 {% if record.cover_image %}
                                     <img src="{{ record.cover_image.url }}"
                                         alt="Cover of {{ record.title }} by {{ record.artist }}"
-                                        class="img-fluid rounded record-cover-img">
+                                        class="img-fluid rounded record-cover-img"
+                                        loading="lazy">
                                 {% else %}
                                     <div class="bg-secondary rounded placeholder-cover"></div>
                                 {% endif %}
@@ -100,9 +102,9 @@
                     <a href="{% url 'record_create' %}"
                     class="text-center text-decoration-none"
                     aria-label="Add a new record">
-                        <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile">
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded p-3 quick-add-tile">
                             <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
-                            <p class="text-muted mb-0">Add Record</p>
+                            <p class="text-muted mb-0 fw-bold h5">Add Record</p>
                         </div>
                     </a>
                 </div>
@@ -119,7 +121,7 @@
                 <a href="{% url 'record_create' %}"
                 class="text-center text-decoration-none"
                 aria-label="Add a new record">
-                    <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile">
+                    <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile" role="button">
                         <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
                         <p class="text-muted mb-0">Add Record</p>
                     </div>
@@ -142,7 +144,8 @@
                                     {% if record.cover_image %}
                                         <img src="{{ record.cover_image.url }}"
                                             alt="Cover of {{ record.title }} by {{ record.artist }}"
-                                            class="img-fluid rounded record-cover-img">
+                                            class="img-fluid rounded record-cover-img"
+                                            loading="lazy">
                                     {% else %}
                                         <div class="bg-secondary rounded placeholder-cover"></div>
                                     {% endif %}
