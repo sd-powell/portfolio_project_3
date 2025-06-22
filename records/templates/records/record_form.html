@@ -119,7 +119,6 @@
                 <div id="empty-form-template" class="d-none">
                     <div class="track-form mb-3 position-relative">
                         <div class="card p-3">
-                            <input type="hidden" name="tracks-__prefix__-id" id="id_tracks-__prefix__-id" value="">
                             {% for hidden in formset.empty_form.hidden_fields %}
                                 {{ hidden }}
                             {% endfor %}
