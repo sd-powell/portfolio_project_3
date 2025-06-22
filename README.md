@@ -352,7 +352,7 @@ The Vinyl Crate colour palette is inspired by the rich textures and nostalgic wa
 
 The primary colours for the site are:
 
-- `#40798c` (**Highlight Blue**) – A muted teal used across headings, buttons, and links. It adds a calm, confident tone to the interface, echoing the **cool lacquer of vintage hi-fi systems**. This colour serves as a unifying accent throughout the UI.
+- `#40798c` (**Highlight Blue**) – A muted teal used consistently in headings, buttons, and hyperlinks. It adds a calm, confident tone to the interface, echoing the **cool lacquer of vintage hi-fi systems**. This colour acts as a consistent accent across the interface.
   
 - `#ffb633` (**Highlight Yellow**) – A vibrant amber that evokes **sunburst vinyl**, **retro labels**, and **golden details** from 70s/80s record art. It’s used for **call-to-actions**, badges, and **hover states**. In gradients, it transitions into a richer orange to create depth and warmth.
 
@@ -365,6 +365,23 @@ The primary colours for the site are:
 - `linear-gradient(to bottom, #ffb633, #f7931e)` – This gradient is applied to **highlighted sections and banners**, giving them a dynamic, analog **warmth that mimics sunlight** filtering through amber vinyl.
 
 These colours were defined as CSS variables for easy reuse and consistent application. Together, they create a cohesive, brand-forward aesthetic that reflects Vinyl Crate’s blend of nostalgia and modern utility.
+
+> [!NOTE]
+> Defined in static/css/style.css
+
+```css
+:root {
+      --highlight-blue: #305F6D;
+      --highlight-yellow: #ffb633;
+      --contrast-orange: #f7931e;
+      --footer-charcoal: #333333;
+      --site-bg-grey: #efefef;
+      --search-bg-grey: #e6e6e6;
+      --foreground-white: #ffffff;
+      --danger-red: #dc3545;
+      --danger-red-hover: #a30414;
+}
+```
 
 > [!NOTE]
 > Contrast compliance was fully tested and reported. For full detail, see [TESTING.md](TESTING.md)
