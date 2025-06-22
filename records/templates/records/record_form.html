@@ -135,7 +135,8 @@
                 </div>
 
                 <!-- Add another button -->
-                <button type="button" id="add-track-btn" class="btn btn-outline-secondary mt-3">
+                <button type="button" id="add-track-btn" class="btn btn-neutral rounded-pill mt-3 px-4 d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
                     {% if formset.total_form_count > 0 %}
                         Add Another Track
                     {% else %}
@@ -145,8 +146,12 @@
 
                 <!-- Form Buttons -->
                 <div class="d-flex justify-content-between mt-4">
-                    <a href="{% url 'record_list' %}" class="btn btn-outline-secondary">Cancel</a>
-                    <button type="submit" class="btn btn-primary">
+                    <a href="{% url 'record_list' %}" class="btn btn-neutral rounded-pill px-4 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-chevron-left" aria-hidden="true"></i>
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-action rounded-pill px-4 d-flex align-items-center gap-2">
+                        <i class="fa-solid {% if form.instance.pk %}fa-check{% else %}fa-plus{% endif %}" aria-hidden="true"></i>
                         {% if form.instance.pk %}Update{% else %}Add Record{% endif %}
                     </button>
                 </div>
