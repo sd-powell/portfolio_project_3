@@ -238,6 +238,9 @@ Initial wireframes were created using [Balsamiq](https://balsamiq.com/) to plan 
 
 These wireframes informed the site’s **information hierarchy** and **user journey**, covering key views such as the homepage, dashboard, record collection, and record detail pages. They served as a visual blueprint throughout development, helping guide the placement of search, filter, and CRUD elements with a **mobile-first** approach.
 
+> [!NOTE]
+> Individual form views (e.g. add/edit record) were not wireframed, as Django Crispy Forms was used to handle layout and rendering consistently across devices.
+
 <br>
 <hr>
 
@@ -261,6 +264,9 @@ These wireframes informed the site’s **information hierarchy** and **user jour
 | ![404](documentation/readme/skeleton_plane/wireframe-mobile-404.webp) | ![500](documentation/readme/skeleton_plane/wireframe-mobile-500.webp) |
 
 </details>
+
+<br>
+<hr>
 
 <a id="tablet-frames"></a>
 
@@ -286,6 +292,9 @@ These wireframes informed the site’s **information hierarchy** and **user jour
 | ![404](documentation/readme/skeleton_plane/wireframe-tablet-404.webp) | ![500](documentation/readme/skeleton_plane/wireframe-tablet-500.webp) |
 
  </details>
+
+<br>
+<hr>
 
 <a id="desktop-frames"></a>
 
@@ -327,6 +336,9 @@ These wireframes informed the site’s **information hierarchy** and **user jour
 ![500](documentation/readme/skeleton_plane/wireframe-desktop-500.webp)
 
  </details>
+
+<br>
+<hr>
 
  <a id="surface-plane"></a>
 
