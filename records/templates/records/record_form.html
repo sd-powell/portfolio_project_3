@@ -119,8 +119,11 @@
                 <div id="empty-form-template" class="d-none">
                     <div class="track-form mb-3 position-relative">
                         <div class="card p-3">
+                            <!-- Render hidden fields excluding 'id' and 'record' to avoid duplicate ID attributes -->
                             {% for hidden in formset.empty_form.hidden_fields %}
-                                {{ hidden }}
+                                {% if hidden.name != 'id' and hidden.name != 'record' %}
+                                    {{ hidden }}
+                                {% endif %}
                             {% endfor %}
                             {% for field in formset.empty_form.visible_fields %}
                                 <div class="mb-2">
