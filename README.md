@@ -441,11 +441,20 @@ Overall, the use of clean, bold, and culturally relevant imagery reinforces the 
 <br>
 <hr>
 
- <a id="features"></a>
+<a id="features"></a>
  
 ### Features
 
-Vinyl Crate is a full-stack web application designed to help users digitise and manage their vinyl record collections. The site includes a user-friendly dashboard, advanced filtering and search tools, detailed record views, and dynamic forms for adding albums and tracks. It also features custom 404 and 500 error pages to handle invalid URLs and unexpected server issues gracefully.
+
+**Vinyl Crate** is a full-stack web application designed to help users digitise and manage their vinyl record collections. The site provides a visually engaging and intuitive experience with the following key features:
+
+- **User Dashboard** – A personalised view of each user’s record collection
+- **Advanced Filtering and Search** – Filter by genre, year, BPM, rating, or search by title and artist
+- **Detailed Record Views** – View album art, metadata, and individual track listings
+- **Dynamic Forms** – Add records and tracks with inline, JavaScript-enhanced forms
+- **Custom 404 & 500 Error Pages** – Clear, branded error pages to handle broken links or server issues gracefully
+
+These features work together to streamline collection management and enhance user interaction across devices.
  
  All Pages on the website are responsive and have:
  
@@ -454,7 +463,7 @@ Vinyl Crate is a full-stack web application designed to help users digitise and 
  <details>
  <summary> Click here to view the favicon </summary>
  
- ![favicon](documentation/features-home-favicon.webp)
+ ![favicon](documentation/readme/surface_plane/features-home-favicon.webp)
  
  </details>
 
