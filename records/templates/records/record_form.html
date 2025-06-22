@@ -12,7 +12,7 @@
                 aria-label="Back to your dashboard">
                     <i class="fa-solid fa-circle-chevron-left me-2" aria-hidden="true"></i>Back
                 </a>
-                <h1 class="card-title text-center text-md-end flex-grow-1 mb-0 h2">
+                <h1 class="card-title text-center text-md-end flex-grow-1 mb-0">
                     {% if form.instance.pk %}
                         Edit Record
                     {% else %}
@@ -22,7 +22,7 @@
             </div>
 
             <!-- Record Form -->
-            <h2 class="h5 mb-3">Record Details</h2>
+            <h2 class="mb-3">Record Details</h2>
             <form id="record-form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
@@ -53,7 +53,7 @@
 
                 <!-- Track Formset -->
                 <hr class="my-4">
-                <h3 class="mb-3 h4">
+                <h3 class="mb-3">
                     {% if form.instance.pk %}Edit Tracks{% else %}Add Tracks{% endif %}
                 </h3>
 
