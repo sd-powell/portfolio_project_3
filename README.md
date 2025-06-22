@@ -546,8 +546,8 @@ The Vinyl Crate dashboard is the user’s personal gateway into their collection
 - **What it does:**
   - Automatically redirects users here after login.
   - Welcomes the user back with a personalised greeting and a summary of their crate contents.
-  - Displays the latest 6 staff-picked or recently added records for inspiration and quick browsing.
-  - Provides access to search, filtering, and record management options.
+  - Displays the latest 6 staff picks or up to 8 recently added records, depending on whether the user has started a collection.
+  - Provides a clear pathway to search, filtering, and record management tools via the collection view (My Crate).
 
 - **User Benefits:**
   - Offers a personalised landing space for returning users.
@@ -559,7 +559,7 @@ The Vinyl Crate dashboard is the user’s personal gateway into their collection
   - **Add Record** button for fast entry of new vinyl.
   - Additional **View all** button on recently added section which takes the user to their collection.
   - A card-shaped **Add Record** icon invites the user to click and begin adding a new record.
-  - Clear, responsive layout optimised for desktop and mobile.
+  - Clear, responsive layout optimised for both desktop and mobile.
 
 The dashboard acts as a central hub for Vinyl Crate users — helping them navigate, discover, and grow their record collection with ease.
 
