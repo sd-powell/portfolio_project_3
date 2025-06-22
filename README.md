@@ -572,7 +572,9 @@ The dashboard acts as a central hub for Vinyl Crate users — helping them navig
 <details>
 <summary> Click here to view the My Crate page </summary>
 
-![My Crate page showing search, filters, and record cards on multiple devices](documentation/readme/surface_plane/features-mycrate.webp)
+![My Crate page showing search, filters, and record cards](documentation/readme/surface_plane/features-mycrate.webp)
+
+![My Crate page - user has no records](documentation/readme/surface_plane/features-mycrate-norecords.webp)
 
 </details>
 
@@ -584,7 +586,6 @@ The My Crate page serves as the core of the Vinyl Crate experience — a persona
   - Displays all records in the user’s collection as responsive, interactive cards.
   - Provides a search bar for quickly locating specific albums or artists.
   - Offers filters by genre, artist, and rating to narrow results.
-  - Enables sorting by: Newest Addition, Oldest Addition, Artist (A–Z), Artist (Z–A), Title (A–Z), and Title (Z–A).
   - Includes a clear **Add Record** button to grow the collection.
 
 - **User Benefits:**
@@ -592,6 +593,7 @@ The My Crate page serves as the core of the Vinyl Crate experience — a persona
   - Offers quick access to edit or view details for each record.
   - Makes it easy to discover trends, favourites, and gaps in their collection.
   - Mobile-friendly design ensures a seamless experience on any device.
+  - Provides a helpful fallback message for new users with no records, guiding them to start building their collection.
 
 - **Interactive Elements:**
   - Real-time search and filter inputs update the record list based on user selections.
@@ -614,27 +616,27 @@ This page transforms the idea of a traditional record shelf into a sleek, digita
 
 ---
 
-The Record Detail page is designed to showcase individual records with rich metadata and a full track listing, offering both aesthetic appeal and functional detail for collectors.
+The Record Detail page is designed to showcase individual records with rich metadata and a full track listing — offering both aesthetic appeal and practical detail for collectors.
 
 - **What it does:**
-  - Displays a large banner using the album’s artwork to create an immersive visual header.
+  - Displays a large banner featuring the album artwork for an immersive visual experience.
   - Shows key metadata including genre, release year, and user rating.
-  - Lists associated tracks with position, title, duration, and optional BPM/key data.
-  - Offers editing and deletion actions for the owner of the record.
+  - Lists associated tracks with position, title, duration, and optional BPM/key information.
+  - Enables editing and deletion of the record (restricted to the record owner).
 
 - **User Benefits:**
-  - Presents each record with a clean, focused layout that feels personal and polished.
-  - Allows easy management of each entry with intuitive controls.
-  - Helps users quickly assess the content of a record at a glance, supporting crate digging and browsing habits.
+  - Presents each record in a clean, focused layout that feels personal and polished.
+  - Allows quick and intuitive management of each entry.
+  - Helps users assess a record at a glance, supporting crate-digging and casual browsing.
 
 - **Interactive Elements:**
-  - Back button to return to the previous page.
-  - Album detail box with cover image, title, and artist.
-  - Metadata cards with clear visual grouping.
-  - Tracklist section styled for readability, with musical metadata.
-  - Edit and delete buttons (visible only to the record owner).
+  - A back button to return to the previous page.
+  - Album detail card showing the cover image, title, and artist.
+  - Metadata section with visually grouped cards.
+  - Tracklist styled for readability with optional musical metadata.
+  - Edit and delete buttons, visible only to the record owner.
 
-This page supports in-depth cataloguing, reflecting the physical experience of pulling a record from the shelf and exploring its contents — all within a responsive, streamlined interface.
+This page supports in-depth cataloguing, echoing the experience of pulling a record from the shelf and exploring its contents — all within a responsive, streamlined interface.
 
 <a id="record-track-forms"></a>
 

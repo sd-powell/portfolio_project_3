@@ -1218,6 +1218,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 | 7 | Successful login redirects to home page instead of dashboard | Added `ACCOUNT_LOGIN_REDIRECT_URL = reverse_lazy('record_list')` to settings and removed conflicting duplicate `LOGIN_REDIRECT_URL = '/'` entry. Now both standard and allauth login flows direct users to their dashboard after login. | ![screenshot](documentation/testing/bugs/testing-login-redirect.webp) |
 | 8 | Record count in banner drops to 0 after filtering | Refactored record_collection view to store the total number of user records before filters are applied. Passed total_records separately to the template to display consistent banner stats regardless of filtered results. | ![screenshot](documentation/testing/bugs/testing-record-count.webp) |
 | 9 | Tooltips were not appearing on dynamically added remove (X) buttons in the track formset | Updated Bootstrap import to use the correct version with tooltips enabled. Ensured tooltips are re-initialized when new forms are added dynamically via JavaScript. | ![screenshot](documentation/testing/bugs/testing-tooltips-fix.webp) |
+| 10 | The "No records found" message in My Crate was shown when a user had never added a record, which was confusing. | Added a conditional check to display a more helpful onboarding message if the user has no records, and a filtering message only when filters return zero results. | ![screenshot](documentation/testing/bugs/testing-message-fix.webp) | 
 
 ---
 
