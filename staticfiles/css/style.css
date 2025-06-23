@@ -340,7 +340,8 @@ input, button, select, textarea {
     font-family: var(--primary-font);
 }
 
-.btn-ios-primary {
+.btn-ios-primary,
+.btn-ios-carousel {
   background-color: var(--highlight-blue);
   color: var(--foreground-white);
   border: none;
@@ -366,6 +367,11 @@ input, button, select, textarea {
 .btn-ios-primary:hover {
   background-color: var(--highlight-yellow);
   color: var(--foreground-white);
+}
+
+.btn-ios-carousel:hover {
+  background-color: var(--foreground-white);
+  color: var(--footer-charcoal);
 }
 
 .skip-link {
@@ -503,11 +509,6 @@ input, button, select, textarea {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/************ Record Form ************/
-.form-check-label {
-  color: var(--danger-red);
-}
-
 /************ 404 and 500 Error Pages ************/
 .error-img {
   max-height: 250px;
@@ -537,9 +538,17 @@ input, button, select, textarea {
   #homeCarousel {
     aspect-ratio: 1 / 1;
   }
-
-    .carousel .flex-md-row {
+  .carousel .flex-md-row {
     flex-direction: column !important;
+  }
+  .navbar .navbar-brand.text-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-toggler {
+    z-index: 3; /* so it’s clickable above collapsed navbar */
   }
 }
 
