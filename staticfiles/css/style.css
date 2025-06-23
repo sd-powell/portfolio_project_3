@@ -31,7 +31,8 @@ body {
 }
 
 /************ Typography ************/
-h1, h2 {
+h1, h2, 
+.responsive-heading  {
   font-family: var(--secondary-font);
   font-weight: 600;
 }
@@ -42,7 +43,7 @@ h1 span {
 }
 
 h3.h1 {
-  font-size: 2rem; /* Matches your h2 sizing */
+  font-size: 2rem;
   font-family: var(--secondary-font);
   font-weight: 600;
 }
@@ -54,6 +55,10 @@ p {
 
 input, button, select, textarea {
   font-family: var(--primary-font);
+}
+
+.responsive-heading {
+  font-size: 1.5rem;
 }
 
 .banner-title {
@@ -559,6 +564,10 @@ input, button, select, textarea {
 
   .carousel .flex-md-row {
     flex-direction: row !important;
+  }
+
+  .responsive-heading {
+    font-size: 2rem;
   }
 }
 
