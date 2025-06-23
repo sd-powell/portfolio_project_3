@@ -60,7 +60,7 @@
         <div class="bg-white rounded p-4 shadow-sm">
             <div class="row justify-content-between align-items-center mb-4">
                 <div class="col-auto">
-                    <h3 id="recently-added-heading" class=" h2 fw-bold mb-0">Recently Added</h3>
+                    <h3 id="recently-added-heading" class="h1 fw-bold mb-0">Recently Added</h3>
                 </div>
                 <div class="col-auto">
                     <a href="{% url 'record_collection' %}"
@@ -86,7 +86,7 @@
                                 {% else %}
                                     <div class="bg-secondary rounded placeholder-cover"></div>
                                 {% endif %}
-                                <h3 class="mt-3 mb-1 card-title-truncate h5">
+                                <h3 class="mt-3 mb-1 card-title-truncate fw-bold h5">
                                     {{ record.title }}
                                 </h3>
                                 <p class="text-muted mb-0 card-title-truncate">
@@ -101,10 +101,10 @@
                 <div class="col-sm-6 col-md-4 col-2-sm">
                     <a href="{% url 'record_create' %}"
                     class="text-center text-decoration-none"
-                    aria-label="Add a new record">
+                    aria-label="Add another new record to your crate">
                         <div class="d-flex flex-column justify-content-center align-items-center rounded p-3 quick-add-tile">
                             <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
-                            <p class="text-muted mb-0 fw-bold h5">Add Record</p>
+                            <h3 class="text-muted mb-0 fw-bold h5">Add Record</h3>
                         </div>
                     </a>
                 </div>
@@ -121,10 +121,10 @@
                 <div class="col-sm-6 col-md-4 col-2-sm">
                     <a href="{% url 'record_create' %}"
                     class="text-center text-decoration-none"
-                    aria-label="Add a new record">
-                        <div class="d-flex flex-column justify-content-center align-items-center bg-light rounded p-3 quick-add-tile" role="button">
+                    aria-label="Get started adding a new record to your crate">
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded p-3 quick-add-tile" role="button">
                             <i class="fa-solid fa-record-vinyl fa-2x mb-2 text-muted"></i>
-                            <p class="text-muted mb-0">Add Record</p>
+                            <h3 class="text-muted mb-0 fw-bold h5">Add Your First Record</h3>
                         </div>
                     </a>
                 </div>
@@ -151,7 +151,7 @@
                                     {% else %}
                                         <div class="bg-secondary rounded placeholder-cover"></div>
                                     {% endif %}
-                                    <h3 class="mt-3 mb-1 card-title-truncate h5">
+                                    <h3 class="mt-3 mb-1 card-title-truncate fw-bold h5">
                                         {{ record.title }}
                                     </h3>
                                     <p class="text-muted mb-0 card-title-truncate">
