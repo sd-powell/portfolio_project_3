@@ -85,30 +85,33 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-md navbar-light bg-light py-3" aria-label="Main navigation">
-            <div class="container position-relative px-2 px-lg-3">
-                <!-- Left: Hamburger Toggle for Mobile -->
-                <button class="navbar-toggler border-0 shadow-none me-auto" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="container px-2 px-lg-3 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between">
+
+                <!-- Mobile: Hamburger | Logo | User icon -->
+                <div class="d-flex d-md-none align-items-center justify-content-between w-100 mb-2">
+                <!-- Hamburger -->
+                <div style="width: 40px;">
+                    <button class="navbar-toggler border-0 shadow-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                    </button>
+                </div>
 
-                <!-- Center: Logo -->
-                <a class="navbar-brand mobile-logo d-md-none" href="{% url 'index' %}">
-                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="img-fluid logo-img">
-                </a>
-                <a class="navbar-brand desktop-logo d-none d-md-block mx-auto pe-4" href="{% url 'index' %}">
-                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="img-fluid logo-img">
-                </a>
+                <!-- Centered logo -->
+                <div class="flex-grow-1 text-center">
+                    <a class="navbar-brand mb-0" href="{% url 'index' %}">
+                    <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="logo-img">
+                    </a>
+                </div>
 
-                {% if user.is_authenticated %}
-                <!-- Mobile User Icon and Dropdown -->
-                <div class="d-md-none ms-auto">
+                <!-- User icon or spacer -->
+                <div style="width: 40px;" class="text-end">
+                    {% if user.is_authenticated %}
                     <div class="dropdown">
                     <a href="#" class="nav-link p-0" id="userDropdownMobile" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         aria-label="User account menu">
-                        <span class="visually-hidden">Open user menu</span>
                         <i class="fa-solid fa-circle-user fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMobile">
@@ -116,44 +119,50 @@
                         <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
                     </ul>
                     </div>
-                </div>
-                {% endif %}
-
-                <!-- Collapsible Nav Content -->
-                <div class="collapse navbar-collapse mt-3 mt-md-0" id="mainNavbar">
-                    <ul class="navbar-nav me-auto">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'record_list' %}fw-bold{% endif %}"
-                            href="{% url 'record_list' %}">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'record_collection' %}fw-bold{% endif %}"
-                            href="{% url 'record_collection' %}">My Crate</a>
-                        </li>
-                        {% else %}
-                            <li><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
-                            <li><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
-                        {% endif %}
-                    </ul>
-
-                    <!-- Desktop User Menu -->
-                    {% if user.is_authenticated %}
-                    <ul class="navbar-nav d-none d-md-block">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdownDesktop"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                                aria-label="User account menu">
-                                <i class="fa-solid fa-circle-user me-2"></i>
-                                {{ user.first_name|default:user.username }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownDesktop">
-                                <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
-                                <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                     {% endif %}
+                </div>
+                </div>
+
+                <!-- Desktop: Left-aligned logo -->
+                <a class="navbar-brand d-none d-md-block pe-md-3" href="{% url 'index' %}">
+                <img src="{% static 'images/vinyl-crate-logo.svg' %}" alt="Vinyl Crate Logo" class="logo-img">
+                </a>
+
+                <!-- Collapsible navigation -->
+                <div class="collapse navbar-collapse mt-3 mt-md-0 w-100" id="mainNavbar">
+                <ul class="navbar-nav me-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'record_list' %}fw-bold{% endif %}"
+                        href="{% url 'record_list' %}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'record_collection' %}fw-bold{% endif %}"
+                        href="{% url 'record_collection' %}">My Crate</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
+                    {% endif %}
+                </ul>
+
+                <!-- Desktop user menu -->
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav d-none d-md-flex">
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdownDesktop"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        aria-label="User account menu">
+                        <i class="fa-solid fa-circle-user me-2"></i>
+                        {{ user.first_name|default:user.username }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownDesktop">
+                        <li class="dropdown-item disabled small">Logged in as {{ user.first_name|default:user.username }}</li>
+                        <li><a class="dropdown-item text-danger" href="{% url 'account_logout' %}">Sign Out</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                {% endif %}
                 </div>
             </div>
         </nav>
