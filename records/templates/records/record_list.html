@@ -60,7 +60,7 @@
         <div class="bg-white rounded p-4 shadow-sm">
             <div class="row justify-content-between align-items-center mb-4">
                 <div class="col-auto">
-                    <h3 id="recently-added-heading" class="h1 fw-bold mb-0">Recently Added</h3>
+                    <h3 id="recently-added-heading" class="responsive-heading fw-bold mb-0">Recently Added</h3>
                 </div>
                 <div class="col-auto">
                     <a href="{% url 'record_collection' %}"
@@ -115,7 +115,7 @@
     <!-- Add to Your Crate Section -->
     <section class="py-3">
         <div class="container ps-4">
-            <h3 class="h1 fw-bold mb-4">Add to Your Crate</h3>
+            <h3 class="responsive-heading fw-bold mb-4">Add to Your Crate</h3>
             <div class="row g-4">
                 <!-- Quick Add Tile -->
                 <div class="col-sm-6 col-md-4 col-2-sm">
@@ -135,7 +135,7 @@
     <section class="pt-5" aria-labelledby="staff-picks-heading">
         <div class="container">
             <div class="bg-white rounded p-4 shadow-sm">
-                <h3 id="staff-picks-heading" class="h1 fw-bold mb-4">Staff Picks</h3>
+                <h3 id="staff-picks-heading" class="responsive-heading fw-bold mb-4">Staff Picks</h3>
                 <div class="row g-4">
                     {% for record in staff_picks %}
                         <div class="col-sm-6 col-md-4 col-2-sm">
