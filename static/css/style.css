@@ -80,7 +80,7 @@ input, button, select, textarea {
 }
 
 .desktop-logo {
-  padding-right: 1.5rem; /* pe-4 equivalent */
+  padding-right: 1.5rem;
   margin-inline: auto;
 }
 
@@ -128,7 +128,6 @@ input, button, select, textarea {
 
 .welcome-image-bg {
   background-image: url('/static/images/dashboard-image.png');
-  /* background-size: 100%; */
   background-position: left bottom;
   background-repeat: no-repeat;
   opacity: 1;
@@ -187,7 +186,6 @@ input, button, select, textarea {
 }
 
 /************ Buttons ************/
-/* Maintain consistent button styling */
 .btn-neutral,
 .btn-action,
 .btn-ios-primary,
@@ -232,7 +230,6 @@ input, button, select, textarea {
   color: #fff;
 }
 
-/* Filters styled like pills */
 .filter-pill {
   background-color: #e6e6e6;
   border: none;
@@ -553,7 +550,7 @@ input, button, select, textarea {
   }
 
   .navbar-toggler {
-    z-index: 3; /* so it’s clickable above collapsed navbar */
+    z-index: 3;
   }
 }
 
