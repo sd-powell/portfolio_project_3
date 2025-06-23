@@ -1,5 +1,7 @@
 # Vinyl Crate
 
+![Vinyl Crate shown on a laptop](documentation/readme/surface_plane/og-image.webp)
+
 Visit the deployed site here: [Vinyl Crate](https://vinyl-crate-ab3f8a285d4e.herokuapp.com/)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sd-powell/portfolio_project_3) ![GitHub repo size](https://img.shields.io/github/repo-size/sd-powell/portfolio_project_3) ![GitHub language count](https://img.shields.io/github/languages/count/sd-powell/portfolio_project_3)
@@ -42,6 +44,7 @@ By supporting mindful collecting and visual storytelling, Vinyl Crate helps user
         - [The Dashboard Page](#dashboard-features)
         - [The My Crate Page](#my-crate-features)
         - [The Record Detail Page](#record-detail-features)
+        - [Record & TRack Form](#record-track-forms)
         - [The 400 Page](#400-page-features)
         - [The 403 Page](#403-page-features)
         - [The 404 Page](#404-page-features)
@@ -58,12 +61,12 @@ By supporting mindful collecting and visual storytelling, Vinyl Crate helps user
 
 * [Deployment & Local Development](#deployment-development)
 
-  - [Deployment](#development)
+  - [Deployment](#deployment)
   - [Local Development](#local-development)
     - [How to Fork](#fork)
     - [How to clone](#clone)
 
-* [Testing](#testing-readme)
+* [Testing](#testing-tools)
 
 * [Credits & Inspiration](#credits&inspiration)
   - [Content](#content)

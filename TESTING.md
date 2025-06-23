@@ -27,7 +27,6 @@ This document outlines the testing processes and results for the **Vinyl Crate**
   - [Accessibility](#accessibility)
   - [Testing User Stories](#user-story-testing)
   - [Features Testing](#features-testing)
-  - [Existing Features](#existing-features)
   - [Manual Features Testing](#manual-features-testing)
   - [Solved Issues & Bugs](#solved-issues)
   - [Known Issues & Bugs](#known-issues)
@@ -127,10 +126,16 @@ I've tested my deployed project using the Lighthouse Audit tool to test the perf
 
 | Page | Mobile | Desktop | Notes |
 | :--: | :--: | :--: | :--: |
-| Home | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed with great results |
-| Record Detail | ![screenshot](documentation/testing/validation/lighthouse-desktop-detail.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-detail.webp) | ✅ Passed with great results |
-| 404 | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed with great results |
-| 500 | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed with great results |
+| Home | ![screenshot](documentation/testing/validation/lighthouse-mobile-home.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-home.webp) | ✅ Passed |
+| Dashboard | ![screenshot](documentation/testing/validation/lighthouse-mobile-dashboard.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-dashboard.webp) | ✅ Passed |
+| My Crate | ![screenshot](documentation/testing/validation/lighthouse-mobile-crate.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-crate.webp) | ✅ Passed |
+| Record Detail | ![screenshot](documentation/testing/validation/lighthouse-mobile-detail.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-detail.webp) | ✅ Passed |
+| Record Form | ![screenshot](documentation/testing/validation/lighthouse-mobile-form.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-form.webp) | ✅ Passed |
+| 404 | ![screenshot](documentation/testing/validation/lighthouse-mobile-404.webp) | ![screenshot](documentation/testing/validation/lighthouse-desktop-404.webp) | ✅ Passed |
+
+
+> [!NOTE]
+> Cover images used throughout the site were sourced via Discogs and not fully optimized. This decision was intentional to replicate real-world usage, where users upload or link to album art as-is. As such, certain Lighthouse image optimization scores may be lower, reflecting a realistic user scenario rather than an idealized benchmark.
 
 ---
 
@@ -1228,7 +1233,7 @@ Each page is styled with Bootstrap and includes a unique SVG image, helpful mess
 
 | No | Bug Description | Screenshot |
 | :- | :------------- | :--------- |
-| 1 |	I have noticed that when the keyboard appears on mobile devices while a user is submitting their name in the form field, the panel is nudged up the screen, slightly obscuring the header background image. A tutor advised me that this shouldn’t be a concern. | ![Screenshot](documentation/testing-bugs-keyboard.webp) |
+| 1 | Inline tables and JavaScript are used to dynamically add and remove track forms on the record creation and update pages. The functionality has been tested and meets accessibility standards; however, the user experience could be further refined to make the process more intuitive. | ![Screenshot](documentation/testing/bugs/testing-bugs-form.webp) |
 
 ---
 
